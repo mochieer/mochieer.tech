@@ -1,0 +1,7 @@
+<figure>
+  {{- $img := .Page.Resources.GetMatch (.Get "src") -}}
+  <img src="{{ with $img }}{{ .Permalink }}{{ end }}" alt="{{ $.Get "alt" }}" />
+  {{- with $.Get "caption" -}}
+  <figcaption>{{ . }}</figcaption>
+  {{- end -}}
+</figure>

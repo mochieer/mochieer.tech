@@ -1,0 +1,30 @@
+.p-header {
+  background-color: var(--color-primary-shade);
+  padding: 2.4rem 0;
+}
+
+.p-header a {
+  text-decoration: none;
+}
+
+.p-header a:hover {
+  text-decoration: underline;
+}
+
+.p-header-links {
+  display: flex;
+  line-height: 4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.p-header-links-item {
+  margin: 0;
+  padding: 0 0 0 2rem;
+}
+
+.p-header-links-item--top {
+  font-weight: 700;
+  padding: 0;
+}

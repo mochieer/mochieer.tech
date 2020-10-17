@@ -1,0 +1,151 @@
+
+.p-article-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.p-article-list-item-title {
+  font-size: 2.4rem;
+  margin: 1rem 0 2.4rem 0;
+}
+
+.p-article-header {
+  margin: 4.2rem 0;
+}
+
+.p-article-header-title {
+  margin-top: 1.4rem;
+}
+
+.p-article-header-title:after {
+  display: block;
+  content: "===";
+  opacity: .33;
+}
+
+.p-article-body {
+  margin: 4rem 0;
+}
+
+.p-article-footer {
+  margin: 5rem 0;
+}
+
+.p-article-tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.p-article-tags-item {
+  display: inline-block;
+  margin-right: .5rem;
+}
+
+.p-article-donate {
+  text-align: center;
+  font-size: 1.4rem;
+  margin: 5rem 0;
+}
+.p-article-donate-text {
+  margin: 1rem 0;
+}
+
+.p-article-donate--buymeacoffee a {
+  color: #000;
+}
+.p-article-donate--buymeacoffee a:hover {
+  color: rgba(0, 0, 0, .75);
+}
+
+.p-article-body figure {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.p-article-body figure img {
+  width: 100%;
+}
+
+.p-article-body figure figcaption {
+  font-size: 1.4rem;
+  margin: .5rem 0 1rem 0;
+}
+
+.p-article-body h2:before {
+  content: "## ";
+  opacity: .33;
+}
+.p-article-body h3:before {
+  content: "### ";
+  opacity: .33;
+}
+.p-article-body h4:before {
+  content: "#### ";
+  opacity: .33;
+}
+
+.p-article-body ul {
+  list-style: none;
+  padding: 0 0 0 3.6rem;
+}
+
+.p-article-body ul li:before {
+  display: inline-block;
+  width: 3.6rem;
+  margin-left: -3.6rem;
+  text-align: center;
+  font-weight: 700;
+  opacity: .33;
+  content: "-";
+}
+
+.p-article-body blockquote {
+  margin: 0;
+  padding: 0;
+}
+.p-article-body blockquote {
+  margin-left: 3.6rem;
+}
+.p-article-body blockquote:before {
+  display: block;
+  width: 3.6rem;
+  height: 3.6rem;
+  margin: 0 0 -7.2rem -3.6rem;
+  text-align: center;
+  content: ">";
+  font-weight: 700;
+  opacity: .33;
+}
+.p-article-body hr {
+  display: block;
+  border: none;
+  margin: 3.6rem 0;
+  height: 2.8rem;
+}
+.p-article-body hr:before {
+  display: block;
+  content: "---";
+  line-height: 2.8rem;
+  font-weight: 700;
+  opacity: .33;
+  text-align: center;
+}
+
+
+.p-article-body code {
+  display: inline-block;
+  font-size: 78%;
+}
+.p-article-body code:before,
+.p-article-body code:after {
+  content: '`';
+  font-weight: 700;
+  opacity: .33;
+}
+
+.p-article-body .twitter-tweet {
+  margin: 0 auto;
+}

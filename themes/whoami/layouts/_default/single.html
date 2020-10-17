@@ -1,0 +1,33 @@
+{{ define "main" }}
+<article class="p-article">
+  <header class="p-article-header">
+    <time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05JST" }}">{{ .Lastmod.Format ( .Site.Params.dateformat | default "2006年1月2日") }}</time>
+    <h1 class="p-article-header-title">{{ .Title }}</h1>
+  </header>
+
+  <section class="p-article-body">
+    {{ .Content }}
+  </section>
+
+  <footer class="p-article-footer">
+    <h2>タグ</h2>
+    <ul class="p-article-tags">
+      {{ range (index .Params.tags) -}}
+      <li class="p-article-tags-item">
+        <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}/">{{ . }}</a>
+      </li>
+      {{ end -}}
+    </ul>
+
+    <div class="p-article-donate">
+      <p class="p-article-donate-text">
+        この記事があなたの役に立ったなら、<br />コーヒーを一杯いただけるととても嬉しいです️。
+      </p>
+      <div class="p-article-donate--buymeacoffee">
+        {{ partial "components/molecules/buy-me-a-coffee.html" . }}
+      </div>
+    </div>
+  </footer>
+
+</article>
+{{ end }}

@@ -1,0 +1,87 @@
+/*
+ * you can overwrite variables by coping this file to
+ * your_project_root/layouts/partials/define.css
+ */
+:root {
+  --font-family: system-ui,
+    /* macOS 10.11-10.12 */ -apple-system,
+    /* Windows 6+ */ Segoe UI,
+    /* Android 4+ */ Roboto,
+    /* Ubuntu 10.10+ */ Ubuntu,
+    /* Gnome 3+ */ Cantarell,
+    /* KDE Plasma 5+ */ Noto Sans,
+    /* fallback */ sans-serif,
+    /* macOS emoji */ "Apple Color Emoji",
+    /* Windows emoji */ "Segoe UI Emoji",
+    /* Windows emoji */ "Segoe UI Symbol",
+    /* Linux emoji */ "Noto Color Emoji";
+
+  --width-container: 720px;
+
+  /*
+   * Color Theme by Ionic Framework Color Generator
+   * https://ionicframework.jp/docs/theming/color-generator?primary=#347393&secondary=#6DC1FF&tertiary=#A1CAC7&success=#2dd36f&warning=#ffc409&danger=#eb445a&dark=#222428&medium=#92949c&light=#f4f5f8
+   */
+  --color-primary: #347393;
+  --color-primary-rgb: 52,115,147;
+  --color-primary-contrast: #ffffff;
+  --color-primary-contrast-rgb: 255,255,255;
+  --color-primary-shade: #2e6581;
+  --color-primary-tint: #48819e;
+
+  --color-secondary: #6DC1FF;
+  --color-secondary-rgb: 109,193,255;
+  --color-secondary-contrast: #000000;
+  --color-secondary-contrast-rgb: 0,0,0;
+  --color-secondary-shade: #60aae0;
+  --color-secondary-tint: #7cc7ff;
+
+  --color-tertiary: #A1CAC7;
+  --color-tertiary-rgb: 161,202,199;
+  --color-tertiary-contrast: #000000;
+  --color-tertiary-contrast-rgb: 0,0,0;
+  --color-tertiary-shade: #8eb2af;
+  --color-tertiary-tint: #aacfcd;
+
+  --color-success: #2dd36f;
+  --color-success-rgb: 45,211,111;
+  --color-success-contrast: #ffffff;
+  --color-success-contrast-rgb: 255,255,255;
+  --color-success-shade: #28ba62;
+  --color-success-tint: #42d77d;
+
+  --color-warning: #ffc409;
+  --color-warning-rgb: 255,196,9;
+  --color-warning-contrast: #000000;
+  --color-warning-contrast-rgb: 0,0,0;
+  --color-warning-shade: #e0ac08;
+  --color-warning-tint: #ffca22;
+
+  --color-danger: #eb445a;
+  --color-danger-rgb: 235,68,90;
+  --color-danger-contrast: #ffffff;
+  --color-danger-contrast-rgb: 255,255,255;
+  --color-danger-shade: #cf3c4f;
+  --color-danger-tint: #ed576b;
+
+  --color-dark: #222428;
+  --color-dark-rgb: 34,36,40;
+  --color-dark-contrast: #ffffff;
+  --color-dark-contrast-rgb: 255,255,255;
+  --color-dark-shade: #1e2023;
+  --color-dark-tint: #383a3e;
+
+  --color-medium: #92949c;
+  --color-medium-rgb: 146,148,156;
+  --color-medium-contrast: #ffffff;
+  --color-medium-contrast-rgb: 255,255,255;
+  --color-medium-shade: #808289;
+  --color-medium-tint: #9d9fa6;
+
+  --color-light: #f4f5f8;
+  --color-light-rgb: 244,245,248;
+  --color-light-contrast: #000000;
+  --color-light-contrast-rgb: 0,0,0;
+  --color-light-shade: #d7d8da;
+  --color-light-tint: #f5f6f9;
+}

@@ -1,0 +1,12 @@
+name = "whoami"
+license = "MIT"
+licenselink = "https://github.com/mochieer/hugo-whoami/blob/master/LICENSE"
+description = ""
+homepage = "https://mochieer.tech"
+tags = []
+features = []
+min_version = "0.41"
+
+[author]
+  name = "mochieer"
+  homepage = "https://mochieer.tech"

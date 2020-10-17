@@ -1,0 +1,28 @@
+{{ define "main" }}
+<div class="c-pretty">
+  <h1><code>`whoami`</code></h1>
+  <ul class="p-social-list">
+    <li class="p-social-list-item">
+      <a href="https://twitter.com/mochieer">
+        {{ partial "components/atoms/icons/twitter.svg" }}
+      </a>
+    </li>
+    <li class="p-social-list-item">
+      <a href="https://github.com/mochieer">
+        {{ partial "components/atoms/icons/github.svg" }}
+      </a>
+    </li>
+  </ul>
+
+  <h1>新着記事</h1>
+  <ul class="p-article-list">
+    {{ range first 5 .Site.RegularPages.ByDate.Reverse }}
+      {{ partial "components/molecules/article-headline.html" . }}
+    {{ end }}
+  </ul>
+
+  <h1>このサイトについて</h1>
+  <p>当サイトの記事はすべて個人の意見です。所属組織には関係ありません。当サイトでは、Amazon.co.jp のアフィリエイトリンクを利用している場合があります。当サイトでは、アクセス解析を含め、いかなる Cookie も利用していません。</p>
+
+</div>
+{{ end }}

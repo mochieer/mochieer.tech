@@ -1,0 +1,22 @@
+.p-footer {
+  margin: 4.8rem 0 0 0;
+  padding: 2.4rem 0;
+  font-size: 1.4rem;
+  color: rgba(var(--color-primary-contrast-rgb), .75);
+}
+
+.p-footer:before {
+  display: block;
+  content: "";
+  border-top: solid rgba(var(--color-primary-contrast-rgb), .5) .1rem;
+  width: 25%;
+  margin: 2.4rem 0;
+}
+
+.p-footer a {
+  color: rgba(var(--color-primary-contrast-rgb), .75);
+}
+
+.p-footer p {
+  margin: 0;
+}

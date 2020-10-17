@@ -1,0 +1,7 @@
+{{ $normalize := resources.Get "css/normalize.css" }}
+{{ $define := ( partial "css/define.css" . ) | safeCSS | resources.FromString "css/define.css" }}
+{{ $common := resources.Get "css/common.css" }}
+{{ $partials := resources.Match "css/p-*.css" | resources.Concat "css/partials.css" }}
+{{ $bundle := slice $normalize $define $common $partials | resources.Concat "css/style.css" | minify | fingerprint }}
+
+{{ return $bundle }}

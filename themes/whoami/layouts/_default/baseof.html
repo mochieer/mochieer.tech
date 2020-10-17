@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en{{ end }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="alternate" type="application/rss+xml" title="RSS | {{ .Site.Title }}" href="{{ .Site.BaseURL }}index.xml">
+
+    <link rel="stylesheet" href="{{ ( partial "commands/make_css.html" . ).Permalink }}">
+
+    {{ block "meta" . }}{{ end }}
+
+    {{- define "title" -}}
+      <title>{{ .Title }}{{ if not .IsHome }} | {{ .Site.Title }}{{ end }}</title>
+    {{- end -}}
+
+    {{ block "title" . }}{{ end }}
+
+    {{ hugo.Generator }}
+  </head>
+  <body>
+    <div class="p-wrapper">
+      {{ partial "components/organisms/header.html" . }}
+      <section id="p-main">
+        {{ block "main" . }}{{ end }}
+      </section>
+      {{ partial "components/organisms/footer.html" . }}
+    </div>
+  </body>
+</html>
