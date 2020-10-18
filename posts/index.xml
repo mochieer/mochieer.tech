@@ -6,7 +6,16 @@
     <description>Recent content in Posts on mochieer.tech</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 15 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mochieer.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mochieer.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GitHub Actions でビルドするようにした</title>
+      <link>https://mochieer.tech/posts/20201018-github-actions/</link>
+      <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mochieer.tech/posts/20201018-github-actions/</guid>
+      <description>peaceiris/actions-gh-pages こちらを利用した。基本的にはデフォルトの設定通りでいけたのでとても簡単だった。 自分のリポジトリはデフォルトブランチが main だったが、サンプルの</description>
+    </item>
+    
     <item>
       <title>誕生日を迎えた 2020</title>
       <link>https://mochieer.tech/posts/20201015-age&#43;&#43;/</link>
