@@ -4,6 +4,7 @@ title = "mochieer.tech"
 theme = "whoami"
 paginate = 5
 hasCJKLanguage = true
+publishDir = "docs"
 
 [menu]
   [[menu.main]]
