@@ -14,7 +14,7 @@
     <ul class="p-article-tags">
       {{ range (index .Params.tags) -}}
       <li class="p-article-tags-item">
-        <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}/">{{ . }}</a>
+        <a href="{{ $.Site.BaseURL }}/tags/{{ . | urlize }}/">{{ . }}</a>
       </li>
       {{ end -}}
     </ul>
