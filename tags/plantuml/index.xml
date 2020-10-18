@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PlantUML on mochieer.tech</title>
+    <link>https://mochieer.tech/tags/plantuml/</link>
+    <description>Recent content in PlantUML on mochieer.tech</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Tue, 06 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mochieer.tech/tags/plantuml/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PlantUML 写経</title>
+      <link>https://mochieer.tech/posts/20201006-plantuml/</link>
+      <pubDate>Tue, 06 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mochieer.tech/posts/20201006-plantuml/</guid>
+      <description>最近、 PlantUML でクラス図を書くのが楽しい。 特におすすめなのが、コードレビュー時にひとつひとつのクラスを読み終わるたびに手元で PlantUML を書いていく読み方で</description>
+    </item>
+    
+  </channel>
+</rss>

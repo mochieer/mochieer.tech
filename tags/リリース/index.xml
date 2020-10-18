@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>リリース on mochieer.tech</title>
+    <link>https://mochieer.tech/tags/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9/</link>
+    <description>Recent content in リリース on mochieer.tech</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 13 Aug 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://mochieer.tech/tags/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>超音波を使ったアプリをリリースして思ったこと</title>
+      <link>https://mochieer.tech/posts/20160813-release-ultrasound-app/</link>
+      <pubDate>Sat, 13 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://mochieer.tech/posts/20160813-release-ultrasound-app/</guid>
+      <description>アプリの概要 ワンタップでその場の全員と Facebook アカウントを交換できる iOS アプリ「Hz」をリリースした（一週間くらい前に）。 アプリのコンセプトは、Fa</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>プログラミング on mochieer.tech</title>
+    <link>https://mochieer.tech/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</link>
+    <description>Recent content in プログラミング on mochieer.tech</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Tue, 06 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mochieer.tech/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PlantUML 写経</title>
+      <link>https://mochieer.tech/posts/20201006-plantuml/</link>
+      <pubDate>Tue, 06 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mochieer.tech/posts/20201006-plantuml/</guid>
+      <description>最近、 PlantUML でクラス図を書くのが楽しい。 特におすすめなのが、コードレビュー時にひとつひとつのクラスを読み終わるたびに手元で PlantUML を書いていく読み方で</description>
+    </item>
+    
+    <item>
+      <title>超音波を使ったアプリをリリースして思ったこと</title>
+      <link>https://mochieer.tech/posts/20160813-release-ultrasound-app/</link>
+      <pubDate>Sat, 13 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://mochieer.tech/posts/20160813-release-ultrasound-app/</guid>
+      <description>アプリの概要 ワンタップでその場の全員と Facebook アカウントを交換できる iOS アプリ「Hz」をリリースした（一週間くらい前に）。 アプリのコンセプトは、Fa</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 1000" style="color: #fff; background-color: #347393;">
+    <g stroke-width="25" transform="rotate(45,500,500)">
+        <!-- body outline -->
+        <path d="
+            m 379 605
+            a 210 210 0 1 0 210 -210
+            a 115 115 0 0 1 -115 -115
+            h 115 v 272
+            a 53 53 0 1 1 -53 53
+            v -140
+            a 210 210 1 0 0 -157 -70
+            z
+
+            m 137 -325
+            v 45
+            m 38 -45
+            v 45
+
+            m -175 100
+            a 40 40 0 0 1 -40 -40
+            v -175
+            a 1 1 0 1 0 -38 0" fill="none" stroke="currentColor"/>
+
+        <!-- line -->
+        <g fill="none" stroke="currentColor">
+            <defs>
+            <path id="line" d="m 642 605 h 157"/>
+            </defs>
+            <use xlink:href="#line" transform="rotate(-30,589,605)"/>
+            <use xlink:href="#line" transform="rotate(30,589,605)"/>
+            <use xlink:href="#line" transform="rotate(90,589,605)"/>
+            <use xlink:href="#line" transform="rotate(150,589,605)"/>
+        </g>
+
+        <!-- alpha fill -->
+        <g fill="currentColor" stroke="none" style="opacity: .25;">
+            <defs>
+            <path id="fill" d="m 540 632 a 53 53 0 0 0 48 28 v 157 a 210 210 0 0 1 -181 -105"/>
+            </defs>
+            <use xlink:href="#fill"/>
+            <use xlink:href="#fill" transform="rotate(-120,589,605)"/>
+        </g>
+
+        <!-- eye -->
+        <circle cx="435" cy="473" r="20" fill="currentColor" stroke="none"/>
+    </g>
+</svg>
