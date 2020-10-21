@@ -3,6 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://mochieer.tech/</loc>
+    <lastmod>2020-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mochieer.tech/posts/</loc>
+    <lastmod>2020-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mochieer.tech/tags/</loc>
+    <lastmod>2020-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mochieer.tech/tags/%E3%82%A4%E3%82%B9/</loc>
+    <lastmod>2020-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mochieer.tech/posts/20201022-new-chair/</loc>
+    <lastmod>2020-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mochieer.tech/tags/%E4%BD%9C%E6%A5%AD%E7%92%B0%E5%A2%83/</loc>
+    <lastmod>2020-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://mochieer.tech/tags/github/</loc>
     <lastmod>2020-10-18T00:00:00+00:00</lastmod>
   </url>
@@ -19,21 +49,6 @@
   
   <url>
     <loc>https://mochieer.tech/tags/hugo/</loc>
-    <lastmod>2020-10-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mochieer.tech/</loc>
-    <lastmod>2020-10-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mochieer.tech/posts/</loc>
-    <lastmod>2020-10-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mochieer.tech/tags/</loc>
     <lastmod>2020-10-18T00:00:00+00:00</lastmod>
   </url>
   

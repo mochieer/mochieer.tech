@@ -6,7 +6,16 @@
     <description>Recent content on mochieer.tech</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 18 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mochieer.tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mochieer.tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ワークチェアを新調した</title>
+      <link>https://mochieer.tech/posts/20201022-new-chair/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mochieer.tech/posts/20201022-new-chair/</guid>
+      <description>経緯 これまで使っていたイスは、リモートワーク前提での転職がうまく進んでしまい、家に作業スペースを急ごしらえで作った時に Amazon で買った5,000円</description>
+    </item>
+    
     <item>
       <title>GitHub Actions でビルドするようにした</title>
       <link>https://mochieer.tech/posts/20201018-github-actions/</link>
