@@ -5,9 +5,14 @@ theme = "whoami"
 paginate = 5
 hasCJKLanguage = true
 buildFuture = true
+copyright = "(c) mochieer"
+
+[author]
+  name = "mochieer"
+  email = "mochieer@gmail.com"
 
 [taxonomies]
-    tag = "tags"
+  tag = "tags"
 
 [menu]
   [[menu.main]]
