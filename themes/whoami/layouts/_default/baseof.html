@@ -13,7 +13,7 @@
     {{ block "meta" . }}{{ end }}
 
     {{- define "title" -}}
-      <title>{{ .Title }}{{ if not .IsHome }} | {{ .Site.Title }}{{ end }}</title>
+      <title>{{ .Title }}{{ if not .IsHome }} &middot; {{ .Site.Title }}{{ end }}</title>
     {{- end -}}
 
     {{ block "title" . }}{{ end }}

@@ -32,17 +32,6 @@
   margin: 5rem 0;
 }
 
-.p-article-tags {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.p-article-tags-item {
-  display: inline-block;
-  margin-right: .5rem;
-}
-
 .p-article-donate {
   text-align: center;
   font-size: 1.4rem;

@@ -1,0 +1,16 @@
+{{- define "title" -}}
+<title>タグ一覧 &middot; {{ .Site.Title }}</title>
+{{- end -}}
+{{ define "main" }}
+<h1>タグ一覧</h1>
+<ul class="p-tag-list">
+  {{ range .Site.Taxonomies.tags.ByCount -}}
+    <li class="p-tag-list-item">
+      <a href="{{ $.Site.BaseURL }}/tags/{{ .Name | urlize }}">
+        {{ .Name | title }}
+        <span class="p-tag-list-count">（{{ .Count }}記事）</span>
+      </a>
+    </li>
+  {{- end }}
+</ul>
+{{ end }}

@@ -11,9 +11,9 @@
 
   <footer class="p-article-footer">
     <h2>タグ</h2>
-    <ul class="p-article-tags">
+    <ul class="p-tag-list">
       {{ range (index .Params.tags) -}}
-      <li class="p-article-tags-item">
+      <li class="p-tag-list-item">
         <a href="{{ $.Site.BaseURL }}/tags/{{ . | urlize }}/">{{ . }}</a>
       </li>
       {{ end -}}
