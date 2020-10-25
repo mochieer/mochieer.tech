@@ -9,7 +9,8 @@
     <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate>
     <managingEditor>mochieer@gmail.com (mochieer)</managingEditor>
     <atom:link href="https://mochieer.tech/tags/%E3%82%A4%E3%82%B9/index.xml" rel="self" type="application/rss+xml" />
-    <item>
+    
+      <item>
         <title>ワークチェアを新調した</title>
         <link>https://mochieer.tech/posts/20201022-new-chair/</link>
         <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
@@ -39,6 +40,198 @@
 &lt;p&gt;以上、一週間弱使ってみた印象。また印象が変わったら書く。&lt;/p&gt;
 &lt;iframe style=&#34;width:120px;height:240px;&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; src=&#34;//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=mochieer-22&amp;language=ja_JP&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=as_ss_li_til&amp;asins=B07T339BWT&amp;linkId=4027080832e17d12ab5c65c7a6e27703&#34;&gt;&lt;/iframe&gt;
 &lt;p&gt;余談だがこういうフットレストを買って3ヶ月ほど使っている。足裏の支えはあったほうがいいと思う。足をしっかり地面に付けられるのと、「ここに足を置くんだ」という意識になるので自然と姿勢が良くなる。ただ、すでに少しヘタってきている。次は硬い金属製のフットレストを試してみようと思っている。&lt;/p&gt;
+</content:encoded>
+      </item>
+      <item>
+        <title>GitHub Actions でビルドするようにした</title>
+        <link>https://mochieer.tech/posts/20201018-github-actions/</link>
+        <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
+        <author>mochieer@gmail.com (mochieer)</author>
+        <guid>https://mochieer.tech/posts/20201018-github-actions/</guid>
+        <description>peaceiris/actions-gh-pages こちらを利用した。基本的にはデフォルトの設定通りでいけたのでとても簡単だった。 自分のリポジトリはデフォルトブランチが main だったが、サンプルの</description>
+        <content:encoded>&lt;p&gt;&lt;a href=&#34;https://github.com/peaceiris/actions-gh-pages&#34;&gt;peaceiris/actions-gh-pages&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;こちらを利用した。基本的にはデフォルトの設定通りでいけたのでとても簡単だった。&lt;/p&gt;
+&lt;p&gt;自分のリポジトリはデフォルトブランチが &lt;code&gt;main&lt;/code&gt; だったが、サンプルの設定ファイルでは &lt;code&gt;master&lt;/code&gt; になっていたので、そこだけ直した。（これは誰が悪いのか）&lt;/p&gt;
+&lt;p&gt;あわせて、このサイトのソースコードを public にしてみた。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/mochieer/mochieer.tech&#34;&gt;mochieer/mochieer.tech&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;ソースコードの管理とビルドとホスティングをひとつのサービスで一貫できるというのはやはりかなり嬉しい。&lt;/p&gt;
+&lt;p&gt;Netlify は GitHub との連携がかなり良くて気に入っていたが、日本からだとネットワーク的に遠いのか、やたら遅い印象がある。&lt;/p&gt;
+</content:encoded>
+      </item>
+      <item>
+        <title>誕生日を迎えた 2020</title>
+        <link>https://mochieer.tech/posts/20201015-age&#43;&#43;/</link>
+        <pubDate>Thu, 15 Oct 2020 00:00:00 +0000</pubDate>
+        <author>mochieer@gmail.com (mochieer)</author>
+        <guid>https://mochieer.tech/posts/20201015-age&#43;&#43;/</guid>
+        <description>掲題の通り。31歳になった。 実家から送られてきたプレゼントはすみっコぐらしのぬいぐるみだった。</description>
+        <content:encoded>&lt;p&gt;掲題の通り。31歳になった。&lt;/p&gt;
+&lt;p&gt;実家から送られてきたプレゼントはすみっコぐらしのぬいぐるみだった。&lt;/p&gt;
+</content:encoded>
+      </item>
+      <item>
+        <title>PlantUML 写経</title>
+        <link>https://mochieer.tech/posts/20201006-plantuml/</link>
+        <pubDate>Tue, 06 Oct 2020 00:00:00 +0000</pubDate>
+        <author>mochieer@gmail.com (mochieer)</author>
+        <guid>https://mochieer.tech/posts/20201006-plantuml/</guid>
+        <description>最近、 PlantUML でクラス図を書くのが楽しい。 特におすすめなのが、コードレビュー時にひとつひとつのクラスを読み終わるたびに手元で PlantUML を書いていく読み方で</description>
+        <content:encoded>&lt;p&gt;最近、 PlantUML でクラス図を書くのが楽しい。&lt;/p&gt;
+&lt;p&gt;特におすすめなのが、コードレビュー時にひとつひとつのクラスを読み終わるたびに手元で PlantUML を書いていく読み方で、「PlantUML 写経」と個人的に呼んでいる。&lt;/p&gt;
+&lt;p&gt;書いたほうがいいのは、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;パッケージ（名前空間）&lt;/li&gt;
+&lt;li&gt;クラス
+&lt;ul&gt;
+&lt;li&gt;private なものは書かなくて良い&lt;/li&gt;
+&lt;li&gt;public なものも、別に全部書く必要はない&lt;/li&gt;
+&lt;li&gt;abstract は書いておくとよい&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;依存関係
+&lt;ul&gt;
+&lt;li&gt;継承、実装&lt;/li&gt;
+&lt;li&gt;ほかの関係
+&lt;ul&gt;
+&lt;li&gt;クラス A はクラス B のインスタンスを保持する
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;1:1&amp;rdquo;, &amp;ldquo;1:1..n&amp;rdquo;, &amp;ldquo;1:0..n&amp;rdquo; などラベルをつける&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;クラス A はクラス B を利用する（ &amp;ldquo;use&amp;rdquo; とラベルを付ける）&lt;/li&gt;
+&lt;li&gt;クラス A はクラス B を生成する（ &amp;ldquo;create&amp;rdquo; とラベルを付ける）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ただし、厳密にすべてを書く必要はない。このように実装せよという指示書ではないのだから。&lt;/p&gt;
+&lt;p&gt;たとえば、依存関係が推移的に予想できるところなんかは省略すると読みやすくて良い。 &lt;code&gt;class A implements AInterface&lt;/code&gt; と &lt;code&gt;class B implements BInterface&lt;/code&gt; があり、 AInterface が BInterface に依存していて A が B に依存しているとき、全部書くとややこしくなってしまう。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;PlantUML は incremental に書ける点がよい。&lt;/p&gt;
+&lt;p&gt;初見のコードを読みながら紙にクラスの依存関係を手書きすると、だいたい最初に読んだクラスを書く場所が悪くて、後で読んだクラスが紙の端に追いやられ、依存関係の線がぐちゃぐちゃになる。&lt;/p&gt;
+&lt;p&gt;PlantUML では、今読んだところまでとりあえず書いておけば、そのときの最善な配置で図を書き出してくれるので、どのクラスから書き始めればいいだろうという悩みはない。&lt;/p&gt;
+&lt;p&gt;また、レビューコメントを受けて修正されたりすると、その修正どおりに PlantUML も書き直せば最新のクラス図ができあがる。レビューのお供にとても良い。&lt;/p&gt;
+&lt;p&gt;また、依存関係が適切に整理されたコードは、 PlantUML でクラス図を作った時にも、依存が上から下に流れるように描画されてとても美しい。コードを視覚的に堪能することが出来る。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;エディタは使いやすいので良いと思うが、個人的には &lt;a href=&#34;https://boostnote.io/&#34;&gt;Boost Note&lt;/a&gt; の &lt;a href=&#34;https://github.com/BoostIO/boost-releases/releases/tag/v0.16.1&#34;&gt;Legacy App&lt;/a&gt; を使っている。（以前、新しい方を入れたら PlantUML 書けなかったので）&lt;/p&gt;
+&lt;p&gt;書いてる時にリアルタイムに図が更新される必要はない（むしろ視線を持っていかれるのでやめてほしい）が、図に反映されるのは簡単で速いのがいい、となって Boost Note に落ち着いている。&lt;/p&gt;
+&lt;p&gt;もともと Markdown エディタなので、 PR コメントの下書きも書けて便利。&lt;/p&gt;
+</content:encoded>
+      </item>
+      <item>
+        <title>サイトをリニューアルした</title>
+        <link>https://mochieer.tech/posts/20201005-renewal/</link>
+        <pubDate>Mon, 05 Oct 2020 00:00:00 +0000</pubDate>
+        <author>mochieer@gmail.com (mochieer)</author>
+        <guid>https://mochieer.tech/posts/20201005-renewal/</guid>
+        <description>自分の考えをアウトプットする場はやはり個人サイトがいいなあ、とここ1, 2年強く思うようになった。 エイチーム、プログラマ向け情報共有サービス「</description>
+        <content:encoded>&lt;p&gt;自分の考えをアウトプットする場はやはり個人サイトがいいなあ、とここ1, 2年強く思うようになった。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://jp.techcrunch.com/2017/12/22/ateam-increments/&#34;&gt;エイチーム、プログラマ向け情報共有サービス「Qiita」提供元のIncrementsを約14億円で買収 | TechCrunch Japan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://increments.co.jp/releases/2020/03/about-user-page-renewal-20200331/&#34;&gt;ご報告とお詫び 「Qiita」「Qiita Jobs」におけるユーザー情報の取り扱い不備について - Increments株式会社&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Qiita はビジネスを進めなければならないので、こういうことも起こりうる。ユーザーの思いとビジネス判断が異なるなんて当たり前だ。これは別に Qiita が悪いとかはあまり思っていない。だって営利企業だもんね。社員抱えているしね。くらいの印象。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://qrunch.net/@dev/entries/mad01egh8QmcuN3f&#34;&gt;サービス終了のお知らせ | Qrunch（クランチ）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;個人的開発の Qrunch も頑張っていたがやはり難しそうな印象。検索エンジンに noindex な「作業ログ」という投稿のタイプが面白くて、しばらくはちまちま投稿していたが、厳しそうだったのでこのお知らせが出る少し前にデータを引き上げてしまった。&lt;/p&gt;
+&lt;p&gt;そして新たに Zenn が出てきて、スタートダッシュは結構好調っぽい。ポエムを OK としているので、ポエミーな記事が結構多く、自分好みではある。が、やはり Qiita と同じで、コンテンツとユーザーを集めて作っていくコミュニティは、時にユーザーには受け入れがたいことをしなければならない場合があるだろうと思っている。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://r7kamura.com/articles/2020-09-21-personal-website&#34;&gt;個人サイトについて&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;文章を書くときに、いいね中毒や、批判への恐怖に晒されたくないという気持ちがある。そういったものが滲み出た文章は、読むのも書くのも好きではない。他者からのフィードバックと適切に距離を置くことで、この気持ちは抑制できる。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;フィードバックがあることでよりよい文章が書けるということももちろんあるが、そうでない場合もある。承認欲求は脳をバグらせる。&lt;/p&gt;
+&lt;p&gt;こういうことをいろいろ考えて、よし、ほぼ更新していなかった mochieer.tech ドメインのサイトを再始動させようとなった。&lt;/p&gt;
+&lt;p&gt;以前作ったときは、ブログ色を強くしていたので、文字の読みやすさとか、見た目のきれいさとか、あとはソーシャルへのシェアとか、そのあたりを気にしながら作った覚えがある。&lt;/p&gt;
+&lt;p&gt;個人サイトへ回帰するにあたって、こんなものは99%くらいは自分のためのものだという感覚で、自身の色を、文字通り色として強く押し出してみた。とても読みにくい。イメージ的にはポートフォリオっぽい雰囲気の日記（ブログ）。&lt;/p&gt;
+&lt;p&gt;技術的には、以前の使い回しなので Hugo を継続している。Hugo はやはり楽しい。HTML と CSS を生で書いている感覚で、それなりにメンテナンス可能な開発が出来る点が好きだ。&lt;/p&gt;
+</content:encoded>
+      </item>
+      <item>
+        <title>芸カ17にて同人カツドウしてきた</title>
+        <link>https://mochieer.tech/posts/20181130-geika17/</link>
+        <pubDate>Fri, 30 Nov 2018 00:00:00 +0000</pubDate>
+        <author>mochieer@gmail.com (mochieer)</author>
+        <guid>https://mochieer.tech/posts/20181130-geika17/</guid>
+        <description>カツドウ内容 11月18日に、アイカツ！のオンリーイベント「芸能人はカードが命！」にサークル参加した。 サークル名はおもち屋といって、うちの奥さ</description>
+        <content:encoded>&lt;figure&gt;&lt;img src=&#34;https://mochieer.tech/posts/20181130-geika17/omochishop.png&#34; alt=&#34;同人カツドウ&#34; /&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;カツドウ内容&#34;&gt;カツドウ内容&lt;/h2&gt;
+&lt;p&gt;11月18日に、アイカツ！のオンリーイベント「&lt;a href=&#34;http://prittypiggy328.sakura.ne.jp/aikatsu/&#34;&gt;芸能人はカードが命！&lt;/a&gt;」にサークル参加した。
+サークル名はおもち屋といって、うちの奥さんとのふたりサークル。&lt;/p&gt;
+&lt;p&gt;下記ツイートがお品書きツイート。&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;【芸カ17】のお品書きです！！【ル17】です！！！お願いします！！！！ &lt;a href=&#34;https://twitter.com/hashtag/%E8%8A%B8%E3%82%AB17?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#芸カ17&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/%E8%8A%B8%E3%82%AB17%E3%81%8A%E5%93%81%E6%9B%B8%E3%81%8D?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#芸カ17お品書き&lt;/a&gt; &lt;a href=&#34;https://t.co/ruQVpfDGcQ&#34;&gt;pic.twitter.com/ruQVpfDGcQ&lt;/a&gt;&lt;/p&gt;&amp;mdash; おもち屋⛄️ (@omochi_shop) &lt;a href=&#34;https://twitter.com/omochi_shop/status/1063422479945744384?ref_src=twsrc%5Etfw&#34;&gt;November 16, 2018&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;h2 id=&#34;頒布したもの&#34;&gt;頒布したもの&lt;/h2&gt;
+&lt;p&gt;下記グッズ3点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://omochishopshop.booth.pm/items/1097241&#34;&gt;パソコンをデコるマステシート - おもち屋 - BOOTH&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://omochishopshop.booth.pm/items/1097249&#34;&gt;ムチムチソレイユしおり（両面印刷） - おもち屋 - BOOTH&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://omochishopshop.booth.pm/items/1097168&#34;&gt;ステッカー ( 3枚 / 1set ) - おもち屋 - BOOTH&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;パソコンをデコるマステについてはオリジナリティがあったためか、
+無名サークルながらそこそこお買い上げいただけた。&lt;/p&gt;
+&lt;h2 id=&#34;担当したこと&#34;&gt;担当したこと&lt;/h2&gt;
+&lt;p&gt;自分は絵が書けないのでグラフィックデザインというか、キャラクターのデフォルメステッカーを作ったり、
+Twitter の emoji ベースでキャラクターの要素を加えた絵文字を作った。
+すべて SVG をテキストエディタでゴリゴリ編集するという作業だった。&lt;/p&gt;
+&lt;p&gt;これで SVG をテキストエディタで編集するというよくわからない技術が身についたので、
+そのノウハウの全てをどこかでまとめたい所存。&lt;/p&gt;
+&lt;p&gt;あとはお品書きを Photoshop で作ったりとか、そのくらい。&lt;/p&gt;
+&lt;h2 id=&#34;所感&#34;&gt;所感&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;締め切り前のバタバタ感を味わった&lt;/li&gt;
+&lt;li&gt;グッズのアイデアを出すのは楽しい&lt;/li&gt;
+&lt;li&gt;創作も楽しい&lt;/li&gt;
+&lt;li&gt;自分の作ったものを目の前で買ってくれるというのはすごく嬉しい&lt;/li&gt;
+&lt;li&gt;めっちゃ赤字なのはつらい&lt;/li&gt;
+&lt;/ul&gt;
+</content:encoded>
+      </item>
+      <item>
+        <title>超音波を使ったアプリをリリースして思ったこと</title>
+        <link>https://mochieer.tech/posts/20160813-release-ultrasound-app/</link>
+        <pubDate>Sat, 13 Aug 2016 00:00:00 +0000</pubDate>
+        <author>mochieer@gmail.com (mochieer)</author>
+        <guid>https://mochieer.tech/posts/20160813-release-ultrasound-app/</guid>
+        <description>アプリの概要 ワンタップでその場の全員と Facebook アカウントを交換できる iOS アプリ「Hz」をリリースした（一週間くらい前に）。 アプリのコンセプトは、Fa</description>
+        <content:encoded>&lt;figure&gt;&lt;img src=&#34;https://mochieer.tech/posts/20160813-release-ultrasound-app/cover.jpg&#34; alt=&#34;Hzをリリースしました&#34; /&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;アプリの概要&#34;&gt;アプリの概要&lt;/h2&gt;
+&lt;p&gt;ワンタップでその場の全員と Facebook アカウントを交換できる iOS アプリ「Hz」をリリースした（一週間くらい前に）。&lt;/p&gt;
+&lt;p&gt;アプリのコンセプトは、Facebook アカウント交換の煩わしさをボタンひとつで済ませられるようにするというところ。&lt;/p&gt;
+&lt;p&gt;その場に何人いても、誰か一人がボタンをワンタップするだけなので、特に飲み会などの席で役に立つと思う。&lt;/p&gt;
+&lt;p&gt;詳細は下記 LP と、一緒に作った pika_shi の記事がアツい。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://hz.matataki.team/&#34;&gt;Hz (ヘルツ) - 5 秒でその場の全員とつながる Facebook アカウント交換アプリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://pika-shi.hatenablog.com/entry/2016/08/07/152528&#34;&gt;Facebook アカウント交換アプリ「Hz」をリリースした - Hello World!!&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;自分はアカウント交換のコアロジックとデザインを担当した。&lt;/p&gt;
+&lt;h2 id=&#34;超音波&#34;&gt;超音波&lt;/h2&gt;
+&lt;p&gt;Hz では、端末のペアリングに超音波による通信技術を利用した。&lt;/p&gt;
+&lt;p&gt;超音波通信技術なんていうとかなり細かいことをやっているのかと思われるかもしれないが、端末から非可聴域の高周波な音を出し、別の端末では常に FFT を回し続けるだけなので、シンプルといえばシンプル。&lt;/p&gt;
+&lt;p&gt;ただ、思考の順序としては実は逆で、先に iOS で超音波で通信できることを調べてから、「じゃあ、これ何に使えるか」と考えて Facebook アカウント交換アプリという形になった。&lt;/p&gt;
+&lt;p&gt;アイデアをまとめていく過程、実装する過程で気づいた超音波による信号通信の長所と短所をまとめておく。&lt;/p&gt;
+&lt;h3 id=&#34;長所&#34;&gt;長所&lt;/h3&gt;
+&lt;h4 id=&#34;高速&#34;&gt;高速&lt;/h4&gt;
+&lt;p&gt;インターネット通信をしないというメリットはすごく大きい。単に音を出す、音を聞くだけなので、通信のオーバーヘッドはほぼゼロと言える。Bluetooth なども一旦ペアリングしてしまえば強力だが、ペアリングは手間だったりする。&lt;/p&gt;
+&lt;h4 id=&#34;デバイスに依存しない&#34;&gt;デバイスに依存しない&lt;/h4&gt;
+&lt;p&gt;発信に必要なのはスピーカーだけ。受信に必要なのはマイクと FFT が行えるくらいのメモリとプロセッサだけ。お店に設置したスピーカーから超音波を出して、キャッチしたアプリにクーポンを表示する、とかもできる。&lt;/p&gt;
+&lt;h4 id=&#34;ブロードキャストできる&#34;&gt;ブロードキャストできる&lt;/h4&gt;
+&lt;p&gt;1対1の通信でなく、1対Nの通信を1度に行える。スタジアムの大きいスピーカーを使えば、スポーツ観戦している人全員に一斉に信号を配信することも理論上は可能。&lt;/p&gt;
+&lt;h4 id=&#34;通信範囲を空間で区切れる&#34;&gt;通信範囲を「空間」で区切れる&lt;/h4&gt;
+&lt;p&gt;超音波は音に過ぎないので、隣の部屋までは飛んでいかない。「この部屋に入ってきた」ということを、電波や GPS より明確に区別できる。&lt;/p&gt;
+&lt;h4 id=&#34;電子機器に影響しない&#34;&gt;電子機器に影響しない&lt;/h4&gt;
+&lt;p&gt;繰り返しになるが、超音波は音に過ぎないので、他の電子機器への干渉はほぼない。特に精密機械が多い医療分野への貢献はあるかもしれない。&lt;/p&gt;
+&lt;h3 id=&#34;短所&#34;&gt;短所&lt;/h3&gt;
+&lt;h4 id=&#34;通信できる情報が少ない&#34;&gt;通信できる情報が少ない&lt;/h4&gt;
+&lt;p&gt;PIN コードを送るくらいが限度。テキストを送るとなると、相当うまく作らないと HTTP のほうが高速になってくると思う。&lt;/p&gt;
+&lt;h4 id=&#34;帯域が狭い&#34;&gt;帯域が狭い&lt;/h4&gt;
+&lt;p&gt;デバイスのサンプリング周波数に依存するところだが、FFT で判別できる周波数には上限がある。なので、仮に超音波が街中いろんなところで使われるようなことになったとしたら、帯域が競合してしまうことになる。同じ理由で、同じロジックを持ったプロダクトが世の中に共存できないので、基本的に超音波通信の OSS というのも考えにくい。&lt;/p&gt;
+&lt;h4 id=&#34;セキュリティが脆弱すぎる&#34;&gt;セキュリティが脆弱すぎる&lt;/h4&gt;
+&lt;p&gt;単にマイクがあれば通信傍受できてしまう。傍受して信号を解析すると（信号も単純なので解析は容易）、あとはスピーカーがあるだけで操作もできてしまう。&lt;/p&gt;
+&lt;p&gt;と、こんな感じ。&lt;/p&gt;
+&lt;p&gt;長所も多いが短所も多い。ただ、引き出しとしてひとつ持っておくと、なにか面白いことができるかも？&lt;/p&gt;
 </content:encoded>
       </item>
   </channel>

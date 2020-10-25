@@ -9,7 +9,8 @@
     <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate>
     <managingEditor>mochieer@gmail.com (mochieer)</managingEditor>
     <atom:link href="https://mochieer.tech/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
+    
+      <item>
         <title>ワークチェアを新調した</title>
         <link>https://mochieer.tech/posts/20201022-new-chair/</link>
         <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
@@ -40,7 +41,8 @@
 &lt;iframe style=&#34;width:120px;height:240px;&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; src=&#34;//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=mochieer-22&amp;language=ja_JP&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=as_ss_li_til&amp;asins=B07T339BWT&amp;linkId=4027080832e17d12ab5c65c7a6e27703&#34;&gt;&lt;/iframe&gt;
 &lt;p&gt;余談だがこういうフットレストを買って3ヶ月ほど使っている。足裏の支えはあったほうがいいと思う。足をしっかり地面に付けられるのと、「ここに足を置くんだ」という意識になるので自然と姿勢が良くなる。ただ、すでに少しヘタってきている。次は硬い金属製のフットレストを試してみようと思っている。&lt;/p&gt;
 </content:encoded>
-      </item><item>
+      </item>
+      <item>
         <title>GitHub Actions でビルドするようにした</title>
         <link>https://mochieer.tech/posts/20201018-github-actions/</link>
         <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
@@ -55,7 +57,8 @@
 &lt;p&gt;ソースコードの管理とビルドとホスティングをひとつのサービスで一貫できるというのはやはりかなり嬉しい。&lt;/p&gt;
 &lt;p&gt;Netlify は GitHub との連携がかなり良くて気に入っていたが、日本からだとネットワーク的に遠いのか、やたら遅い印象がある。&lt;/p&gt;
 </content:encoded>
-      </item><item>
+      </item>
+      <item>
         <title>誕生日を迎えた 2020</title>
         <link>https://mochieer.tech/posts/20201015-age&#43;&#43;/</link>
         <pubDate>Thu, 15 Oct 2020 00:00:00 +0000</pubDate>
@@ -65,7 +68,8 @@
         <content:encoded>&lt;p&gt;掲題の通り。31歳になった。&lt;/p&gt;
 &lt;p&gt;実家から送られてきたプレゼントはすみっコぐらしのぬいぐるみだった。&lt;/p&gt;
 </content:encoded>
-      </item><item>
+      </item>
+      <item>
         <title>PlantUML 写経</title>
         <link>https://mochieer.tech/posts/20201006-plantuml/</link>
         <pubDate>Tue, 06 Oct 2020 00:00:00 +0000</pubDate>
@@ -114,7 +118,8 @@
 &lt;p&gt;書いてる時にリアルタイムに図が更新される必要はない（むしろ視線を持っていかれるのでやめてほしい）が、図に反映されるのは簡単で速いのがいい、となって Boost Note に落ち着いている。&lt;/p&gt;
 &lt;p&gt;もともと Markdown エディタなので、 PR コメントの下書きも書けて便利。&lt;/p&gt;
 </content:encoded>
-      </item><item>
+      </item>
+      <item>
         <title>サイトをリニューアルした</title>
         <link>https://mochieer.tech/posts/20201005-renewal/</link>
         <pubDate>Mon, 05 Oct 2020 00:00:00 +0000</pubDate>
@@ -144,7 +149,8 @@
 &lt;p&gt;個人サイトへ回帰するにあたって、こんなものは99%くらいは自分のためのものだという感覚で、自身の色を、文字通り色として強く押し出してみた。とても読みにくい。イメージ的にはポートフォリオっぽい雰囲気の日記（ブログ）。&lt;/p&gt;
 &lt;p&gt;技術的には、以前の使い回しなので Hugo を継続している。Hugo はやはり楽しい。HTML と CSS を生で書いている感覚で、それなりにメンテナンス可能な開発が出来る点が好きだ。&lt;/p&gt;
 </content:encoded>
-      </item><item>
+      </item>
+      <item>
         <title>芸カ17にて同人カツドウしてきた</title>
         <link>https://mochieer.tech/posts/20181130-geika17/</link>
         <pubDate>Fri, 30 Nov 2018 00:00:00 +0000</pubDate>
@@ -182,7 +188,8 @@ Twitter の emoji ベースでキャラクターの要素を加えた絵文字�
 &lt;li&gt;めっちゃ赤字なのはつらい&lt;/li&gt;
 &lt;/ul&gt;
 </content:encoded>
-      </item><item>
+      </item>
+      <item>
         <title>超音波を使ったアプリをリリースして思ったこと</title>
         <link>https://mochieer.tech/posts/20160813-release-ultrasound-app/</link>
         <pubDate>Sat, 13 Aug 2016 00:00:00 +0000</pubDate>
