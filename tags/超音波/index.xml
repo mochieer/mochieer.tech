@@ -1,20 +1,58 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>超音波 on mochieer.tech</title>
-    <link>https://mochieer.tech/tags/%E8%B6%85%E9%9F%B3%E6%B3%A2/</link>
-    <description>Recent content in 超音波 on mochieer.tech</description>
+    <title>mochieer.techの新着記事</title>
+    <link>https://mochieer.tech</link>
+    <description>mochieer.techの新着記事</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 13 Aug 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://mochieer.tech/tags/%E8%B6%85%E9%9F%B3%E6%B3%A2/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>(c) mochieer</copyright>
+    <lastBuildDate>Sat, 13 Aug 2016 00:00:00 +0000</lastBuildDate>
+    <managingEditor>mochieer@gmail.com (mochieer)</managingEditor>
+    <atom:link href="https://mochieer.tech/tags/%E8%B6%85%E9%9F%B3%E6%B3%A2/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>超音波を使ったアプリをリリースして思ったこと</title>
-      <link>https://mochieer.tech/posts/20160813-release-ultrasound-app/</link>
-      <pubDate>Sat, 13 Aug 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://mochieer.tech/posts/20160813-release-ultrasound-app/</guid>
-      <description>アプリの概要 ワンタップでその場の全員と Facebook アカウントを交換できる iOS アプリ「Hz」をリリースした（一週間くらい前に）。 アプリのコンセプトは、Fa</description>
-    </item>
-    
+        <title>超音波を使ったアプリをリリースして思ったこと</title>
+        <link>https://mochieer.tech/posts/20160813-release-ultrasound-app/</link>
+        <pubDate>Sat, 13 Aug 2016 00:00:00 +0000</pubDate>
+        <author>mochieer@gmail.com (mochieer)</author>
+        <guid>https://mochieer.tech/posts/20160813-release-ultrasound-app/</guid>
+        <description>アプリの概要 ワンタップでその場の全員と Facebook アカウントを交換できる iOS アプリ「Hz」をリリースした（一週間くらい前に）。 アプリのコンセプトは、Fa</description>
+        <content:encoded>&lt;figure&gt;&lt;img src=&#34;https://mochieer.tech/posts/20160813-release-ultrasound-app/cover.jpg&#34; alt=&#34;Hzをリリースしました&#34; /&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;アプリの概要&#34;&gt;アプリの概要&lt;/h2&gt;
+&lt;p&gt;ワンタップでその場の全員と Facebook アカウントを交換できる iOS アプリ「Hz」をリリースした（一週間くらい前に）。&lt;/p&gt;
+&lt;p&gt;アプリのコンセプトは、Facebook アカウント交換の煩わしさをボタンひとつで済ませられるようにするというところ。&lt;/p&gt;
+&lt;p&gt;その場に何人いても、誰か一人がボタンをワンタップするだけなので、特に飲み会などの席で役に立つと思う。&lt;/p&gt;
+&lt;p&gt;詳細は下記 LP と、一緒に作った pika_shi の記事がアツい。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://hz.matataki.team/&#34;&gt;Hz (ヘルツ) - 5 秒でその場の全員とつながる Facebook アカウント交換アプリ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://pika-shi.hatenablog.com/entry/2016/08/07/152528&#34;&gt;Facebook アカウント交換アプリ「Hz」をリリースした - Hello World!!&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;自分はアカウント交換のコアロジックとデザインを担当した。&lt;/p&gt;
+&lt;h2 id=&#34;超音波&#34;&gt;超音波&lt;/h2&gt;
+&lt;p&gt;Hz では、端末のペアリングに超音波による通信技術を利用した。&lt;/p&gt;
+&lt;p&gt;超音波通信技術なんていうとかなり細かいことをやっているのかと思われるかもしれないが、端末から非可聴域の高周波な音を出し、別の端末では常に FFT を回し続けるだけなので、シンプルといえばシンプル。&lt;/p&gt;
+&lt;p&gt;ただ、思考の順序としては実は逆で、先に iOS で超音波で通信できることを調べてから、「じゃあ、これ何に使えるか」と考えて Facebook アカウント交換アプリという形になった。&lt;/p&gt;
+&lt;p&gt;アイデアをまとめていく過程、実装する過程で気づいた超音波による信号通信の長所と短所をまとめておく。&lt;/p&gt;
+&lt;h3 id=&#34;長所&#34;&gt;長所&lt;/h3&gt;
+&lt;h4 id=&#34;高速&#34;&gt;高速&lt;/h4&gt;
+&lt;p&gt;インターネット通信をしないというメリットはすごく大きい。単に音を出す、音を聞くだけなので、通信のオーバーヘッドはほぼゼロと言える。Bluetooth なども一旦ペアリングしてしまえば強力だが、ペアリングは手間だったりする。&lt;/p&gt;
+&lt;h4 id=&#34;デバイスに依存しない&#34;&gt;デバイスに依存しない&lt;/h4&gt;
+&lt;p&gt;発信に必要なのはスピーカーだけ。受信に必要なのはマイクと FFT が行えるくらいのメモリとプロセッサだけ。お店に設置したスピーカーから超音波を出して、キャッチしたアプリにクーポンを表示する、とかもできる。&lt;/p&gt;
+&lt;h4 id=&#34;ブロードキャストできる&#34;&gt;ブロードキャストできる&lt;/h4&gt;
+&lt;p&gt;1対1の通信でなく、1対Nの通信を1度に行える。スタジアムの大きいスピーカーを使えば、スポーツ観戦している人全員に一斉に信号を配信することも理論上は可能。&lt;/p&gt;
+&lt;h4 id=&#34;通信範囲を空間で区切れる&#34;&gt;通信範囲を「空間」で区切れる&lt;/h4&gt;
+&lt;p&gt;超音波は音に過ぎないので、隣の部屋までは飛んでいかない。「この部屋に入ってきた」ということを、電波や GPS より明確に区別できる。&lt;/p&gt;
+&lt;h4 id=&#34;電子機器に影響しない&#34;&gt;電子機器に影響しない&lt;/h4&gt;
+&lt;p&gt;繰り返しになるが、超音波は音に過ぎないので、他の電子機器への干渉はほぼない。特に精密機械が多い医療分野への貢献はあるかもしれない。&lt;/p&gt;
+&lt;h3 id=&#34;短所&#34;&gt;短所&lt;/h3&gt;
+&lt;h4 id=&#34;通信できる情報が少ない&#34;&gt;通信できる情報が少ない&lt;/h4&gt;
+&lt;p&gt;PIN コードを送るくらいが限度。テキストを送るとなると、相当うまく作らないと HTTP のほうが高速になってくると思う。&lt;/p&gt;
+&lt;h4 id=&#34;帯域が狭い&#34;&gt;帯域が狭い&lt;/h4&gt;
+&lt;p&gt;デバイスのサンプリング周波数に依存するところだが、FFT で判別できる周波数には上限がある。なので、仮に超音波が街中いろんなところで使われるようなことになったとしたら、帯域が競合してしまうことになる。同じ理由で、同じロジックを持ったプロダクトが世の中に共存できないので、基本的に超音波通信の OSS というのも考えにくい。&lt;/p&gt;
+&lt;h4 id=&#34;セキュリティが脆弱すぎる&#34;&gt;セキュリティが脆弱すぎる&lt;/h4&gt;
+&lt;p&gt;単にマイクがあれば通信傍受できてしまう。傍受して信号を解析すると（信号も単純なので解析は容易）、あとはスピーカーがあるだけで操作もできてしまう。&lt;/p&gt;
+&lt;p&gt;と、こんな感じ。&lt;/p&gt;
+&lt;p&gt;長所も多いが短所も多い。ただ、引き出しとしてひとつ持っておくと、なにか面白いことができるかも？&lt;/p&gt;
+</content:encoded>
+      </item>
   </channel>
 </rss>

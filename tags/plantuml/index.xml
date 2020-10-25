@@ -1,20 +1,63 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>PlantUML on mochieer.tech</title>
-    <link>https://mochieer.tech/tags/plantuml/</link>
-    <description>Recent content in PlantUML on mochieer.tech</description>
+    <title>mochieer.techの新着記事</title>
+    <link>https://mochieer.tech</link>
+    <description>mochieer.techの新着記事</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 06 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mochieer.tech/tags/plantuml/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>(c) mochieer</copyright>
+    <lastBuildDate>Tue, 06 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <managingEditor>mochieer@gmail.com (mochieer)</managingEditor>
+    <atom:link href="https://mochieer.tech/tags/plantuml/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>PlantUML 写経</title>
-      <link>https://mochieer.tech/posts/20201006-plantuml/</link>
-      <pubDate>Tue, 06 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://mochieer.tech/posts/20201006-plantuml/</guid>
-      <description>最近、 PlantUML でクラス図を書くのが楽しい。 特におすすめなのが、コードレビュー時にひとつひとつのクラスを読み終わるたびに手元で PlantUML を書いていく読み方で</description>
-    </item>
-    
+        <title>PlantUML 写経</title>
+        <link>https://mochieer.tech/posts/20201006-plantuml/</link>
+        <pubDate>Tue, 06 Oct 2020 00:00:00 +0000</pubDate>
+        <author>mochieer@gmail.com (mochieer)</author>
+        <guid>https://mochieer.tech/posts/20201006-plantuml/</guid>
+        <description>最近、 PlantUML でクラス図を書くのが楽しい。 特におすすめなのが、コードレビュー時にひとつひとつのクラスを読み終わるたびに手元で PlantUML を書いていく読み方で</description>
+        <content:encoded>&lt;p&gt;最近、 PlantUML でクラス図を書くのが楽しい。&lt;/p&gt;
+&lt;p&gt;特におすすめなのが、コードレビュー時にひとつひとつのクラスを読み終わるたびに手元で PlantUML を書いていく読み方で、「PlantUML 写経」と個人的に呼んでいる。&lt;/p&gt;
+&lt;p&gt;書いたほうがいいのは、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;パッケージ（名前空間）&lt;/li&gt;
+&lt;li&gt;クラス
+&lt;ul&gt;
+&lt;li&gt;private なものは書かなくて良い&lt;/li&gt;
+&lt;li&gt;public なものも、別に全部書く必要はない&lt;/li&gt;
+&lt;li&gt;abstract は書いておくとよい&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;依存関係
+&lt;ul&gt;
+&lt;li&gt;継承、実装&lt;/li&gt;
+&lt;li&gt;ほかの関係
+&lt;ul&gt;
+&lt;li&gt;クラス A はクラス B のインスタンスを保持する
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;1:1&amp;rdquo;, &amp;ldquo;1:1..n&amp;rdquo;, &amp;ldquo;1:0..n&amp;rdquo; などラベルをつける&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;クラス A はクラス B を利用する（ &amp;ldquo;use&amp;rdquo; とラベルを付ける）&lt;/li&gt;
+&lt;li&gt;クラス A はクラス B を生成する（ &amp;ldquo;create&amp;rdquo; とラベルを付ける）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ただし、厳密にすべてを書く必要はない。このように実装せよという指示書ではないのだから。&lt;/p&gt;
+&lt;p&gt;たとえば、依存関係が推移的に予想できるところなんかは省略すると読みやすくて良い。 &lt;code&gt;class A implements AInterface&lt;/code&gt; と &lt;code&gt;class B implements BInterface&lt;/code&gt; があり、 AInterface が BInterface に依存していて A が B に依存しているとき、全部書くとややこしくなってしまう。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;PlantUML は incremental に書ける点がよい。&lt;/p&gt;
+&lt;p&gt;初見のコードを読みながら紙にクラスの依存関係を手書きすると、だいたい最初に読んだクラスを書く場所が悪くて、後で読んだクラスが紙の端に追いやられ、依存関係の線がぐちゃぐちゃになる。&lt;/p&gt;
+&lt;p&gt;PlantUML では、今読んだところまでとりあえず書いておけば、そのときの最善な配置で図を書き出してくれるので、どのクラスから書き始めればいいだろうという悩みはない。&lt;/p&gt;
+&lt;p&gt;また、レビューコメントを受けて修正されたりすると、その修正どおりに PlantUML も書き直せば最新のクラス図ができあがる。レビューのお供にとても良い。&lt;/p&gt;
+&lt;p&gt;また、依存関係が適切に整理されたコードは、 PlantUML でクラス図を作った時にも、依存が上から下に流れるように描画されてとても美しい。コードを視覚的に堪能することが出来る。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;エディタは使いやすいので良いと思うが、個人的には &lt;a href=&#34;https://boostnote.io/&#34;&gt;Boost Note&lt;/a&gt; の &lt;a href=&#34;https://github.com/BoostIO/boost-releases/releases/tag/v0.16.1&#34;&gt;Legacy App&lt;/a&gt; を使っている。（以前、新しい方を入れたら PlantUML 書けなかったので）&lt;/p&gt;
+&lt;p&gt;書いてる時にリアルタイムに図が更新される必要はない（むしろ視線を持っていかれるのでやめてほしい）が、図に反映されるのは簡単で速いのがいい、となって Boost Note に落ち着いている。&lt;/p&gt;
+&lt;p&gt;もともと Markdown エディタなので、 PR コメントの下書きも書けて便利。&lt;/p&gt;
+</content:encoded>
+      </item>
   </channel>
 </rss>

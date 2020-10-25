@@ -1,20 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>GitHub on mochieer.tech</title>
-    <link>https://mochieer.tech/tags/github/</link>
-    <description>Recent content in GitHub on mochieer.tech</description>
+    <title>mochieer.techの新着記事</title>
+    <link>https://mochieer.tech</link>
+    <description>mochieer.techの新着記事</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 18 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mochieer.tech/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>(c) mochieer</copyright>
+    <lastBuildDate>Sun, 18 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <managingEditor>mochieer@gmail.com (mochieer)</managingEditor>
+    <atom:link href="https://mochieer.tech/tags/github/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>GitHub Actions でビルドするようにした</title>
-      <link>https://mochieer.tech/posts/20201018-github-actions/</link>
-      <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://mochieer.tech/posts/20201018-github-actions/</guid>
-      <description>peaceiris/actions-gh-pages こちらを利用した。基本的にはデフォルトの設定通りでいけたのでとても簡単だった。 自分のリポジトリはデフォルトブランチが main だったが、サンプルの</description>
-    </item>
-    
+        <title>GitHub Actions でビルドするようにした</title>
+        <link>https://mochieer.tech/posts/20201018-github-actions/</link>
+        <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
+        <author>mochieer@gmail.com (mochieer)</author>
+        <guid>https://mochieer.tech/posts/20201018-github-actions/</guid>
+        <description>peaceiris/actions-gh-pages こちらを利用した。基本的にはデフォルトの設定通りでいけたのでとても簡単だった。 自分のリポジトリはデフォルトブランチが main だったが、サンプルの</description>
+        <content:encoded>&lt;p&gt;&lt;a href=&#34;https://github.com/peaceiris/actions-gh-pages&#34;&gt;peaceiris/actions-gh-pages&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;こちらを利用した。基本的にはデフォルトの設定通りでいけたのでとても簡単だった。&lt;/p&gt;
+&lt;p&gt;自分のリポジトリはデフォルトブランチが &lt;code&gt;main&lt;/code&gt; だったが、サンプルの設定ファイルでは &lt;code&gt;master&lt;/code&gt; になっていたので、そこだけ直した。（これは誰が悪いのか）&lt;/p&gt;
+&lt;p&gt;あわせて、このサイトのソースコードを public にしてみた。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/mochieer/mochieer.tech&#34;&gt;mochieer/mochieer.tech&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;ソースコードの管理とビルドとホスティングをひとつのサービスで一貫できるというのはやはりかなり嬉しい。&lt;/p&gt;
+&lt;p&gt;Netlify は GitHub との連携がかなり良くて気に入っていたが、日本からだとネットワーク的に遠いのか、やたら遅い印象がある。&lt;/p&gt;
+</content:encoded>
+      </item>
   </channel>
 </rss>

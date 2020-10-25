@@ -1,20 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>日記 on mochieer.tech</title>
-    <link>https://mochieer.tech/tags/%E6%97%A5%E8%A8%98/</link>
-    <description>Recent content in 日記 on mochieer.tech</description>
+    <title>mochieer.techの新着記事</title>
+    <link>https://mochieer.tech</link>
+    <description>mochieer.techの新着記事</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 15 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mochieer.tech/tags/%E6%97%A5%E8%A8%98/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>(c) mochieer</copyright>
+    <lastBuildDate>Thu, 15 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <managingEditor>mochieer@gmail.com (mochieer)</managingEditor>
+    <atom:link href="https://mochieer.tech/tags/%E6%97%A5%E8%A8%98/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>誕生日を迎えた 2020</title>
-      <link>https://mochieer.tech/posts/20201015-age&#43;&#43;/</link>
-      <pubDate>Thu, 15 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://mochieer.tech/posts/20201015-age&#43;&#43;/</guid>
-      <description>掲題の通り。31歳になった。 実家から送られてきたプレゼントはすみっコぐらしのぬいぐるみだった。</description>
-    </item>
-    
+        <title>誕生日を迎えた 2020</title>
+        <link>https://mochieer.tech/posts/20201015-age&#43;&#43;/</link>
+        <pubDate>Thu, 15 Oct 2020 00:00:00 +0000</pubDate>
+        <author>mochieer@gmail.com (mochieer)</author>
+        <guid>https://mochieer.tech/posts/20201015-age&#43;&#43;/</guid>
+        <description>掲題の通り。31歳になった。 実家から送られてきたプレゼントはすみっコぐらしのぬいぐるみだった。</description>
+        <content:encoded>&lt;p&gt;掲題の通り。31歳になった。&lt;/p&gt;
+&lt;p&gt;実家から送られてきたプレゼントはすみっコぐらしのぬいぐるみだった。&lt;/p&gt;
+</content:encoded>
+      </item>
   </channel>
 </rss>

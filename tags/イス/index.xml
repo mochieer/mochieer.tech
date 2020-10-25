@@ -1,20 +1,45 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>イス on mochieer.tech</title>
-    <link>https://mochieer.tech/tags/%E3%82%A4%E3%82%B9/</link>
-    <description>Recent content in イス on mochieer.tech</description>
+    <title>mochieer.techの新着記事</title>
+    <link>https://mochieer.tech</link>
+    <description>mochieer.techの新着記事</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mochieer.tech/tags/%E3%82%A4%E3%82%B9/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>(c) mochieer</copyright>
+    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <managingEditor>mochieer@gmail.com (mochieer)</managingEditor>
+    <atom:link href="https://mochieer.tech/tags/%E3%82%A4%E3%82%B9/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>ワークチェアを新調した</title>
-      <link>https://mochieer.tech/posts/20201022-new-chair/</link>
-      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://mochieer.tech/posts/20201022-new-chair/</guid>
-      <description>経緯 これまで使っていたイスは、リモートワーク前提での転職がうまく進んでしまい、家に作業スペースを急ごしらえで作った時に Amazon で買った5,000円</description>
-    </item>
-    
+        <title>ワークチェアを新調した</title>
+        <link>https://mochieer.tech/posts/20201022-new-chair/</link>
+        <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+        <author>mochieer@gmail.com (mochieer)</author>
+        <guid>https://mochieer.tech/posts/20201022-new-chair/</guid>
+        <description>経緯 これまで使っていたイスは、リモートワーク前提での転職がうまく進んでしまい、家に作業スペースを急ごしらえで作った時に Amazon で買った5,000円</description>
+        <content:encoded>&lt;h2 id=&#34;経緯&#34;&gt;経緯&lt;/h2&gt;
+&lt;p&gt;これまで使っていたイスは、リモートワーク前提での転職がうまく進んでしまい、家に作業スペースを急ごしらえで作った時に Amazon で買った5,000円くらいのイスだった。すぐに買い換えるつもりだったが意外と長持ちして2年ほどは使っていたが、やはり長時間座っていると腰が痛いのと、さすがに座面のクッションがヘタってきたので買い替えたいなあと考えていた。&lt;/p&gt;
+&lt;p&gt;どうせ買い換えるなら8万〜クラスのかなりいいやつにしてみたいという気持ちもありつつ、とてもすぐに手が出せる金額ではないので、やはり2, 3万くらいで探してみたり、かなりうだうだしていた。&lt;/p&gt;
+&lt;p&gt;ところが、コスパ抜群との呼び声高いイトーキの YL9 がプライムデーで20%オフになっていたので、一気に背中を押されてポチってしまった。大体8,000円弱安くなった計算。&lt;/p&gt;
+&lt;iframe style=&#34;width:120px;height:240px;&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; src=&#34;//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=mochieer-22&amp;language=ja_JP&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=as_ss_li_til&amp;asins=B07RQSN6QK&amp;linkId=89606dff1a18b8195871990966ee517c&#34;&gt;&lt;/iframe&gt;
+&lt;h2 id=&#34;試座したかった&#34;&gt;試座したかった&lt;/h2&gt;
+&lt;p&gt;背中を押されてポチったとは書いたものの、すぐにポチったわけではなく、一回座ってみたいよなあというので、新宿の大塚家具に行ってみた（イトーキのサイトの取り扱い店舗に記載されていたので）。&lt;/p&gt;
+&lt;p&gt;が、探してもなく、店員さんに聞いてみても、「イトーキは取り扱いがないです」とのことで、しょんぼりしつつ、アーロンチェアとかリープチェアとか座りまくって帰ってきた。&lt;/p&gt;
+&lt;h2 id=&#34;ファーストインプレッション&#34;&gt;ファーストインプレッション&lt;/h2&gt;
+&lt;p&gt;重い。とても重い。&lt;/p&gt;
+&lt;p&gt;背もたれの樹脂メッシュは、思っていたよりは少し硬かった。イメージがハーマンミラーのセイルチェアだったので、もっとゴム的な感じかと思っていたのだが、それよりはかなりプラスチック。ただ、プラスチックというにはかなり柔らかく、指で軽く押すと凹む感じ。背中を預けると硬さは全く感じず、むしろ柔らかく凹んで包まれる印象。強めにもたれかかっても反発力はあまり強くないので、背もたれ大好きな人からするとメッシュ生地を張っている背もたれより柔らかく感じるかもしれない。&lt;/p&gt;
+&lt;p&gt;座面は結構大きい。変な癖はなく、平らで大きい。やや固め。&lt;/p&gt;
+&lt;p&gt;アームレストは、あったらいいかなくらいだったので特に不満はないが、上下にしか移動せず、前後移動がないのでリクライニングさせたとき背もたれからアームレストが遠く、ちょっと不便。上下には細かく調節ができるので、机の下にうまく収まってくれた。&lt;/p&gt;
+&lt;p&gt;ヘッドレストは、正直いらないだろうと思っていた。というのも、仕事中の小休憩でも問答無用にベッドに横になるタイプなので、ヘッドレストに頭をあずける機会はあまりないかな、と。ところが、考え事をするときに無意識に頭をあずけるなど、意外と利用頻度は高かった。が、別になくても困らない気はする。逆に後ろに伸びをしにくい気がするので、一度外してみようかと思っている。&lt;/p&gt;
+&lt;h2 id=&#34;誤算&#34;&gt;誤算&lt;/h2&gt;
+&lt;p&gt;という感じで、試座せず買ったので少しドキドキしていたが、大部分で想定通りか想定以上の満足度。ただ、ひとつだけ誤算があった。&lt;/p&gt;
+&lt;p&gt;うちは室内で犬（トイプードル）を飼っていて、作業時間が長くなるといつの間にか足元にやってきて腹を出して寝ていたりするのだが、そうなるとキャスターで引いてしまいそうで怖い。なので、前のイスでは下記のようなものを購入し、キャスターを取り替えて使っていた。&lt;/p&gt;
+&lt;iframe style=&#34;width:120px;height:240px;&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; src=&#34;//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=mochieer-22&amp;language=ja_JP&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=as_ss_li_til&amp;asins=B00008B9JV&amp;linkId=ba8292a02e5c85cdb3555358cfc3b10e&#34;&gt;&lt;/iframe&gt;
+&lt;p&gt;ところが、新しいものは支柱が下方向に長く突き抜けるタイプで、この固定脚に取り替えると支柱が地面についてしまってダメだった。見てみると、固定脚には背の高いものもあるようなので、そちらを買おうと思う。ただ、上述の通りかなり重いイスなので、キャスターなしで動かせるか少し不安。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;以上、一週間弱使ってみた印象。また印象が変わったら書く。&lt;/p&gt;
+&lt;iframe style=&#34;width:120px;height:240px;&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; src=&#34;//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=mochieer-22&amp;language=ja_JP&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=as_ss_li_til&amp;asins=B07T339BWT&amp;linkId=4027080832e17d12ab5c65c7a6e27703&#34;&gt;&lt;/iframe&gt;
+&lt;p&gt;余談だがこういうフットレストを買って3ヶ月ほど使っている。足裏の支えはあったほうがいいと思う。足をしっかり地面に付けられるのと、「ここに足を置くんだ」という意識になるので自然と姿勢が良くなる。ただ、すでに少しヘタってきている。次は硬い金属製のフットレストを試してみようと思っている。&lt;/p&gt;
+</content:encoded>
+      </item>
   </channel>
 </rss>
