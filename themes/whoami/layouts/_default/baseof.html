@@ -21,6 +21,7 @@
       <meta property="og:type" content="website" />
     {{- end }}
     <meta property="og:image" content="{{ .Site.BaseURL }}/images/share.png" />
+    <meta name="twitter:card" content="summary" />
 
     {{ define "title" -}}
       <title>{{ .Title }}{{ if not .IsHome }} &middot; {{ .Site.Title }}{{ end }}</title>
