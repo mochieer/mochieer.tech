@@ -23,6 +23,8 @@
     <meta property="og:image" content="{{ .Site.BaseURL }}/images/share.png" />
     <meta name="twitter:card" content="summary" />
 
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+
     {{ define "title" -}}
       <title>{{ .Title }}{{ if not .IsHome }} &middot; {{ .Site.Title }}{{ end }}</title>
     {{- end -}}
@@ -39,5 +41,8 @@
       </section>
       {{ partial "components/organisms/footer.html" . }}
     </div>
+    <script type="text/javascript">
+      twemoji.parse(document.body);
+    </script>
   </body>
 </html>
