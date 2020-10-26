@@ -14,6 +14,8 @@
 
     <link rel="stylesheet" href="{{ ( partial "commands/make_css.html" . ).Permalink }}">
 
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+
     <meta property="og:site_name" content="{{ .Site.Title }}" />
     {{ if .IsPage -}}
       <meta property="og:type" content="article" />
@@ -21,12 +23,16 @@
       <meta property="og:type" content="website" />
     {{- end }}
     <meta property="og:image" content="{{ .Site.BaseURL }}/images/share.png" />
+    <meta property="og:description" content="mochieer.tech">
+    <meta property="og:locale" content="ja_JP">
     <meta name="twitter:card" content="summary" />
 
-    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
-
     {{ define "title" -}}
-      <title>{{ .Title }}{{ if not .IsHome }} &middot; {{ .Site.Title }}{{ end }}</title>
+      {{ if .IsHome -}}
+        {{- partial "commands/put_title.html" .Title -}}
+      {{- else -}}
+        {{- partial "commands/put_title.html" (printf "%s &middot; %s" .Title .Site.Title) -}}
+      {{- end }}
     {{- end -}}
 
     {{ block "title" . }}{{ end }}

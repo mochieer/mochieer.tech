@@ -1,5 +1,6 @@
 {{- define "title" -}}
 <title>#{{ .Title | title }} &middot; {{ .Site.Title }}</title>
+  {{- partial "commands/put_title.html" (printf "#%s &middot; %s" (.Title | title) .Site.Title) -}}
 {{- end -}}
 {{ define "main" }}
 <h1>#{{ .Title | title }} の記事一覧</h1>
