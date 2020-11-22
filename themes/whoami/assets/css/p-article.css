@@ -107,6 +107,18 @@
   text-align: center;
 }
 
+.p-article-body div.highlight {
+  overflow: scroll;
+  line-height: 1.25em;
+}
+.p-article-body div.highlight pre {
+  margin: .5em 0;
+}
+
+.p-article-body div.highlight code:before,
+.p-article-body div.highlight code:after {
+  content: '';
+}
 
 .p-article-body code {
   display: inline-block;
