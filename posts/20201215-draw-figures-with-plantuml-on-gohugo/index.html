@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="alternate" type="application/rss+xml" title="mochieer.tech" href="https://mochieer.tech/index.xml">
+
+    <link rel="stylesheet" href="https://mochieer.tech/css/style.min.89ccbee83eb3347f1b8cb46a701701980d97f1785e8a677b2b460ab04a232d9a.css">
+
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+
+    <meta property="og:site_name" content="mochieer.tech" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://mochieer.tech/images/share.png" />
+    <meta property="og:description" content="mochieer.tech">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary" />
+
+    <meta property="og:title" content="Hugo で PlantUML を書きたい &middot; mochieer.tech">
+<title>Hugo で PlantUML を書きたい &middot; mochieer.tech</title>
+
+
+    <meta name="generator" content="Hugo 0.78.2" />
+  </head>
+  <body>
+    <div class="p-wrapper">
+      <header class="p-header">
+  <nav class="p-header-nav">
+    <ul class="p-header-links">
+      <li class="p-header-links-item p-header-links-item--top">
+        <a class="p-header-links-item-link" href="https://mochieer.tech/">mochieer.tech</a>
+      </li>
+      <li class="p-header-links-item p-header-links-item--posts">
+        <a class="p-header-links-item-link" href="https://mochieer.tech/posts/">記事一覧</a>
+      </li>
+      <li class="p-header-links-item p-header-links-item--tags">
+        <a class="p-header-links-item-link" href="https://mochieer.tech/tags/">タグ一覧</a>
+      </li>
+</ul>
+
+  </nav>
+</header>
+
+      <section id="p-main">
+        
+<article class="p-article">
+  <header class="p-article-header">
+    <time datetime="2020-12-15T00:00:00JST">2020年12月15日</time>
+    <h1 class="p-article-header-title">Hugo で PlantUML を書きたい</h1>
+  </header>
+
+  <section class="p-article-body">
+    <h2 id="やりたいこと">やりたいこと</h2>
+
+
+  
+    
+  
+
+
+<figure class="c-plantuml">
+  <object
+    type="image/svg+xml"
+    data="https://g.gravizo.com/svg?%0a%40startuml%0aleft%20to%20right%20direction%0a%3a%e3%81%93%e3%81%ae%e3%82%b5%e3%82%a4%e3%83%88%3a%20--%3e%20%28PlantUML%e3%81%a7%e3%82%af%e3%83%a9%e3%82%b9%e5%9b%b3%e3%81%a8%e3%81%8b%e6%9b%b8%e3%81%8d%e3%81%9f%e3%81%84%29%0a%40enduml%0a"
+  ></object>
+  <figcaption>ユースケース</figcaption>
+</figure>
+
+<p>記事の Markdown 中に PlantUML 記法で記述したら、最終的に出力される HTML としては図が出力されている状態。</p>
+<h2 id="いつ図を生成するか">いつ図を生成するか</h2>
+<p>このサイトは Hugo で生成している。静的なサイトなので、お作法的には必要な画像はビルド時に生成してホスティングしてあげるのが望ましい。</p>
+<p>ただ、 Hugo はそういうプラグイン的な挙動にとても弱い。コミュニティとしても、そういうタスクランナー的なものは別途 Webpack でも Gulp でも動かしてねという雰囲気である。</p>
+<p>が、 Hugo の watch とは別になんらかのタスクランナーが動くというのは個人的には好ましくない。なので、ユーザーがページを開いたときに図を生成するという方針を取る。</p>
+<h2 id="plantuml-server">PlantUML Server</h2>
+<p><a href="https://plantuml.com/ja/server">PlantUML Server</a> というものがある。</p>
+<p>たとえば</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;http://www.plantuml.com/plantuml/svg/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000&#34;</span> <span class="p">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>みたいな感じで画像を HTML に埋め込んであげれば、</p>
+<figure>
+    <img
+      src="https://www.plantuml.com/plantuml/svg/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000"
+      alt="PlantUML シーケンス図"width="200"
+    />
+</figure>
+<p>こんな感じの図が表示される。とても便利だ。</p>
+<p>ただ、この URL に指定する文字列 <code>SyfFKj2rKt3CoKnELR1Io4ZDoSa70000</code> の仕様がとても厄介だったりする。</p>
+<p>お察しの通り、この文字列は</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-plain" data-lang="plain">@startuml
+Bob -&gt; Alice : hello
+@enduml
+</code></pre></td></tr></table>
+</div>
+</div><p>を可逆変換したものなのだが、シンプルに base64 をかけたとかそういう類のものではない。</p>
+<p><a href="https://plantuml.com/ja/text-encoding">PlantUML テキストエンコード</a>によると、</p>
+<blockquote>
+<ol>
+<li>Encoded in UTF-8</li>
+<li>Compressed using Deflate or Brotli algorithm</li>
+<li>Reencoded in ASCII using a transformation close to base64</li>
+</ol>
+</blockquote>
+<p>とのことで、 Deflate or Brotli アルゴリズムで圧縮し、 base64 に<strong>よく似た</strong>方法でエンコードする、とある。</p>
+<p>この手順のエンコードはページが読み込まれたときに実行されれば良いので、ひとまず JS で書くことを考えるが、 Deflate や Brotli アルゴリズムはどこかの実装を持ってくれば良いとして、この base64 に<strong>よく似た</strong>方法というのが、要するに PlantUML Server の独自の変換で、できれば実装したくない。</p>
+<h2 id="gravizo">Gravizo</h2>
+<p>そこで代替案を探していたところ、 Gravizo というサービスを見つけた。</p>
+<ul>
+<li><a href="https://www.gravizo.com/">Your Graphviz, UMLGraph or PlantUML for your README</a></li>
+</ul>
+<p>こちらは</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://g.gravizo.com/svg?
+</span><span class="s">@startuml;
+</span><span class="s">Bob -&gt; Alice : hello;
+</span><span class="s">@enduml
+</span><span class="s">&#34;</span> <span class="p">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>と変なエンコードせずに URL に PlantUML をそのまま書くと、</p>
+<figure>
+    <img
+      src="https://g.gravizo.com/svg?@startuml;Bob%20-%3e%20Alice%20:%20hello;@enduml"
+      alt="Gravizo で生成した画像"width="200"
+    />
+</figure>
+<p>と表示してくれる。ロゴが重なっているのが少し気になるが……（有料でロゴは消せるようだ）</p>
+<h2 id="hugo-の-shortcode-を書く">Hugo の shortcode を書く</h2>
+<p>ということで Gravizo を利用することに決めた。</p>
+<p>あとは Hugo で使いやすいように shortcode を書く。 shortcode とは Markdown 中に独自の custom element を定義できるような Hugo の機能である。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html">{{ $caption := &#34;&#34; }}
+{{ if .IsNamedParams }}
+  {{ with .Get &#34;caption&#34; }}
+    {{ $caption = . }}
+  {{ end }}
+{{ else }}
+  {{ with .Get 0 }}
+    {{ $caption = . }}
+  {{ end }}
+{{ end }}
+
+<span class="p">&lt;</span><span class="nt">figure</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;c-plantuml&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">object</span>
+    <span class="na">type</span><span class="o">=</span><span class="s">&#34;image/svg+xml&#34;</span>
+    <span class="na">data</span><span class="o">=</span><span class="s">&#34;https://g.gravizo.com/svg?{{ .Inner }}&#34;</span>
+  <span class="p">&gt;&lt;/</span><span class="nt">object</span><span class="p">&gt;</span>
+  {{ with $caption -}}
+    <span class="p">&lt;</span><span class="nt">figcaption</span><span class="p">&gt;</span>{{ . }}<span class="p">&lt;/</span><span class="nt">figcaption</span><span class="p">&gt;</span>
+  {{- end }}
+<span class="p">&lt;/</span><span class="nt">figure</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>これを <code>shortcodes/plantuml.html</code> として保存し、 Markdown 中で</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">{{&lt; plantuml &#34;ユースケース&#34; &gt;}}
+@startuml
+left to right direction
+:このサイト: --&gt; (PlantUMLでクラス図とか書きたい)
+@enduml
+{{&lt; /plantuml &gt;}}
+</code></pre></td></tr></table>
+</div>
+</div><p>こんな感じで呼び出してやれば良い。すると、この記事の一番上のユースケース図が表示される。</p>
+<p>背景はついていたほうがいいので、適当にクラスを付けてスタイルを当てた。また、せっかく SVG なので <code>&lt;img&gt;</code> でなく <code>&lt;object&gt;</code> で描画するようにした。</p>
+
+  </section>
+
+  <footer class="p-article-footer">
+    <h2>タグ</h2>
+    <ul class="p-tag-list">
+      <li class="p-tag-list-item">
+        <a href="https://mochieer.tech/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">プログラミング</a>
+      </li>
+      <li class="p-tag-list-item">
+        <a href="https://mochieer.tech/tags/hugo/">Hugo</a>
+      </li>
+      <li class="p-tag-list-item">
+        <a href="https://mochieer.tech/tags/plantuml/">PlantUML</a>
+      </li>
+      <li class="p-tag-list-item">
+        <a href="https://mochieer.tech/tags/gravizo/">Gravizo</a>
+      </li>
+      </ul>
+  </footer>
+
+</article>
+
+      </section>
+      <footer class="p-footer">
+  <p>
+    Powered by <a href="https://gohugo.io">Hugo</a>.
+    Hosted on <a href="https://github.com">GitHub Pages</a>.
+  </p>
+  <p>
+    Made with ❤️ & <a href="https://buymeacoff.ee/mochieer">☕</a>️ by mochieer.
+  </p>
+</footer>
+
+    </div>
+    <script type="text/javascript">
+      twemoji.parse(document.body);
+    </script>
+  </body>
+</html>
