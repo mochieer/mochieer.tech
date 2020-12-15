@@ -57,7 +57,7 @@ a:active {
   color: var(--color-primary-contrast);
 }
 
-p {
+p, ul, ol {
   line-height: 3.6rem;
   margin: 3.6rem 0;
 }
@@ -77,4 +77,14 @@ img.emoji {
   width: 1em;
   margin: 0 .05em 0 .1em;
   vertical-align: -0.1em;
+}
+
+figure.c-plantuml {
+  text-align: center;
+}
+
+figure.c-plantuml object {
+  background: #fff;
+  padding: 1rem;
+  border-radius: .5rem;
 }

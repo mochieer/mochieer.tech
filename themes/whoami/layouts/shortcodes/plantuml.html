@@ -1,0 +1,20 @@
+{{ $caption := "" }}
+{{ if .IsNamedParams }}
+  {{ with .Get "caption" }}
+    {{ $caption = . }}
+  {{ end }}
+{{ else }}
+  {{ with .Get 0 }}
+    {{ $caption = . }}
+  {{ end }}
+{{ end }}
+
+<figure class="c-plantuml">
+  <object
+    type="image/svg+xml"
+    data="https://g.gravizo.com/svg?{{ .Inner }}"
+  ></object>
+  {{ with $caption -}}
+    <figcaption>{{ . }}</figcaption>
+  {{- end }}
+</figure>

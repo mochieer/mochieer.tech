@@ -36,10 +36,11 @@
   width: 100%;
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 .p-article-body figure img {
-  width: 100%;
+  max-width: 100%;
 }
 
 .p-article-body figure figcaption {

@@ -1,7 +1,23 @@
 <figure>
-  {{- $img := .Page.Resources.GetMatch (.Get "src") -}}
-  <img src="{{ with $img }}{{ .Permalink }}{{ end }}" alt="{{ $.Get "alt" }}" />
-  {{- with $.Get "caption" -}}
-  <figcaption>{{ . }}</figcaption>
+  {{- $src := "" -}}
+  {{- with .Page.Resources.GetMatch (.Get "src") -}}
+    {{- $src = .Permalink -}}
   {{- end -}}
+  {{- with .Get "url" -}}
+    {{- $src = . -}}
+  {{- end -}}
+  {{- with $src }}
+    <img
+      src="{{ $src }}"
+      {{ with $.Get "alt" -}}
+        alt="{{ . }}"
+      {{- end -}}
+      {{ with $.Get "width" -}}
+        width="{{ . }}"
+      {{- end }}
+    />
+  {{- end }}
+  {{ with .Get "caption" -}}
+    <figcaption>{{ . }}</figcaption>
+  {{- end }}
 </figure>
