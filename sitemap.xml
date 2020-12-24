@@ -4,17 +4,27 @@
   
   <url>
     <loc>https://mochieer.tech/</loc>
-    <lastmod>2020-12-20T00:00:00+09:00</lastmod>
+    <lastmod>2020-12-24T00:00:00+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mochieer.tech/posts/</loc>
-    <lastmod>2020-12-20T00:00:00+09:00</lastmod>
+    <lastmod>2020-12-24T00:00:00+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mochieer.tech/tags/</loc>
-    <lastmod>2020-12-20T00:00:00+09:00</lastmod>
+    <lastmod>2020-12-24T00:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mochieer.tech/posts/20201224-poop-calendar/</loc>
+    <lastmod>2020-12-24T00:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mochieer.tech/tags/%E6%97%A5%E8%A8%98/</loc>
+    <lastmod>2020-12-24T00:00:00+09:00</lastmod>
   </url>
   
   <url>
@@ -100,11 +110,6 @@
   <url>
     <loc>https://mochieer.tech/posts/20201018-github-actions/</loc>
     <lastmod>2020-10-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mochieer.tech/tags/%E6%97%A5%E8%A8%98/</loc>
-    <lastmod>2020-10-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
