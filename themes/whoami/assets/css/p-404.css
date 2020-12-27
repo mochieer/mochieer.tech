@@ -3,7 +3,8 @@
   text-align: center;
   margin: 5rem 0;
   padding: 10rem 0;
-  border: dashed rgba(var(--color-primary-contrast-rgb), .75) .1rem;
+  border: dashed rgba(var(--color-primary-rgb), .75) .1rem;
+  color: var(--color-primary);
 }
 
 .p-404-title {

@@ -1,5 +1,6 @@
 html {
   background-color: var(--color-primary);
+  color: var(--color-dark);
   font-family: var(--font-family);
   font-size: 62.5%;
   margin: 0;
@@ -7,69 +8,71 @@ html {
 }
 
 body {
-  background-color: var(--color-primary-shade);
-  color: var(--color-primary-contrast);
+  background-color: var(--color-dark-contrast);
   font-size: 1.8rem;
-  margin: 1rem;
-  min-height: calc(100vh - 2rem);
+  line-height: var(--vr-line-height);
+  margin: calc(var(--vr-line-height) * .5rem);
+  min-height: calc(100vh - calc(var(--vr-line-height) * 2rem));
 }
 
 .p-wrapper {
   max-width: var(--width-container);
   margin: 0 auto;
-  padding: 2rem;
+  padding: calc(var(--vr-line-height) * 1.5rem);
 }
 
 h1 {
-  font-size: 2.8rem;
+  font-size: 3rem;
   font-weight: 800;
-  margin: 4.2rem 0 2.8rem 0;
+  margin:
+    calc(var(--vr-line-height) * 4rem)
+    0
+    calc(var(--vr-line-height) * 1rem)
+    0;
 }
 
 h2 {
   font-size: 2.4rem;
   font-weight: 700;
-  margin: 3.6rem 0 2.4rem 0;
+  margin:
+    calc(var(--vr-line-height) * 3rem)
+    0
+    calc(var(--vr-line-height) * 1rem)
+    0;
 }
 
 h3 {
   font-size: 2.2rem;
   font-weight: 700;
-  margin: 3.3rem 0 2.2rem 0;
+  margin:
+    calc(var(--vr-line-height) * 2rem)
+    0
+    calc(var(--vr-line-height) * 1rem)
+    0;
 }
 
 h4 {
   font-size: 1.8rem;
   font-weight: 700;
-  margin: 2.7rem 0 1.8rem 0;
+  margin:
+    calc(var(--vr-line-height) * 2rem)
+    0
+    calc(var(--vr-line-height) * 1rem)
+    0;
 }
 
-a {
-  color: var(--color-primary-contrast);
+a,
+a:visited {
+  color: var(--color-dark);
 }
 
-a:hover {
-  color: rgba(var(--color-primary-contrast-rgb), .75);
-}
-
-a:visited,
+a:hover,
 a:active {
-  color: var(--color-primary-contrast);
+  color: rgba(var(--color-dark-rgb), .5);
 }
 
-p, ul, ol {
-  line-height: 3.6rem;
-  margin: 3.6rem 0;
-}
-
-blockquote {
-  line-height: 2.8rem;
-  margin: 3.6rem 0;
-}
-
-ul li {
-  line-height: 2.8rem;
-  padding: .2rem 0;
+p, ul, ol, blockquote {
+  margin: calc(var(--vr-line-height) * 2rem) 0;
 }
 
 img.emoji {
@@ -84,7 +87,5 @@ figure.c-plantuml {
 }
 
 figure.c-plantuml object {
-  background: #fff;
   padding: 1rem;
-  border-radius: .5rem;
 }

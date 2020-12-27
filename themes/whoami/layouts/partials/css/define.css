@@ -16,7 +16,12 @@
     /* Windows emoji */ "Segoe UI Symbol",
     /* Linux emoji */ "Noto Color Emoji";
 
+  /* vertical rhythms */
+  --vr-line-height: 1.9;
+
   --width-container: 720px;
+
+  --color-background: #ffffff;
 
   /*
    * Color Theme by Ionic Framework Color Generator

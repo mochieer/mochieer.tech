@@ -16,11 +16,6 @@ copyright = "(c) mochieer"
 
 [menu]
   [[menu.main]]
-    identifier = "top"
-    name = "mochieer.tech"
-    url = "/"
-    weight = 1
-  [[menu.main]]
     identifier = "posts"
     name = "記事一覧"
     url = "/posts/"

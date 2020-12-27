@@ -1,6 +1,5 @@
 .p-header {
-  background-color: var(--color-primary-shade);
-  padding: 2.4rem 0;
+  margin: calc(var(--vr-line-height) * 2rem) 0;
 }
 
 .p-header a {
@@ -11,9 +10,14 @@
   text-decoration: underline;
 }
 
+.p-header-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: calc(var(--vr-line-height) * 1rem) 0;
+}
+
 .p-header-links {
   display: flex;
-  line-height: 4rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -21,10 +25,5 @@
 
 .p-header-links-item {
   margin: 0;
-  padding: 0 0 0 2rem;
-}
-
-.p-header-links-item--top {
-  font-weight: 700;
-  padding: 0;
+  padding-right: 2rem;
 }
