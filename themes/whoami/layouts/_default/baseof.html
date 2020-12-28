@@ -40,13 +40,13 @@
     {{ hugo.Generator }}
   </head>
   <body>
-    <div class="p-wrapper">
-      {{ partial "components/organisms/header.html" . }}
-      <section id="p-main">
+    {{ partial "components/organisms/header.html" . }}
+    <section class="p-main">
+      <div class="c-container">
         {{ block "main" . }}{{ end }}
-      </section>
-      {{ partial "components/organisms/footer.html" . }}
-    </div>
+      </div>
+    </section>
+    {{ partial "components/organisms/footer.html" . }}
     <script type="text/javascript">
       twemoji.parse(document.body);
     </script>

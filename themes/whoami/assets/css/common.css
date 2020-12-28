@@ -8,24 +8,20 @@ html {
 }
 
 body {
-  background-color: var(--color-dark-contrast);
   font-size: 1.8rem;
   line-height: var(--vr-line-height);
-  margin: calc(var(--vr-line-height) * .5rem);
-  min-height: calc(100vh - calc(var(--vr-line-height) * 2rem));
 }
 
-.p-wrapper {
-  max-width: var(--width-container);
+.c-container {
   margin: 0 auto;
-  padding: calc(var(--vr-line-height) * 1.5rem);
+  max-width: var(--width-container);
 }
 
 h1 {
   font-size: 3rem;
   font-weight: 800;
   margin:
-    calc(var(--vr-line-height) * 4rem)
+    calc(var(--vr-line-height) * 2rem)
     0
     calc(var(--vr-line-height) * 1rem)
     0;
