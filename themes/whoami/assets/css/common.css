@@ -22,7 +22,7 @@ h1 {
   font-weight: 800;
   line-height: calc(var(--vr-line-height) * 2rem);
   margin:
-    calc(var(--vr-line-height) * 2rem)
+    calc(var(--vr-line-height) * 4rem)
     0
     calc(var(--vr-line-height) * 1rem)
     0;
@@ -33,7 +33,7 @@ h2 {
   font-weight: 700;
   line-height: calc(var(--vr-line-height) * 1.5rem);
   margin:
-    calc(var(--vr-line-height) * 2.5rem)
+    calc(var(--vr-line-height) * 1.5rem)
     0
     calc(var(--vr-line-height) * 1rem)
     0;

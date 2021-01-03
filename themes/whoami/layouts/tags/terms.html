@@ -7,7 +7,7 @@
   {{ range .Site.Taxonomies.tags.ByCount -}}
     <li class="p-tag-list-item">
       <a href="{{ $.Site.BaseURL }}/tags/{{ .Name | urlize }}">
-        {{ .Name | title }}
+        {{ .Name }}
         <span class="p-tag-list-count">（{{ .Count }}記事）</span>
       </a>
     </li>

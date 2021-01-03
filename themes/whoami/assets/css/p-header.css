@@ -6,12 +6,11 @@
 }
 
 .p-header a {
-  text-decoration: none;
   color: var(--color-primary-contrast);
 }
 
 .p-header a:hover {
-  text-decoration: underline;
+  color: rgba(var(--color-primary-contrast-rgb), .67);
 }
 
 .p-header-title {
@@ -22,6 +21,10 @@
     0;
   font-size: 1.8rem;
   font-weight: 800;
+}
+
+.p-header-title-link {
+  text-decoration: none;
 }
 
 .p-header-links {

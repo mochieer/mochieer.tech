@@ -2,7 +2,7 @@
   background: var(--color-dark-contrast);
   margin: 0 calc(var(--vr-line-height) * .5rem);
   padding:
-    calc(var(--vr-line-height) * 2rem)
+    calc(var(--vr-line-height) * 1rem)
     calc(var(--vr-line-height) * 1rem)
     calc(var(--vr-line-height) * 4rem)
     calc(var(--vr-line-height) * 1rem);

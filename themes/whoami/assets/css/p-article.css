@@ -5,12 +5,20 @@
   margin: 0;
 }
 
-.p-article {
-  margin: calc(var(--vr-line-height) * 2rem) 0;
+.p-article-list-item {
+  margin: calc(var(--vr-line-height) * 1.5rem) 0;
 }
 
 .p-article-list-item-title {
   margin-top: 0;
+}
+
+.p-article {
+  margin:
+    calc(var(--vr-line-height) * 3rem)
+    0
+    calc(var(--vr-line-height) * 2rem)
+    0;
 }
 
 .p-article-header-title {
