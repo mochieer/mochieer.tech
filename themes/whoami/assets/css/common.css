@@ -20,6 +20,7 @@ body {
 h1 {
   font-size: 3rem;
   font-weight: 800;
+  line-height: calc(var(--vr-line-height) * 2rem);
   margin:
     calc(var(--vr-line-height) * 2rem)
     0
@@ -30,8 +31,9 @@ h1 {
 h2 {
   font-size: 2.4rem;
   font-weight: 700;
+  line-height: calc(var(--vr-line-height) * 1.5rem);
   margin:
-    calc(var(--vr-line-height) * 3rem)
+    calc(var(--vr-line-height) * 2.5rem)
     0
     calc(var(--vr-line-height) * 1rem)
     0;
@@ -39,9 +41,10 @@ h2 {
 
 h3 {
   font-size: 2.2rem;
+  line-height: calc(var(--vr-line-height) * 1.5rem);
   font-weight: 700;
   margin:
-    calc(var(--vr-line-height) * 2rem)
+    calc(var(--vr-line-height) * 1.5rem)
     0
     calc(var(--vr-line-height) * 1rem)
     0;
@@ -50,6 +53,7 @@ h3 {
 h4 {
   font-size: 1.8rem;
   font-weight: 700;
+  line-height: calc(var(--vr-line-height) * 1rem);
   margin:
     calc(var(--vr-line-height) * 2rem)
     0
