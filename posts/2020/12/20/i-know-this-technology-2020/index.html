@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="alternate" type="application/rss+xml" title="mochieer.tech" href="https://mochieer.tech/index.xml">
+
+    <link rel="stylesheet" href="https://mochieer.tech/css/style.min.49f3c5ea7b215367d61889de3f8e1708626a4abeb245a0f1709e32b9038f7fe1.css">
+
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+
+    <meta property="og:site_name" content="mochieer.tech" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://mochieer.tech/images/share.png" />
+    <meta property="og:description" content="mochieer.tech">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary" />
+
+    <meta property="og:title" content="この技術が分かっているフリをする2020 &middot; mochieer.tech">
+<title>この技術が分かっているフリをする2020 &middot; mochieer.tech</title>
+
+
+    <meta name="generator" content="Hugo 0.82.0" />
+  </head>
+  <body>
+    <header class="p-header">
+  <div class="c-container">
+    <h1 class="p-header-title">
+      <a class="p-header-title-link" href="https://mochieer.tech">mochieer.tech</a>
+    </h1>
+    <nav class="p-header-nav">
+      <ul class="p-header-links">
+      <li class="p-header-links-item p-header-links-item--posts">
+        <a class="p-header-links-item-link" href="https://mochieer.tech/posts/">記事一覧</a>
+      </li>
+      <li class="p-header-links-item p-header-links-item--tags">
+        <a class="p-header-links-item-link" href="https://mochieer.tech/tags/">タグ一覧</a>
+      </li>
+</ul>
+
+    </nav>
+  </div>
+</header>
+
+    <section class="p-main">
+      <div class="c-container">
+        
+<article class="p-article">
+  <header class="p-article-header">
+    <div class="p-article-front-matter">
+      <div class="p-article-front-matter-item">
+        published_at: <time class="p-article-date">
+          <a
+            class="p-date-year" href="https://mochieer.tech/posts/2020">2020</a
+          >/<a
+          class="p-date-month" href="https://mochieer.tech/posts/2020/12">12</a
+          >/<a
+            class="p-date-date" href="https://mochieer.tech/posts/2020/12/20">20</a>
+        </time>
+      </div>
+      <div class="p-article-front-matter-item">
+        tags: <ul class="p-article-tag-list">
+          <li><a href="https://mochieer.tech/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">プログラミング</a></li>
+          </ul>
+      </div>
+    </div>
+    <h1 class="p-article-header-title">この技術が分かっているフリをする2020</h1>
+  </header>
+
+  <section class="p-article-body">
+    <h2 id="これはなに">これはなに？</h2>
+<p><a href="https://laiso.hatenablog.com/entry/kanzen-ni-i-dont-know">この技術が分からん2020 - laiso</a></p>
+<p>この記事のオマージュ。分からないことを書くというのは来年に向けてよい取り組みだと感じたので真似してみる。</p>
+<p>来年の今頃にこの記事に多少でも赤ペンを入れられるようになっていることを目標に頑張る。</p>
+<p>2020年のあいだはちょっとずつ項目足したり更新するかも。</p>
+<h2 id="分かっているフリをする技術リスト">分かっているフリをする技術リスト</h2>
+<h3 id="クリーンアーキテクチャ">クリーンアーキテクチャ</h3>
+<p>巨人から街を守るための壁みたいな図のやつ。内側は外側に依存してよいが、外側が内側に依存してはいけないというルールが全て。</p>
+<h3 id="jamstack">Jamstack</h3>
+<p>サーバーレス的なざっくりした世界観におけるひとつのベストプラクティスだと思っている。 HTTP リクエストに対して動的に処理を実行する必要がなく、静的なコンテンツを返却すれば良いというユースケースにおいて利用できる。</p>
+<ul>
+<li>静的サイトジェネレーター</li>
+<li>CDN</li>
+<li>ヘッドレス CMS</li>
+<li>ビルドツール</li>
+<li>ホスティングサービス</li>
+</ul>
+<p>あたりが充実し、実用性が高まったことで注目されていると思っている。</p>
+<h3 id="webassembly">WebAssembly</h3>
+<p>Wasm と書かれることも。ブラウザで実行可能なバイナリ。 JavaScript と比べて高速。多くの言語で開発可能だが、よく目にするのは Go や Rust あたり。</p>
+<p>高速でブラウザで実行可能とは言え、既存の JavaScript を置き換えるようなものではない。例えば DOM 操作なんかは JavaScript でやったほうが良い。</p>
+<p>機械学習や全文検索などの大規模なデータ、計算量を必要とするケースで利用するのが良さそう。</p>
+<p>一方で、クラウドコンピューティングが安価になり、高速通信が可能になってくると、時代としては「重い処理はサーバーで、必要なデータは全部送っちゃえ」な世界観も強まってきているので、どの処理がローカルで実行されるべきか、どの処理がサーバーで実行されるべきかという見極めは、今後テクノロジーにおけるひとつの勘所になってきそう。</p>
+<h3 id="tailwindcss">TailwindCSS</h3>
+<p>いわゆるユーティリティクラスみたいなものだけが定義されている CSS フレームワーク。</p>
+<p>BEM でもなんでもいいが、「この要素はこのようなスタイルが当てられているべき」と CSS を定義しても、同じ要素が別のページに表示されるときにはちょっと違う表示にしたいなー、なんてことが起こったときに <code>.hoge &gt; .fuga</code> みたいな親要素に依存する CSS が書かれがちになり管理が難しくなってくる。それぞれの要素に一意のクラス名を与えないことでそれを未然に防ぎたいというアプローチ。</p>
+<p>ある意味では <code>style</code> のベタ書きに近い。複数のスタイル定義のスニペットに意味のある名前を与えてあげた感じのものが TailwindCSS だと認識している。</p>
+<p>CSS のビルドが賢くなって、使われていないクラスはバンドル時に削除 (purge) ができるようになったので実用性が出てきた。</p>
+<h3 id="rails">Rails</h3>
+<p>最近フロントエンド界隈で親の仇のように憎まれているフレームワーク。</p>
+<p>データベースからフロントエンドまで一気通貫のデータ構造を持つので、小さい組織で素早く動くアプリケーションを作るのは得意だが、そのアプリケーションが年齢を重ねるごとに身動きが取りにくくなる。多くの場合フロントエンドに全てのしわ寄せが来るのでフロントエンドの担当者からは好ましく思われない。</p>
+<h3 id="m1-apple-silicon">M1 (Apple Silicon)</h3>
+<p>修士1年のことではない。</p>
+<p>Arm 製のプロセッサ。これを搭載した Mac はとても速い。しかしながら、現時点では Docker for Mac のプレビュー版しか動かない。</p>
+
+  </section>
+</article>
+
+      </div>
+    </section>
+    <footer class="p-footer">
+  <div class="c-container">
+    <p>
+      Powered by <a href="https://gohugo.io">Hugo</a>.
+      Hosted on <a href="https://github.com">GitHub Pages</a>.
+    </p>
+    <p>
+      Made with ❤️ & <a href="https://buymeacoff.ee/mochieer">☕</a>️ by mochieer.
+    </p>
+  </div>
+</footer>
+
+    <script type="text/javascript">
+      twemoji.parse(document.body);
+    </script>
+  </body>
+</html>

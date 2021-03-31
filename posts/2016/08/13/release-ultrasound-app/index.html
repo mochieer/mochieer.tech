@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="alternate" type="application/rss+xml" title="mochieer.tech" href="https://mochieer.tech/index.xml">
+
+    <link rel="stylesheet" href="https://mochieer.tech/css/style.min.49f3c5ea7b215367d61889de3f8e1708626a4abeb245a0f1709e32b9038f7fe1.css">
+
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+
+    <meta property="og:site_name" content="mochieer.tech" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://mochieer.tech/images/share.png" />
+    <meta property="og:description" content="mochieer.tech">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary" />
+
+    <meta property="og:title" content="超音波を使ったアプリをリリースして思ったこと &middot; mochieer.tech">
+<title>超音波を使ったアプリをリリースして思ったこと &middot; mochieer.tech</title>
+
+
+    <meta name="generator" content="Hugo 0.82.0" />
+  </head>
+  <body>
+    <header class="p-header">
+  <div class="c-container">
+    <h1 class="p-header-title">
+      <a class="p-header-title-link" href="https://mochieer.tech">mochieer.tech</a>
+    </h1>
+    <nav class="p-header-nav">
+      <ul class="p-header-links">
+      <li class="p-header-links-item p-header-links-item--posts">
+        <a class="p-header-links-item-link" href="https://mochieer.tech/posts/">記事一覧</a>
+      </li>
+      <li class="p-header-links-item p-header-links-item--tags">
+        <a class="p-header-links-item-link" href="https://mochieer.tech/tags/">タグ一覧</a>
+      </li>
+</ul>
+
+    </nav>
+  </div>
+</header>
+
+    <section class="p-main">
+      <div class="c-container">
+        
+<article class="p-article">
+  <header class="p-article-header">
+    <div class="p-article-front-matter">
+      <div class="p-article-front-matter-item">
+        published_at: <time class="p-article-date">
+          <a
+            class="p-date-year" href="https://mochieer.tech/posts/2016">2016</a
+          >/<a
+          class="p-date-month" href="https://mochieer.tech/posts/2016/08">08</a
+          >/<a
+            class="p-date-date" href="https://mochieer.tech/posts/2016/08/13">13</a>
+        </time>
+      </div>
+      <div class="p-article-front-matter-item">
+        tags: <ul class="p-article-tag-list">
+          <li><a href="https://mochieer.tech/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">プログラミング</a></li>
+          <li><a href="https://mochieer.tech/tags/%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA/">アプリ開発</a></li>
+          <li><a href="https://mochieer.tech/tags/ios/">iOS</a></li>
+          <li><a href="https://mochieer.tech/tags/%E8%B6%85%E9%9F%B3%E6%B3%A2/">超音波</a></li>
+          <li><a href="https://mochieer.tech/tags/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9/">リリース</a></li>
+          </ul>
+      </div>
+    </div>
+    <h1 class="p-article-header-title">超音波を使ったアプリをリリースして思ったこと</h1>
+  </header>
+
+  <section class="p-article-body">
+    <figure>
+    <img
+      src="https://mochieer.tech/posts/2016/08/13/release-ultrasound-app/cover.jpg"
+      alt="Hzをリリースしました"
+    />
+</figure>
+<h2 id="アプリの概要">アプリの概要</h2>
+<p>ワンタップでその場の全員と Facebook アカウントを交換できる iOS アプリ「Hz」をリリースした（一週間くらい前に）。</p>
+<p>アプリのコンセプトは、Facebook アカウント交換の煩わしさをボタンひとつで済ませられるようにするというところ。</p>
+<p>その場に何人いても、誰か一人がボタンをワンタップするだけなので、特に飲み会などの席で役に立つと思う。</p>
+<p>詳細は下記 LP と、一緒に作った pika_shi の記事がアツい。</p>
+<ul>
+<li><a href="http://hz.matataki.team/">Hz (ヘルツ) - 5 秒でその場の全員とつながる Facebook アカウント交換アプリ</a></li>
+<li><a href="http://pika-shi.hatenablog.com/entry/2016/08/07/152528">Facebook アカウント交換アプリ「Hz」をリリースした - Hello World!!</a></li>
+</ul>
+<p>自分はアカウント交換のコアロジックとデザインを担当した。</p>
+<h2 id="超音波">超音波</h2>
+<p>Hz では、端末のペアリングに超音波による通信技術を利用した。</p>
+<p>超音波通信技術なんていうとかなり細かいことをやっているのかと思われるかもしれないが、端末から非可聴域の高周波な音を出し、別の端末では常に FFT を回し続けるだけなので、シンプルといえばシンプル。</p>
+<p>ただ、思考の順序としては実は逆で、先に iOS で超音波で通信できることを調べてから、「じゃあ、これ何に使えるか」と考えて Facebook アカウント交換アプリという形になった。</p>
+<p>アイデアをまとめていく過程、実装する過程で気づいた超音波による信号通信の長所と短所をまとめておく。</p>
+<h3 id="長所">長所</h3>
+<h4 id="高速">高速</h4>
+<p>インターネット通信をしないというメリットはすごく大きい。単に音を出す、音を聞くだけなので、通信のオーバーヘッドはほぼゼロと言える。Bluetooth なども一旦ペアリングしてしまえば強力だが、ペアリングは手間だったりする。</p>
+<h4 id="デバイスに依存しない">デバイスに依存しない</h4>
+<p>発信に必要なのはスピーカーだけ。受信に必要なのはマイクと FFT が行えるくらいのメモリとプロセッサだけ。お店に設置したスピーカーから超音波を出して、キャッチしたアプリにクーポンを表示する、とかもできる。</p>
+<h4 id="ブロードキャストできる">ブロードキャストできる</h4>
+<p>1対1の通信でなく、1対Nの通信を1度に行える。スタジアムの大きいスピーカーを使えば、スポーツ観戦している人全員に一斉に信号を配信することも理論上は可能。</p>
+<h4 id="通信範囲を空間で区切れる">通信範囲を「空間」で区切れる</h4>
+<p>超音波は音に過ぎないので、隣の部屋までは飛んでいかない。「この部屋に入ってきた」ということを、電波や GPS より明確に区別できる。</p>
+<h4 id="電子機器に影響しない">電子機器に影響しない</h4>
+<p>繰り返しになるが、超音波は音に過ぎないので、他の電子機器への干渉はほぼない。特に精密機械が多い医療分野への貢献はあるかもしれない。</p>
+<h3 id="短所">短所</h3>
+<h4 id="通信できる情報が少ない">通信できる情報が少ない</h4>
+<p>PIN コードを送るくらいが限度。テキストを送るとなると、相当うまく作らないと HTTP のほうが高速になってくると思う。</p>
+<h4 id="帯域が狭い">帯域が狭い</h4>
+<p>デバイスのサンプリング周波数に依存するところだが、FFT で判別できる周波数には上限がある。なので、仮に超音波が街中いろんなところで使われるようなことになったとしたら、帯域が競合してしまうことになる。同じ理由で、同じロジックを持ったプロダクトが世の中に共存できないので、基本的に超音波通信の OSS というのも考えにくい。</p>
+<h4 id="セキュリティが脆弱すぎる">セキュリティが脆弱すぎる</h4>
+<p>単にマイクがあれば通信傍受できてしまう。傍受して信号を解析すると（信号も単純なので解析は容易）、あとはスピーカーがあるだけで操作もできてしまう。</p>
+<p>と、こんな感じ。</p>
+<p>長所も多いが短所も多い。ただ、引き出しとしてひとつ持っておくと、なにか面白いことができるかも？</p>
+
+  </section>
+</article>
+
+      </div>
+    </section>
+    <footer class="p-footer">
+  <div class="c-container">
+    <p>
+      Powered by <a href="https://gohugo.io">Hugo</a>.
+      Hosted on <a href="https://github.com">GitHub Pages</a>.
+    </p>
+    <p>
+      Made with ❤️ & <a href="https://buymeacoff.ee/mochieer">☕</a>️ by mochieer.
+    </p>
+  </div>
+</footer>
+
+    <script type="text/javascript">
+      twemoji.parse(document.body);
+    </script>
+  </body>
+</html>

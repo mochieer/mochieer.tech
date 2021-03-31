@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="alternate" type="application/rss+xml" title="mochieer.tech" href="https://mochieer.tech/index.xml">
+
+    <link rel="stylesheet" href="https://mochieer.tech/css/style.min.49f3c5ea7b215367d61889de3f8e1708626a4abeb245a0f1709e32b9038f7fe1.css">
+
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+
+    <meta property="og:site_name" content="mochieer.tech" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://mochieer.tech/images/share.png" />
+    <meta property="og:description" content="mochieer.tech">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary" />
+
+    <meta property="og:title" content="年、月、日ごとの記事一覧を作成した &middot; mochieer.tech">
+<title>年、月、日ごとの記事一覧を作成した &middot; mochieer.tech</title>
+
+
+    <meta name="generator" content="Hugo 0.82.0" />
+  </head>
+  <body>
+    <header class="p-header">
+  <div class="c-container">
+    <h1 class="p-header-title">
+      <a class="p-header-title-link" href="https://mochieer.tech">mochieer.tech</a>
+    </h1>
+    <nav class="p-header-nav">
+      <ul class="p-header-links">
+      <li class="p-header-links-item p-header-links-item--posts">
+        <a class="p-header-links-item-link" href="https://mochieer.tech/posts/">記事一覧</a>
+      </li>
+      <li class="p-header-links-item p-header-links-item--tags">
+        <a class="p-header-links-item-link" href="https://mochieer.tech/tags/">タグ一覧</a>
+      </li>
+</ul>
+
+    </nav>
+  </div>
+</header>
+
+    <section class="p-main">
+      <div class="c-container">
+        
+<article class="p-article">
+  <header class="p-article-header">
+    <div class="p-article-front-matter">
+      <div class="p-article-front-matter-item">
+        published_at: <time class="p-article-date">
+          <a
+            class="p-date-year" href="https://mochieer.tech/posts/2021">2021</a
+          >/<a
+          class="p-date-month" href="https://mochieer.tech/posts/2021/03">03</a
+          >/<a
+            class="p-date-date" href="https://mochieer.tech/posts/2021/03/31">31</a>
+        </time>
+      </div>
+      <div class="p-article-front-matter-item">
+        tags: <ul class="p-article-tag-list">
+          <li><a href="https://mochieer.tech/tags/esa/">esa</a></li>
+          <li><a href="https://mochieer.tech/tags/%E3%81%93%E3%81%AE%E3%82%B5%E3%82%A4%E3%83%88/">このサイト</a></li>
+          <li><a href="https://mochieer.tech/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/">プログラミング</a></li>
+          <li><a href="https://mochieer.tech/tags/hugo/">Hugo</a></li>
+          </ul>
+      </div>
+    </div>
+    <h1 class="p-article-header-title">年、月、日ごとの記事一覧を作成した</h1>
+  </header>
+
+  <section class="p-article-body">
+    <p><a href="https://esa.io/">情報共有サービスの esa</a> では<a href="https://docs.esa.io/posts/298">記事がストックとフローに分類されている</a>。しっかりと<a href="https://esa.io/concept">コンセプト</a>にも「チャットのように気軽に発信、Wikiのように整理・編集する。フローとストックの間をシームレスに繋げたい」と書かれているが、私はこの思想がとても良いと思っている。</p>
+<p>情報を発信する敷居を下げつつ、しっかりとストックされる記事を、という意味ではこういう個人サイト（ブログ）でも同じことが言えると感じたので、あくまでその記事がある時点での情報であることを強調する記事 URL にすることで、「まだ考え中」のような記事の発信のハードルを下げつつ、年/月/日で絞り込んだ記事の一覧をサイトの機能として提供することで記事の階層的な整理をできるようにしてみた。</p>
+<hr>
+<p>以下は技術的な話になる。</p>
+<p>このサイトは <a href="https://gohugo.io/">Hugo</a> で生成している。</p>
+<p>Hugo ではこういう記事の階層構造は <a href="https://gohugo.io/content-management/sections/">Section</a> を使って実現することになっているようなので、それに倣った。つまり、この記事でいうと <code>posts</code> も <code>2021</code> も <code>03</code> も <code>31</code> も <code>post-list-by-date</code> もすべて section ということになる。</p>
+<p>躓いた点として、ある階層をセクションとして認識させるにはその階層に <code>_index.md</code> がないといけないらしい。</p>
+<blockquote>
+<p>The important part to understand is, that to make the section tree fully navigational, at least the lower-most section needs a content file. (e.g. _index.md).</p>
+<p><cite><a href="https://gohugo.io/content-management/sections/">Content Sections | Hugo</a></cite></p>
+</blockquote>
+<p>あるセクション（例えば <code>2021</code> ）に対して、固有の一覧ページを作りたいとかではなく、ルート (/posts) と同じ挙動でいいので <code>_index.md</code> は空ファイルとなっている。ひとつの記事を作るのにディレクトリと <code>_index.md</code> をたくさん作らないといけなくなったので、雑なシェルスクリプトを書いて対応した。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#! /bin/sh
+</span><span class="cp"></span>
+<span class="nb">read</span> -p <span class="s2">&#34;year: &#34;</span> YEAR
+<span class="nb">read</span> -p <span class="s2">&#34;month: &#34;</span> MONTH
+<span class="nb">read</span> -p <span class="s2">&#34;day: &#34;</span> DAY
+<span class="nb">read</span> -p <span class="s2">&#34;title (Japanese): &#34;</span> TITLE_JA
+<span class="nb">read</span> -p <span class="s2">&#34;title (English) for URL: &#34;</span> TITLE_EN
+
+<span class="k">while</span> true<span class="p">;</span> <span class="k">do</span>
+    <span class="nb">read</span> -p <span class="s1">&#39;Okey? [Y/n] &#39;</span> yn
+    <span class="k">case</span> <span class="nv">$yn</span> in
+        <span class="o">[</span>Y<span class="o">]</span> <span class="o">)</span>  break<span class="p">;;</span>
+        <span class="o">[</span>Nn<span class="o">]</span> <span class="o">)</span> exit<span class="p">;;</span>
+        * <span class="o">)</span>    <span class="p">;;</span>
+    <span class="k">esac</span>
+<span class="k">done</span>
+
+mkdir -p content/posts/<span class="nv">$YEAR</span>/<span class="nv">$MONTH</span>/<span class="nv">$DAY</span>/<span class="nv">$TITLE_EN</span>
+
+touch content/posts/<span class="nv">$YEAR</span>/_index.md
+touch content/posts/<span class="nv">$YEAR</span>/<span class="nv">$MONTH</span>/_index.md
+touch content/posts/<span class="nv">$YEAR</span>/<span class="nv">$MONTH</span>/<span class="nv">$DAY</span>/_index.md
+<span class="nb">echo</span> <span class="s2">&#34;---
+</span><span class="s2">title: \&#34;</span><span class="si">${</span><span class="nv">TITLE_JA</span><span class="si">}</span><span class="s2">\&#34;
+</span><span class="s2">date: \&#34;</span><span class="si">${</span><span class="nv">YEAR</span><span class="si">}</span><span class="s2">-</span><span class="si">${</span><span class="nv">MONTH</span><span class="si">}</span><span class="s2">-</span><span class="si">${</span><span class="nv">DAY</span><span class="si">}</span><span class="s2">T00:00:00+09:00\&#34;
+</span><span class="s2">tags:
+</span><span class="s2">  - foo
+</span><span class="s2">  - bar
+</span><span class="s2">---
+</span><span class="s2">&#34;</span> &gt; content/posts/<span class="nv">$YEAR</span>/<span class="nv">$MONTH</span>/<span class="nv">$DAY</span>/<span class="nv">$TITLE_EN</span>/index.md
+</code></pre></td></tr></table>
+</div>
+</div><p>ちなみに、 <code>list.html</code> はこんな感じ。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>記事一覧<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+  {{- if .Sections }}
+    {{ range .Sections }}
+      {{- range (site.GetPage &#34;section&#34; .File.Dir).RegularPagesRecursive }}
+        {{ template &#34;article-headline&#34; . }}
+      {{- end }}
+    {{ end }}
+  {{- else }}
+    {{- range (site.GetPage &#34;section&#34; .File.Dir).RegularPagesRecursive }}
+        {{ template &#34;article-headline&#34; . }}
+    {{- end }}
+  {{- end }}
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+{{- define &#34;article-headline&#34; }}
+<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">time</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;{{ .Site.BaseURL }}/posts/{{ .PublishDate.Format &#34;</span><span class="na">2006</span><span class="err">&#34;</span> <span class="err">}}&#34;</span><span class="p">&gt;</span>{{ .PublishDate.Format &#34;2006&#34; }}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    /
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;{{ .Site.BaseURL }}/posts/{{ .PublishDate.Format &#34;</span><span class="na">2006</span><span class="err">&#34;</span> <span class="err">}}/{{</span> <span class="err">.</span><span class="na">PublishDate</span><span class="err">.</span><span class="na">Format</span> <span class="err">&#34;</span><span class="na">01</span><span class="err">&#34;</span> <span class="err">}}&#34;</span><span class="p">&gt;</span>{{ .PublishDate.Format &#34;01&#34; }}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    /
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;{{ .Site.BaseURL }}/posts/{{ .PublishDate.Format &#34;</span><span class="na">2006</span><span class="err">&#34;</span> <span class="err">}}/{{</span> <span class="err">.</span><span class="na">PublishDate</span><span class="err">.</span><span class="na">Format</span> <span class="err">&#34;</span><span class="na">01</span><span class="err">&#34;</span> <span class="err">}}/{{</span> <span class="err">.</span><span class="na">PublishDate</span><span class="err">.</span><span class="na">Format</span> <span class="err">&#34;</span><span class="na">02</span><span class="err">&#34;</span> <span class="err">}}&#34;</span><span class="p">&gt;</span>{{ .PublishDate.Format &#34;02&#34; }}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">time</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;{{ .Permalink }}&#34;</span><span class="p">&gt;</span>{{ .Title }}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+{{- end }}
+</code></pre></td></tr></table>
+</div>
+</div><p>（ちょっと変えています。実際のコードは <a href="https://github.com/mochieer/mochieer.tech">GitHub</a> を見てください）</p>
+
+  </section>
+</article>
+
+      </div>
+    </section>
+    <footer class="p-footer">
+  <div class="c-container">
+    <p>
+      Powered by <a href="https://gohugo.io">Hugo</a>.
+      Hosted on <a href="https://github.com">GitHub Pages</a>.
+    </p>
+    <p>
+      Made with ❤️ & <a href="https://buymeacoff.ee/mochieer">☕</a>️ by mochieer.
+    </p>
+  </div>
+</footer>
+
+    <script type="text/javascript">
+      twemoji.parse(document.body);
+    </script>
+  </body>
+</html>
