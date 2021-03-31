@@ -80,8 +80,6 @@ a:active {
 p, ul, ol, blockquote {
   margin:
     calc(var(--vr-line-height) * 1rem)
-    0
-    calc(var(--vr-line-height) * 2rem)
     0;
 }
 

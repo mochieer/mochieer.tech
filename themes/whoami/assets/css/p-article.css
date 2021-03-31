@@ -120,18 +120,15 @@
 }
 
 .p-article-body blockquote {
-  margin: 0;
-  padding: 0;
-}
-.p-article-body blockquote {
   margin-left: 3.6rem;
+  font-style: italic;
 }
 .p-article-body blockquote:before {
   color: var(--color-primary-tint);
   display: block;
   width: 3.6rem;
   height: 3.6rem;
-  margin: 0 0 -7.2rem -3.6rem;
+  margin: 1.8rem 0 -5.4rem -3.6rem;
   text-align: center;
   content: ">";
   font-weight: 700;

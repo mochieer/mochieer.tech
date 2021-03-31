@@ -26,17 +26,5 @@
   <section class="p-article-body">
     {{ .Content | emojify }}
   </section>
-
-  <footer class="p-article-footer">
-    <h2>タグ</h2>
-    <ul class="p-tag-list">
-      {{ range (index .Params.tags) -}}
-      <li class="p-tag-list-item">
-        <a href="{{ $.Site.BaseURL }}/tags/{{ . | urlize }}/">{{ . }}</a>
-      </li>
-      {{ end -}}
-    </ul>
-  </footer>
-
 </article>
 {{ end }}
