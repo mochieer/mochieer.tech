@@ -1,9 +1,8 @@
 .p-footer {
   padding:
     calc(var(--vr-line-height) * 3rem)
-    calc(var(--vr-line-height) * 1.5rem);
+    3rem;
   margin: 0;
-  font-size: 1.4rem;
   color: rgba(var(--color-primary-contrast-rgb), .8);
 }
 

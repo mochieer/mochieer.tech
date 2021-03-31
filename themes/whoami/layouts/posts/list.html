@@ -4,8 +4,16 @@
 {{ define "main" }}
 <h1>記事一覧</h1>
 <ul class="p-article-list">
-  {{ range .Data.Pages }}
-    {{ partial "components/molecules/article-headline.html" . }}
-  {{ end }}
+  {{- if .Sections }}
+    {{ range .Sections }}
+      {{- range (site.GetPage "section" .File.Dir).RegularPagesRecursive }}
+        {{ partial "components/molecules/article-headline.html" . }}
+      {{- end }}
+    {{ end }}
+  {{- else }}
+    {{- range (site.GetPage "section" .File.Dir).RegularPagesRecursive }}
+      {{ partial "components/molecules/article-headline.html" . }}
+    {{- end }}
+  {{- end }}
 </ul>
 {{ end }}

@@ -1,7 +1,7 @@
 .p-header {
   padding:
     calc(var(--vr-line-height) * 2rem)
-    calc(var(--vr-line-height) * 1.5rem);
+    3rem;
   color: var(--color-primary-contrast);
 }
 

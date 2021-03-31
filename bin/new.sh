@@ -15,16 +15,16 @@ while true; do
     esac
 done
 
-DATE=$YEAR-$MONTH-$DAY
-DIR=content/posts/$YEAR$MONTH$DAY-$TITLE_EN
+mkdir -p content/posts/$YEAR/$MONTH/$DAY/$TITLE_EN
 
-mkdir $DIR
-
+touch content/posts/$YEAR/_index.md
+touch content/posts/$YEAR/$MONTH/_index.md
+touch content/posts/$YEAR/$MONTH/$DAY/_index.md
 echo "---
 title: \"${TITLE_JA}\"
-date: \"${DATE}T00:00:00+09:00\"
+date: \"${YEAR}-${MONTH}-${DAY}T00:00:00+09:00\"
 tags:
   - foo
   - bar
 ---
-" > $DIR/index.md
+" > content/posts/$YEAR/$MONTH/$DAY/$TITLE_EN/index.md
