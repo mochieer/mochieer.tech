@@ -10,7 +10,7 @@
 }
 
 .p-header a:hover {
-  color: rgba(var(--color-primary-contrast-rgb), .67);
+  color: rgba(var(--color-primary-contrast-rgb), .75);
 }
 
 .p-header-title {

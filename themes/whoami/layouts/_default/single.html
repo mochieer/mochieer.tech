@@ -1,26 +1,19 @@
 {{ define "main" }}
 <article class="p-article">
   <header class="p-article-header">
-    <div class="p-article-front-matter">
-      <div class="p-article-front-matter-item">
-        published_at: <time class="p-article-date">
-          <a
-            class="p-date-year" href="{{ .Site.BaseURL }}/posts/{{ .PublishDate.Format "2006" }}">{{ .PublishDate.Format "2006" }}</a
-          >/<a
-          class="p-date-month" href="{{ .Site.BaseURL }}/posts/{{ .PublishDate.Format "2006" }}/{{ .PublishDate.Format "01" }}">{{ .PublishDate.Format "01" }}</a
-          >/<a
-            class="p-date-date" href="{{ .Site.BaseURL }}/posts/{{ .PublishDate.Format "2006" }}/{{ .PublishDate.Format "01" }}/{{ .PublishDate.Format "02" }}">{{ .PublishDate.Format "02" }}</a>
-        </time>
-      </div>
-      <div class="p-article-front-matter-item">
-        tags: <ul class="p-article-tag-list">
-          {{ range (index .Params.tags) -}}
-          <li><a href="{{ $.Site.BaseURL }}/tags/{{ . | urlize }}/">{{ . }}</a></li>
-          {{ end -}}
-        </ul>
-      </div>
-    </div>
+    <time class="p-date">
+      <a class="p-date-year" href="{{ .Site.BaseURL }}/posts/{{ .PublishDate.Format "2006" }}">{{ .PublishDate.Format "2006" }}</a>
+      /
+      <a class="p-date-month" href="{{ .Site.BaseURL }}/posts/{{ .PublishDate.Format "2006" }}/{{ .PublishDate.Format "01" }}">{{ .PublishDate.Format "01" }}</a>
+      /
+      <a class="p-date-date" href="{{ .Site.BaseURL }}/posts/{{ .PublishDate.Format "2006" }}/{{ .PublishDate.Format "01" }}/{{ .PublishDate.Format "02" }}">{{ .PublishDate.Format "02" }}</a>
+    </time>
     <h1 class="p-article-header-title">{{ .Title }}</h1>
+    <ul class="p-article-tag-list">
+      {{ range (index .Params.tags) -}}
+      <li>#<a href="{{ $.Site.BaseURL }}/tags/{{ . | urlize }}/">{{ . }}</a></li>
+      {{ end -}}
+    </ul>
   </header>
 
   <section class="p-article-body">

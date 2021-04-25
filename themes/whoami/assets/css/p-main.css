@@ -1,5 +1,5 @@
 .p-main {
-  background: var(--color-dark-contrast);
+  background: var(--color-background);
   max-width: var(--width-container);
   margin: 0 auto;
   padding:

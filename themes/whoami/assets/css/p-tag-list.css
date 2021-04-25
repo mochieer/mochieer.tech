@@ -6,11 +6,13 @@
 }
 
 .p-tag-list-item {
+  color: var(--color-light);
   display: inline-block;
-  margin-right: 1rem;
+  margin-right: .5em;
+  font-weight: 700;
 }
 
-.p-tag-list-count {
-  font-size: 1.4rem;
-  margin: 0 0 0 -.6rem;
+.p-tag-list-item a {
+  font-weight: 400;
+  color: var(--color-dark);
 }
