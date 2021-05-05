@@ -1,0 +1,86 @@
+.p-article {
+  &__body {
+    a {
+      color: $color-secondary;
+      text-decoration: none;
+    }
+
+    a:visited {
+      color: $color-secondary-shade;
+    }
+
+    a:hover, a:active {
+      color: $color-secondary-tint;
+      text-decoration: underline;
+    }
+
+    figure {
+      width: 100%;
+      margin: 0 0 $vr-unit 0;
+      padding: 0;
+      text-align: center;
+
+      img {
+        max-width: 100%;
+      }
+
+      figcaption {
+        font-size: $font-s;
+      }
+    }
+
+    blockquote {
+      color: $color-dark-tint;
+      font-style: italic;
+    }
+
+    hr {
+      display: block;
+      border: none;
+      margin: 0 0 $vr-unit 0;
+      width: 100%;
+      height: $vr-unit;
+
+      &::before {
+        color: $color-medium;
+        display: block;
+        text-align: center;
+        content: "*";
+        line-height: $vr-unit;
+      }
+    }
+
+    .highlight {
+      overflow: scroll;
+      line-height: 1.25em;
+      font-size: $font-s;
+      margin-bottom: $vr-unit;
+
+      pre {
+        margin: .5em 0;
+      }
+
+      code {
+        border: none;
+        background: none;
+        padding: 0;
+      }
+    }
+
+    code {
+      display: inline-block;
+      font-size: $font-s;
+      border: 1px solid $color-light-shade;
+      background: $color-light;
+      padding: 0 3px;
+    }
+
+    iframe {
+      margin: $vr-unit 0;
+    }
+
+    .twitter-tweet {
+      margin: 0 auto;
+    }
+  }
+}

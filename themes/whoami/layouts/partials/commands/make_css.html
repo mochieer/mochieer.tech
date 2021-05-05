@@ -1,8 +1,16 @@
-{{ $normalize := resources.Get "css/normalize.css" }}
-{{ $define := ( partial "css/define.css" . ) | safeCSS | resources.FromString "css/define.css" }}
-{{ $syntax := ( partial "css/syntax.css" . ) | safeCSS | resources.FromString "css/syntax.css" }}
-{{ $common := resources.Get "css/common.css" }}
-{{ $partials := resources.Match "css/p-*.css" | resources.Concat "css/partials.css" }}
-{{ $bundle := slice $normalize $define $common $partials $syntax | resources.Concat "css/style.css" | minify | fingerprint }}
+{{ $vendor := resources.Match "sass/foundations/vendors/*.scss" | resources.Concat "sass/foundation/vendor.scss" }}
+{{ $variable := resources.Match "sass/foundations/variables/*.scss" | resources.Concat "sass/foundation/variable.scss" }}
+{{ $base := resources.Match "sass/foundations/base/*.scss" | resources.Concat "sass/foundation/base.scss" }}
+{{ $foundation := slice $vendor $variable $base | resources.Concat "sass/foundation.scss"}}
+
+
+{{ $layout := resources.Match "sass/layouts/*.scss" | resources.Concat "sass/layout.scss" }}
+
+{{ $utility := resources.Match "sass/objects/utilities/*.scss" | resources.Concat "sass/object/utility.scss" }}
+{{ $component := resources.Match "sass/objects/components/*.scss" | resources.Concat "sass/object/component.scss" }}
+{{ $project := resources.Match "sass/objects/projects/*.scss" | resources.Concat "sass/object/project.scss" }}
+{{ $object := slice $utility $component $project | resources.Concat "sass/object.scss" }}
+
+{{ $bundle := slice $foundation $layout $object | resources.Concat "css/style.scss" | resources.ToCSS | fingerprint }}
 
 {{ return $bundle }}

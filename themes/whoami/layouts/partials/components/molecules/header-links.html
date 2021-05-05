@@ -1,8 +1,8 @@
-<ul class="p-header-links">
+<ul>
   {{- with .Site.Menus.main -}}
     {{- range sort . }}
-      <li class="p-header-links-item p-header-links-item--{{ .Identifier }}">
-        <a class="p-header-links-item-link" href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+      <li class="p-header__nav-item p-header__nav-item--{{ .Identifier }}">
+        <a href="{{ .URL | absLangURL }}">{{ .Name }}</a>
       </li>
     {{- end -}}
   {{- end }}

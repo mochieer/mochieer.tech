@@ -1,12 +1,12 @@
-<li class="p-article-list-item">
-  <time class="p-date">
-    <a class="p-date-year" href="{{ .Site.BaseURL }}/posts/{{ .PublishDate.Format "2006" }}">{{ .PublishDate.Format "2006" }}</a>
+<li class="p-article-list__item">
+  <time class="c-date">
+    <a class="c-date--year" href="{{ .Site.BaseURL }}/posts/{{ .PublishDate.Format "2006" }}">{{ .PublishDate.Format "2006" }}</a>
     /
-    <a class="p-date-month" href="{{ .Site.BaseURL }}/posts/{{ .PublishDate.Format "2006" }}/{{ .PublishDate.Format "01" }}">{{ .PublishDate.Format "01" }}</a>
+    <a class="c-date--month" href="{{ .Site.BaseURL }}/posts/{{ .PublishDate.Format "2006" }}/{{ .PublishDate.Format "01" }}">{{ .PublishDate.Format "01" }}</a>
     /
-    <a class="p-date-date" href="{{ .Site.BaseURL }}/posts/{{ .PublishDate.Format "2006" }}/{{ .PublishDate.Format "01" }}/{{ .PublishDate.Format "02" }}">{{ .PublishDate.Format "02" }}</a>
+    <a class="c-date--date" href="{{ .Site.BaseURL }}/posts/{{ .PublishDate.Format "2006" }}/{{ .PublishDate.Format "01" }}/{{ .PublishDate.Format "02" }}">{{ .PublishDate.Format "02" }}</a>
   </time>
-  <h2 class="p-article-list-item-title">
+  <h2 class="p-article-list__title">
     <a href="{{ .Permalink }}">{{ .Title }}</a>
   </h2>
 </li>

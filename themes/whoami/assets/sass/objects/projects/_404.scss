@@ -1,0 +1,21 @@
+.p-404 {
+  text-align: center;
+  margin: 0;
+  padding: 7rem 0;
+  border: dashed 1px $color-primary;
+
+  &__title {
+    color: $color-primary;
+    font-size: $font-xl * 2.5;
+    font-weight: $font-block;
+    line-height: 100%;
+    margin: 0;
+  }
+
+  &__subtitle {
+    color: $color-primary;
+    font-size: $font-l;
+    font-weight: $font-block;
+    margin: 0;
+  }
+}

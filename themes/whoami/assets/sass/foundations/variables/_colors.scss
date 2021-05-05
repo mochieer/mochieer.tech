@@ -1,0 +1,70 @@
+/*
+ * Color Theme by Ionic Framework Color Generator
+ * https://ionicframework.jp/docs/theming/color-generator/?primary=#347393&secondary=#30A189&tertiary=#E0B938&success=#2EB873&warning=#F0D322&danger=#F03922&dark=#484C4F&medium=#8E959C&light=#C8D3DB
+ */
+$color-primary: #347393;
+$color-primary-rgb: 52,115,147;
+$color-primary-contrast: #ffffff;
+$color-primary-contrast-rgb: 255,255,255;
+$color-primary-shade: #2e6581;
+$color-primary-tint: #48819e;
+
+$color-secondary: #30A189;
+$color-secondary-rgb: 48,161,137;
+$color-secondary-contrast: #ffffff;
+$color-secondary-contrast-rgb: 255,255,255;
+$color-secondary-shade: #2a8e79;
+$color-secondary-tint: #45aa95;
+
+$color-tertiary: #E0B938;
+$color-tertiary-rgb: 224,185,56;
+$color-tertiary-contrast: #000000;
+$color-tertiary-contrast-rgb: 0,0,0;
+$color-tertiary-shade: #c5a331;
+$color-tertiary-tint: #e3c04c;
+
+$color-success: #2EB873;
+$color-success-rgb: 46,184,115;
+$color-success-contrast: #000000;
+$color-success-contrast-rgb: 0,0,0;
+$color-success-shade: #28a265;
+$color-success-tint: #43bf81;
+
+$color-warning: #F0D322;
+$color-warning-rgb: 240,211,34;
+$color-warning-contrast: #000000;
+$color-warning-contrast-rgb: 0,0,0;
+$color-warning-shade: #d3ba1e;
+$color-warning-tint: #f2d738;
+
+$color-danger: #F03922;
+$color-danger-rgb: 240,57,34;
+$color-danger-contrast: #ffffff;
+$color-danger-contrast-rgb: 255,255,255;
+$color-danger-shade: #d3321e;
+$color-danger-tint: #f24d38;
+
+$color-dark: #484C4F;
+$color-dark-rgb: 72,76,79;
+$color-dark-contrast: #ffffff;
+$color-dark-contrast-rgb: 255,255,255;
+$color-dark-shade: #3f4346;
+$color-dark-tint: #5a5e61;
+
+$color-medium: #8E959C;
+$color-medium-rgb: 142,149,156;
+$color-medium-contrast: #000000;
+$color-medium-contrast-rgb: 0,0,0;
+$color-medium-shade: #7d8389;
+$color-medium-tint: #99a0a6;
+
+$color-light: #D3DFE8;
+$color-light-rgb: 211,223,232;
+$color-light-contrast: #000000;
+$color-light-contrast-rgb: 0,0,0;
+$color-light-shade: #BCC7CF;
+$color-light-tint: #DFECF5;
+
+$color-text: $color-dark;
+$color-heading: $color-dark-shade;
+$color-background: #ffffff;

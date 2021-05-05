@@ -3,11 +3,9 @@
 {{- end -}}
 {{ define "main" }}
 <h1>タグ一覧</h1>
-<ul class="p-tag-list">
+<ul class="c-tag-list">
   {{ range .Site.Taxonomies.tags.ByCount -}}
-    <li class="p-tag-list-item">
-      #<a href="{{ $.Site.BaseURL }}/tags/{{ .Name | urlize }}">{{ .Name | title }}</a>
-    </li>
+    <li>{{ partial "components/atoms/tag.html" (dict "context" $ "tag" (.Name | title)) }}</li>
   {{- end }}
 </ul>
 {{ end }}

@@ -40,15 +40,23 @@
     {{ hugo.Generator }}
   </head>
   <body>
-    {{ partial "components/organisms/header.html" . }}
-    <section class="p-main">
-      <div class="c-container">
+    <header class="l-header">
+      <div class="l-container">
+        {{ partial "components/organisms/header.html" . }}
+      </div>
+    </header>
+    <section class="l-main">
+      <div class="l-container">
         {{ block "main" . }}{{ end }}
       </div>
     </section>
-    {{ partial "components/organisms/footer.html" . }}
-    <script type="text/javascript">
-      twemoji.parse(document.body);
-    </script>
+    <footer class="l-footer">
+      <div class="l-container">
+
+        {{ partial "components/organisms/footer.html" . }}
+      </div>
+    </footer>
+
+    <script type="text/javascript">twemoji.parse(document.body);</script>
   </body>
 </html>

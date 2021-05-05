@@ -1,29 +1,13 @@
 {{ define "main" }}
-<!--
-<h1><code>`whoami`</code></h1>
-<ul class="p-social-list">
-  <li class="p-social-list-item">
-    <a href="https://twitter.com/mochieer">
-      {{ partial "components/atoms/icons/twitter.svg" }}
-    </a>
-  </li>
-  <li class="p-social-list-item">
-    <a href="https://github.com/mochieer">
-      {{ partial "components/atoms/icons/github.svg" }}
-    </a>
-  </li>
-</ul>
--->
-
 <h1>新着記事</h1>
 <ul class="p-article-list">
   {{ range first 5 .Site.RegularPages.ByDate.Reverse }}
-    {{ partial "components/molecules/article-headline.html" . }}
+      {{ partial "components/molecules/article-headline.html" . }}
   {{ end }}
 </ul>
 
 <h1>このサイトについて</h1>
-<p>このサイトは <a href="https://twitter.com/mochieer">mochieer</a> による個人的なウェブサイトです。</a></p>
+<p>このサイトは <a href="https://twitter.com/mochieer">mochieer</a> による個人的なウェブサイトです。</p>
 <p>当サイトの記事はすべて個人の意見であり、所属組織には関係ありません。当サイトでは、Amazon.co.jp のアフィリエイトリンクを利用しています。当サイトでは、アクセス解析を含め、いかなる Cookie も利用していません。</p>
 <p>当サイトの RSS フィードを取得する場合は<a href="{{ .Site.BaseURL }}/index.xml">こちら</a>を利用してください。当サイトのソースコードは <a href="https://github.com/mochieer/mochieer.tech">GitHub</a> で公開されています。</p>
 

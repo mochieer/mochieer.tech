@@ -1,0 +1,77 @@
+html {
+  margin: 0;
+  padding: 0;
+  background-color: $color-background;
+  color: $color-text;
+  font-family: $font-base;
+  font-size: $font-m;
+}
+
+body {
+  line-height: $vr-line-height;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: $vr-unit * 1.5 0 $vr-unit * .5 0;
+  line-height: $vr-unit;
+  color: $color-heading;
+  font-weight: $font-bold;
+}
+
+h1 {
+  margin-top: 0;
+  line-height: $vr-unit * 1.5;
+  font-size: $font-xl;
+  font-weight: $font-block;
+}
+
+h2 {
+  font-size: $font-l;
+}
+
+h3 {
+  font-size: $font-m;
+  margin: 0 0 $vr-unit * .5 0;
+}
+
+h4 {
+  font-size: $font-m;
+  font-weight: $font-bold;
+  margin: 0;
+}
+
+h5 {
+  font-size: $font-s;
+  font-weight: $font-bold;
+  margin: $vr-unit * .5 0;
+}
+
+h6 {
+  font-size: $font-xs;
+  font-weight: $font-bold;
+  margin: $vr-unit * .5 0;
+}
+
+a {
+  color: $color-medium;
+}
+
+a:visited {
+  color: $color-medium-shade;
+}
+
+a:active,
+a:hover {
+  color: $color-medium-tint;
+}
+
+p, ul, ol, blockquote {
+  margin: 0 0 $vr-unit 0;
+}
+
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+  margin: 0;
+}

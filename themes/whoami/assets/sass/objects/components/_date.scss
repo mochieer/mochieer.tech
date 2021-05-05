@@ -1,0 +1,23 @@
+.c-date {
+  color: $color-medium;
+
+  a, a:visited {
+    color: $color-dark;
+    text-decoration: none;
+  }
+  a:active, a:hover {
+    color: $color-dark-tint;
+    text-decoration: underline;
+  }
+
+  &--year {
+    margin-right: -.1em;
+  }
+  &--month {
+    margin-left: -.1em;
+    margin-right: -.1em;
+  }
+  &--date {
+    margin-left: -.1em;
+  }
+}

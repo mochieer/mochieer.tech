@@ -1,0 +1,11 @@
+.c-tag-list {
+  list-style: none;
+  padding: 0;
+  font-size: $font-s;
+  line-height: $vr-unit;
+
+  li {
+    display: inline-block;
+    padding: 0 5px $vr-unit * .25 0;
+  }
+}
