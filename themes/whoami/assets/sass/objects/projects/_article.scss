@@ -1,5 +1,6 @@
 .p-article {
   &__body {
+    margin: $vr-unit * 1.5 0;
     h2::before,
     h3::before,
     h4::before,
@@ -81,7 +82,8 @@
       font-size: $font-s;
       border: 1px solid $color-background-tint;
       background: $color-background-shade;
-      padding: 0 4px;
+      padding: 0 .5em;
+      vertical-align: .15em;
     }
 
     iframe {
