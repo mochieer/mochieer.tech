@@ -1,20 +1,7 @@
 .c-tag {
   a {
-    padding: 0 .5rem;
-    display: inline-block;
-    color: $color-secondary-shade;
-    border: 1px solid $color-secondary;
-    text-decoration: none;
-    border-radius: 5px;
-
     &::before {
       content: "#";
-      padding-right: 1px;
-    }
-
-    &:hover, &active {
-      background: $color-secondary;
-      color: $color-secondary-contrast;
     }
   }
 }

@@ -1,23 +1,13 @@
 .p-article-list {
   list-style: none;
   padding: 0;
-  margin-bottom: 3rem;
 
   &__item {
-    margin: 1rem 0 2rem 0;
+    margin: $vr-unit 0;
     padding: 0;
   }
 
   &__title {
     margin: 0;
-
-    a, a:visited {
-      color: $color-dark;
-      text-decoration: none;
-    }
-    a:hover, a:active {
-      color: $color-dark-tint;
-      text-decoration: underline;
-    }
   }
 }

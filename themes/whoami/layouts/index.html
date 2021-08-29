@@ -1,14 +1,17 @@
 {{ define "main" }}
-<h1>新着記事</h1>
+<div class="p-greeting">
+  <h1>👋 <span class="p-greeting__rainbow">こんにちは</span></h1>
+  <p>このサイトは <a href="https://twitter.com/mochieer">mochieer</a> {{ partial "components/atoms/icon" "twitter.svg" }} による個人的なウェブサイトです。</p>
+  <p>このサイトの記事はすべて個人の意見であり、所属組織には関係ありません。当サイトでは、Amazon.co.jp のアフィリエイトリンクを利用しています。当サイトでは、アクセス解析を含め、いかなる Cookie も利用していません。</p>
+  <ul class="p-greeting__site-parts">
+    <li>{{ partial "components/atoms/icon" "rss.svg" }} <a href="{{ .Site.BaseURL }}/index.xml">RSS フィードが利用できます</a></li>
+    <li>{{ partial "components/atoms/icon" "github.svg" }} <a href="https://github.com/mochieer/mochieer.tech">ソースコードは GitHub で公開されています</a></li>
+  </ul>
+</div>
 <ul class="p-article-list">
-  {{ range first 5 .Site.RegularPages.ByDate.Reverse }}
+  {{ range .Site.RegularPages.ByDate.Reverse }}
       {{ partial "components/molecules/article-headline.html" . }}
   {{ end }}
 </ul>
-
-<h1>このサイトについて</h1>
-<p>このサイトは <a href="https://twitter.com/mochieer">mochieer</a> による個人的なウェブサイトです。</p>
-<p>当サイトの記事はすべて個人の意見であり、所属組織には関係ありません。当サイトでは、Amazon.co.jp のアフィリエイトリンクを利用しています。当サイトでは、アクセス解析を含め、いかなる Cookie も利用していません。</p>
-<p>当サイトの RSS フィードを取得する場合は<a href="{{ .Site.BaseURL }}/index.xml">こちら</a>を利用してください。当サイトのソースコードは <a href="https://github.com/mochieer/mochieer.tech">GitHub</a> で公開されています。</p>
 
 {{ end }}

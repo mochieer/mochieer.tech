@@ -2,10 +2,10 @@
   text-align: center;
   margin: 0;
   padding: 7rem 0;
-  border: dashed 1px $color-primary;
+  border: dashed 1px $color-text-shade;
 
   &__title {
-    color: $color-primary;
+    color: $color-text-shade;
     font-size: $font-xl * 2.5;
     font-weight: $font-block;
     line-height: 100%;
@@ -13,7 +13,7 @@
   }
 
   &__subtitle {
-    color: $color-primary;
+    color: $color-text-shade;
     font-size: $font-l;
     font-weight: $font-block;
     margin: 0;

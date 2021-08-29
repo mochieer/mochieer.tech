@@ -1,19 +1,28 @@
 .p-article {
   &__body {
-    a {
-      color: $color-secondary;
-      text-decoration: none;
+    h2::before,
+    h3::before,
+    h4::before,
+    h5::before,
+    h6::before {
+      opacity: .33;
+      display: block;
     }
-
-    a:visited {
-      color: $color-secondary-shade;
+    h2::before {
+      content: "##";
     }
-
-    a:hover, a:active {
-      color: $color-secondary-tint;
-      text-decoration: underline;
+    h3::before {
+      content: "###";
     }
-
+    h4::before {
+      content: "####";
+    }
+    h5::before {
+      content: "#####";
+    }
+    h6::before {
+      content: "######";
+    }
     figure {
       width: 100%;
       margin: 0 0 $vr-unit 0;
@@ -30,7 +39,7 @@
     }
 
     blockquote {
-      color: $color-dark-tint;
+      color: $color-text-shade;
       font-style: italic;
     }
 
@@ -42,7 +51,7 @@
       height: $vr-unit;
 
       &::before {
-        color: $color-medium;
+        color: $color-text-shade;
         display: block;
         text-align: center;
         content: "*";
@@ -70,9 +79,9 @@
     code {
       display: inline-block;
       font-size: $font-s;
-      border: 1px solid $color-light-shade;
-      background: $color-light;
-      padding: 0 3px;
+      border: 1px solid $color-background-tint;
+      background: $color-background-shade;
+      padding: 0 4px;
     }
 
     iframe {

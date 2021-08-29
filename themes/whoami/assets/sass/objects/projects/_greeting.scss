@@ -1,0 +1,31 @@
+.p-greeting {
+  margin-bottom: $vr-unit * 2;
+
+  &__rainbow {
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(
+      80deg,
+      $color-red 0%,
+      $color-yellow 16.67%,
+      $color-green 33.33%,
+      $color-cyan 50%,
+      $color-blue 66.67%,
+      $color-magenta 83.33%,
+      $color-red 100%
+    );
+    background-size: 1000%;
+    animation: 4s linear 0s infinite alternate greeting__rainbow;
+  }
+
+  &__site-parts {
+    padding-left: 0;
+    list-style: none;
+  }
+}
+
+@keyframes greeting__rainbow {
+  from { background-position: 0% 0%; }
+  to { background-position: 100% 0%; }
+}

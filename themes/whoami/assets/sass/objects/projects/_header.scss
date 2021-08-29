@@ -6,14 +6,6 @@
     line-height: $vr-unit * 1.5;
     font-weight: $font-block;
 
-    a, a:visited {
-      color: $color-primary;
-      text-decoration: none;
-    }
-    a:hover, a:active {
-      color: $color-primary-tint;
-      text-decoration: underline;
-    }
   }
 
   &__nav {
@@ -26,15 +18,6 @@
       li {
         margin: 0;
         padding-right: 1.5rem;
-
-        a, a:visited {
-          color: $color-dark;
-          text-decoration: none;
-        }
-        a:hover, a:active {
-          color: $color-dark-tint;
-          text-decoration: underline;
-        }
       }
     }
   }
