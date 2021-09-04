@@ -7,14 +7,14 @@
     <language>ja</language>
     <copyright>(c) mochieer</copyright>
     <lastBuildDate>Tue, 15 Dec 2020 00:00:00 +0900</lastBuildDate>
-    <managingEditor>mochieer@gmail.com (mochieer)</managingEditor>
+    
     <atom:link href="https://mochieer.tech/posts/2020/12/15/index.xml" rel="self" type="application/rss+xml" />
     
       <item>
         <title>(The) Clean Architecture と clean architecture を区別する</title>
         <link>https://mochieer.tech/posts/2021/09/04/distinguish-between-the-clean-architecture-and-clean-architecture/</link>
         <pubDate>Sat, 04 Sep 2021 00:00:00 +0900</pubDate>
-        <author>mochieer@gmail.com (mochieer)</author>
+        
         <guid>https://mochieer.tech/posts/2021/09/04/distinguish-between-the-clean-architecture-and-clean-architecture/</guid>
         <description>クリーンアーキテクチャについては、リーダブルコードとかと同じで、みんな知っておいてね的な大原則であって、別にこの方法でソフトウェアを開発すれ</description>
         <content:encoded>&lt;p&gt;クリーンアーキテクチャについては、リーダブルコードとかと同じで、みんな知っておいてね的な大原則であって、別にこの方法でソフトウェアを開発すればもろもろいいことがあるよという方法論（ソフトウェアアーキテクチャ）ではない。&lt;/p&gt;
@@ -48,7 +48,7 @@
         <title>年、月、日ごとの記事一覧を作成した</title>
         <link>https://mochieer.tech/posts/2021/03/31/post-list-by-date/</link>
         <pubDate>Wed, 31 Mar 2021 00:00:00 +0900</pubDate>
-        <author>mochieer@gmail.com (mochieer)</author>
+        
         <guid>https://mochieer.tech/posts/2021/03/31/post-list-by-date/</guid>
         <description>情報共有サービスの esa では記事がストックとフローに分類されている。しっかりとコンセプトにも「チャットのように気軽に発信、Wikiのように整理・</description>
         <content:encoded>&lt;p&gt;&lt;a href=&#34;https://esa.io/&#34;&gt;情報共有サービスの esa&lt;/a&gt; では&lt;a href=&#34;https://docs.esa.io/posts/298&#34;&gt;記事がストックとフローに分類されている&lt;/a&gt;。しっかりと&lt;a href=&#34;https://esa.io/concept&#34;&gt;コンセプト&lt;/a&gt;にも「チャットのように気軽に発信、Wikiのように整理・編集する。フローとストックの間をシームレスに繋げたい」と書かれているが、私はこの思想がとても良いと思っている。&lt;/p&gt;
@@ -199,7 +199,7 @@ touch content/posts/&lt;span class=&#34;nv&#34;&gt;$YEAR&lt;/span&gt;/&lt;span c
         <title>スクマ</title>
         <link>https://mochieer.tech/posts/2021/03/31/bookmarks-using-scrapbox/</link>
         <pubDate>Wed, 31 Mar 2021 00:00:00 +0900</pubDate>
-        <author>mochieer@gmail.com (mochieer)</author>
+        
         <guid>https://mochieer.tech/posts/2021/03/31/bookmarks-using-scrapbox/</guid>
         <description>スクマはよい Scrapbox を使ってブックマークすることをスクマというそうで、半年ほど前からやってみている。スクマを簡単に取るための Chrome 拡張もあったりして、</description>
         <content:encoded>&lt;h2 id=&#34;スクマはよい&#34;&gt;スクマはよい&lt;/h2&gt;
@@ -218,7 +218,7 @@ touch content/posts/&lt;span class=&#34;nv&#34;&gt;$YEAR&lt;/span&gt;/&lt;span c
         <title>MOFT Z を買った</title>
         <link>https://mochieer.tech/posts/2021/02/14/moft-z/</link>
         <pubDate>Sun, 14 Feb 2021 00:00:00 +0900</pubDate>
-        <author>mochieer@gmail.com (mochieer)</author>
+        
         <guid>https://mochieer.tech/posts/2021/02/14/moft-z/</guid>
         <description>作業部屋が寒すぎて、私はまあ対策のしようがあるが、ずっと足元にくっついて来るうちの子（犬）がかわいそうなので、最近は一番日当たりがよく、イン</description>
         <content:encoded>&lt;p&gt;作業部屋が寒すぎて、私はまあ対策のしようがあるが、ずっと足元にくっついて来るうちの子（犬）がかわいそうなので、最近は一番日当たりがよく、インコのために24時間床暖房を付けているリビングで作業することが多い。&lt;/p&gt;
@@ -240,7 +240,7 @@ touch content/posts/&lt;span class=&#34;nv&#34;&gt;$YEAR&lt;/span&gt;/&lt;span c
         <title>うんちカレンダー</title>
         <link>https://mochieer.tech/posts/2020/12/24/poop-calendar/</link>
         <pubDate>Thu, 24 Dec 2020 00:00:00 +0900</pubDate>
-        <author>mochieer@gmail.com (mochieer)</author>
+        
         <guid>https://mochieer.tech/posts/2020/12/24/poop-calendar/</guid>
         <description>ちなみに25日は昨年亡くなったうさぎの誕生日 メリークリスマス 🎄 年末なので今年やって良かったことでも書こうかなと思ったら真っ先に思いついたのが</description>
         <content:encoded>&lt;figure&gt;
@@ -272,7 +272,7 @@ touch content/posts/&lt;span class=&#34;nv&#34;&gt;$YEAR&lt;/span&gt;/&lt;span c
         <title>この技術が分かっているフリをする2020</title>
         <link>https://mochieer.tech/posts/2020/12/20/i-know-this-technology-2020/</link>
         <pubDate>Sun, 20 Dec 2020 00:00:00 +0900</pubDate>
-        <author>mochieer@gmail.com (mochieer)</author>
+        
         <guid>https://mochieer.tech/posts/2020/12/20/i-know-this-technology-2020/</guid>
         <description>これはなに？ この技術が分からん2020 - laiso この記事のオマージュ。分からないことを書くというのは来年に向けてよい取り組みだと感じたので真似して</description>
         <content:encoded>&lt;h2 id=&#34;これはなに&#34;&gt;これはなに？&lt;/h2&gt;
@@ -315,7 +315,7 @@ touch content/posts/&lt;span class=&#34;nv&#34;&gt;$YEAR&lt;/span&gt;/&lt;span c
         <title>Hugo で PlantUML を書きたい</title>
         <link>https://mochieer.tech/posts/2020/12/15/draw-figures-with-plantuml-on-gohugo/</link>
         <pubDate>Tue, 15 Dec 2020 00:00:00 +0900</pubDate>
-        <author>mochieer@gmail.com (mochieer)</author>
+        
         <guid>https://mochieer.tech/posts/2020/12/15/draw-figures-with-plantuml-on-gohugo/</guid>
         <description>やりたいこと ユースケース 記事の Markdown 中に PlantUML 記法で記述したら、最終的に出力される HTML としては図が出力されている状態。 いつ図を生成するか このサイトは Hugo</description>
         <content:encoded>&lt;h2 id=&#34;やりたいこと&#34;&gt;やりたいこと&lt;/h2&gt;
@@ -489,7 +489,7 @@ left to right direction
         <title>ストレングス・ファインダー</title>
         <link>https://mochieer.tech/posts/2020/11/13/strength-finder/</link>
         <pubDate>Fri, 13 Nov 2020 00:00:00 +0000</pubDate>
-        <author>mochieer@gmail.com (mochieer)</author>
+        
         <guid>https://mochieer.tech/posts/2020/11/13/strength-finder/</guid>
         <description>以前使っていた Evernote のデータのサルベージをしていたら、数年前に受けたストレングス・ファインダーのテスト結果がメモってあったのでこちらに転載する。</description>
         <content:encoded>&lt;p&gt;以前使っていた Evernote のデータのサルベージをしていたら、数年前に受けたストレングス・ファインダーのテスト結果がメモってあったのでこちらに転載する。&lt;/p&gt;
@@ -565,7 +565,7 @@ left to right direction
         <title>このサイトを更新した</title>
         <link>https://mochieer.tech/posts/2020/10/26/update-this-site/</link>
         <pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate>
-        <author>mochieer@gmail.com (mochieer)</author>
+        
         <guid>https://mochieer.tech/posts/2020/10/26/update-this-site/</guid>
         <description>やったこと 絵文字に対応した OGP のメタタグを書いた RSS フィードはじめた タグ一覧のページを作った 以下、詳細。 絵文字に対応した :+1: emoji たのしい :tada: :fried_shrimp: Twemoji を使っ</description>
         <content:encoded>&lt;h2 id=&#34;やったこと&#34;&gt;やったこと&lt;/h2&gt;
@@ -592,7 +592,7 @@ left to right direction
         <title>ワークチェアを新調した</title>
         <link>https://mochieer.tech/posts/2020/10/22/new-chair/</link>
         <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
-        <author>mochieer@gmail.com (mochieer)</author>
+        
         <guid>https://mochieer.tech/posts/2020/10/22/new-chair/</guid>
         <description>経緯 これまで使っていたイスは、リモートワーク前提での転職がうまく進んでしまい、家に作業スペースを急ごしらえで作った時に Amazon で買った5,000円</description>
         <content:encoded>&lt;h2 id=&#34;経緯&#34;&gt;経緯&lt;/h2&gt;

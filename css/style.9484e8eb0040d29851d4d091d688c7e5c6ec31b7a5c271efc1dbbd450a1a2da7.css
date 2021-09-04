@@ -775,6 +775,9 @@ ol ol {
   .p-article__body .twitter-tweet {
     margin: 0 auto; }
 
+.p-article__footer {
+  font-size: 14px; }
+
 .p-greeting {
   margin-bottom: 3.8rem; }
   .p-greeting__rainbow {
