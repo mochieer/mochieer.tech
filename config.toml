@@ -7,9 +7,15 @@ hasCJKLanguage = true
 buildFuture = true
 copyright = "(c) mochieer"
 
-[author]
-  name = "mochieer"
-  email = "mochieer@gmail.com"
+[params]
+  [params.author]
+    name = "mochieer"
+    email = "mochieer@gmail.com"
+    twitter = "mochieer"
+
+  [params.github]
+    url = "https://github.com/mochieer/mochieer.tech"
+    branch = "main"
 
 [taxonomies]
   tag = "tags"

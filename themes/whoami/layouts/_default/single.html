@@ -15,12 +15,17 @@
     {{ .Content | emojify }}
   </section>
 
-  <footer>
+  <footer class="p-article__footer">
     <ul class="c-tag-list">
       {{ range (index .Params.tags) -}}
         <li>{{ partial "components/atoms/tag.html" (dict "context" $ "tag" .) }}</li>
       {{ end -}}
     </ul>
+    <div class="p-article__revision">
+      {{ partial "components/atoms/icon" "github.svg" }}
+      <a href="{{ .Site.Params.github.url }}/commits/{{ .Site.Params.github.branch }}/content/{{ .File.Dir }}">GitHub で修正履歴を見る</a><br />
+      この記事に修正が必要であれば、 <a href="https://twitter.com/{{ .Site.Params.author.twitter }}">Twitter</a> または <a href="{{ .Site.Params.github.url }}/issues/new">GitHub の issue</a> にてご連絡ください。
+    </div>
   </footer>
 </article>
 {{ end }}
