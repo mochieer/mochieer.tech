@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="alternate" type="application/rss+xml" title="mochieer.tech" href="https://mochieer.tech/index.xml">
+
+    <link rel="stylesheet" href="https://mochieer.tech/css/style.6553f1696ad31b8e0905e742300a5caed78d02a83a68f641adac41e32e76ff27.css">
+
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+
+    <meta property="og:site_name" content="mochieer.tech" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://mochieer.tech/images/share.png" />
+    <meta property="og:description" content="mochieer.tech">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary" />
+
+    <meta property="og:title" content="(The) Clean Architecture と clean architecture を区別する &middot; mochieer.tech">
+<title>(The) Clean Architecture と clean architecture を区別する &middot; mochieer.tech</title>
+
+
+    <meta name="generator" content="Hugo 0.82.0" />
+  </head>
+  <body>
+    <header class="l-header">
+      <div class="l-container">
+        <h1 class="p-header__title">
+  <a href="https://mochieer.tech">mochieer.tech</a>
+</h1>
+
+      </div>
+    </header>
+    <section class="l-main">
+      <div class="l-container">
+        
+<article class="p-article">
+  <header class="p-article__header">
+    <time class="c-date">
+      <a class="c-date--year" href="https://mochieer.tech/posts/2021">2021</a>
+      /
+      <a class="c-date--month" href="https://mochieer.tech/posts/2021/09">09</a>
+      /
+      <a class="c-date--date" href="https://mochieer.tech/posts/2021/09/04">04</a>
+    </time>
+    <h1 class="p-article__header-title">(The) Clean Architecture と clean architecture を区別する</h1>
+  </header>
+
+  <section class="p-article__body">
+    <p>クリーンアーキテクチャについては、リーダブルコードとかと同じで、みんな知っておいてね的な大原則であって、別にこの方法でソフトウェアを開発すればもろもろいいことがあるよという方法論（ソフトウェアアーキテクチャ）ではない。</p>
+<p>いろんなソフトウェアアーキテクチャがあってよくて、ただそのもう一段メタな位置付けとして、複数のソフトウェアアーキテクチャが共通して満たしているルールみたいなものがあり、それがクリーンアーキテクチャだと思っている。大原則（クリーンアーキテクチャ）とその実践例があり、実践例が独り歩きしている。</p>
+<p>ということを考えていると、ちょうどよい記事が Twitter で流れてきた。</p>
+<ul>
+<li><a href="https://yyyank.blogspot.com/2021/06/there-is-no-clean-architecture.html">クリーンアーキテクチャなんてものはない(クリーンアーキテクチャーの読み方) - プログラマのはしくれダイアリー</a></li>
+</ul>
+<p>ボブおじさんの書いた「Clean Architecture」という本があり、その実現例として「The Clean Architecture」というブログ記事がある。そして、前者が話しているのはあくまで clean な architecture とはどういうものだろうね、という話だ。</p>
+<hr>
+<p>なので、「クリーンアーキテクチャを取り入れたソフトウェアを開発」することをチームで決めたとして、それが、</p>
+<ul>
+<li>The Clean Architecture というソフトウェアアーキテクチャ（clean な architecture の実践例のひとつで、ボブおじさんが書いたブログ記事が原典）を実践したい</li>
+<li>clean な architecture を目指したい（そのために Clean Architecture というボブおじさんが書いた本に書かれていることをみんなで考えていきたい）</li>
+</ul>
+<p>のどちらを指すのかの認識は揃えておかないと、いつのまにかあのドーナツを実践することになるよ（なぜならば、議論するときに一枚絵はとても強力なので）、ということなのだと思う。</p>
+<hr>
+<p>それはそうとして、 Clean Architecture という本に書かれていることと、 The Clean Architecture というあのドーナツを文脈によって使い分けたい場合があると思う。</p>
+<p>後者の「clean な architecture を目指したい」チームに於いても、実践する方法としてあの The Clean Architecture のドーナツを参考にすることはなにも問題ないからだ。なんらかの設計レビューやコードレビューを行っている際に、「これは Clean Architecture ではない」みたいな話になってしまったとき、それがどちらを指すのか分かりにくい。</p>
+<p>なぜ分かりにくいのかと言うと、日本人には the とか a とかの概念が希薄なので、それが The Clean Architecture なのか Clean Architecture なのか区別しにくいからなのかもしれないと思っている。</p>
+<p>なので、記述する際には</p>
+<ul>
+<li>Clean Architecture（クリーンアーキテクチャ）: 同名の本、およびその本で書かれているソフトウェアアーキテクチャの原則。</li>
+<li>clean architecture: Clean Architecture という本で書かれている原則。より一般化した clean な architecture 的な意図が強い。</li>
+<li>The Clean Architecture: 同名のブログ記事。Clean Architecture の実践例。</li>
+</ul>
+<p>と使い分けて書くというコンテキストを共有していると良いのかな、などと最近思っている。（私はカタカナで書くとき Clean Architecture を指すことにしているが、これは人によって違うかもしれない）</p>
+
+  </section>
+
+  <footer>
+    <ul class="c-tag-list">
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">プログラミング</a></span>
+</li>
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/clean-architecture">Clean Architecture</a></span>
+</li>
+      </ul>
+  </footer>
+</article>
+
+      </div>
+    </section>
+    <footer class="l-footer">
+      <div class="l-container">
+
+        <footer class="p-footer">
+  <div class="l-container">
+    <p>
+      Powered by <a href="https://gohugo.io">Hugo</a>.
+      Hosted on <a href="https://github.com">GitHub Pages</a>.
+    </p>
+    <p>
+      Made with ❤️ & <a href="https://buymeacoff.ee/mochieer">☕</a>️ by mochieer.
+    </p>
+  </div>
+</footer>
+
+      </div>
+    </footer>
+
+    <script type="text/javascript">twemoji.parse(document.body);</script>
+  </body>
+</html>

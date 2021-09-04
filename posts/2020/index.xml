@@ -11,6 +11,40 @@
     <atom:link href="https://mochieer.tech/posts/2020/index.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>(The) Clean Architecture と clean architecture を区別する</title>
+        <link>https://mochieer.tech/posts/2021/09/04/distinguish-between-the-clean-architecture-and-clean-architecture/</link>
+        <pubDate>Sat, 04 Sep 2021 00:00:00 +0900</pubDate>
+        <author>mochieer@gmail.com (mochieer)</author>
+        <guid>https://mochieer.tech/posts/2021/09/04/distinguish-between-the-clean-architecture-and-clean-architecture/</guid>
+        <description>クリーンアーキテクチャについては、リーダブルコードとかと同じで、みんな知っておいてね的な大原則であって、別にこの方法でソフトウェアを開発すれ</description>
+        <content:encoded>&lt;p&gt;クリーンアーキテクチャについては、リーダブルコードとかと同じで、みんな知っておいてね的な大原則であって、別にこの方法でソフトウェアを開発すればもろもろいいことがあるよという方法論（ソフトウェアアーキテクチャ）ではない。&lt;/p&gt;
+&lt;p&gt;いろんなソフトウェアアーキテクチャがあってよくて、ただそのもう一段メタな位置付けとして、複数のソフトウェアアーキテクチャが共通して満たしているルールみたいなものがあり、それがクリーンアーキテクチャだと思っている。大原則（クリーンアーキテクチャ）とその実践例があり、実践例が独り歩きしている。&lt;/p&gt;
+&lt;p&gt;ということを考えていると、ちょうどよい記事が Twitter で流れてきた。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://yyyank.blogspot.com/2021/06/there-is-no-clean-architecture.html&#34;&gt;クリーンアーキテクチャなんてものはない(クリーンアーキテクチャーの読み方) - プログラマのはしくれダイアリー&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ボブおじさんの書いた「Clean Architecture」という本があり、その実現例として「The Clean Architecture」というブログ記事がある。そして、前者が話しているのはあくまで clean な architecture とはどういうものだろうね、という話だ。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;なので、「クリーンアーキテクチャを取り入れたソフトウェアを開発」することをチームで決めたとして、それが、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The Clean Architecture というソフトウェアアーキテクチャ（clean な architecture の実践例のひとつで、ボブおじさんが書いたブログ記事が原典）を実践したい&lt;/li&gt;
+&lt;li&gt;clean な architecture を目指したい（そのために Clean Architecture というボブおじさんが書いた本に書かれていることをみんなで考えていきたい）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;のどちらを指すのかの認識は揃えておかないと、いつのまにかあのドーナツを実践することになるよ（なぜならば、議論するときに一枚絵はとても強力なので）、ということなのだと思う。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;それはそうとして、 Clean Architecture という本に書かれていることと、 The Clean Architecture というあのドーナツを文脈によって使い分けたい場合があると思う。&lt;/p&gt;
+&lt;p&gt;後者の「clean な architecture を目指したい」チームに於いても、実践する方法としてあの The Clean Architecture のドーナツを参考にすることはなにも問題ないからだ。なんらかの設計レビューやコードレビューを行っている際に、「これは Clean Architecture ではない」みたいな話になってしまったとき、それがどちらを指すのか分かりにくい。&lt;/p&gt;
+&lt;p&gt;なぜ分かりにくいのかと言うと、日本人には the とか a とかの概念が希薄なので、それが The Clean Architecture なのか Clean Architecture なのか区別しにくいからなのかもしれないと思っている。&lt;/p&gt;
+&lt;p&gt;なので、記述する際には&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clean Architecture（クリーンアーキテクチャ）: 同名の本、およびその本で書かれているソフトウェアアーキテクチャの原則。&lt;/li&gt;
+&lt;li&gt;clean architecture: Clean Architecture という本で書かれている原則。より一般化した clean な architecture 的な意図が強い。&lt;/li&gt;
+&lt;li&gt;The Clean Architecture: 同名のブログ記事。Clean Architecture の実践例。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;と使い分けて書くというコンテキストを共有していると良いのかな、などと最近思っている。（私はカタカナで書くとき Clean Architecture を指すことにしているが、これは人によって違うかもしれない）&lt;/p&gt;
+</content:encoded>
+      </item>
+      <item>
         <title>年、月、日ごとの記事一覧を作成した</title>
         <link>https://mochieer.tech/posts/2021/03/31/post-list-by-date/</link>
         <pubDate>Wed, 31 Mar 2021 00:00:00 +0900</pubDate>
@@ -584,22 +618,6 @@ left to right direction
 &lt;p&gt;以上、一週間弱使ってみた印象。また印象が変わったら書く。&lt;/p&gt;
 &lt;iframe style=&#34;width:120px;height:240px;&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; src=&#34;//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=mochieer-22&amp;language=ja_JP&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=as_ss_li_til&amp;asins=B07T339BWT&amp;linkId=4027080832e17d12ab5c65c7a6e27703&#34;&gt;&lt;/iframe&gt;
 &lt;p&gt;余談だがこういうフットレストを買って3ヶ月ほど使っている。足裏の支えはあったほうがいいと思う。足をしっかり地面に付けられるのと、「ここに足を置くんだ」という意識になるので自然と姿勢が良くなる。ただ、すでに少しヘタってきている。次は硬い金属製のフットレストを試してみようと思っている。&lt;/p&gt;
-</content:encoded>
-      </item>
-      <item>
-        <title>GitHub Actions でビルドするようにした</title>
-        <link>https://mochieer.tech/posts/2020/10/18/github-actions/</link>
-        <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
-        <author>mochieer@gmail.com (mochieer)</author>
-        <guid>https://mochieer.tech/posts/2020/10/18/github-actions/</guid>
-        <description>peaceiris/actions-gh-pages こちらを利用した。基本的にはデフォルトの設定通りでいけたのでとても簡単だった。 自分のリポジトリはデフォルトブランチが main だったが、サンプルの</description>
-        <content:encoded>&lt;p&gt;&lt;a href=&#34;https://github.com/peaceiris/actions-gh-pages&#34;&gt;peaceiris/actions-gh-pages&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;こちらを利用した。基本的にはデフォルトの設定通りでいけたのでとても簡単だった。&lt;/p&gt;
-&lt;p&gt;自分のリポジトリはデフォルトブランチが &lt;code&gt;main&lt;/code&gt; だったが、サンプルの設定ファイルでは &lt;code&gt;master&lt;/code&gt; になっていたので、そこだけ直した。（これは誰が悪いのか）&lt;/p&gt;
-&lt;p&gt;あわせて、このサイトのソースコードを public にしてみた。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/mochieer/mochieer.tech&#34;&gt;mochieer/mochieer.tech&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;ソースコードの管理とビルドとホスティングをひとつのサービスで一貫できるというのはやはりかなり嬉しい。&lt;/p&gt;
-&lt;p&gt;Netlify は GitHub との連携がかなり良くて気に入っていたが、日本からだとネットワーク的に遠いのか、やたら遅い印象がある。&lt;/p&gt;
 </content:encoded>
       </item>
   </channel>
