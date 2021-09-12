@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="alternate" type="application/rss+xml" title="mochieer.tech" href="https://mochieer.tech/index.xml">
+
+    <link rel="stylesheet" href="https://mochieer.tech/css/style.9484e8eb0040d29851d4d091d688c7e5c6ec31b7a5c271efc1dbbd450a1a2da7.css">
+
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+
+    <meta property="og:site_name" content="mochieer.tech" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://mochieer.tech/images/share.png" />
+    <meta property="og:description" content="mochieer.tech">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary" />
+
+    <meta property="og:title" content="例外とログとログレベル &middot; mochieer.tech">
+<title>例外とログとログレベル &middot; mochieer.tech</title>
+
+
+    <meta name="generator" content="Hugo 0.82.0" />
+  </head>
+  <body>
+    <header class="l-header">
+      <div class="l-container">
+        <h1 class="p-header__title">
+  <a href="https://mochieer.tech">mochieer.tech</a>
+</h1>
+
+      </div>
+    </header>
+    <section class="l-main">
+      <div class="l-container">
+        
+<article class="p-article">
+  <header class="p-article__header">
+    <time class="c-date">
+      <a class="c-date--year" href="https://mochieer.tech/posts/2021">2021</a>
+      /
+      <a class="c-date--month" href="https://mochieer.tech/posts/2021/09">09</a>
+      /
+      <a class="c-date--date" href="https://mochieer.tech/posts/2021/09/12">12</a>
+    </time>
+    <h1 class="p-article__header-title">例外とログとログレベル</h1>
+  </header>
+
+  <section class="p-article__body">
+    <h2 id="経緯と結論">経緯と結論</h2>
+<p>業務でエラーログのモニタリングをもっと整備していかないとね、という話題が最近ホットになっている。その会話の中でちょっと思いついた例外とログ（とログレベル）の話を深堀りしてみようと思う。</p>
+<p>結論としてはシンプルで、「例外を投げるならログは出力するべきでない（出力できるはずがない）」「例外を適切にハンドリングできる責務を持ったモジュールが適切にログ出力するべき」というところに落ち着いた。</p>
+<p>業務では主に PHP なので、サンプルコードは PHP で。</p>
+<h2 id="エラーログの監視">エラーログの監視</h2>
+<h3 id="ログレベル">ログレベル</h3>
+<p>御存知の通り、単に error.log を舐めて、なにか出力されるたびにそれを眺めればよいのではない。</p>
+<ul>
+<li><a href="https://techblog.yahoo.co.jp/web/shopping/yahoo_1/">Yahoo!ショッピングにおけるログ設計と監視 - Yahoo! JAPAN Tech Blog</a></li>
+</ul>
+<p>適切なログを適切に把握するためにはログ設計が重要で、特にログレベルは最も基本的なログの分類方法だと思う。ヤフーショッピングの場合は</p>
+<blockquote>
+<p>私たちはこの中の[info][notice][warn][err][crit][alert]の6つを使用しています。</p>
+</blockquote>
+<p>とある。（古い記事なので、今は多少違っているかもしれないが、ログ監視の基礎なのでそんなには変わっていないと思う）</p>
+<p>ちなみに、 PHP の場合は <a href="https://www.php-fig.org/psr/psr-3/">PSR-3</a> で</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Psr\Log</span><span class="p">;</span>
+
+<span class="sd">/**
+</span><span class="sd"> * Describes log levels.
+</span><span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">LogLevel</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="no">EMERGENCY</span> <span class="o">=</span> <span class="s1">&#39;emergency&#39;</span><span class="p">;</span>
+    <span class="k">const</span> <span class="no">ALERT</span>     <span class="o">=</span> <span class="s1">&#39;alert&#39;</span><span class="p">;</span>
+    <span class="k">const</span> <span class="no">CRITICAL</span>  <span class="o">=</span> <span class="s1">&#39;critical&#39;</span><span class="p">;</span>
+    <span class="k">const</span> <span class="no">ERROR</span>     <span class="o">=</span> <span class="s1">&#39;error&#39;</span><span class="p">;</span>
+    <span class="k">const</span> <span class="no">WARNING</span>   <span class="o">=</span> <span class="s1">&#39;warning&#39;</span><span class="p">;</span>
+    <span class="k">const</span> <span class="no">NOTICE</span>    <span class="o">=</span> <span class="s1">&#39;notice&#39;</span><span class="p">;</span>
+    <span class="k">const</span> <span class="no">INFO</span>      <span class="o">=</span> <span class="s1">&#39;info&#39;</span><span class="p">;</span>
+    <span class="k">const</span> <span class="no">DEBUG</span>     <span class="o">=</span> <span class="s1">&#39;debug&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>のように 8 段階が定義されている。</p>
+<h3 id="ログレベルの基準">ログレベルの基準</h3>
+<p>どのレベルのログがどういったことを意味するのかは統一されていなければならない。上述のヤフーショッピングの場合でもやはり定義されているようで、例えば、 notice は「通常とは違うルートで終了したが、問題がない場合のログ」で、 err は 「1回発生した時点で対応が必要になる場合のログ」といった具合だ。</p>
+<p>ヤフーショッピングではこうやっている（いた）というだけで、このあたりは対象としているシステムの領域や運用体制なども加味して、それぞれのケースで適切な基準を設けられるのがよいと思う。</p>
+<h2 id="ソースコード上でのエラーの表現">ソースコード上でのエラーの表現</h2>
+<h3 id="よくあるコード">よくあるコード</h3>
+<p>PHP だと例外を利用することが多いはずだ。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">FooApiClient</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$id</span><span class="p">)</span><span class="o">:</span> <span class="nx">Foo</span>
+  <span class="p">{</span>
+    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">client</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">&#34;/path/to/foo?id=</span><span class="si">$id</span><span class="s2">&#34;</span><span class="p">);</span>
+
+    <span class="nv">$status</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getStatus</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$status</span> <span class="o">&lt;</span> <span class="mi">200</span> <span class="o">&amp;&amp;</span> <span class="mi">300</span> <span class="o">&lt;=</span> <span class="nv">$status</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nx">Exception</span><span class="p">(</span><span class="s2">&#34;HTTP status is </span><span class="si">$status</span><span class="s2">&#34;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">Foo</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">());</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>200 系以外のレスポンスは失敗という扱いにして例外を投げている、よくあるコードだと思う。</p>
+<p>では、この失敗をログで補足したいと考えて、ここにエラーログを仕込んでみよう。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">FooApiClient</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$id</span><span class="p">)</span><span class="o">:</span> <span class="nx">Foo</span>
+  <span class="p">{</span>
+    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">client</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">&#34;/path/to/foo?id=</span><span class="si">$id</span><span class="s2">&#34;</span><span class="p">);</span>
+
+    <span class="nv">$status</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getStatus</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$status</span> <span class="o">&lt;</span> <span class="mi">200</span> <span class="o">&amp;&amp;</span> <span class="mi">300</span> <span class="o">&lt;=</span> <span class="nv">$status</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nv">$message</span> <span class="o">=</span> <span class="s2">&#34;HTTP status is </span><span class="si">$status</span><span class="s2">&#34;</span><span class="p">;</span>
+      <span class="nx">Log</span><span class="o">::</span><span class="na">error</span><span class="p">(</span><span class="nv">$message</span><span class="p">);</span> <span class="c1">// ←ログ出力を追加した
+</span><span class="c1"></span>      <span class="k">throw</span> <span class="k">new</span> <span class="nx">Exception</span><span class="p">(</span><span class="nv">$message</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">Foo</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">());</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>まあ特に問題はない気がする。</p>
+<h3 id="本当に問題ない">本当に問題ない？</h3>
+<p>前述したとおり、ログレベルには基準が存在する。「error は 1 回発生した時点で対応が必要になる場合のログ」という具合だ。では <code>FooApiClient</code> が非 200 であることと、それが error のレベルに該当することはイコールかと考えると、必ずしもそうではない。</p>
+<p>例えば、負荷軽減のため、何らかのキャッシュされたデータが存在し、そちらからの取得を試みるが、バッチが動く前とかでキャッシュにデータが存在しないこともあるので、キャッシュから取れなければオリジナルの DB から取ってね、みたいなシステム構成だったとしたらどうだろう。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">CachedFooApiClient</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$id</span><span class="p">)</span><span class="o">:</span> <span class="nx">Foo</span>
+  <span class="p">{</span>
+    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">client</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">&#34;/path/to/cached/foo?id=</span><span class="si">$id</span><span class="s2">&#34;</span><span class="p">);</span>
+
+    <span class="nv">$status</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getStatus</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$status</span> <span class="o">&lt;</span> <span class="mi">200</span> <span class="o">&amp;&amp;</span> <span class="mi">300</span> <span class="o">&lt;=</span> <span class="nv">$status</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nv">$message</span> <span class="o">=</span> <span class="s2">&#34;HTTP status is </span><span class="si">$status</span><span class="s2">&#34;</span><span class="p">;</span>
+      <span class="nx">Log</span><span class="o">::</span><span class="na">error</span><span class="p">(</span><span class="nv">$message</span><span class="p">);</span> <span class="c1">// ここでログ出力は正しい？
+</span><span class="c1"></span>      <span class="k">throw</span> <span class="k">new</span> <span class="nx">Exception</span><span class="p">(</span><span class="nv">$message</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">Foo</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">());</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">OriginalFooApiClient</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$id</span><span class="p">)</span><span class="o">:</span> <span class="nx">Foo</span>
+  <span class="p">{</span>
+    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">client</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">&#34;/path/to/original/foo?id=</span><span class="si">$id</span><span class="s2">&#34;</span><span class="p">);</span>
+
+    <span class="nv">$status</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getStatus</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$status</span> <span class="o">&lt;</span> <span class="mi">200</span> <span class="o">&amp;&amp;</span> <span class="mi">300</span> <span class="o">&lt;=</span> <span class="nv">$status</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nv">$message</span> <span class="o">=</span> <span class="s2">&#34;HTTP status is </span><span class="si">$status</span><span class="s2">&#34;</span><span class="p">;</span>
+      <span class="nx">Log</span><span class="o">::</span><span class="na">error</span><span class="p">(</span><span class="nv">$message</span><span class="p">);</span> <span class="c1">// ここでログ出力は正しい？
+</span><span class="c1"></span>      <span class="k">throw</span> <span class="k">new</span> <span class="nx">Exception</span><span class="p">(</span><span class="nv">$message</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">Foo</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">());</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">FallbackFooRepository</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$id</span><span class="p">)</span><span class="o">:</span> <span class="nx">Foo</span>
+  <span class="p">{</span>
+    <span class="nv">$cachedClient</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CachedFooApiClient</span><span class="p">();</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nv">$cachedClient</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">Log</span><span class="o">::</span><span class="na">notice</span><span class="p">(</span><span class="s2">&#34;Get foo from cache is failed: </span><span class="si">{</span><span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">()</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nv">$originalClient</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OriginalFooApiClient</span><span class="p">();</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nv">$originalClient</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">Log</span><span class="o">::</span><span class="na">error</span><span class="p">(</span><span class="s2">&#34;Get foo from original is failed: </span><span class="si">{</span><span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">()</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">);</span>
+      <span class="k">throw</span> <span class="nv">$e</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>サンプルが少しずつ長くなってきたが、要するに <code>FooApiClient</code> が <code>CachedFooApiClient</code> と <code>OriginalFooApiClient</code> のふたつになって、それらを順序付けて利用する <code>FallbackFooRepository</code> という新しいクラスが出現した。</p>
+<p>さて、この場合だと <code>CachedFooApiClient</code> の非 200 レスポンスはいわゆる「エラー」ではなくなっている。キャッシュから取れなくても、オリジナルの DB から値が取得できれば、システムとしては問題なく動作できるからだ。</p>
+<p>ただし、想定より多くの <code>CachedFooApiClient</code> の失敗が出ている場合、それは不具合の可能性があるのでログとして補足できるようにしておきたいので、 <code>FallbackFooRepository</code> で <code>notice</code> している。そして、 <code>OriginalFooApiClient</code> もまた失敗した場合にはじめて foo が取得できなかったという「失敗」になる。</p>
+<p>このように考えると、 <code>CachedFooApiClient</code> は error ログを出力するのは適切ではなさそうだ。では <code>OriginalFooApiClient</code> で error ログを出力しているのはどうだろう？</p>
+<h2 id="失敗とはなんだろう">「失敗」とはなんだろう</h2>
+<p>ユースケースによっては、そもそも foo が取得できなくても「エラー」ではないのかもしれない。</p>
+<p>foo からデータが取得できなくても、実は bar からでも欲しい情報は取得可能かもしれないし、バッチの定期実行などでまた次のタイミングで成功すればいいかもしれない。あるいは foo を取得したい目的が極めて些末なもので、実際のところ異常終了してもなんら問題ない程度の存在かもしれない（そんな些末なコードはできれば書かされたくないが）。</p>
+<p>つまり、なんらかの処理の「失敗」というのは、それが即ログレベル（＝ことの重大さ）と結びつくわけではなく、なぜその処理を実行したのかというコンテキストに依存するものと認識したほうが良さそうだ。</p>
+<p>個別の処理には「失敗」しても、システム全体として見れば「失敗」のうちに入らないかもしれない、ということだ。</p>
+<h3 id="例外とはなんだろう">例外とはなんだろう</h3>
+<blockquote>
+<p>「例外」は、エラーや例外イベントを呼び出し元のコードに渡すことができる特別な手段である。<br>
+（略）<br>
+エラー状況に対処できないコードはエラーを解釈してそれをうまく処理する機能を持っていると期待して、システムの他の部分に制御を渡すことできる。<br>
+<cite><a href="https://amzn.to/2XeLsDO">コードコンプリート第2版</a></cite></p>
+</blockquote>
+<p>つまり、あるクラス、あるメソッドのにおいて「対処できない」ことが起こったことを、その呼び出し元に伝える手段である。</p>
+<p>すなわち責務の外にあるのだと解釈できそうで、例えば最初の例に立ち戻ると、</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">FooApiClient</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$id</span><span class="p">)</span><span class="o">:</span> <span class="nx">Foo</span>
+  <span class="p">{</span>
+    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">client</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">&#34;/path/to/foo?id=</span><span class="si">$id</span><span class="s2">&#34;</span><span class="p">);</span>
+
+    <span class="nv">$status</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getStatus</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$status</span> <span class="o">&lt;</span> <span class="mi">200</span> <span class="o">&amp;&amp;</span> <span class="mi">300</span> <span class="o">&lt;=</span> <span class="nv">$status</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nx">Exception</span><span class="p">(</span><span class="s2">&#34;HTTP status is </span><span class="si">$status</span><span class="s2">&#34;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">Foo</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">());</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>FooApiClient::Foo</code> メソッドの責務は、何らかの手段でもって <code>Foo</code> オブジェクトを返却することなのである。何らかの手段というのは外部に対してつまびらかにする必要はなく、 <code>Foo</code> オブジェクトを返せるか、返せないかが問われている。</p>
+<p>そして、非 200 系のレスポンスが返ってきた場合、 <code>FooApiClient</code> としては「返せない」となり、また、 <code>Foo</code> が返せなかった場合にどのようなハンドリングを行うべきかは <code>FooApiClient</code> の知るところではない（責務外）ので例外を投げるということになる。</p>
+<p>例えば失敗した場合にも何らかのダミーオブジェクトを返して良い場合はどうだろう。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">FooApiClient</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$id</span><span class="p">)</span><span class="o">:</span> <span class="nx">Foo</span>
+  <span class="p">{</span>
+    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">client</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s2">&#34;/path/to/foo?id=</span><span class="si">$id</span><span class="s2">&#34;</span><span class="p">);</span>
+
+    <span class="nv">$status</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getStatus</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$status</span> <span class="o">&lt;</span> <span class="mi">200</span> <span class="o">&amp;&amp;</span> <span class="mi">300</span> <span class="o">&lt;=</span> <span class="nv">$status</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">Foo</span><span class="o">::</span><span class="na">dummy</span><span class="p">();</span> <span class="c1">// これで見た目上Fooオブジェクトを返却できる
+</span><span class="c1"></span>    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">Foo</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">());</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>API での取得が失敗した場合にダミーオブジェクトを返却することをこの API クライアントの責務とするべきかは、まあ一般論からしても否定的だろうが、仮に <code>FooApiClient</code> の責務にダミーオブジェクトの返却が含まれるのであれば、責務の範囲内において非 200 系レスポンスをハンドリングできるので例外を投げる必要がなくなる。</p>
+<p>ただし、失敗したのでダミーを返したよ、ということは補足できるべきなので、やはり notice あたりでログに出力するべきだろう。つまり、適切なハンドリングを行うことと、それをログに出力することは責務としてセットだと考えるべきなのだろう。なぜならば、ログというのは「ことの重大さ」が定まらないとログレベルを決定できず、適切なハンドリングを行う責務の中に「ことの重大さ」の判定が含まれているからだ。</p>
+<h2 id="結論">結論</h2>
+<ul>
+<li>自身の責務において判断ができないことが起こった場合に例外を投げ、判断を呼び出し元に委ねる
+<ul>
+<li>判断のできないことに対してログレベル（＝ことの重大さ）を判定することはできないので、ログ出力はできない</li>
+</ul>
+</li>
+<li>呼び出し元は、呼び出し元の責務において投げられた例外を判断する
+<ul>
+<li>呼び出し元の責務でハンドリングできる場合は、適切にハンドリングを行い、必要に応じて適切なログレベルで出力する</li>
+<li>呼び出し元の責務でもハンドリングができない場合は、さらに上位の呼び出し元へ投げる</li>
+</ul>
+</li>
+<li>最終的に誰も適切にハンドリングできない例外は、多くの場合はフレームワークがキャッチし 500 エラーを返したりする
+<ul>
+<li>フレームワークはユーザーに対して何らかのレスポンスを返すことを責務としているので、よく分からないからといって何もしないわけにはいかない</li>
+</ul>
+</li>
+</ul>
+
+  </section>
+
+  <footer class="p-article__footer">
+    <ul class="c-tag-list">
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">プログラミング</a></span>
+</li>
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/php">PHP</a></span>
+</li>
+      </ul>
+    <div class="p-article__revision">
+      <span class="c-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+</span>
+
+      <a href="https://github.com/mochieer/mochieer.tech/commits/main/content/posts/2021/09/12/exceptions-and-logging/">GitHub で修正履歴を見る</a><br />
+      この記事に修正が必要であれば、 <a href="https://twitter.com/mochieer">Twitter</a> または <a href="https://github.com/mochieer/mochieer.tech/issues/new">GitHub の issue</a> にてご連絡ください。
+    </div>
+  </footer>
+</article>
+
+      </div>
+    </section>
+    <footer class="l-footer">
+      <div class="l-container">
+
+        <footer class="p-footer">
+  <div class="l-container">
+    <p>
+      Powered by <a href="https://gohugo.io">Hugo</a>.
+      Hosted on <a href="https://github.com">GitHub Pages</a>.
+    </p>
+    <p>
+      Made with ❤️ & <a href="https://buymeacoff.ee/mochieer">☕</a>️ by mochieer.
+    </p>
+  </div>
+</footer>
+
+      </div>
+    </footer>
+
+    <script type="text/javascript">twemoji.parse(document.body);</script>
+  </body>
+</html>
