@@ -9,6 +9,11 @@
       <a class="c-date--date" href="{{ .Site.BaseURL }}/posts/{{ .PublishDate.Format "2006" }}/{{ .PublishDate.Format "01" }}/{{ .PublishDate.Format "02" }}">{{ .PublishDate.Format "02" }}</a>
     </time>
     <h1 class="p-article__header-title">{{ .Title }}</h1>
+    <ul class="c-tag-list">
+      {{ range (index .Params.tags) -}}
+        <li>{{ partial "components/atoms/tag.html" (dict "context" $ "tag" .) }}</li>
+      {{ end -}}
+    </ul>
   </header>
 
   <section class="p-article__body">

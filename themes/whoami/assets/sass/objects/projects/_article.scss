@@ -1,32 +1,9 @@
 .p-article {
   &__body {
     margin: $vr-unit * 1.5 0;
-    h2::before,
-    h3::before,
-    h4::before,
-    h5::before,
-    h6::before {
-      opacity: .33;
-      display: block;
-    }
-    h2::before {
-      content: "##";
-    }
-    h3::before {
-      content: "###";
-    }
-    h4::before {
-      content: "####";
-    }
-    h5::before {
-      content: "#####";
-    }
-    h6::before {
-      content: "######";
-    }
+
     figure {
-      width: 100%;
-      margin: 0 0 $vr-unit 0;
+      margin: 0 -1rem $vr-unit -1rem;
       padding: 0;
       text-align: center;
 
@@ -42,6 +19,15 @@
     blockquote {
       color: $color-text-shade;
       font-style: italic;
+      border-left: .25rem solid $color-background-tint;
+      padding-left: .75rem;
+      padding-right: 1rem;
+
+      cite {
+        font-style: normal;
+        display: block;
+        text-align: right;
+      }
     }
 
     hr {
@@ -62,9 +48,8 @@
 
     .highlight {
       overflow: scroll;
-      line-height: 1.25em;
-      font-size: $font-s;
-      margin-bottom: $vr-unit;
+      line-height: 1.2em;
+      margin: 0 -1rem $vr-unit -1rem;
 
       pre {
         margin: .5em 0;
@@ -94,7 +79,11 @@
       margin: 0 auto;
     }
   }
+  &__header {
+    font-size: $font-s;
+  }
   &__footer {
     font-size: $font-s;
   }
+
 }
