@@ -665,7 +665,8 @@ ol ol {
   padding: 1.9rem 1rem; }
 
 .c-date {
-  color: #acb0ae; }
+  color: #acb0ae;
+  font-size: 18px; }
 
 .c-icon svg {
   width: 1em;
@@ -711,26 +712,8 @@ ol ol {
 
 .p-article__body {
   margin: 2.85rem 0; }
-  .p-article__body h2::before,
-  .p-article__body h3::before,
-  .p-article__body h4::before,
-  .p-article__body h5::before,
-  .p-article__body h6::before {
-    opacity: .33;
-    display: block; }
-  .p-article__body h2::before {
-    content: "##"; }
-  .p-article__body h3::before {
-    content: "###"; }
-  .p-article__body h4::before {
-    content: "####"; }
-  .p-article__body h5::before {
-    content: "#####"; }
-  .p-article__body h6::before {
-    content: "######"; }
   .p-article__body figure {
-    width: 100%;
-    margin: 0 0 1.9rem 0;
+    margin: 0 -1rem 1.9rem -1rem;
     padding: 0;
     text-align: center; }
     .p-article__body figure img {
@@ -739,7 +722,14 @@ ol ol {
       font-size: 14px; }
   .p-article__body blockquote {
     color: #acb0ae;
-    font-style: italic; }
+    font-style: italic;
+    border-left: 0.25rem solid #333536;
+    padding-left: .75rem;
+    padding-right: 1rem; }
+    .p-article__body blockquote cite {
+      font-style: normal;
+      display: block;
+      text-align: right; }
   .p-article__body hr {
     display: block;
     border: none;
@@ -754,9 +744,8 @@ ol ol {
       line-height: 1.9rem; }
   .p-article__body .highlight {
     overflow: scroll;
-    line-height: 1.25em;
-    font-size: 14px;
-    margin-bottom: 1.9rem; }
+    line-height: 1.2em;
+    margin: 0 -1rem 1.9rem -1rem; }
     .p-article__body .highlight pre {
       margin: .5em 0; }
     .p-article__body .highlight code {
@@ -774,6 +763,9 @@ ol ol {
     margin: 1.9rem 0; }
   .p-article__body .twitter-tweet {
     margin: 0 auto; }
+
+.p-article__header {
+  font-size: 14px; }
 
 .p-article__footer {
   font-size: 14px; }

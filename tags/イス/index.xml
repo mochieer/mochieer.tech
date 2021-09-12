@@ -326,7 +326,7 @@
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;code&gt;FooApiClient::Foo&lt;/code&gt; メソッドの責務は、何らかの手段でもって &lt;code&gt;Foo&lt;/code&gt; オブジェクトを返却することなのである。何らかの手段というのは外部に対してつまびらかにする必要はなく、 &lt;code&gt;Foo&lt;/code&gt; オブジェクトを返せるか、返せないかが問われている。&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;FooApiClient::get&lt;/code&gt; メソッドの責務は、何らかの手段でもって &lt;code&gt;Foo&lt;/code&gt; オブジェクトを返却することなのである。何らかの手段というのは外部に対してつまびらかにする必要はなく、 &lt;code&gt;Foo&lt;/code&gt; オブジェクトを返せるか、返せないかが問われている。&lt;/p&gt;
 &lt;p&gt;そして、非 200 系のレスポンスが返ってきた場合、 &lt;code&gt;FooApiClient&lt;/code&gt; としては「返せない」となり、また、 &lt;code&gt;Foo&lt;/code&gt; が返せなかった場合にどのようなハンドリングを行うべきかは &lt;code&gt;FooApiClient&lt;/code&gt; の知るところではない（責務外）ので例外を投げるということになる。&lt;/p&gt;
 &lt;p&gt;例えば失敗した場合にも何らかのダミーオブジェクトを返して良い場合はどうだろう。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
