@@ -664,6 +664,9 @@ ol ol {
 .l-main {
   padding: 1.9rem 1rem; }
 
+.u-scrollable {
+  overflow: auto; }
+
 .c-date {
   color: #acb0ae;
   font-size: 18px; }
@@ -742,6 +745,14 @@ ol ol {
       text-align: center;
       content: "*";
       line-height: 1.9rem; }
+  .p-article__body table {
+    min-width: 100%;
+    white-space: nowrap;
+    border-collapse: collapse; }
+    .p-article__body table thead {
+      background: #333536; }
+    .p-article__body table tbody tr:nth-child(even) {
+      background: #191b1c; }
   .p-article__body .highlight {
     overflow: scroll;
     line-height: 1.2em;

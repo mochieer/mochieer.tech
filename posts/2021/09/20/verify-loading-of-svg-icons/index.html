@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="alternate" type="application/rss+xml" title="mochieer.tech" href="https://mochieer.tech/index.xml">
+
+    <link rel="stylesheet" href="https://mochieer.tech/css/style.1d98404c49fbdfae021383c2d8dfefa047a75919ec65421adbd2c8dfcbfd41d7.css">
+
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+
+    <meta property="og:site_name" content="mochieer.tech" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://mochieer.tech/images/share.png" />
+    <meta property="og:description" content="mochieer.tech">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary" />
+
+    <meta property="og:title" content="SVG アイコンのロードについて検証 &middot; mochieer.tech">
+<title>SVG アイコンのロードについて検証 &middot; mochieer.tech</title>
+
+
+    <meta name="generator" content="Hugo 0.82.0" />
+  </head>
+  <body>
+    <header class="l-header">
+      <div class="l-container">
+        <h1 class="p-header__title">
+  <a href="https://mochieer.tech">mochieer.tech</a>
+</h1>
+
+      </div>
+    </header>
+    <section class="l-main">
+      <div class="l-container">
+        
+<article class="p-article">
+  <header class="p-article__header">
+    <time class="c-date">
+      <a class="c-date--year" href="https://mochieer.tech/posts/2021">2021</a>
+      /
+      <a class="c-date--month" href="https://mochieer.tech/posts/2021/09">09</a>
+      /
+      <a class="c-date--date" href="https://mochieer.tech/posts/2021/09/20">20</a>
+    </time>
+    <h1 class="p-article__header-title">SVG アイコンのロードについて検証</h1>
+    <ul class="c-tag-list">
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">プログラミング</a></span>
+</li>
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/svg">SVG</a></span>
+</li>
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/core-web-vitals">Core Web Vitals</a></span>
+</li>
+      </ul>
+  </header>
+
+  <section class="p-article__body">
+    <h2 id="アイコンとウェブページのパフォーマンス">アイコンとウェブページのパフォーマンス</h2>
+<p>私はウェブページに埋め込まれたアイコンが大好きで、日々アイコンを収集している。そんな私でもやはりスタンダードに <a href="https://fontawesome.com/">Font Awesome</a> は素晴らしいと思っている。</p>
+<p>ただし、やはりフォントファイルと CSS ファイルをロードするのはそれなりのサイズになってしまうので、各々で工夫して改善しようとしている現場も見受けられる。</p>
+<p>ちなみに、今見てみたところ、 <a href="https://github.com/FortAwesome/Font-Awesome/blob/master/webfonts/fa-solid-900.woff2">fa-solid-900.woff2</a> が 76.4 KB で、 <a href="https://github.com/FortAwesome/Font-Awesome/blob/master/css/all.min.css">all.min.css</a> が 57.9 KB だった。もちろん gzip だともう少し減ると思うが。</p>
+<ul>
+<li>フォントファイル
+<ul>
+<li>フォントファイルが読み込まれるまで豆腐が表示される</li>
+<li>フォントファイルが読み込まれると、ページ上で置換される
+<ul>
+<li>高さは変わらないようだが、幅が豆腐より大きいのでインラインで使っているとレイアウトシフトの可能性がある</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CSS ファイル
+<ul>
+<li>読み込まれるまでページが描画されない</li>
+</ul>
+</li>
+</ul>
+<p>なので、いわゆる <a href="https://web.dev/vitals/">Core Web Vitals</a> に影響を与えることになってしまう。</p>
+<h2 id="そこで-svg-ですよ">そこで SVG ですよ</h2>
+<p>SVG のアイコンも非常にたくさんあって、多くがオープンソースで利用可能だったりする。このサイトでも <a href="https://feathericons.com/">Feather</a> にお世話になっているし、個人開発のプロダクトでも人気があるイメージだ。Font Awesome も個別に SVG ファイルとしてダウンロードすることができたりする。</p>
+<p>SVG というのはグラフィックのパスを XML 形式で記述する画像フォーマットなので、 Feather をはじめ、シンプルな図形を表現するのに向いているし、そういった図形は少ない記述量で表現できる。</p>
+<p>ところで、 SVG を HTML 上に描画する方法は様々で、また、その方法によって実際に SVG リソースを取得する通信も変わってくる。どういった方法で描画するのがパフォーマンス的に望ましいのかを簡単に検証することにした。</p>
+<h2 id="検証">検証</h2>
+<h3 id="デモページ">デモページ</h3>
+<ul>
+<li><a href="https://mochieer.github.io/svg-loading-demo/">Loading SVG Icons Demo</a></li>
+<li><a href="https://github.com/mochieer/svg-loading-demo">mochieer/svg-loading-demo</a></li>
+</ul>
+<p>全体的には軽量にしつつ、ただ、 SVG のロード以外にも多少の CSS のロードとかあったほうが現実的だと思ったので、軽量な CSS フレームワークを入れたりしている。肝心の SVG アイコン自体は前述 Feather から適当に 15 個ピックアップしてきた。</p>
+<h3 id="検証方法">検証方法</h3>
+<p><a href="https://mochieer.github.io/svg-loading-demo/demo1/">デモ (1)</a> では SVG を HTML の中に埋め込む（インラインで記述する）方法をとった。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;icon-list&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">svg</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&#34;http://www.w3.org/2000/svg&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;24&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;24&#34;</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">&#34;0 0 24 24&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;none&#34;</span> <span class="na">stroke</span><span class="o">=</span><span class="s">&#34;currentColor&#34;</span> <span class="na">stroke-width</span><span class="o">=</span><span class="s">&#34;2&#34;</span> <span class="na">stroke-linecap</span><span class="o">=</span><span class="s">&#34;round&#34;</span> <span class="na">stroke-linejoin</span><span class="o">=</span><span class="s">&#34;round&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;feather feather-activity&#34;</span><span class="p">&gt;&lt;</span><span class="nt">polyline</span> <span class="na">points</span><span class="o">=</span><span class="s">&#34;22 12 18 12 15 21 9 3 6 12 2 12&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">polyline</span><span class="p">&gt;&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">svg</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&#34;http://www.w3.org/2000/svg&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;24&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;24&#34;</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">&#34;0 0 24 24&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;none&#34;</span> <span class="na">stroke</span><span class="o">=</span><span class="s">&#34;currentColor&#34;</span> <span class="na">stroke-width</span><span class="o">=</span><span class="s">&#34;2&#34;</span> <span class="na">stroke-linecap</span><span class="o">=</span><span class="s">&#34;round&#34;</span> <span class="na">stroke-linejoin</span><span class="o">=</span><span class="s">&#34;round&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;feather feather-alert-triangle&#34;</span><span class="p">&gt;&lt;</span><span class="nt">path</span> <span class="na">d</span><span class="o">=</span><span class="s">&#34;M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">path</span><span class="p">&gt;&lt;</span><span class="nt">line</span> <span class="na">x1</span><span class="o">=</span><span class="s">&#34;12&#34;</span> <span class="na">y1</span><span class="o">=</span><span class="s">&#34;9&#34;</span> <span class="na">x2</span><span class="o">=</span><span class="s">&#34;12&#34;</span> <span class="na">y2</span><span class="o">=</span><span class="s">&#34;13&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">line</span><span class="p">&gt;&lt;</span><span class="nt">line</span> <span class="na">x1</span><span class="o">=</span><span class="s">&#34;12&#34;</span> <span class="na">y1</span><span class="o">=</span><span class="s">&#34;17&#34;</span> <span class="na">x2</span><span class="o">=</span><span class="s">&#34;12.01&#34;</span> <span class="na">y2</span><span class="o">=</span><span class="s">&#34;17&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">line</span><span class="p">&gt;&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  ...
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://mochieer.github.io/svg-loading-demo/demo2/">デモ (2)</a> では個別に <code>object</code> タグで SVG リソースを描画する方法をとった。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;icon-list&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">object</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;image/svg+xml&#34;</span> <span class="na">data</span><span class="o">=</span><span class="s">&#34;../assets/svg/activity.svg&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;24&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;24&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">object</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">object</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;image/svg+xml&#34;</span> <span class="na">data</span><span class="o">=</span><span class="s">&#34;../assets/svg/alert-triangle.svg&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;24&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;24&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">object</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  ...
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://mochieer.github.io/svg-loading-demo/demo3/">デモ (3)</a> では SVG 自体はスプライトとして一括でロードし、個別に id で呼び出して描画する方法をとった。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;icon-list&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">svg</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;24&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;24&#34;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">use</span>
+        <span class="na">xmlns:xlink</span><span class="o">=</span><span class="s">&#34;http://www.w3.org/1999/xlink&#34;</span>
+        <span class="na">xlink:href</span><span class="o">=</span><span class="s">&#34;../assets/svg/sprite.svg#activity&#34;</span>
+      <span class="p">&gt;&lt;/</span><span class="nt">use</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">svg</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;24&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;24&#34;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">use</span>
+        <span class="na">xmlns:xlink</span><span class="o">=</span><span class="s">&#34;http://www.w3.org/1999/xlink&#34;</span>
+        <span class="na">xlink:href</span><span class="o">=</span><span class="s">&#34;../assets/svg/sprite.svg#alert-triangle&#34;</span>
+      <span class="p">&gt;&lt;/</span><span class="nt">use</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  ...
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://mochieer.github.io/svg-loading-demo/demo3/">デモ (4)</a> は、ちょっと試してみたかった方法で、 SVG のデータ自体は JSON ファイルから取得し（API 呼び出しを行うイメージ）、それを HTML に注入する形で描画してみた。HTML の記述自体は Font Awesome などと似ていて、</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;icon-list&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;icon&#34;</span> <span class="na">data-id</span><span class="o">=</span><span class="s">&#34;activity&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;icon&#34;</span> <span class="na">data-id</span><span class="o">=</span><span class="s">&#34;alert-triangle&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>こんな感じで、これを JavaScript で操作していく。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;../assets/svg/all.json&#39;</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+    <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+      <span class="kr">const</span> <span class="nx">elements</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s1">&#39;icon&#39;</span><span class="p">);</span>
+
+      <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">elements</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">elements</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+        <span class="kr">const</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">&#39;data-id&#39;</span><span class="p">);</span>
+        <span class="kr">const</span> <span class="nx">found</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">d</span> <span class="p">=&gt;</span> <span class="nx">d</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="nx">id</span><span class="p">);</span>
+
+        <span class="nx">element</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">found</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>スプライトだとどうしてもそのページで表示しない SVG データも合わせてロードすることになる。欲しい SVG のデータだけ API で問い合わせたら返ってくる、というやり方にすればよいのではないかというイメージ。感覚的には、問い合わせに対して動的なスプライトを生成して返してもらっている感じと言えるかもしれない。</p>
+<h3 id="検証結果">検証結果</h3>
+<p><a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a> で計測した。</p>
+<p><figure>
+    <img
+      src="https://i.gyazo.com/5cb594c689b57cfcd7edd3776807b355.png"
+      alt="デモ (1) の結果"width="1216"
+    />
+  <figcaption>デモ (1) の結果</figcaption>
+</figure>
+
+<figure>
+    <img
+      src="https://i.gyazo.com/fbee041b9c15eba467d595cd249b3543.png"
+      alt="デモ (2) の結果"width="1190"
+    />
+  <figcaption>デモ (2) の結果</figcaption>
+</figure>
+
+<figure>
+    <img
+      src="https://i.gyazo.com/7312e7810bbc7e113ebe135c88269e09.png"
+      alt="デモ (3) の結果"width="1174"
+    />
+  <figcaption>デモ (3) の結果</figcaption>
+</figure>
+
+<figure>
+    <img
+      src="https://i.gyazo.com/ed8b15a1c3f187f7eca9dc7f910e1f16.png"
+      alt="デモ (4) の結果"width="1172"
+    />
+  <figcaption>デモ (4) の結果</figcaption>
+</figure>
+</p>
+<p>デモページが軽量すぎたせいか、いずれもほとんど差はなく、実際にトータルのスコアは全て 98 となった。以下、気になった項目を順に見ていく。</p>
+<h4 id="first-contentful-paint">First Contentful Paint</h4>
+<p>HTML としてのファイルサイズが大きくなるデモ (1) では、 <a href="https://web.dev/first-contentful-paint/">First Contentful Paint</a> が悪くなるかと思ったが、結果としては全て同じ (1.9s) となった。</p>
+<p>手元の Chrome で見たところ、 <code>demo1/index.html</code> 自体は 1.7kB で、 150-300ms ほど応答している。ちなみに、ファイルサイズが最も小さい <code>demo4/index.html</code> は 877B だったが、時間はほとんど変わらなかった。この程度のファイルサイズの違いではパフォーマンスとして大きな違いになりようもないということだろう。</p>
+<p>SVG アイコンは、どれだけ作り方が悪くてもせいぜい数 KB 程度に収まると思うので、HTML にインラインで書いてしまってもさほどパフォーマンスには影響しないと言えるかもしれない。</p>
+<h4 id="speed-index">Speed Index</h4>
+<p>唯一違いがあったのは <a href="https://web.dev/speed-index/">Speed Index</a> だった。「コンテンツが視覚的にどれだけ早く表示されるか」を示している、とのことだ。（やや曖昧）</p>
+<ul>
+<li>デモ (1): 2.8s</li>
+<li>デモ (2): 2.1s</li>
+<li>デモ (3): 1.9s</li>
+<li>デモ (4): 1.9s</li>
+</ul>
+<p>人間の目で見ると明らかにデモ (2) が、パラパラとアイコンが描画されていて、最も描画に時間がかかっているように感じられたのだが、スコア自体はデモ (1) が最も悪かった。</p>
+<p>ブラウザが SVG タグをどのようにレンダリングするかちゃんと調べないと分からないが、仮説としては、最初の DOM 構築からのレンダリングに SVG が全て組み込まれていて、 SVG の解釈が全て終わってからレンダリングしているのではないかと思う。（ただ、もしそうだとすると FCP に差がないというのと直感的には反する）</p>
+<p>また、デモ (2) よりデモ (3) のパフォーマンスが優れていた。リソースは個別に HTTP するのでなく、一括で HTTP しなさい、という基本的なお作法は正しかった。</p>
+<p>そのデモ (3) とデモ (4) を比べると、「リソースの一括取得」は共通していて、描画を <code>&lt;use&gt;</code> タグで行うか、 JavaScript で <code>&lt;svg&gt;</code> を HTML に挿入するか、という違いがある。ここにパフォーマンス的な違いが見られないというのは、 <code>&lt;use&gt;</code> に特に優位性はないと言えるかもしれない。</p>
+<h2 id="まとめ">まとめ</h2>
+<p>軽く検証しようと思ったくらいなのに、コードを書いている時間より記事を書いている時間のほうが長くなってしまった。</p>
+<p>大前提として SVG アイコンは十分に軽量でウェブページ全体のパフォーマンスを著しく悪化させるようなものではなく、他に改善するべき点が残されているプロダクトではそちらを優先して対処すべきである。</p>
+<p>その上で、 SVG のパフォーマンスを向上する方針としては、やはりスプライトは有効な手段である。一方で、スプライトだと、そのページで利用しないリソースまで一括して取得することになるので、より最適化するなら Web API 経由で SVG データを取得し、 JavaScript で <code>svg</code> タグを挿入するという方法にも可能性はありそうだ。</p>
+<p>また、 Web API 経由ということは SVG データを動的に変更できるので、 API 呼び出しで 2 色指定して、いわゆるデュオトーンのように塗り分けられた SVG を返却することも可能だったり、拡張性というメリットもある。</p>
+<p>さて、一方で、 <a href="https://www.npmjs.com/package/feather-icons">npm にある feather-icons</a> のように、 JavaScript ライブラリの内部に SVG データを格納してしまう方針も考えられる。これは開発者体験としてはとても良いが、 Feather の全てのアイコンがバンドルされた JS ファイルを読み込むことになるので、 Font Awesome のフォントファイルを読み込むのと同様に、最適な方法とは言えなさそうだ。（Font Awesome の場合、よりクリティカルなのは CSS ファイルが初期レンダリングをブロックしてしまうことだとは思うが）</p>
+
+  </section>
+
+  <footer class="p-article__footer">
+    <ul class="c-tag-list">
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">プログラミング</a></span>
+</li>
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/svg">SVG</a></span>
+</li>
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/core-web-vitals">Core Web Vitals</a></span>
+</li>
+      </ul>
+    <div class="p-article__revision">
+      <span class="c-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+</span>
+
+      <a href="https://github.com/mochieer/mochieer.tech/commits/main/content/posts/2021/09/20/verify-loading-of-SVG-icons/">GitHub で修正履歴を見る</a><br />
+      この記事に修正が必要であれば、 <a href="https://twitter.com/mochieer">Twitter</a> または <a href="https://github.com/mochieer/mochieer.tech/issues/new">GitHub の issue</a> にてご連絡ください。
+    </div>
+  </footer>
+</article>
+
+      </div>
+    </section>
+    <footer class="l-footer">
+      <div class="l-container">
+
+        <footer class="p-footer">
+  <div class="l-container">
+    <p>
+      Powered by <a href="https://gohugo.io">Hugo</a>.
+      Hosted on <a href="https://github.com">GitHub Pages</a>.
+    </p>
+    <p>
+      Made with ❤️ & <a href="https://buymeacoff.ee/mochieer">☕</a>️ by mochieer.
+    </p>
+  </div>
+</footer>
+
+      </div>
+    </footer>
+
+    <script type="text/javascript">twemoji.parse(document.body);</script>
+  </body>
+</html>
