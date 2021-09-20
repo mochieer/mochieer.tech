@@ -46,6 +46,22 @@
       }
     }
 
+    table {
+      min-width: 100%;
+      white-space: nowrap;
+      border-collapse: collapse;
+
+      thead {
+        background: $color-background-tint;
+      }
+
+      tbody {
+        tr:nth-child(even) {
+          background: $color-background-shade;
+        }
+      }
+    }
+
     .highlight {
       overflow: scroll;
       line-height: 1.2em;
