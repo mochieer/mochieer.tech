@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="alternate" type="application/rss+xml" title="mochieer.tech" href="https://mochieer.tech/index.xml">
+
+    <link rel="stylesheet" href="https://mochieer.tech/css/style.1d98404c49fbdfae021383c2d8dfefa047a75919ec65421adbd2c8dfcbfd41d7.css">
+
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+
+    <meta property="og:site_name" content="mochieer.tech" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://mochieer.tech/images/share.png" />
+    <meta property="og:description" content="mochieer.tech">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary" />
+
+    <meta property="og:title" content="Docker で Composer を使う &middot; mochieer.tech">
+<title>Docker で Composer を使う &middot; mochieer.tech</title>
+
+
+    <meta name="generator" content="Hugo 0.82.0" />
+  </head>
+  <body>
+    <header class="l-header">
+      <div class="l-container">
+        <h1 class="p-header__title">
+  <a href="https://mochieer.tech">mochieer.tech</a>
+</h1>
+
+      </div>
+    </header>
+    <section class="l-main">
+      <div class="l-container">
+        
+<article class="p-article">
+  <header class="p-article__header">
+    <time class="c-date">
+      <a class="c-date--year" href="https://mochieer.tech/posts/2021">2021</a>
+      /
+      <a class="c-date--month" href="https://mochieer.tech/posts/2021/10">10</a>
+      /
+      <a class="c-date--date" href="https://mochieer.tech/posts/2021/10/25">25</a>
+    </time>
+    <h1 class="p-article__header-title">Docker で Composer を使う</h1>
+    <ul class="c-tag-list">
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">プログラミング</a></span>
+</li>
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/docker">Docker</a></span>
+</li>
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/composer">Composer</a></span>
+</li>
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/php">PHP</a></span>
+</li>
+      </ul>
+  </header>
+
+  <section class="p-article__body">
+    <h2 id="まとめ">まとめ</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
+</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">app</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">php:8-apache</span><span class="w">
+</span><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="s2">&#34;8080:80&#34;</span><span class="w">
+</span><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">./:/var/www/html</span><span class="w">
+</span><span class="w">  </span><span class="nt">composer</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">composer</span><span class="w">
+</span><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;composer install&#34;</span><span class="w">
+</span><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">./:/app</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p><code>docker-compose.yml</code> をこんな感じにして、</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ docker-composer up --build
+</code></pre></td></tr></table>
+</div>
+</div><p>とかすれば <code>composer.lock</code> に従ってパッケージのインストールをしてくれる。</p>
+<p>新しく require を追加したかったら、</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ docker-compose run --rm --no-deps composer composer require phpunit/phpunit --dev
+</code></pre></td></tr></table>
+</div>
+</div><p>とかすればよい。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/usr/bin/env bash
+</span><span class="cp"></span>docker-compose run --rm --no-deps composer composer <span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>くらいのシェルスクリプトをエイリアス的に用意してあげても良い。</p>
+<p><strong>ただし、この方法では PHP 本体のバージョンや PHP の拡張に対する依存の宣言は正しく評価されない。実際のアプリケーションなどで利用する場合は、アプリケーションの実行環境としての PHP 環境で <code>composer install</code> する必要がある。</strong></p>
+<h2 id="詳細">詳細</h2>
+<h3 id="why">why</h3>
+<p>そもそもの課題感として、</p>
+<ol>
+<li>ローカルで <code>composer install</code> したくない
+<ul>
+<li>そもそもローカルに PHP 入っていない</li>
+<li>入っていたとしても <code>ext-*</code> は入っていない</li>
+</ul>
+</li>
+<li>一方で、 Composer でインストールしたファイル群（ <code>composer.lock</code> と <code>vendor/</code> 以下）はローカルにも存在してほしい
+<ul>
+<li>エディタの補完を使いたい</li>
+<li>期待しない動作をするライブラリのコードを読みたい</li>
+<li><code>composer.lock</code> は git で管理したい</li>
+</ul>
+</li>
+</ol>
+<p>なので、 <code>composer</code> コマンドはコンテナ内部で実行し、その結果はローカルと同期したい。</p>
+<h3 id="composer-イメージ">composer イメージ</h3>
+<p>composer イメージというのがあるようで、これを使う。</p>
+<ul>
+<li><a href="https://blog.hanhans.net/2019/01/08/docker-composer/">hanhan&rsquo;s blog - Dockerにcomposerをインストールする方法の正解</a></li>
+</ul>
+<p>上記のブログでは Dockerfile で <code>/usr/bin/composer</code> を配置しているが、そうすると git など Composer が依存する各種コマンドが利用できる必要があり、それは本来のアプリケーションには必要ないもの（ビルドにのみ必要なもの）なので、 Docker Compose で別 service として実行して、実行結果のファイルのみマウントするような方針を取ることにした。</p>
+<p>ということで、 <code>docker-compose.yml</code> がこうなる。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
+</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">app</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">php:8-apache</span><span class="w">
+</span><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="s2">&#34;8080:80&#34;</span><span class="w">
+</span><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">./:/var/www/html</span><span class="w">
+</span><span class="w">  </span><span class="nt">composer</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">composer</span><span class="w">
+</span><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;composer install&#34;</span><span class="w">
+</span><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">./:/app</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>ただし、ディレクトリ構成は</p>
+<ul>
+<li>src/</li>
+<li>vendor/</li>
+<li>composer.json</li>
+<li>composer.lock</li>
+<li>docker-compose.yml</li>
+</ul>
+<p>がルートに並んでいるものとする。</p>
+<h3 id="使い方">使い方</h3>
+<p>簡単なシェルスクリプト</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/usr/bin/env bash
+</span><span class="cp"></span>docker-compose run --rm --no-deps composer composer <span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>を設置して、</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh">$ ./bin/composer.sh install
+$ ./bin/composer.sh phpunit/phpunit --dev
+$ ./bin/composer.sh update
+</code></pre></td></tr></table>
+</div>
+</div><p>みたいな感じで使うと、ローカルの <code>composer.json</code>, <code>composer.lock</code>, <code>vendor/</code> も更新される。</p>
+<h3 id="ただし">ただし…</h3>
+<p>ところで、 composer イメージで依存の解決がされるとき、 PHP そのもののバージョンや <code>ext-*</code> はどのように評価されるのだろう。</p>
+<p>私はふんいきで Docker をやっているのであくまで雰囲気だが、 app とは無関係なところで <code>composer install</code> が実行されてファイルのみ同期されているのだと思う。とすると、例えば <code>ext-mbstring</code> を必要とするパッケージをインストールする際に、 app 側の PHP 環境として mbstring 拡張が存在しなくても、 composer install は成功してしまい、実行時（それも mbstring を利用する際）に初めて mbstring がなくて死ぬ、ということになるのだろうか。</p>
+<p>と思ったら、やはり Docker Hub にそのような注意書きがあった。</p>
+<blockquote>
+<p>Our image is aimed at quickly running Composer without the need for having a PHP runtime installed on your host. You should not rely on the PHP version in our container. We do not provide a Composer image for each supported PHP version because we do not want to encourage using Composer as a base image or a production image.</p>
+<p>We try to deliver an image that is as lean as possible, built for running Composer only. Sometimes dependencies or Composer scripts require the availability of certain PHP extensions.</p>
+<p><cite><a href="https://hub.docker.com/_/composer">Composer - Official Image | Docker Hub</a></cite></p>
+</blockquote>
+<p>なのでこの方法は</p>
+<ul>
+<li>とりあえず試したい</li>
+<li>ローカルを汚さず <code>composer install</code> をクリアしたい</li>
+<li>実行環境は特に問わないライブラリの開発を行いたい</li>
+</ul>
+<p>など、限られた場合で使うべきだろう。</p>
+<p>そうでなく、自身で PHP 環境をホストしてアプリケーションを提供する場合は、<a href="https://blog.hanhans.net/2019/01/08/docker-composer/">前述のブログ記事</a>にあるように、その環境に</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="k">COPY</span> --from<span class="o">=</span>composer:latest /usr/bin/composer /usr/bin/composer<span class="err">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>で composer 本体をコピーしてコマンドを実行する方法が良いだろう。（それでも<a href="https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md">インストーラーをダウンロードしてごにゃごにゃするやり方</a>よりはかなり良い）</p>
+
+  </section>
+
+  <footer class="p-article__footer">
+    <ul class="c-tag-list">
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">プログラミング</a></span>
+</li>
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/docker">Docker</a></span>
+</li>
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/composer">Composer</a></span>
+</li>
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/php">PHP</a></span>
+</li>
+      </ul>
+    <div class="p-article__revision">
+      <span class="c-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+</span>
+
+      <a href="https://github.com/mochieer/mochieer.tech/commits/main/content/posts/2021/10/25/using-composer-with-docker/">GitHub で修正履歴を見る</a><br />
+      この記事に修正が必要であれば、 <a href="https://twitter.com/mochieer">Twitter</a> または <a href="https://github.com/mochieer/mochieer.tech/issues/new">GitHub の issue</a> にてご連絡ください。
+    </div>
+  </footer>
+</article>
+
+      </div>
+    </section>
+    <footer class="l-footer">
+      <div class="l-container">
+
+        <footer class="p-footer">
+  <div class="l-container">
+    <p>
+      Powered by <a href="https://gohugo.io">Hugo</a>.
+      Hosted on <a href="https://github.com">GitHub Pages</a>.
+    </p>
+    <p>
+      Made with ❤️ & <a href="https://buymeacoff.ee/mochieer">☕</a>️ by mochieer.
+    </p>
+  </div>
+</footer>
+
+      </div>
+    </footer>
+
+    <script type="text/javascript">twemoji.parse(document.body);</script>
+  </body>
+</html>

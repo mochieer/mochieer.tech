@@ -11,6 +11,199 @@
     <atom:link href="https://mochieer.tech/posts/2021/09/04/index.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Docker で Composer を使う</title>
+        <link>https://mochieer.tech/posts/2021/10/25/using-composer-with-docker/</link>
+        <pubDate>Mon, 25 Oct 2021 00:00:00 +0900</pubDate>
+        
+        <guid>https://mochieer.tech/posts/2021/10/25/using-composer-with-docker/</guid>
+        <description>まとめ 1 2 3 4 5 6 7 8 9 10 11 12 13 version:&amp;#34;3&amp;#34;services:app:image:php:8-apacheports:- &amp;#34;8080:80&amp;#34;volumes:- ./:/var/www/htmlcomposer:image:composercommand:&amp;#34;composer install&amp;#34;volumes:- ./:/app docker-compose.yml をこんな感じにして、 1 $ docker-composer up --build とかすれば composer.lock に従ってパッケージのインストールをしてくれる。 新しく require</description>
+        <content:encoded>&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;3&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;services&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;php:8-apache&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ports&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;s2&#34;&gt;&amp;#34;8080:80&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;volumes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;./:/var/www/html&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;composer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;composer&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;command&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;composer install&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;volumes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;./:/app&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;docker-compose.yml&lt;/code&gt; をこんな感じにして、&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ docker-composer up --build
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;とかすれば &lt;code&gt;composer.lock&lt;/code&gt; に従ってパッケージのインストールをしてくれる。&lt;/p&gt;
+&lt;p&gt;新しく require を追加したかったら、&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ docker-compose run --rm --no-deps composer composer require phpunit/phpunit --dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;とかすればよい。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/usr/bin/env bash
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;docker-compose run --rm --no-deps composer composer &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$@&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;くらいのシェルスクリプトをエイリアス的に用意してあげても良い。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ただし、この方法では PHP 本体のバージョンや PHP の拡張に対する依存の宣言は正しく評価されない。実際のアプリケーションなどで利用する場合は、アプリケーションの実行環境としての PHP 環境で &lt;code&gt;composer install&lt;/code&gt; する必要がある。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;詳細&#34;&gt;詳細&lt;/h2&gt;
+&lt;h3 id=&#34;why&#34;&gt;why&lt;/h3&gt;
+&lt;p&gt;そもそもの課題感として、&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;ローカルで &lt;code&gt;composer install&lt;/code&gt; したくない
+&lt;ul&gt;
+&lt;li&gt;そもそもローカルに PHP 入っていない&lt;/li&gt;
+&lt;li&gt;入っていたとしても &lt;code&gt;ext-*&lt;/code&gt; は入っていない&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;一方で、 Composer でインストールしたファイル群（ &lt;code&gt;composer.lock&lt;/code&gt; と &lt;code&gt;vendor/&lt;/code&gt; 以下）はローカルにも存在してほしい
+&lt;ul&gt;
+&lt;li&gt;エディタの補完を使いたい&lt;/li&gt;
+&lt;li&gt;期待しない動作をするライブラリのコードを読みたい&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;composer.lock&lt;/code&gt; は git で管理したい&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;なので、 &lt;code&gt;composer&lt;/code&gt; コマンドはコンテナ内部で実行し、その結果はローカルと同期したい。&lt;/p&gt;
+&lt;h3 id=&#34;composer-イメージ&#34;&gt;composer イメージ&lt;/h3&gt;
+&lt;p&gt;composer イメージというのがあるようで、これを使う。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.hanhans.net/2019/01/08/docker-composer/&#34;&gt;hanhan&amp;rsquo;s blog - Dockerにcomposerをインストールする方法の正解&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上記のブログでは Dockerfile で &lt;code&gt;/usr/bin/composer&lt;/code&gt; を配置しているが、そうすると git など Composer が依存する各種コマンドが利用できる必要があり、それは本来のアプリケーションには必要ないもの（ビルドにのみ必要なもの）なので、 Docker Compose で別 service として実行して、実行結果のファイルのみマウントするような方針を取ることにした。&lt;/p&gt;
+&lt;p&gt;ということで、 &lt;code&gt;docker-compose.yml&lt;/code&gt; がこうなる。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;3&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;services&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;php:8-apache&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ports&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;s2&#34;&gt;&amp;#34;8080:80&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;volumes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;./:/var/www/html&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;composer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;composer&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;command&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;composer install&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;volumes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;./:/app&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;ただし、ディレクトリ構成は&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;src/&lt;/li&gt;
+&lt;li&gt;vendor/&lt;/li&gt;
+&lt;li&gt;composer.json&lt;/li&gt;
+&lt;li&gt;composer.lock&lt;/li&gt;
+&lt;li&gt;docker-compose.yml&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;がルートに並んでいるものとする。&lt;/p&gt;
+&lt;h3 id=&#34;使い方&#34;&gt;使い方&lt;/h3&gt;
+&lt;p&gt;簡単なシェルスクリプト&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/usr/bin/env bash
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;docker-compose run --rm --no-deps composer composer &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$@&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;を設置して、&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ ./bin/composer.sh install
+$ ./bin/composer.sh phpunit/phpunit --dev
+$ ./bin/composer.sh update
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;みたいな感じで使うと、ローカルの &lt;code&gt;composer.json&lt;/code&gt;, &lt;code&gt;composer.lock&lt;/code&gt;, &lt;code&gt;vendor/&lt;/code&gt; も更新される。&lt;/p&gt;
+&lt;h3 id=&#34;ただし&#34;&gt;ただし…&lt;/h3&gt;
+&lt;p&gt;ところで、 composer イメージで依存の解決がされるとき、 PHP そのもののバージョンや &lt;code&gt;ext-*&lt;/code&gt; はどのように評価されるのだろう。&lt;/p&gt;
+&lt;p&gt;私はふんいきで Docker をやっているのであくまで雰囲気だが、 app とは無関係なところで &lt;code&gt;composer install&lt;/code&gt; が実行されてファイルのみ同期されているのだと思う。とすると、例えば &lt;code&gt;ext-mbstring&lt;/code&gt; を必要とするパッケージをインストールする際に、 app 側の PHP 環境として mbstring 拡張が存在しなくても、 composer install は成功してしまい、実行時（それも mbstring を利用する際）に初めて mbstring がなくて死ぬ、ということになるのだろうか。&lt;/p&gt;
+&lt;p&gt;と思ったら、やはり Docker Hub にそのような注意書きがあった。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Our image is aimed at quickly running Composer without the need for having a PHP runtime installed on your host. You should not rely on the PHP version in our container. We do not provide a Composer image for each supported PHP version because we do not want to encourage using Composer as a base image or a production image.&lt;/p&gt;
+&lt;p&gt;We try to deliver an image that is as lean as possible, built for running Composer only. Sometimes dependencies or Composer scripts require the availability of certain PHP extensions.&lt;/p&gt;
+&lt;p&gt;&lt;cite&gt;&lt;a href=&#34;https://hub.docker.com/_/composer&#34;&gt;Composer - Official Image | Docker Hub&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;なのでこの方法は&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;とりあえず試したい&lt;/li&gt;
+&lt;li&gt;ローカルを汚さず &lt;code&gt;composer install&lt;/code&gt; をクリアしたい&lt;/li&gt;
+&lt;li&gt;実行環境は特に問わないライブラリの開発を行いたい&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;など、限られた場合で使うべきだろう。&lt;/p&gt;
+&lt;p&gt;そうでなく、自身で PHP 環境をホストしてアプリケーションを提供する場合は、&lt;a href=&#34;https://blog.hanhans.net/2019/01/08/docker-composer/&#34;&gt;前述のブログ記事&lt;/a&gt;にあるように、その環境に&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Dockerfile&#34; data-lang=&#34;Dockerfile&#34;&gt;&lt;span class=&#34;k&#34;&gt;COPY&lt;/span&gt; --from&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;composer:latest /usr/bin/composer /usr/bin/composer&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;で composer 本体をコピーしてコマンドを実行する方法が良いだろう。（それでも&lt;a href=&#34;https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md&#34;&gt;インストーラーをダウンロードしてごにゃごにゃするやり方&lt;/a&gt;よりはかなり良い）&lt;/p&gt;
+</content:encoded>
+      </item>
+      <item>
         <title>SVG アイコンのロードについて検証</title>
         <link>https://mochieer.tech/posts/2021/09/20/verify-loading-of-svg-icons/</link>
         <pubDate>Mon, 20 Sep 2021 00:00:00 +0900</pubDate>
@@ -1117,82 +1310,6 @@ left to right direction
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;こんな感じで呼び出してやれば良い。すると、この記事の一番上のユースケース図が表示される。&lt;/p&gt;
 &lt;p&gt;背景はついていたほうがいいので、適当にクラスを付けてスタイルを当てた。また、せっかく SVG なので &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt; でなく &lt;code&gt;&amp;lt;object&amp;gt;&lt;/code&gt; で描画するようにした。&lt;/p&gt;
-</content:encoded>
-      </item>
-      <item>
-        <title>ストレングス・ファインダー</title>
-        <link>https://mochieer.tech/posts/2020/11/13/strength-finder/</link>
-        <pubDate>Fri, 13 Nov 2020 00:00:00 +0000</pubDate>
-        
-        <guid>https://mochieer.tech/posts/2020/11/13/strength-finder/</guid>
-        <description>以前使っていた Evernote のデータのサルベージをしていたら、数年前に受けたストレングス・ファインダーのテスト結果がメモってあったのでこちらに転載する。</description>
-        <content:encoded>&lt;p&gt;以前使っていた Evernote のデータのサルベージをしていたら、数年前に受けたストレングス・ファインダーのテスト結果がメモってあったのでこちらに転載する。&lt;/p&gt;
-&lt;p&gt;その人固有の資質ということで、そのときの社会的な役割や気分で左右されるようなものではないとされているものの、前職時代に受けた（経費で受けさせてもらった🙏）もので、今やると少し違った結果になるかもしれないなと思った。定点観測的な感じで、定期的に受けてみるのも面白いのかもしれない。&lt;/p&gt;
-&lt;p&gt;そういえば &lt;a href=&#34;https://www.16personalities.com/ja&#34;&gt;16Personalities&lt;/a&gt; は無料だしテストもすぐに終わるので何回かやっている。だいたい&lt;a href=&#34;https://www.16personalities.com/ja/infp%E5%9E%8B%E3%81%AE%E6%80%A7%E6%A0%BC&#34;&gt;仲介者 (INFP)&lt;/a&gt;とされる。社会人歴が長くなるにつれて &lt;a href=&#34;https://www.16personalities.com/articles/nature-thinking-vs-feeling&#34;&gt;Thinking 型から Feeling 型になってきていて&lt;/a&gt;、世間は理屈で回っているのではないという教えを身体に叩き込まれている感があってエモい。&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;以下、ストレングス・ファインダーの結果を貼り付け。&lt;/p&gt;
-&lt;h2 id=&#34;上位5つの資質&#34;&gt;上位5つの資質&lt;/h2&gt;
-&lt;p&gt;戦略性、着想、適応性、分析思考、学習欲&lt;/p&gt;
-&lt;p&gt;以下、引用。&lt;/p&gt;
-&lt;h3 id=&#34;戦略性httpswwwgallupcomcliftonstrengthsja253478e688a6e795a5e680a7-e8b387e8b3aaaspx&#34;&gt;&lt;a href=&#34;https://www.gallup.com/cliftonstrengths/ja/253478/%E6%88%A6%E7%95%A5%E6%80%A7-%E8%B3%87%E8%B3%AA.aspx&#34;&gt;戦略性&lt;/a&gt;&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;「戦略性」の資質によって、あなたは混乱をかき分けて最適な道順を見つけことができます。これは学習して習得できるスキルではありません。これは明確に考え、世界を大局的に捉えることができる能力です。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;他の人にはただ複雑にしか見えないときでも、あなたはこの才能でパターンを見つけ出します。これらのパターンを意識して、あなたは常に「こうなったらどうなる?では、こうなったらどうなる?」と自問しながら、あらゆる選択肢のシナリオを想像できます。このような繰り返しによって、先を読むことができるのです。そして、あなたは起こる可能性のある障害の危険性を正確に予測することができます。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;それぞれの道筋の先にある状況がわかることで、あなたは道筋を選び始めます。行き止まりの道をあなたは切り捨てます。まともに抵抗を受ける道を排除します。混乱に巻き込まれる道を捨て去ります。そして、選ばれた道――すなわちあなたの戦略――にたどり着くまで、あなたは選択と切り捨てを繰り返します。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;そしてこの戦略性を武器に前へ進みます。これが、あなたの職場での「戦略性」という資質です。問いかけ、選択し、行動します。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;着想httpswwwgallupcomcliftonstrengthsja253439e79d80e683b3-e8b387e8b3aaaspx&#34;&gt;&lt;a href=&#34;https://www.gallup.com/cliftonstrengths/ja/253439/%E7%9D%80%E6%83%B3-%E8%B3%87%E8%B3%AA.aspx&#34;&gt;着想&lt;/a&gt;&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;あなたはアイデアに魅力を感じます。アイデアとは何でしょうか? それはほとんどの出来事を最もうまく説明できる考え方です。あなたは複雑に見える表面の下に、なぜ物事はそうなっているかを説明する、的確で簡潔な考え方を発見すると嬉しくなります。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;アイデアとは結びつきです。あなたのような考え方を持つ人は、いつも結びつきを探しています。見た目には共通点のない現象が、何となくつながりがありそうだと、あなたは好奇心をかき立てられるのです。アイデアとは、一般的な課題に対して、新しい見方をすることです。あなたは誰でも知っている世の中の事柄を取り上げ、それをひっくり返すことに喜びを感じます。それによって人々は、その事柄を、変わっているけれど意外な角度から眺めることができます。あなたはこのようなアイデアすべてが大好きです。なぜなら、アイデアには深い意味があり、目新しく、明瞭で、逆説的で、奇抜だからです。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;これらすべての理由で、あなたは新しいアイデアが生まれるたびに、エネルギーが電流のように走ります。他の人たちはあなたのことを、創造的、独創的、概念的、知的などの言葉で表現するでしょう。そのすべてが当てはまるかもしれません。どれもあてはまらないかもしれません。確実なのは、アイデアがあなたにとってスリルがあるということです。そしてほとんど毎日そうであれば、あなたは幸せなのです。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;適応性httpswwwgallupcomcliftonstrengthsja253391e981a9e5bf9ce680a7-e8b387e8b3aaaspx&#34;&gt;&lt;a href=&#34;https://www.gallup.com/cliftonstrengths/ja/253391/%E9%81%A9%E5%BF%9C%E6%80%A7-%E8%B3%87%E8%B3%AA.aspx&#34;&gt;適応性&lt;/a&gt;&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;あなたにとって今この瞬間が最も重要です。あなたは将来をすでに決まっているものとは考えていません。将来というのは、今あなたが行う選択によって変わっていくものだと考えています。したがって、あなたは1つひとつ選択しながら将来を見つけていきます。これは計画がないということではありません。おそらく計画は立てているでしょう。たとえ計画が予定どおりに行かなくなったとしても、「適応性」の資質によって、あなたはその時の要求に積極的に対応することができます。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;急な要求や予期せぬ回り道を不快に感じる人も中にはいますが、あなたは違います。あなたは、そうなることを予期しています。それらは必然のことであり、実のところ、あなたはある程度それを待ち望んでいます。あなたは生まれつき大変柔軟性のある人です。仕事上の必要から同時にいくつものことに注意を払わなければならない場合でも、常に生産性を保つことができます。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;分析思考httpswwwgallupcomcliftonstrengthsja253394e58886e69e90e6809de88083-e8b387e8b3aaaspx&#34;&gt;&lt;a href=&#34;https://www.gallup.com/cliftonstrengths/ja/253394/%E5%88%86%E6%9E%90%E6%80%9D%E8%80%83-%E8%B3%87%E8%B3%AA.aspx&#34;&gt;分析思考&lt;/a&gt;&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;「分析思考」の資質を持つあなたは、他の人に「証明しなさい。あなたの主張がなぜ正しいのか示しなさい」と強く要求します。このような詰問を受けると、自分のすばらしい理論がもろくも崩れ落ちるのを感じる人もいます。これがまさしく、あなたの意図するところです。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;あなたは必ずしも他の人のアイデアを壊したいわけではないのですが、彼らの理論が堅固であることを強く求めます。あなたは自分自身を、客観的で公平であると考えています。あなたはデータを好みます。データは人々の考えに左右されず、ありのままだからです。あなたはデータを見ると、パターンと関連性を捜し出します。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;一定のパターンが互いにどのように影響するのか、どのように結びつくのか、結果はどのようなものかを理解しようとします。この結果が、提示されている理論や目の前の状況にふさわしいかなど、疑問を投げかけます。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;あなたはこれらの点を一つずつ明らかにして、根本的な理由を探し当てます。人はあなたのことを論理的で厳格であると見ます。その人達は、いつかあなたのところにやって来て、誰か他の人の「非現実的な考え」あるいは「整理されていない考え」を話し、あなたの研ぎ澄まされた思考からみた意見を聞くでしょう。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;あなたの分析結果を伝えるとき、厳し過ぎないようにしましょう。そうでないと、その「非現実的な考え」が彼ら自身の考えである場合、その人はあなたを避けるようになります。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;学習欲httpswwwgallupcomcliftonstrengthsja253454e5ada6e7bf92e6acb2-e8b387e8b3aaaspx&#34;&gt;&lt;a href=&#34;https://www.gallup.com/cliftonstrengths/ja/253454/%E5%AD%A6%E7%BF%92%E6%AC%B2-%E8%B3%87%E8%B3%AA.aspx&#34;&gt;学習欲&lt;/a&gt;&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;あなたは学ぶことが大好きです。あなたが最も関心を持つテーマは、あなたの他の資質や経験によって決まりますが、それが何であれ、あなたはいつも学ぶ「プロセス」に心を惹かれます。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;内容や結果よりもプロセスこそが、あなたにとっては刺激的なのです。あなたは何も知らない状態から能力を備えた状態に、着実で計画的なプロセスを経て移行することでやる気が出ます。最初にいくつかの事実に接することでぞくぞくし、早い段階で学んだことを復誦し練習する努力をし、スキルを習得するにつれ自信が強まる。これがあなたの心を惹きつける学習プロセスです。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;あなたの意欲の高まりは、あなたに社会人学習（ヨガ、ピアノのレッスン、大学院など）への参加を促すようになります。それは、短期プロジェクトへの取り組みを依頼されて、短期間で多くの新しいことを学ぶことが求められ、そしてすぐにまた次の新しいプロジェクトに取り組む必要のあるような、活気にあふれた職場環境の中で力を発揮します。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;この「学習欲」という資質は、必ずしもあなたがその分野の専門家になろうとしているとか、専門的あるいは学術的な資格を得て評価されようと努力することを意味するわけではありません。学習の成果は、「学習のプロセス」ほど重要ではないのです。&lt;/p&gt;
-&lt;/blockquote&gt;
 </content:encoded>
       </item>
   </channel>
