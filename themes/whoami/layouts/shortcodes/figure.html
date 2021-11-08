@@ -15,6 +15,9 @@
       {{ with $.Get "width" -}}
         width="{{ . }}"
       {{- end }}
+      {{ with $.Get "height" -}}
+        height="{{ . }}"
+      {{- end }}
     />
   {{- end }}
   {{ with .Get "caption" -}}

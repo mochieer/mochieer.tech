@@ -9,10 +9,12 @@
 
       img {
         max-width: 100%;
+        height: auto;
       }
 
       figcaption {
         font-size: $font-s;
+        margin: 0 1rem;
       }
     }
 
