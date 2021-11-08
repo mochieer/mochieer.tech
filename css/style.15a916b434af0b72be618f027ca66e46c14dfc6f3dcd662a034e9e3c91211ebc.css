@@ -720,9 +720,11 @@ ol ol {
     padding: 0;
     text-align: center; }
     .p-article__body figure img {
-      max-width: 100%; }
+      max-width: 100%;
+      height: auto; }
     .p-article__body figure figcaption {
-      font-size: 14px; }
+      font-size: 14px;
+      margin: 0 1rem; }
   .p-article__body blockquote {
     color: #acb0ae;
     font-style: italic;

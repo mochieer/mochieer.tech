@@ -21,6 +21,7 @@
     &lt;img
       src=&#34;https://i.gyazo.com/1e1fa822bb9433f22e65f559195222bf.jpg&#34;
       alt=&#34;お線香を焚いている様子&#34;width=&#34;3613&#34;
+      height=&#34;2710&#34;
     /&gt;
   &lt;figcaption&gt;お線香を焚いている様子。奥に見えるのはガチャガチャでゲットしたカービィとワドルディ。&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -472,6 +473,7 @@ $ ./bin/composer.sh update
     &lt;img
       src=&#34;https://i.gyazo.com/5cb594c689b57cfcd7edd3776807b355.png&#34;
       alt=&#34;デモ (1) の結果&#34;width=&#34;1216&#34;
+      height=&#34;1070&#34;
     /&gt;
   &lt;figcaption&gt;デモ (1) の結果&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -480,6 +482,7 @@ $ ./bin/composer.sh update
     &lt;img
       src=&#34;https://i.gyazo.com/fbee041b9c15eba467d595cd249b3543.png&#34;
       alt=&#34;デモ (2) の結果&#34;width=&#34;1190&#34;
+      height=&#34;1084&#34;
     /&gt;
   &lt;figcaption&gt;デモ (2) の結果&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -488,6 +491,7 @@ $ ./bin/composer.sh update
     &lt;img
       src=&#34;https://i.gyazo.com/7312e7810bbc7e113ebe135c88269e09.png&#34;
       alt=&#34;デモ (3) の結果&#34;width=&#34;1174&#34;
+      height=&#34;1082&#34;
     /&gt;
   &lt;figcaption&gt;デモ (3) の結果&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -496,6 +500,7 @@ $ ./bin/composer.sh update
     &lt;img
       src=&#34;https://i.gyazo.com/ed8b15a1c3f187f7eca9dc7f910e1f16.png&#34;
       alt=&#34;デモ (4) の結果&#34;width=&#34;1172&#34;
+      height=&#34;1064&#34;
     /&gt;
   &lt;figcaption&gt;デモ (4) の結果&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1138,6 +1143,7 @@ touch content/posts/&lt;span class=&#34;nv&#34;&gt;$YEAR&lt;/span&gt;/&lt;span c
     &lt;img
       src=&#34;https://i.gyazo.com/0cd474b9d115b59150719ea72a9f135c.jpg&#34;
       alt=&#34;うんちカレンダー&#34;
+      
     /&gt;
   &lt;figcaption&gt;ちなみに25日は昨年亡くなったうさぎの誕生日&lt;/figcaption&gt;
 &lt;/figure&gt;
