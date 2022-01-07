@@ -2,17 +2,21 @@
   {{- partial "commands/put_title.html" (printf "記事一覧 &middot; %s" .Site.Title) -}}
 {{- end -}}
 {{ define "main" }}
-<h1>{{ substr .File.Dir 6 -1 }} の記事一覧</h1>
+<h1>{{ with .File }}{{ substr .Dir 6 -1 }} の{{ end }}記事一覧</h1>
 <ul class="p-article-list">
   {{- if .Sections }}
-    {{ range .Sections }}
-      {{- range (site.GetPage "section" .File.Dir).RegularPagesRecursive }}
+    {{- range .Sections }}
+      {{- with .File }}
+        {{- range (site.GetPage "section" .Dir).RegularPagesRecursive }}
+          {{ partial "components/molecules/article-headline.html" . }}
+        {{- end }}
+      {{- end }}
+    {{- end }}
+  {{- else }}
+    {{- with .File }}
+      {{- range (site.GetPage "section" .Dir).RegularPagesRecursive }}
         {{ partial "components/molecules/article-headline.html" . }}
       {{- end }}
-    {{ end }}
-  {{- else }}
-    {{- range (site.GetPage "section" .File.Dir).RegularPagesRecursive }}
-      {{ partial "components/molecules/article-headline.html" . }}
     {{- end }}
   {{- end }}
 </ul>
