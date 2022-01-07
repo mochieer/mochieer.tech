@@ -1,0 +1,1188 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>mochieer.techの新着記事</title>
+    <link>https://mochieer.tech</link>
+    <description>mochieer.techの新着記事</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>(c) mochieer</copyright>
+    <lastBuildDate>Fri, 07 Jan 2022 00:00:00 +0900</lastBuildDate>
+    
+    <atom:link href="https://mochieer.tech/posts/2022/01/index.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>現在の開発環境</title>
+        <link>https://mochieer.tech/posts/2022/01/07/current-development-environment/</link>
+        <pubDate>Fri, 07 Jan 2022 00:00:00 +0900</pubDate>
+        
+        <guid>https://mochieer.tech/posts/2022/01/07/current-development-environment/</guid>
+        <description>我が家はマンションのメゾネットタイプで、 Wi-Fi ルーターは下の階、作業部屋は上の階にある。したがってやや電波が届きにくい。また、マンションあるある</description>
+        <content:encoded>&lt;p&gt;我が家はマンションのメゾネットタイプで、 Wi-Fi ルーターは下の階、作業部屋は上の階にある。したがってやや電波が届きにくい。また、マンションあるあるだがインターネットがあまり速くない。結果的に下りで 10 Mbps も出ないなんてこともよくある。&lt;/p&gt;
+&lt;p&gt;そういう事情もあり、 Ubuntu Server をインストールした古い ASUS のラップトップをルーターに直結し、作業部屋の MacBook から VS Code の &lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh&#34;&gt;Remote SSH&lt;/a&gt; でログインして開発を行っていた。&lt;/p&gt;
+&lt;p&gt;私のプログラマのキャリアの初期は、サーバーに SSH で入ってサーバーの中で開発して Makefile でビルドしてファイルを配置していたような時代だったので、そういう旧時代的な開発スタイルは肌に合うし、牧歌的な感じで好きだったりする。したがって、趣味（物理的サーバー）と実益（通信速度）を兼ね備えた開発スタイルだったと言える。&lt;/p&gt;
+&lt;p&gt;また、 macOS 上での Docker が遅すぎてストレスが半端でないので、ローカルで仮想 Linux を動かすくらいなら余っている別マシンで Linux を動かすというのは合理的でもあった。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;さて、前置きは長くなったが、現在は MacBook に完結して、 &lt;a href=&#34;https://multipass.run/&#34;&gt;Multipass&lt;/a&gt; で Ubuntu Server を動かして開発するようになった。&lt;/p&gt;
+&lt;p&gt;きっかけは年末年始の 2 年ぶりの帰省で、「あれ、これはラップトップを 2 台持って実家に帰ることになるのか？」と気づいてしまったことにある。&lt;/p&gt;
+&lt;p&gt;また、タイミングよく下記の記事が目に入ったのも良かった。この記事がなかったら EC2 的なインスタンスを作っていたり、 Cloud9 を試したりしていたかもしれない。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://tech.mirrativ.stream/entry/2021/12/21/125127&#34;&gt;Docker + Mac どうする問題 - Mirrativ Tech Blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ということで、今は Multipass で Ubuntu Server を動かし、 VS Code の Remote SSH で開発している。もともと物理ラップトップに同じバージョンの Ubuntu Server をインストールして使っていたので、比較的スムーズに移行できた。&lt;/p&gt;
+&lt;p&gt;ASUS のラップトップも、思えばそろそろ 10 年選手なので天寿を全うする前に引っ越しできてよかったかもしれない。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;最後に、つまづいたポイントと、解決に役立った記事を書いておく 🙏&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://multipass.run/docs/launch-command&#34;&gt;特にオプションを付けずにインスタンスを作ると disk=5G / memory=1G で生成される&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;Node を使う場合は 1G なんかでは絶対足りない&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/canonical/multipass/issues/1158#issuecomment-548073024&#34;&gt;インスタンスを作った後に割り当てを変更する方法&lt;/a&gt;もあるので、やってみてダメだったら増やすのもあり&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/seibe/items/36cef7df85fe2cefa3ea&#34;&gt;apt で Node をインストールすると古かったりするので n を使う&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.virment.com/how-to-fix-system-limit-for-number-of-file-watchers-reached/&#34;&gt;watch 数の上限に達したので、上限を引き上げる&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content:encoded>
+      </item>
+      <item>
+        <title>Baseus の GaN 充電器</title>
+        <link>https://mochieer.tech/posts/2021/12/12/baseus-gan-charger/</link>
+        <pubDate>Sun, 12 Dec 2021 00:00:00 +0900</pubDate>
+        
+        <guid>https://mochieer.tech/posts/2021/12/12/baseus-gan-charger/</guid>
+        <description>Baseus GaN 2 Pro Quick Charger 65W と 100W 対応 USB-C ケーブル。奥に見えるのはガチャガチャでゲットしたカービィとワドルディ。 先月の Amazon のブラックフライデーで Baseus の GaN 充電器を購</description>
+        <content:encoded>&lt;figure&gt;
+    &lt;img
+      src=&#34;https://i.gyazo.com/82ae37170a16791e12eb01fc77f07aee.jpg&#34;
+      alt=&#34;お線香を焚いている様子&#34;width=&#34;2464&#34;height=&#34;1632&#34;
+    /&gt;
+  &lt;figcaption&gt;Baseus GaN 2 Pro Quick Charger 65W と 100W 対応 USB-C ケーブル。奥に見えるのはガチャガチャでゲットしたカービィとワドルディ。&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;先月の Amazon のブラックフライデーで &lt;a href=&#34;https://amzn.to/3oOe0jc&#34;&gt;Baseus の GaN 充電器&lt;/a&gt;を購入した。これ自体は最大 65W 出力のものだが、なぜか 100W の USB-C ケーブルがついてきた。&lt;/p&gt;
+&lt;p&gt;今まで MacBook Pro の充電は Apple の純正のものでやっていたり、電源周りには無頓着でいたのだが、冬場になり足元にパネルヒーターを出してみたもののコンセントの数が足りず困っていた。そこで、わりと評判が良く以前から気になっていた Baseus の製品を購入してみた。&lt;/p&gt;
+&lt;p&gt;Baseus は中国の家電ブランドで、名前の由来は Base on User というスローガンを縮めたものらしい。実物を手に取るのは初めてだったが、安物感は全くなく、満足している。中国でもアメリカでもヨーロッパでも日本でも、どこでも安かろう悪かろうな製品はあるので、結局の所は信頼できる人が評価しているかどうかが重要な世の中になってしまっている。&lt;/p&gt;
+&lt;p&gt;2つの USB-C ポートと1つの USB-A ポートがあり、普段は USB-C で MacBook Pro とスマホ（Pixel 3a）を同時に充電している。同時に使用しても 45W + 18W の出力が可能とのことなので、スマホにもいわゆる急速充電が可能だ。出かけることは滅多にないが、 USB-A があるのでこれひとつ持っていけば事足りるという安心感もある。&lt;/p&gt;
+&lt;p&gt;数年前から日進月歩の GaN 充電器というカテゴリーについてだが、日進月歩であるがゆえにあるタイミングで最新の技術だったものが、1年後には陳腐なものになっていたりする。今だとクレカサイズで 100W 出力可能なものが続々と出てきているが、数年経つと「え、なんでこんなでっかい充電器つかってんの（笑）」みたいなことになりかねない。ということで、あまりスペックそのものにこだわらず、今の自分が欲しい出力が得られ、持ち歩きが億劫でなく他のプラグと干渉しない程度に小さい充電器を買うのが良いのかな、という気がしている。&lt;/p&gt;
+&lt;p&gt;この製品について1点だけ微妙な点がある。複数のポートを同時に利用している際にコードの抜き差しをすると、瞬間的に給電が切断されているように見える。出力の切り替えを行っているのだろう。このせいで、 Mac をスリープしてスマホの充電を抜いて立ち上がると、 Mac が充電器に接続されたと認識してロック画面を表示させたりする。まあその程度の問題ではあるのだが、地味に気になっている。&lt;/p&gt;
+</content:encoded>
+      </item>
+      <item>
+        <title>お線香</title>
+        <link>https://mochieer.tech/posts/2021/11/07/incense/</link>
+        <pubDate>Sun, 07 Nov 2021 00:00:00 +0900</pubDate>
+        
+        <guid>https://mochieer.tech/posts/2021/11/07/incense/</guid>
+        <description>お線香を焚いている様子。奥に見えるのはガチャガチャでゲットしたカービィとワドルディ。 最近、奥さんがとあるモデルさんのオンラインコミュニティに</description>
+        <content:encoded>&lt;figure&gt;
+    &lt;img
+      src=&#34;https://i.gyazo.com/1e1fa822bb9433f22e65f559195222bf.jpg&#34;
+      alt=&#34;お線香を焚いている様子&#34;width=&#34;3613&#34;height=&#34;2710&#34;
+    /&gt;
+  &lt;figcaption&gt;お線香を焚いている様子。奥に見えるのはガチャガチャでゲットしたカービィとワドルディ。&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;最近、奥さんがとあるモデルさんのオンラインコミュニティに入会した。定期的にインスタグラムでライブ配信をしていたり、なんらかの商品が届いたりしている。私のお仕事の事業とも近しいものがあり、興味深く観察している。&lt;/p&gt;
+&lt;p&gt;2ヶ月ほど前に &lt;a href=&#34;https://sen-n.com/&#34;&gt;SENN&lt;/a&gt; というところの製品が届き、そのうちインセンス（お線香）を「仕事のときに使ってみれば？」と譲り受けた。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;それから毎朝、何かしらのお線香を焚いて仕事を始めるようにしている。特にこれがないとダメというわけではないが、習慣というか、仕事のスイッチというか、そういうものとして機能してくれているように思う。コーヒーと似ている。&lt;/p&gt;
+&lt;p&gt;嗅覚は記憶と関連していて、脳のスイッチとして有効だと言われている。以前、アロマディフューザーを試したことがあったが、部屋全体がその香りになってしまって、個人的に少し合わなかった。お線香だと15分ほどで燃え尽きるので、脳のスイッチという意味では向いていると思う。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;気に入ったので追加で購入しようとしたのだが、結構お高い。&lt;a href=&#34;https://tokyokodo.online&#34;&gt;東京香堂&lt;/a&gt;が製作しているらしいのでそちらも見てみたが、やはりお高い。一本150円ほどする。1分10円、6秒で1円だ。&lt;/p&gt;
+&lt;p&gt;私は貧乏性なので、あまり高価なものを使うと「ああ150円が燃えている…」と考えてしまうことは間違いなく、したがって本来期待する効果を全く得られなさそうだった。&lt;/p&gt;
+&lt;p&gt;そこから比較的割安なお線香をいくつか試してみたので比較してみる。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.muji.com/jp/ja/store/cmdty/section/S1070253&#34;&gt;無印良品&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;390円 / 12本入&lt;/li&gt;
+&lt;li&gt;白檀、ひのき、金木犀を試した&lt;/li&gt;
+&lt;li&gt;香りは比較的強め&lt;/li&gt;
+&lt;li&gt;無印っぽいミニマルな箱に入っていてかわいい&lt;/li&gt;
+&lt;li&gt;やや煙たい&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.nipponkodo.co.jp/shop/products/detail/36736&#34;&gt;日本香堂 ナチュレンス&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;880円 / 40本&lt;/li&gt;
+&lt;li&gt;洋風のアロマっぽい香り&lt;/li&gt;
+&lt;li&gt;長いので半分に折って使っている（ので、実質80本入）&lt;/li&gt;
+&lt;li&gt;わずかに煙たい&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.kameyama-candle.jp/ec/shop/category_items_detail.htm?Item=20120104&#34;&gt;カメヤマ 和遊&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;1,320円 / 90g&lt;/li&gt;
+&lt;li&gt;数える気にもならないくらい入っているがたぶん300本くらい&lt;/li&gt;
+&lt;li&gt;煙が少なく、香りもやや控えめ&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://shop.sen-n.com/products/incense-tomoshibi-uzumibi/&#34;&gt;SENN（東京香堂）&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;2,860円 / 20本&lt;/li&gt;
+&lt;li&gt;他と比較すると高価だが、そのぶんモノは違う&lt;/li&gt;
+&lt;li&gt;煙の広がり方が優しく、したがって香りの広がりも優しい&lt;/li&gt;
+&lt;li&gt;煙もほとんど鼻につかない&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;コスパでいうとカメヤマが最強になってしまうのだが、こんなにたくさん買ってしまうと全然なくならなくて困っている。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;そもそもどこで売っているのだろうと思って、最初はネットで見ていたが、百貨店などで仏具屋さんを見かけて入ってみたところ、お仏壇用のいわゆるお線香だけでなく、香りのあるものも取り扱っているところが多かった。中にはディズニーとコラボしていたり、結構ポップなものもあり、普段入らないお店に入る機会にもなってよかった。&lt;/p&gt;
+&lt;p&gt;またカメヤマの大量のお線香を消費したらいろいろ試すので、良いものを発見したら続編を書きたい。&lt;/p&gt;
+</content:encoded>
+      </item>
+      <item>
+        <title>Docker で Composer を使う</title>
+        <link>https://mochieer.tech/posts/2021/10/25/using-composer-with-docker/</link>
+        <pubDate>Mon, 25 Oct 2021 00:00:00 +0900</pubDate>
+        
+        <guid>https://mochieer.tech/posts/2021/10/25/using-composer-with-docker/</guid>
+        <description>まとめ 1 2 3 4 5 6 7 8 9 10 11 12 13 version:&amp;#34;3&amp;#34;services:app:image:php:8-apacheports:- &amp;#34;8080:80&amp;#34;volumes:- ./:/var/www/htmlcomposer:image:composercommand:&amp;#34;composer install&amp;#34;volumes:- ./:/app docker-compose.yml をこんな感じにして、 1 $ docker-composer up --build とかすれば composer.lock に従ってパッケージのインストールをしてくれる。 新しく require</description>
+        <content:encoded>&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;3&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;services&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;php:8-apache&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ports&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;s2&#34;&gt;&amp;#34;8080:80&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;volumes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;./:/var/www/html&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;composer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;composer&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;command&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;composer install&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;volumes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;./:/app&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;docker-compose.yml&lt;/code&gt; をこんな感じにして、&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ docker-composer up --build
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;とかすれば &lt;code&gt;composer.lock&lt;/code&gt; に従ってパッケージのインストールをしてくれる。&lt;/p&gt;
+&lt;p&gt;新しく require を追加したかったら、&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ docker-compose run --rm --no-deps composer composer require phpunit/phpunit --dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;とかすればよい。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/usr/bin/env bash
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;docker-compose run --rm --no-deps composer composer &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$@&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;くらいのシェルスクリプトをエイリアス的に用意してあげても良い。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ただし、この方法では PHP 本体のバージョンや PHP の拡張に対する依存の宣言は正しく評価されない。実際のアプリケーションなどで利用する場合は、アプリケーションの実行環境としての PHP 環境で &lt;code&gt;composer install&lt;/code&gt; する必要がある。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;詳細&#34;&gt;詳細&lt;/h2&gt;
+&lt;h3 id=&#34;why&#34;&gt;why&lt;/h3&gt;
+&lt;p&gt;そもそもの課題感として、&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;ローカルで &lt;code&gt;composer install&lt;/code&gt; したくない
+&lt;ul&gt;
+&lt;li&gt;そもそもローカルに PHP 入っていない&lt;/li&gt;
+&lt;li&gt;入っていたとしても &lt;code&gt;ext-*&lt;/code&gt; は入っていない&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;一方で、 Composer でインストールしたファイル群（ &lt;code&gt;composer.lock&lt;/code&gt; と &lt;code&gt;vendor/&lt;/code&gt; 以下）はローカルにも存在してほしい
+&lt;ul&gt;
+&lt;li&gt;エディタの補完を使いたい&lt;/li&gt;
+&lt;li&gt;期待しない動作をするライブラリのコードを読みたい&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;composer.lock&lt;/code&gt; は git で管理したい&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;なので、 &lt;code&gt;composer&lt;/code&gt; コマンドはコンテナ内部で実行し、その結果はローカルと同期したい。&lt;/p&gt;
+&lt;h3 id=&#34;composer-イメージ&#34;&gt;composer イメージ&lt;/h3&gt;
+&lt;p&gt;composer イメージというのがあるようで、これを使う。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.hanhans.net/2019/01/08/docker-composer/&#34;&gt;hanhan&amp;rsquo;s blog - Dockerにcomposerをインストールする方法の正解&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上記のブログでは Dockerfile で &lt;code&gt;/usr/bin/composer&lt;/code&gt; を配置しているが、そうすると git など Composer が依存する各種コマンドが利用できる必要があり、それは本来のアプリケーションには必要ないもの（ビルドにのみ必要なもの）なので、 Docker Compose で別 service として実行して、実行結果のファイルのみマウントするような方針を取ることにした。&lt;/p&gt;
+&lt;p&gt;ということで、 &lt;code&gt;docker-compose.yml&lt;/code&gt; がこうなる。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;3&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;services&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;php:8-apache&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ports&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;s2&#34;&gt;&amp;#34;8080:80&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;volumes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;./:/var/www/html&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;composer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;composer&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;command&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;composer install&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;volumes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;./:/app&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;ただし、ディレクトリ構成は&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;src/&lt;/li&gt;
+&lt;li&gt;vendor/&lt;/li&gt;
+&lt;li&gt;composer.json&lt;/li&gt;
+&lt;li&gt;composer.lock&lt;/li&gt;
+&lt;li&gt;docker-compose.yml&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;がルートに並んでいるものとする。&lt;/p&gt;
+&lt;h3 id=&#34;使い方&#34;&gt;使い方&lt;/h3&gt;
+&lt;p&gt;簡単なシェルスクリプト&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/usr/bin/env bash
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;docker-compose run --rm --no-deps composer composer &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$@&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;を設置して、&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ ./bin/composer.sh install
+$ ./bin/composer.sh phpunit/phpunit --dev
+$ ./bin/composer.sh update
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;みたいな感じで使うと、ローカルの &lt;code&gt;composer.json&lt;/code&gt;, &lt;code&gt;composer.lock&lt;/code&gt;, &lt;code&gt;vendor/&lt;/code&gt; も更新される。&lt;/p&gt;
+&lt;h3 id=&#34;ただし&#34;&gt;ただし…&lt;/h3&gt;
+&lt;p&gt;ところで、 composer イメージで依存の解決がされるとき、 PHP そのもののバージョンや &lt;code&gt;ext-*&lt;/code&gt; はどのように評価されるのだろう。&lt;/p&gt;
+&lt;p&gt;私はふんいきで Docker をやっているのであくまで雰囲気だが、 app とは無関係なところで &lt;code&gt;composer install&lt;/code&gt; が実行されてファイルのみ同期されているのだと思う。とすると、例えば &lt;code&gt;ext-mbstring&lt;/code&gt; を必要とするパッケージをインストールする際に、 app 側の PHP 環境として mbstring 拡張が存在しなくても、 composer install は成功してしまい、実行時（それも mbstring を利用する際）に初めて mbstring がなくて死ぬ、ということになるのだろうか。&lt;/p&gt;
+&lt;p&gt;と思ったら、やはり Docker Hub にそのような注意書きがあった。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Our image is aimed at quickly running Composer without the need for having a PHP runtime installed on your host. You should not rely on the PHP version in our container. We do not provide a Composer image for each supported PHP version because we do not want to encourage using Composer as a base image or a production image.&lt;/p&gt;
+&lt;p&gt;We try to deliver an image that is as lean as possible, built for running Composer only. Sometimes dependencies or Composer scripts require the availability of certain PHP extensions.&lt;/p&gt;
+&lt;p&gt;&lt;cite&gt;&lt;a href=&#34;https://hub.docker.com/_/composer&#34;&gt;Composer - Official Image | Docker Hub&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;なのでこの方法は&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;とりあえず試したい&lt;/li&gt;
+&lt;li&gt;ローカルを汚さず &lt;code&gt;composer install&lt;/code&gt; をクリアしたい&lt;/li&gt;
+&lt;li&gt;実行環境は特に問わないライブラリの開発を行いたい&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;など、限られた場合で使うべきだろう。&lt;/p&gt;
+&lt;p&gt;そうでなく、自身で PHP 環境をホストしてアプリケーションを提供する場合は、&lt;a href=&#34;https://blog.hanhans.net/2019/01/08/docker-composer/&#34;&gt;前述のブログ記事&lt;/a&gt;にあるように、その環境に&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Dockerfile&#34; data-lang=&#34;Dockerfile&#34;&gt;&lt;span class=&#34;k&#34;&gt;COPY&lt;/span&gt; --from&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;composer:latest /usr/bin/composer /usr/bin/composer&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;で composer 本体をコピーしてコマンドを実行する方法が良いだろう。（それでも&lt;a href=&#34;https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md&#34;&gt;インストーラーをダウンロードしてごにゃごにゃするやり方&lt;/a&gt;よりはかなり良い）&lt;/p&gt;
+</content:encoded>
+      </item>
+      <item>
+        <title>SVG アイコンのロードについて検証</title>
+        <link>https://mochieer.tech/posts/2021/09/20/verify-loading-of-svg-icons/</link>
+        <pubDate>Mon, 20 Sep 2021 00:00:00 +0900</pubDate>
+        
+        <guid>https://mochieer.tech/posts/2021/09/20/verify-loading-of-svg-icons/</guid>
+        <description>アイコンとウェブページのパフォーマンス 私はウェブページに埋め込まれたアイコンが大好きで、日々アイコンを収集している。そんな私でもやはりスタン</description>
+        <content:encoded>&lt;h2 id=&#34;アイコンとウェブページのパフォーマンス&#34;&gt;アイコンとウェブページのパフォーマンス&lt;/h2&gt;
+&lt;p&gt;私はウェブページに埋め込まれたアイコンが大好きで、日々アイコンを収集している。そんな私でもやはりスタンダードに &lt;a href=&#34;https://fontawesome.com/&#34;&gt;Font Awesome&lt;/a&gt; は素晴らしいと思っている。&lt;/p&gt;
+&lt;p&gt;ただし、やはりフォントファイルと CSS ファイルをロードするのはそれなりのサイズになってしまうので、各々で工夫して改善しようとしている現場も見受けられる。&lt;/p&gt;
+&lt;p&gt;ちなみに、今見てみたところ、 &lt;a href=&#34;https://github.com/FortAwesome/Font-Awesome/blob/master/webfonts/fa-solid-900.woff2&#34;&gt;fa-solid-900.woff2&lt;/a&gt; が 76.4 KB で、 &lt;a href=&#34;https://github.com/FortAwesome/Font-Awesome/blob/master/css/all.min.css&#34;&gt;all.min.css&lt;/a&gt; が 57.9 KB だった。もちろん gzip だともう少し減ると思うが。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;フォントファイル
+&lt;ul&gt;
+&lt;li&gt;フォントファイルが読み込まれるまで豆腐が表示される&lt;/li&gt;
+&lt;li&gt;フォントファイルが読み込まれると、ページ上で置換される
+&lt;ul&gt;
+&lt;li&gt;高さは変わらないようだが、幅が豆腐より大きいのでインラインで使っているとレイアウトシフトの可能性がある&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;CSS ファイル
+&lt;ul&gt;
+&lt;li&gt;読み込まれるまでページが描画されない&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;なので、いわゆる &lt;a href=&#34;https://web.dev/vitals/&#34;&gt;Core Web Vitals&lt;/a&gt; に影響を与えることになってしまう。&lt;/p&gt;
+&lt;h2 id=&#34;そこで-svg-ですよ&#34;&gt;そこで SVG ですよ&lt;/h2&gt;
+&lt;p&gt;SVG のアイコンも非常にたくさんあって、多くがオープンソースで利用可能だったりする。このサイトでも &lt;a href=&#34;https://feathericons.com/&#34;&gt;Feather&lt;/a&gt; にお世話になっているし、個人開発のプロダクトでも人気があるイメージだ。Font Awesome も個別に SVG ファイルとしてダウンロードすることができたりする。&lt;/p&gt;
+&lt;p&gt;SVG というのはグラフィックのパスを XML 形式で記述する画像フォーマットなので、 Feather をはじめ、シンプルな図形を表現するのに向いているし、そういった図形は少ない記述量で表現できる。&lt;/p&gt;
+&lt;p&gt;ところで、 SVG を HTML 上に描画する方法は様々で、また、その方法によって実際に SVG リソースを取得する通信も変わってくる。どういった方法で描画するのがパフォーマンス的に望ましいのかを簡単に検証することにした。&lt;/p&gt;
+&lt;h2 id=&#34;検証&#34;&gt;検証&lt;/h2&gt;
+&lt;h3 id=&#34;デモページ&#34;&gt;デモページ&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://mochieer.github.io/svg-loading-demo/&#34;&gt;Loading SVG Icons Demo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mochieer/svg-loading-demo&#34;&gt;mochieer/svg-loading-demo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;全体的には軽量にしつつ、ただ、 SVG のロード以外にも多少の CSS のロードとかあったほうが現実的だと思ったので、軽量な CSS フレームワークを入れたりしている。肝心の SVG アイコン自体は前述 Feather から適当に 15 個ピックアップしてきた。&lt;/p&gt;
+&lt;h3 id=&#34;検証方法&#34;&gt;検証方法&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://mochieer.github.io/svg-loading-demo/demo1/&#34;&gt;デモ (1)&lt;/a&gt; では SVG を HTML の中に埋め込む（インラインで記述する）方法をとった。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;icon-list&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;svg&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;xmlns&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;http://www.w3.org/2000/svg&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;24&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;height&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;24&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;viewBox&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;0 0 24 24&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;fill&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;none&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;stroke&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;currentColor&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;stroke-width&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;2&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;stroke-linecap&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;round&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;stroke-linejoin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;round&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;feather feather-activity&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;polyline&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;points&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;22 12 18 12 15 21 9 3 6 12 2 12&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;polyline&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;svg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;svg&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;xmlns&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;http://www.w3.org/2000/svg&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;24&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;height&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;24&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;viewBox&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;0 0 24 24&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;fill&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;none&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;stroke&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;currentColor&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;stroke-width&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;2&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;stroke-linecap&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;round&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;stroke-linejoin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;round&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;feather feather-alert-triangle&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;path&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;line&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;12&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;y1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;9&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;12&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;y2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;13&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;line&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;line&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;12&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;y1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;17&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;x2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;12.01&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;y2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;17&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;line&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;svg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  ...
+&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://mochieer.github.io/svg-loading-demo/demo2/&#34;&gt;デモ (2)&lt;/a&gt; では個別に &lt;code&gt;object&lt;/code&gt; タグで SVG リソースを描画する方法をとった。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;icon-list&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;object&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;image/svg+xml&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;../assets/svg/activity.svg&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;24&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;height&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;24&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;object&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;object&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;image/svg+xml&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;../assets/svg/alert-triangle.svg&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;24&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;height&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;24&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;object&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  ...
+&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://mochieer.github.io/svg-loading-demo/demo3/&#34;&gt;デモ (3)&lt;/a&gt; では SVG 自体はスプライトとして一括でロードし、個別に id で呼び出して描画する方法をとった。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;icon-list&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;svg&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;24&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;height&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;24&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;use&lt;/span&gt;
+        &lt;span class=&#34;na&#34;&gt;xmlns:xlink&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;http://www.w3.org/1999/xlink&amp;#34;&lt;/span&gt;
+        &lt;span class=&#34;na&#34;&gt;xlink:href&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;../assets/svg/sprite.svg#activity&amp;#34;&lt;/span&gt;
+      &lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;use&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;svg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;svg&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;24&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;height&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;24&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;use&lt;/span&gt;
+        &lt;span class=&#34;na&#34;&gt;xmlns:xlink&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;http://www.w3.org/1999/xlink&amp;#34;&lt;/span&gt;
+        &lt;span class=&#34;na&#34;&gt;xlink:href&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;../assets/svg/sprite.svg#alert-triangle&amp;#34;&lt;/span&gt;
+      &lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;use&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;svg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  ...
+&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://mochieer.github.io/svg-loading-demo/demo3/&#34;&gt;デモ (4)&lt;/a&gt; は、ちょっと試してみたかった方法で、 SVG のデータ自体は JSON ファイルから取得し（API 呼び出しを行うイメージ）、それを HTML に注入する形で描画してみた。HTML の記述自体は Font Awesome などと似ていて、&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;icon-list&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;icon&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;data-id&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;activity&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;icon&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;data-id&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;alert-triangle&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;div&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;こんな感じで、これを JavaScript で操作していく。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;fetch&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;../assets/svg/all.json&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;then&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;response&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;response&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;then&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;result&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+      &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;result&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+      &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;elements&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;document&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getElementsByClassName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;icon&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+      &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;elements&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;element&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;elements&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+        &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;id&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;element&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getAttribute&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;data-id&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+        &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;found&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;find&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;d&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;id&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+        &lt;span class=&#34;nx&#34;&gt;element&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;innerHTML&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;found&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+      &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;スプライトだとどうしてもそのページで表示しない SVG データも合わせてロードすることになる。欲しい SVG のデータだけ API で問い合わせたら返ってくる、というやり方にすればよいのではないかというイメージ。感覚的には、問い合わせに対して動的なスプライトを生成して返してもらっている感じと言えるかもしれない。&lt;/p&gt;
+&lt;h3 id=&#34;検証結果&#34;&gt;検証結果&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://developers.google.com/speed/pagespeed/insights/&#34;&gt;PageSpeed Insights&lt;/a&gt; で計測した。&lt;/p&gt;
+&lt;p&gt;&lt;figure&gt;
+    &lt;img
+      src=&#34;https://i.gyazo.com/5cb594c689b57cfcd7edd3776807b355.png&#34;
+      alt=&#34;デモ (1) の結果&#34;width=&#34;1216&#34;height=&#34;1070&#34;
+    /&gt;
+  &lt;figcaption&gt;デモ (1) の結果&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+    &lt;img
+      src=&#34;https://i.gyazo.com/fbee041b9c15eba467d595cd249b3543.png&#34;
+      alt=&#34;デモ (2) の結果&#34;width=&#34;1190&#34;height=&#34;1084&#34;
+    /&gt;
+  &lt;figcaption&gt;デモ (2) の結果&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+    &lt;img
+      src=&#34;https://i.gyazo.com/7312e7810bbc7e113ebe135c88269e09.png&#34;
+      alt=&#34;デモ (3) の結果&#34;width=&#34;1174&#34;height=&#34;1082&#34;
+    /&gt;
+  &lt;figcaption&gt;デモ (3) の結果&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+    &lt;img
+      src=&#34;https://i.gyazo.com/ed8b15a1c3f187f7eca9dc7f910e1f16.png&#34;
+      alt=&#34;デモ (4) の結果&#34;width=&#34;1172&#34;height=&#34;1064&#34;
+    /&gt;
+  &lt;figcaption&gt;デモ (4) の結果&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;デモページが軽量すぎたせいか、いずれもほとんど差はなく、実際にトータルのスコアは全て 98 となった。以下、気になった項目を順に見ていく。&lt;/p&gt;
+&lt;h4 id=&#34;first-contentful-paint&#34;&gt;First Contentful Paint&lt;/h4&gt;
+&lt;p&gt;HTML としてのファイルサイズが大きくなるデモ (1) では、 &lt;a href=&#34;https://web.dev/first-contentful-paint/&#34;&gt;First Contentful Paint&lt;/a&gt; が悪くなるかと思ったが、結果としては全て同じ (1.9s) となった。&lt;/p&gt;
+&lt;p&gt;手元の Chrome で見たところ、 &lt;code&gt;demo1/index.html&lt;/code&gt; 自体は 1.7kB で、 150-300ms ほど応答している。ちなみに、ファイルサイズが最も小さい &lt;code&gt;demo4/index.html&lt;/code&gt; は 877B だったが、時間はほとんど変わらなかった。この程度のファイルサイズの違いではパフォーマンスとして大きな違いになりようもないということだろう。&lt;/p&gt;
+&lt;p&gt;SVG アイコンは、どれだけ作り方が悪くてもせいぜい数 KB 程度に収まると思うので、HTML にインラインで書いてしまってもさほどパフォーマンスには影響しないと言えるかもしれない。&lt;/p&gt;
+&lt;h4 id=&#34;speed-index&#34;&gt;Speed Index&lt;/h4&gt;
+&lt;p&gt;唯一違いがあったのは &lt;a href=&#34;https://web.dev/speed-index/&#34;&gt;Speed Index&lt;/a&gt; だった。「コンテンツが視覚的にどれだけ早く表示されるか」を示している、とのことだ。（やや曖昧）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;デモ (1): 2.8s&lt;/li&gt;
+&lt;li&gt;デモ (2): 2.1s&lt;/li&gt;
+&lt;li&gt;デモ (3): 1.9s&lt;/li&gt;
+&lt;li&gt;デモ (4): 1.9s&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;人間の目で見ると明らかにデモ (2) が、パラパラとアイコンが描画されていて、最も描画に時間がかかっているように感じられたのだが、スコア自体はデモ (1) が最も悪かった。&lt;/p&gt;
+&lt;p&gt;ブラウザが SVG タグをどのようにレンダリングするかちゃんと調べないと分からないが、仮説としては、最初の DOM 構築からのレンダリングに SVG が全て組み込まれていて、 SVG の解釈が全て終わってからレンダリングしているのではないかと思う。（ただ、もしそうだとすると FCP に差がないというのと直感的には反する）&lt;/p&gt;
+&lt;p&gt;また、デモ (2) よりデモ (3) のパフォーマンスが優れていた。リソースは個別に HTTP するのでなく、一括で HTTP しなさい、という基本的なお作法は正しかった。&lt;/p&gt;
+&lt;p&gt;そのデモ (3) とデモ (4) を比べると、「リソースの一括取得」は共通していて、描画を &lt;code&gt;&amp;lt;use&amp;gt;&lt;/code&gt; タグで行うか、 JavaScript で &lt;code&gt;&amp;lt;svg&amp;gt;&lt;/code&gt; を HTML に挿入するか、という違いがある。ここにパフォーマンス的な違いが見られないというのは、 &lt;code&gt;&amp;lt;use&amp;gt;&lt;/code&gt; に特に優位性はないと言えるかもしれない。&lt;/p&gt;
+&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
+&lt;p&gt;軽く検証しようと思ったくらいなのに、コードを書いている時間より記事を書いている時間のほうが長くなってしまった。&lt;/p&gt;
+&lt;p&gt;大前提として SVG アイコンは十分に軽量でウェブページ全体のパフォーマンスを著しく悪化させるようなものではなく、他に改善するべき点が残されているプロダクトではそちらを優先して対処すべきである。&lt;/p&gt;
+&lt;p&gt;その上で、 SVG のパフォーマンスを向上する方針としては、やはりスプライトは有効な手段である。一方で、スプライトだと、そのページで利用しないリソースまで一括して取得することになるので、より最適化するなら Web API 経由で SVG データを取得し、 JavaScript で &lt;code&gt;svg&lt;/code&gt; タグを挿入するという方法にも可能性はありそうだ。&lt;/p&gt;
+&lt;p&gt;また、 Web API 経由ということは SVG データを動的に変更できるので、 API 呼び出しで 2 色指定して、いわゆるデュオトーンのように塗り分けられた SVG を返却することも可能だったり、拡張性というメリットもある。&lt;/p&gt;
+&lt;p&gt;さて、一方で、 &lt;a href=&#34;https://www.npmjs.com/package/feather-icons&#34;&gt;npm にある feather-icons&lt;/a&gt; のように、 JavaScript ライブラリの内部に SVG データを格納してしまう方針も考えられる。これは開発者体験としてはとても良いが、 Feather の全てのアイコンがバンドルされた JS ファイルを読み込むことになるので、 Font Awesome のフォントファイルを読み込むのと同様に、最適な方法とは言えなさそうだ。（Font Awesome の場合、よりクリティカルなのは CSS ファイルが初期レンダリングをブロックしてしまうことだとは思うが）&lt;/p&gt;
+</content:encoded>
+      </item>
+      <item>
+        <title>例外とログとログレベル</title>
+        <link>https://mochieer.tech/posts/2021/09/12/exceptions-and-logging/</link>
+        <pubDate>Sun, 12 Sep 2021 00:00:00 +0900</pubDate>
+        
+        <guid>https://mochieer.tech/posts/2021/09/12/exceptions-and-logging/</guid>
+        <description>経緯と結論 業務でエラーログのモニタリングをもっと整備していかないとね、という話題が最近ホットになっている。その会話の中でちょっと思いついた例</description>
+        <content:encoded>&lt;h2 id=&#34;経緯と結論&#34;&gt;経緯と結論&lt;/h2&gt;
+&lt;p&gt;業務でエラーログのモニタリングをもっと整備していかないとね、という話題が最近ホットになっている。その会話の中でちょっと思いついた例外とログ（とログレベル）の話を深堀りしてみようと思う。&lt;/p&gt;
+&lt;p&gt;結論としてはシンプルで、「例外を投げるならログは出力するべきでない（出力できるはずがない）」「例外を適切にハンドリングできる責務を持ったモジュールが適切にログ出力するべき」というところに落ち着いた。&lt;/p&gt;
+&lt;p&gt;業務では主に PHP なので、サンプルコードは PHP で。&lt;/p&gt;
+&lt;h2 id=&#34;エラーログの監視&#34;&gt;エラーログの監視&lt;/h2&gt;
+&lt;h3 id=&#34;ログレベル&#34;&gt;ログレベル&lt;/h3&gt;
+&lt;p&gt;御存知の通り、単に error.log を舐めて、なにか出力されるたびにそれを眺めればよいのではない。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://techblog.yahoo.co.jp/web/shopping/yahoo_1/&#34;&gt;Yahoo!ショッピングにおけるログ設計と監視 - Yahoo! JAPAN Tech Blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;適切なログを適切に把握するためにはログ設計が重要で、特にログレベルは最も基本的なログの分類方法だと思う。ヤフーショッピングの場合は&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;私たちはこの中の[info][notice][warn][err][crit][alert]の6つを使用しています。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;とある。（古い記事なので、今は多少違っているかもしれないが、ログ監視の基礎なのでそんなには変わっていないと思う）&lt;/p&gt;
+&lt;p&gt;ちなみに、 PHP の場合は &lt;a href=&#34;https://www.php-fig.org/psr/psr-3/&#34;&gt;PSR-3&lt;/a&gt; で&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;php&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Psr\Log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;sd&#34;&gt;/**
+&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt; * Describes log levels.
+&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt; */&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;LogLevel&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;EMERGENCY&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;emergency&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;ALERT&lt;/span&gt;     &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;alert&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;CRITICAL&lt;/span&gt;  &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;critical&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;ERROR&lt;/span&gt;     &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;error&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;WARNING&lt;/span&gt;   &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;warning&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;NOTICE&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;notice&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;INFO&lt;/span&gt;      &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;info&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;DEBUG&lt;/span&gt;     &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;debug&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;のように 8 段階が定義されている。&lt;/p&gt;
+&lt;h3 id=&#34;ログレベルの基準&#34;&gt;ログレベルの基準&lt;/h3&gt;
+&lt;p&gt;どのレベルのログがどういったことを意味するのかは統一されていなければならない。上述のヤフーショッピングの場合でもやはり定義されているようで、例えば、 notice は「通常とは違うルートで終了したが、問題がない場合のログ」で、 err は 「1回発生した時点で対応が必要になる場合のログ」といった具合だ。&lt;/p&gt;
+&lt;p&gt;ヤフーショッピングではこうやっている（いた）というだけで、このあたりは対象としているシステムの領域や運用体制なども加味して、それぞれのケースで適切な基準を設けられるのがよいと思う。&lt;/p&gt;
+&lt;h2 id=&#34;ソースコード上でのエラーの表現&#34;&gt;ソースコード上でのエラーの表現&lt;/h2&gt;
+&lt;h3 id=&#34;よくあるコード&#34;&gt;よくあるコード&lt;/h3&gt;
+&lt;p&gt;PHP だと例外を利用することが多いはずだ。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;FooApiClient&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Foo&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;nv&#34;&gt;$response&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;client&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;/path/to/foo?id=&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$id&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+    &lt;span class=&#34;nv&#34;&gt;$status&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$response&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getStatus&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$status&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;200&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;300&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$status&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+      &lt;span class=&#34;k&#34;&gt;throw&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Exception&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;HTTP status is &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$status&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Foo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$response&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getBody&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;200 系以外のレスポンスは失敗という扱いにして例外を投げている、よくあるコードだと思う。&lt;/p&gt;
+&lt;p&gt;では、この失敗をログで補足したいと考えて、ここにエラーログを仕込んでみよう。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;FooApiClient&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Foo&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;nv&#34;&gt;$response&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;client&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;/path/to/foo?id=&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$id&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+    &lt;span class=&#34;nv&#34;&gt;$status&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$response&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getStatus&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$status&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;200&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;300&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$status&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+      &lt;span class=&#34;nv&#34;&gt;$message&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;HTTP status is &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$status&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+      &lt;span class=&#34;nx&#34;&gt;Log&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;error&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$message&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// ←ログ出力を追加した
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;k&#34;&gt;throw&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Exception&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$message&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Foo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$response&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getBody&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;まあ特に問題はない気がする。&lt;/p&gt;
+&lt;h3 id=&#34;本当に問題ない&#34;&gt;本当に問題ない？&lt;/h3&gt;
+&lt;p&gt;前述したとおり、ログレベルには基準が存在する。「error は 1 回発生した時点で対応が必要になる場合のログ」という具合だ。では &lt;code&gt;FooApiClient&lt;/code&gt; が非 200 であることと、それが error のレベルに該当することはイコールかと考えると、必ずしもそうではない。&lt;/p&gt;
+&lt;p&gt;例えば、負荷軽減のため、何らかのキャッシュされたデータが存在し、そちらからの取得を試みるが、バッチが動く前とかでキャッシュにデータが存在しないこともあるので、キャッシュから取れなければオリジナルの DB から取ってね、みたいなシステム構成だったとしたらどうだろう。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;46
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;47
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;48
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;49
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;50
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;51
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;52
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;53
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;54
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;CachedFooApiClient&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Foo&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;nv&#34;&gt;$response&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;client&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;/path/to/cached/foo?id=&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$id&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+    &lt;span class=&#34;nv&#34;&gt;$status&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$response&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getStatus&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$status&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;200&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;300&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$status&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+      &lt;span class=&#34;nv&#34;&gt;$message&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;HTTP status is &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$status&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+      &lt;span class=&#34;nx&#34;&gt;Log&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;error&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$message&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// ここでログ出力は正しい？
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;k&#34;&gt;throw&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Exception&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$message&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Foo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$response&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getBody&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;OriginalFooApiClient&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Foo&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;nv&#34;&gt;$response&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;client&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;/path/to/original/foo?id=&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$id&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+    &lt;span class=&#34;nv&#34;&gt;$status&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$response&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getStatus&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$status&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;200&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;300&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$status&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+      &lt;span class=&#34;nv&#34;&gt;$message&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;HTTP status is &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$status&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+      &lt;span class=&#34;nx&#34;&gt;Log&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;error&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$message&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// ここでログ出力は正しい？
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;      &lt;span class=&#34;k&#34;&gt;throw&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Exception&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$message&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Foo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$response&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getBody&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;FallbackFooRepository&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Foo&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;nv&#34;&gt;$cachedClient&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;CachedFooApiClient&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+      &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$cachedClient&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;catch&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+      &lt;span class=&#34;nx&#34;&gt;Log&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;notice&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Get foo from cache is failed: &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$e&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getMessage&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;nv&#34;&gt;$originalClient&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;OriginalFooApiClient&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+      &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$originalClient&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;catch&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+      &lt;span class=&#34;nx&#34;&gt;Log&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;error&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Get foo from original is failed: &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$e&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getMessage&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+      &lt;span class=&#34;k&#34;&gt;throw&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;サンプルが少しずつ長くなってきたが、要するに &lt;code&gt;FooApiClient&lt;/code&gt; が &lt;code&gt;CachedFooApiClient&lt;/code&gt; と &lt;code&gt;OriginalFooApiClient&lt;/code&gt; のふたつになって、それらを順序付けて利用する &lt;code&gt;FallbackFooRepository&lt;/code&gt; という新しいクラスが出現した。&lt;/p&gt;
+&lt;p&gt;さて、この場合だと &lt;code&gt;CachedFooApiClient&lt;/code&gt; の非 200 レスポンスはいわゆる「エラー」ではなくなっている。キャッシュから取れなくても、オリジナルの DB から値が取得できれば、システムとしては問題なく動作できるからだ。&lt;/p&gt;
+&lt;p&gt;ただし、想定より多くの &lt;code&gt;CachedFooApiClient&lt;/code&gt; の失敗が出ている場合、それは不具合の可能性があるのでログとして補足できるようにしておきたいので、 &lt;code&gt;FallbackFooRepository&lt;/code&gt; で &lt;code&gt;notice&lt;/code&gt; している。そして、 &lt;code&gt;OriginalFooApiClient&lt;/code&gt; もまた失敗した場合にはじめて foo が取得できなかったという「失敗」になる。&lt;/p&gt;
+&lt;p&gt;このように考えると、 &lt;code&gt;CachedFooApiClient&lt;/code&gt; は error ログを出力するのは適切ではなさそうだ。では &lt;code&gt;OriginalFooApiClient&lt;/code&gt; で error ログを出力しているのはどうだろう？&lt;/p&gt;
+&lt;h2 id=&#34;失敗とはなんだろう&#34;&gt;「失敗」とはなんだろう&lt;/h2&gt;
+&lt;p&gt;ユースケースによっては、そもそも foo が取得できなくても「エラー」ではないのかもしれない。&lt;/p&gt;
+&lt;p&gt;foo からデータが取得できなくても、実は bar からでも欲しい情報は取得可能かもしれないし、バッチの定期実行などでまた次のタイミングで成功すればいいかもしれない。あるいは foo を取得したい目的が極めて些末なもので、実際のところ異常終了してもなんら問題ない程度の存在かもしれない（そんな些末なコードはできれば書かされたくないが）。&lt;/p&gt;
+&lt;p&gt;つまり、なんらかの処理の「失敗」というのは、それが即ログレベル（＝ことの重大さ）と結びつくわけではなく、なぜその処理を実行したのかというコンテキストに依存するものと認識したほうが良さそうだ。&lt;/p&gt;
+&lt;p&gt;個別の処理には「失敗」しても、システム全体として見れば「失敗」のうちに入らないかもしれない、ということだ。&lt;/p&gt;
+&lt;h3 id=&#34;例外とはなんだろう&#34;&gt;例外とはなんだろう&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;「例外」は、エラーや例外イベントを呼び出し元のコードに渡すことができる特別な手段である。&lt;br&gt;
+（略）&lt;br&gt;
+エラー状況に対処できないコードはエラーを解釈してそれをうまく処理する機能を持っていると期待して、システムの他の部分に制御を渡すことできる。&lt;br&gt;
+&lt;cite&gt;&lt;a href=&#34;https://amzn.to/2XeLsDO&#34;&gt;コードコンプリート第2版&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;つまり、あるクラス、あるメソッドのにおいて「対処できない」ことが起こったことを、その呼び出し元に伝える手段である。&lt;/p&gt;
+&lt;p&gt;すなわち責務の外にあるのだと解釈できそうで、例えば最初の例に立ち戻ると、&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;FooApiClient&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Foo&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;nv&#34;&gt;$response&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;client&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;/path/to/foo?id=&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$id&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+    &lt;span class=&#34;nv&#34;&gt;$status&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$response&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getStatus&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$status&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;200&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;300&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$status&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+      &lt;span class=&#34;k&#34;&gt;throw&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Exception&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;HTTP status is &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$status&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Foo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$response&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getBody&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;FooApiClient::get&lt;/code&gt; メソッドの責務は、何らかの手段でもって &lt;code&gt;Foo&lt;/code&gt; オブジェクトを返却することなのである。何らかの手段というのは外部に対してつまびらかにする必要はなく、 &lt;code&gt;Foo&lt;/code&gt; オブジェクトを返せるか、返せないかが問われている。&lt;/p&gt;
+&lt;p&gt;そして、非 200 系のレスポンスが返ってきた場合、 &lt;code&gt;FooApiClient&lt;/code&gt; としては「返せない」となり、また、 &lt;code&gt;Foo&lt;/code&gt; が返せなかった場合にどのようなハンドリングを行うべきかは &lt;code&gt;FooApiClient&lt;/code&gt; の知るところではない（責務外）ので例外を投げるということになる。&lt;/p&gt;
+&lt;p&gt;例えば失敗した場合にも何らかのダミーオブジェクトを返して良い場合はどうだろう。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;FooApiClient&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Foo&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;nv&#34;&gt;$response&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;client&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;/path/to/foo?id=&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;$id&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+    &lt;span class=&#34;nv&#34;&gt;$status&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$response&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getStatus&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$status&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;200&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;300&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$status&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+      &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Foo&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;dummy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// これで見た目上Fooオブジェクトを返却できる
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Foo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$response&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getBody&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;API での取得が失敗した場合にダミーオブジェクトを返却することをこの API クライアントの責務とするべきかは、まあ一般論からしても否定的だろうが、仮に &lt;code&gt;FooApiClient&lt;/code&gt; の責務にダミーオブジェクトの返却が含まれるのであれば、責務の範囲内において非 200 系レスポンスをハンドリングできるので例外を投げる必要がなくなる。&lt;/p&gt;
+&lt;p&gt;ただし、失敗したのでダミーを返したよ、ということは補足できるべきなので、やはり notice あたりでログに出力するべきだろう。つまり、適切なハンドリングを行うことと、それをログに出力することは責務としてセットだと考えるべきなのだろう。なぜならば、ログというのは「ことの重大さ」が定まらないとログレベルを決定できず、適切なハンドリングを行う責務の中に「ことの重大さ」の判定が含まれているからだ。&lt;/p&gt;
+&lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;自身の責務において判断ができないことが起こった場合に例外を投げ、判断を呼び出し元に委ねる
+&lt;ul&gt;
+&lt;li&gt;判断のできないことに対してログレベル（＝ことの重大さ）を判定することはできないので、ログ出力はできない&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;呼び出し元は、呼び出し元の責務において投げられた例外を判断する
+&lt;ul&gt;
+&lt;li&gt;呼び出し元の責務でハンドリングできる場合は、適切にハンドリングを行い、必要に応じて適切なログレベルで出力する&lt;/li&gt;
+&lt;li&gt;呼び出し元の責務でもハンドリングができない場合は、さらに上位の呼び出し元へ投げる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;最終的に誰も適切にハンドリングできない例外は、多くの場合はフレームワークがキャッチし 500 エラーを返したりする
+&lt;ul&gt;
+&lt;li&gt;フレームワークはユーザーに対して何らかのレスポンスを返すことを責務としているので、よく分からないからといって何もしないわけにはいかない&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content:encoded>
+      </item>
+      <item>
+        <title>(The) Clean Architecture と clean architecture を区別する</title>
+        <link>https://mochieer.tech/posts/2021/09/04/distinguish-between-the-clean-architecture-and-clean-architecture/</link>
+        <pubDate>Sat, 04 Sep 2021 00:00:00 +0900</pubDate>
+        
+        <guid>https://mochieer.tech/posts/2021/09/04/distinguish-between-the-clean-architecture-and-clean-architecture/</guid>
+        <description>クリーンアーキテクチャについては、リーダブルコードとかと同じで、みんな知っておいてね的な大原則であって、別にこの方法でソフトウェアを開発すれ</description>
+        <content:encoded>&lt;p&gt;クリーンアーキテクチャについては、リーダブルコードとかと同じで、みんな知っておいてね的な大原則であって、別にこの方法でソフトウェアを開発すればもろもろいいことがあるよという方法論（ソフトウェアアーキテクチャ）ではない。&lt;/p&gt;
+&lt;p&gt;いろんなソフトウェアアーキテクチャがあってよくて、ただそのもう一段メタな位置付けとして、複数のソフトウェアアーキテクチャが共通して満たしているルールみたいなものがあり、それがクリーンアーキテクチャだと思っている。大原則（クリーンアーキテクチャ）とその実践例があり、実践例が独り歩きしている。&lt;/p&gt;
+&lt;p&gt;ということを考えていると、ちょうどよい記事が Twitter で流れてきた。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://yyyank.blogspot.com/2021/06/there-is-no-clean-architecture.html&#34;&gt;クリーンアーキテクチャなんてものはない(クリーンアーキテクチャーの読み方) - プログラマのはしくれダイアリー&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ボブおじさんの書いた「Clean Architecture」という本があり、その実現例として「The Clean Architecture」というブログ記事がある。そして、前者が話しているのはあくまで clean な architecture とはどういうものだろうね、という話だ。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;なので、「クリーンアーキテクチャを取り入れたソフトウェアを開発」することをチームで決めたとして、それが、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The Clean Architecture というソフトウェアアーキテクチャ（clean な architecture の実践例のひとつで、ボブおじさんが書いたブログ記事が原典）を実践したい&lt;/li&gt;
+&lt;li&gt;clean な architecture を目指したい（そのために Clean Architecture というボブおじさんが書いた本に書かれていることをみんなで考えていきたい）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;のどちらを指すのかの認識は揃えておかないと、いつのまにかあのドーナツを実践することになるよ（なぜならば、議論するときに一枚絵はとても強力なので）、ということなのだと思う。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;それはそうとして、 Clean Architecture という本に書かれていることと、 The Clean Architecture というあのドーナツを文脈によって使い分けたい場合があると思う。&lt;/p&gt;
+&lt;p&gt;後者の「clean な architecture を目指したい」チームに於いても、実践する方法としてあの The Clean Architecture のドーナツを参考にすることはなにも問題ないからだ。なんらかの設計レビューやコードレビューを行っている際に、「これは Clean Architecture ではない」みたいな話になってしまったとき、それがどちらを指すのか分かりにくい。&lt;/p&gt;
+&lt;p&gt;なぜ分かりにくいのかと言うと、日本人には the とか a とかの概念が希薄なので、それが The Clean Architecture なのか Clean Architecture なのか区別しにくいからなのかもしれないと思っている。&lt;/p&gt;
+&lt;p&gt;なので、記述する際には&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clean Architecture（クリーンアーキテクチャ）: 同名の本、およびその本で書かれているソフトウェアアーキテクチャの原則。&lt;/li&gt;
+&lt;li&gt;clean architecture: Clean Architecture という本で書かれている原則。より一般化した clean な architecture 的な意図が強い。&lt;/li&gt;
+&lt;li&gt;The Clean Architecture: 同名のブログ記事。Clean Architecture の実践例。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;と使い分けて書くというコンテキストを共有していると良いのかな、などと最近思っている。（私はカタカナで書くとき Clean Architecture を指すことにしているが、これは人によって違うかもしれない）&lt;/p&gt;
+</content:encoded>
+      </item>
+      <item>
+        <title>年、月、日ごとの記事一覧を作成した</title>
+        <link>https://mochieer.tech/posts/2021/03/31/post-list-by-date/</link>
+        <pubDate>Wed, 31 Mar 2021 00:00:00 +0900</pubDate>
+        
+        <guid>https://mochieer.tech/posts/2021/03/31/post-list-by-date/</guid>
+        <description>情報共有サービスの esa では記事がストックとフローに分類されている。しっかりとコンセプトにも「チャットのように気軽に発信、Wikiのように整理・</description>
+        <content:encoded>&lt;p&gt;&lt;a href=&#34;https://esa.io/&#34;&gt;情報共有サービスの esa&lt;/a&gt; では&lt;a href=&#34;https://docs.esa.io/posts/298&#34;&gt;記事がストックとフローに分類されている&lt;/a&gt;。しっかりと&lt;a href=&#34;https://esa.io/concept&#34;&gt;コンセプト&lt;/a&gt;にも「チャットのように気軽に発信、Wikiのように整理・編集する。フローとストックの間をシームレスに繋げたい」と書かれているが、私はこの思想がとても良いと思っている。&lt;/p&gt;
+&lt;p&gt;情報を発信する敷居を下げつつ、しっかりとストックされる記事を、という意味ではこういう個人サイト（ブログ）でも同じことが言えると感じたので、あくまでその記事がある時点での情報であることを強調する記事 URL にすることで、「まだ考え中」のような記事の発信のハードルを下げつつ、年/月/日で絞り込んだ記事の一覧をサイトの機能として提供することで記事の階層的な整理をできるようにしてみた。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;以下は技術的な話になる。&lt;/p&gt;
+&lt;p&gt;このサイトは &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; で生成している。&lt;/p&gt;
+&lt;p&gt;Hugo ではこういう記事の階層構造は &lt;a href=&#34;https://gohugo.io/content-management/sections/&#34;&gt;Section&lt;/a&gt; を使って実現することになっているようなので、それに倣った。つまり、この記事でいうと &lt;code&gt;posts&lt;/code&gt; も &lt;code&gt;2021&lt;/code&gt; も &lt;code&gt;03&lt;/code&gt; も &lt;code&gt;31&lt;/code&gt; も &lt;code&gt;post-list-by-date&lt;/code&gt; もすべて section ということになる。&lt;/p&gt;
+&lt;p&gt;躓いた点として、ある階層をセクションとして認識させるにはその階層に &lt;code&gt;_index.md&lt;/code&gt; がないといけないらしい。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The important part to understand is, that to make the section tree fully navigational, at least the lower-most section needs a content file. (e.g. _index.md).&lt;/p&gt;
+&lt;p&gt;&lt;cite&gt;&lt;a href=&#34;https://gohugo.io/content-management/sections/&#34;&gt;Content Sections | Hugo&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;あるセクション（例えば &lt;code&gt;2021&lt;/code&gt; ）に対して、固有の一覧ページを作りたいとかではなく、ルート (/posts) と同じ挙動でいいので &lt;code&gt;_index.md&lt;/code&gt; は空ファイルとなっている。ひとつの記事を作るのにディレクトリと &lt;code&gt;_index.md&lt;/code&gt; をたくさん作らないといけなくなったので、雑なシェルスクリプトを書いて対応した。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#! /bin/sh
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;read&lt;/span&gt; -p &lt;span class=&#34;s2&#34;&gt;&amp;#34;year: &amp;#34;&lt;/span&gt; YEAR
+&lt;span class=&#34;nb&#34;&gt;read&lt;/span&gt; -p &lt;span class=&#34;s2&#34;&gt;&amp;#34;month: &amp;#34;&lt;/span&gt; MONTH
+&lt;span class=&#34;nb&#34;&gt;read&lt;/span&gt; -p &lt;span class=&#34;s2&#34;&gt;&amp;#34;day: &amp;#34;&lt;/span&gt; DAY
+&lt;span class=&#34;nb&#34;&gt;read&lt;/span&gt; -p &lt;span class=&#34;s2&#34;&gt;&amp;#34;title (Japanese): &amp;#34;&lt;/span&gt; TITLE_JA
+&lt;span class=&#34;nb&#34;&gt;read&lt;/span&gt; -p &lt;span class=&#34;s2&#34;&gt;&amp;#34;title (English) for URL: &amp;#34;&lt;/span&gt; TITLE_EN
+
+&lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; true&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt;
+    &lt;span class=&#34;nb&#34;&gt;read&lt;/span&gt; -p &lt;span class=&#34;s1&#34;&gt;&amp;#39;Okey? [Y/n] &amp;#39;&lt;/span&gt; yn
+    &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$yn&lt;/span&gt; in
+        &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;Y&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;  break&lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+        &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;Nn&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; exit&lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+        * &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;    &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;esac&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;done&lt;/span&gt;
+
+mkdir -p content/posts/&lt;span class=&#34;nv&#34;&gt;$YEAR&lt;/span&gt;/&lt;span class=&#34;nv&#34;&gt;$MONTH&lt;/span&gt;/&lt;span class=&#34;nv&#34;&gt;$DAY&lt;/span&gt;/&lt;span class=&#34;nv&#34;&gt;$TITLE_EN&lt;/span&gt;
+
+touch content/posts/&lt;span class=&#34;nv&#34;&gt;$YEAR&lt;/span&gt;/_index.md
+touch content/posts/&lt;span class=&#34;nv&#34;&gt;$YEAR&lt;/span&gt;/&lt;span class=&#34;nv&#34;&gt;$MONTH&lt;/span&gt;/_index.md
+touch content/posts/&lt;span class=&#34;nv&#34;&gt;$YEAR&lt;/span&gt;/&lt;span class=&#34;nv&#34;&gt;$MONTH&lt;/span&gt;/&lt;span class=&#34;nv&#34;&gt;$DAY&lt;/span&gt;/_index.md
+&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;---
+&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;title: \&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;TITLE_JA&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;\&amp;#34;
+&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;date: \&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;YEAR&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;MONTH&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;DAY&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;T00:00:00+09:00\&amp;#34;
+&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;tags:
+&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;  - foo
+&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;  - bar
+&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;---
+&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; &amp;gt; content/posts/&lt;span class=&#34;nv&#34;&gt;$YEAR&lt;/span&gt;/&lt;span class=&#34;nv&#34;&gt;$MONTH&lt;/span&gt;/&lt;span class=&#34;nv&#34;&gt;$DAY&lt;/span&gt;/&lt;span class=&#34;nv&#34;&gt;$TITLE_EN&lt;/span&gt;/index.md
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;ちなみに、 &lt;code&gt;list.html&lt;/code&gt; はこんな感じ。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;h1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;記事一覧&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;h1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ul&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  {{- if .Sections }}
+    {{ range .Sections }}
+      {{- range (site.GetPage &amp;#34;section&amp;#34; .File.Dir).RegularPagesRecursive }}
+        {{ template &amp;#34;article-headline&amp;#34; . }}
+      {{- end }}
+    {{ end }}
+  {{- else }}
+    {{- range (site.GetPage &amp;#34;section&amp;#34; .File.Dir).RegularPagesRecursive }}
+        {{ template &amp;#34;article-headline&amp;#34; . }}
+    {{- end }}
+  {{- end }}
+&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ul&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+{{- define &amp;#34;article-headline&amp;#34; }}
+&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;li&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;href&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{{ .Site.BaseURL }}/posts/{{ .PublishDate.Format &amp;#34;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;2006&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;}}&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;{{ .PublishDate.Format &amp;#34;2006&amp;#34; }}&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+    /
+    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;href&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{{ .Site.BaseURL }}/posts/{{ .PublishDate.Format &amp;#34;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;2006&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;}}/{{&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;PublishDate&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;Format&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;01&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;}}&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;{{ .PublishDate.Format &amp;#34;01&amp;#34; }}&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+    /
+    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;href&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{{ .Site.BaseURL }}/posts/{{ .PublishDate.Format &amp;#34;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;2006&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;}}/{{&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;PublishDate&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;Format&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;01&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;}}/{{&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;PublishDate&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;Format&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;02&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;}}&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;{{ .PublishDate.Format &amp;#34;02&amp;#34; }}&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;h2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;href&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{{ .Permalink }}&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;{{ .Title }}&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;h2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;li&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+{{- end }}
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;（ちょっと変えています。実際のコードは &lt;a href=&#34;https://github.com/mochieer/mochieer.tech&#34;&gt;GitHub&lt;/a&gt; を見てください）&lt;/p&gt;
+</content:encoded>
+      </item>
+      <item>
+        <title>スクマ</title>
+        <link>https://mochieer.tech/posts/2021/03/31/bookmarks-using-scrapbox/</link>
+        <pubDate>Wed, 31 Mar 2021 00:00:00 +0900</pubDate>
+        
+        <guid>https://mochieer.tech/posts/2021/03/31/bookmarks-using-scrapbox/</guid>
+        <description>スクマはよい Scrapbox を使ってブックマークすることをスクマというそうで、半年ほど前からやってみている。スクマを簡単に取るための Chrome 拡張もあったりして、</description>
+        <content:encoded>&lt;h2 id=&#34;スクマはよい&#34;&gt;スクマはよい&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://scrapbox.io/masui/%E3%82%B9%E3%82%AF%E3%83%9E&#34;&gt;Scrapbox を使ってブックマークすることをスクマというそう&lt;/a&gt;で、半年ほど前から&lt;a href=&#34;https://scrapbox.io/mochieer-bookmarks/&#34;&gt;やってみている&lt;/a&gt;。スクマを簡単に取るための &lt;a href=&#34;https://github.com/pastak/scboloo&#34;&gt;Chrome 拡張&lt;/a&gt;もあったりして、パソコンでのブラウジング中のブックマークは非常に快適だ。&lt;/p&gt;
+&lt;p&gt;スクマは完全に Scrapbox の長所を享受していて、ブックマーク時に適当に思いつくタグを付けておけば、あるブックマークを追加したときに過去に自分がブックマークしたものと勝手にリンクされるので、&lt;strong&gt;あとで自分のブックマークを探索する楽しさ&lt;/strong&gt;を最大化してくれる。&lt;/p&gt;
+&lt;p&gt;また、 &lt;a href=&#34;https://scrapbox.io/masui/%E3%82%B9%E3%82%AF%E3%83%9E%E3%81%AE%E3%81%99%E3%81%99%E3%82%81&#34;&gt;開発元の増井先生も書いている&lt;/a&gt;が、ソーシャルブックマークの類は常にブックマークする側も見られている意識を持ってしまうので、そのブックマークは本当に自分のためになるのだろうか？　自分のためにもならないブックマークを公開して誰かのためになるのだろうか？　という疑問がある。&lt;/p&gt;
+&lt;p&gt;スクマでは誰が見ているのかも分からないし、なんなら多分誰も見ていないし、そういうことを一切気にせずブックマークすることができる。こんなコメント書いてバカと思われないだろうかとか、こんな古い記事をブックマークして情弱と思われないだろうかとか、多くの人がソーシャルブックマークで経験してきたであろう負の感情と決別できるのだ。&lt;/p&gt;
+&lt;h2 id=&#34;イマイチな点もある&#34;&gt;イマイチな点もある&lt;/h2&gt;
+&lt;p&gt;一方でイマイチな点ももちろんある。&lt;/p&gt;
+&lt;p&gt;ひとつは検索がしにくいこと。 Pocket なんかだと記事コンテンツの内容まで保持して検索してくれる（っぽい挙動）だが、スクマだと自分が書いた言葉しか検索できない。&lt;/p&gt;
+&lt;p&gt;また、 PC で Chrome 拡張を使ってのブックマーク追加以外はとてもやりづらい。私はネットブラウジングは PC / スマホ半々くらいの生活をしているので、スマホで呼んだ記事をスクマしようと思って一度 Pocket に突っ込んでいたりする。&lt;/p&gt;
+&lt;p&gt;最後に、これは完全に実装依存だが、 Scrapbox が Web アプリケーションとして実装されていて、ブラウザバックした際に前のページの状態を保持してくれていないので、過去の自分のブックマークをだらだら眺めているときに迷子になることがよくある。あるタグの付いたブックマークを順番に見ていると、あれ？　どこまで見たっけな？　となったり、さっき見ていたところまで頑張ってスクロール＆ロードをやり直さないといけなかったりする。&lt;/p&gt;
+</content:encoded>
+      </item>
+      <item>
+        <title>MOFT Z を買った</title>
+        <link>https://mochieer.tech/posts/2021/02/14/moft-z/</link>
+        <pubDate>Sun, 14 Feb 2021 00:00:00 +0900</pubDate>
+        
+        <guid>https://mochieer.tech/posts/2021/02/14/moft-z/</guid>
+        <description>作業部屋が寒すぎて、私はまあ対策のしようがあるが、ずっと足元にくっついて来るうちの子（犬）がかわいそうなので、最近は一番日当たりがよく、イン</description>
+        <content:encoded>&lt;p&gt;作業部屋が寒すぎて、私はまあ対策のしようがあるが、ずっと足元にくっついて来るうちの子（犬）がかわいそうなので、最近は一番日当たりがよく、インコのために24時間床暖房を付けているリビングで作業することが多い。&lt;/p&gt;
+&lt;p&gt;そうなってくると、やはりリビングのテーブルというのはパソコン作業をするには少し低く、案の定腰をやった。先週整形外科に行ってコルセットをもらってきた。&lt;/p&gt;
+&lt;p&gt;これは余談だが、私の背骨はS字を描いておらず、背中から腰までまっすぐ来て腰のところでくの字に折れているらしい。「これはどうしても腰に負担が来るね〜」と言われた。皆さまに於かれても、慢性的な不調があれば診てもらったほうが自分の体を知れて良いと思う。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;さて、そんな都合があって MOFT Z を買った。ラップトップスタンド兼簡易スタンディングデスクという代物だ。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.moft.us/products/moft-z-5-in-1-sit-stand-desk&#34;&gt;Buy the Best Sit and Stand Desk Online – MOFT&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;使ってみると、思ったよりかなりしっかりしていて、ラップトップを乗せた状態でキーボードをパチパチやっても不安定さは感じない。&lt;/p&gt;
+&lt;p&gt;また、革の質感も高級感があり、良い買い物をしたと感じる。&lt;/p&gt;
+&lt;p&gt;1時間置きくらいで立ったり座ったりを切り替えながら使っているが、スタンディング時の高さは固定でやや低いので、少し前傾姿勢になる。作業机の上に乗せると十分な高さになるのかもしれない。&lt;/p&gt;
+&lt;p&gt;リビングにはサウンドバー &lt;a href=&#34;https://www.bose.co.jp/ja_jp/products/speakers/home_theater/bose-solo-5-tv-sound-system.html#v=solo_5_black_jp&#34;&gt;BOSE SOLO 5&lt;/a&gt; があり、ここからいい感じな音楽を流すと「カタカタカタカタ……ターン！」とコードを書きながら縦揺れ横揺れできて最高にアガる。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;帰省した際には案の定リビングテーブルで作業をしていた。MOFT Z はたたむと薄くなるので、お供に連れて帰ろうと思う。&lt;/p&gt;
+&lt;iframe style=&#34;width:120px;height:240px;&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; src=&#34;//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=mochieer-22&amp;language=ja_JP&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=as_ss_li_til&amp;asins=B089GQFCNC&amp;linkId=75ccecd512976404c7904b6b938c5a62&#34;&gt;&lt;/iframe&gt;
+</content:encoded>
+      </item>
+  </channel>
+</rss>

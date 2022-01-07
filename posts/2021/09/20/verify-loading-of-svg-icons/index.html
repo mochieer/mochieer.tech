@@ -23,7 +23,7 @@
 <title>SVG アイコンのロードについて検証 &middot; mochieer.tech</title>
 
 
-    <meta name="generator" content="Hugo 0.82.0" />
+    <meta name="generator" content="Hugo 0.91.2" />
   </head>
   <body>
     <header class="l-header">
@@ -95,7 +95,7 @@
 <p><a href="https://mochieer.github.io/svg-loading-demo/demo1/">デモ (1)</a> では SVG を HTML の中に埋め込む（インラインで記述する）方法をとった。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -106,7 +106,7 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;icon-list&#34;</span><span class="p">&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;icon-list&#34;</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">svg</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&#34;http://www.w3.org/2000/svg&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;24&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;24&#34;</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">&#34;0 0 24 24&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;none&#34;</span> <span class="na">stroke</span><span class="o">=</span><span class="s">&#34;currentColor&#34;</span> <span class="na">stroke-width</span><span class="o">=</span><span class="s">&#34;2&#34;</span> <span class="na">stroke-linecap</span><span class="o">=</span><span class="s">&#34;round&#34;</span> <span class="na">stroke-linejoin</span><span class="o">=</span><span class="s">&#34;round&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;feather feather-activity&#34;</span><span class="p">&gt;&lt;</span><span class="nt">polyline</span> <span class="na">points</span><span class="o">=</span><span class="s">&#34;22 12 18 12 15 21 9 3 6 12 2 12&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">polyline</span><span class="p">&gt;&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -120,7 +120,7 @@
 </div><p><a href="https://mochieer.github.io/svg-loading-demo/demo2/">デモ (2)</a> では個別に <code>object</code> タグで SVG リソースを描画する方法をとった。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -131,7 +131,7 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;icon-list&#34;</span><span class="p">&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;icon-list&#34;</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">object</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;image/svg+xml&#34;</span> <span class="na">data</span><span class="o">=</span><span class="s">&#34;../assets/svg/activity.svg&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;24&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;24&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">object</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -145,7 +145,7 @@
 </div><p><a href="https://mochieer.github.io/svg-loading-demo/demo3/">デモ (3)</a> では SVG 自体はスプライトとして一括でロードし、個別に id で呼び出して描画する方法をとった。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -166,7 +166,7 @@
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;icon-list&#34;</span><span class="p">&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;icon-list&#34;</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">svg</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;24&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;24&#34;</span><span class="p">&gt;</span>
       <span class="p">&lt;</span><span class="nt">use</span>
@@ -190,7 +190,7 @@
 </div><p><a href="https://mochieer.github.io/svg-loading-demo/demo3/">デモ (4)</a> は、ちょっと試してみたかった方法で、 SVG のデータ自体は JSON ファイルから取得し（API 呼び出しを行うイメージ）、それを HTML に注入する形で描画してみた。HTML の記述自体は Font Awesome などと似ていて、</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -200,7 +200,7 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;icon-list&#34;</span><span class="p">&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;icon-list&#34;</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;icon&#34;</span> <span class="na">data-id</span><span class="o">=</span><span class="s">&#34;activity&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -213,7 +213,7 @@
 </div><p>こんな感じで、これを JavaScript で操作していく。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -231,7 +231,7 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;../assets/svg/all.json&#39;</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;../assets/svg/all.json&#39;</span><span class="p">)</span>
   <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
   <span class="p">.</span><span class="nx">then</span><span class="p">(</span>
     <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>

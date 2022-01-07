@@ -23,7 +23,7 @@
 <title>年、月、日ごとの記事一覧を作成した &middot; mochieer.tech</title>
 
 
-    <meta name="generator" content="Hugo 0.82.0" />
+    <meta name="generator" content="Hugo 0.91.2" />
   </head>
   <body>
     <header class="l-header">
@@ -74,7 +74,7 @@
 <p>あるセクション（例えば <code>2021</code> ）に対して、固有の一覧ページを作りたいとかではなく、ルート (/posts) と同じ挙動でいいので <code>_index.md</code> は空ファイルとなっている。ひとつの記事を作るのにディレクトリと <code>_index.md</code> をたくさん作らないといけなくなったので、雑なシェルスクリプトを書いて対応した。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -106,7 +106,7 @@
 </span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#! /bin/sh
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#! /bin/sh
 </span><span class="cp"></span>
 <span class="nb">read</span> -p <span class="s2">&#34;year: &#34;</span> YEAR
 <span class="nb">read</span> -p <span class="s2">&#34;month: &#34;</span> MONTH
@@ -141,7 +141,7 @@ touch content/posts/<span class="nv">$YEAR</span>/<span class="nv">$MONTH</span>
 </div><p>ちなみに、 <code>list.html</code> はこんな感じ。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -171,7 +171,7 @@ touch content/posts/<span class="nv">$YEAR</span>/<span class="nv">$MONTH</span>
 </span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>記事一覧<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>記事一覧<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
   {{- if .Sections }}
     {{ range .Sections }}

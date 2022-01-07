@@ -23,7 +23,7 @@
 <title>Docker で Composer を使う &middot; mochieer.tech</title>
 
 
-    <meta name="generator" content="Hugo 0.82.0" />
+    <meta name="generator" content="Hugo 0.91.2" />
   </head>
   <body>
     <header class="l-header">
@@ -63,7 +63,7 @@
     <h2 id="まとめ">まとめ</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -78,7 +78,7 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
 </span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
 </span><span class="w">  </span><span class="nt">app</span><span class="p">:</span><span class="w">
 </span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">php:8-apache</span><span class="w">
@@ -96,30 +96,30 @@
 </div><p><code>docker-compose.yml</code> をこんな感じにして、</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">$ docker-composer up --build
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ docker-composer up --build
 </code></pre></td></tr></table>
 </div>
 </div><p>とかすれば <code>composer.lock</code> に従ってパッケージのインストールをしてくれる。</p>
 <p>新しく require を追加したかったら、</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">$ docker-compose run --rm --no-deps composer composer require phpunit/phpunit --dev
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ docker-compose run --rm --no-deps composer composer require phpunit/phpunit --dev
 </code></pre></td></tr></table>
 </div>
 </div><p>とかすればよい。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/usr/bin/env bash
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/usr/bin/env bash
 </span><span class="cp"></span>docker-compose run --rm --no-deps composer composer <span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span>
 </code></pre></td></tr></table>
 </div>
@@ -153,7 +153,7 @@
 <p>ということで、 <code>docker-compose.yml</code> がこうなる。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -168,7 +168,7 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
 </span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
 </span><span class="w">  </span><span class="nt">app</span><span class="p">:</span><span class="w">
 </span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">php:8-apache</span><span class="w">
@@ -196,23 +196,23 @@
 <p>簡単なシェルスクリプト</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/usr/bin/env bash
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/usr/bin/env bash
 </span><span class="cp"></span>docker-compose run --rm --no-deps composer composer <span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>を設置して、</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">$ ./bin/composer.sh install
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">$ ./bin/composer.sh install
 $ ./bin/composer.sh phpunit/phpunit --dev
 $ ./bin/composer.sh update
 </code></pre></td></tr></table>
@@ -237,10 +237,10 @@ $ ./bin/composer.sh update
 <p>そうでなく、自身で PHP 環境をホストしてアプリケーションを提供する場合は、<a href="https://blog.hanhans.net/2019/01/08/docker-composer/">前述のブログ記事</a>にあるように、その環境に</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="k">COPY</span> --from<span class="o">=</span>composer:latest /usr/bin/composer /usr/bin/composer<span class="err">
+<pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="k">COPY</span> --from<span class="o">=</span>composer:latest /usr/bin/composer /usr/bin/composer<span class="err">
 </span></code></pre></td></tr></table>
 </div>
 </div><p>で composer 本体をコピーしてコマンドを実行する方法が良いだろう。（それでも<a href="https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md">インストーラーをダウンロードしてごにゃごにゃするやり方</a>よりはかなり良い）</p>

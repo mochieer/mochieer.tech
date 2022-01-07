@@ -23,7 +23,7 @@
 <title>Hugo で PlantUML を書きたい &middot; mochieer.tech</title>
 
 
-    <meta name="generator" content="Hugo 0.82.0" />
+    <meta name="generator" content="Hugo 0.91.2" />
   </head>
   <body>
     <header class="l-header">
@@ -86,10 +86,10 @@
 <p>たとえば</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;http://www.plantuml.com/plantuml/svg/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000&#34;</span> <span class="p">/&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;http://www.plantuml.com/plantuml/svg/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000&#34;</span> <span class="p">/&gt;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>みたいな感じで画像を HTML に埋め込んであげれば、</p>
@@ -104,12 +104,12 @@
 <p>お察しの通り、この文字列は</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-plain" data-lang="plain">@startuml
+<pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain">@startuml
 Bob -&gt; Alice : hello
 @enduml
 </code></pre></td></tr></table>
@@ -133,14 +133,14 @@ Bob -&gt; Alice : hello
 <p>こちらは</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://g.gravizo.com/svg?
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://g.gravizo.com/svg?
 </span><span class="s">@startuml;
 </span><span class="s">Bob -&gt; Alice : hello;
 </span><span class="s">@enduml
@@ -160,7 +160,7 @@ Bob -&gt; Alice : hello
 <p>あとは Hugo で使いやすいように shortcode を書く。 shortcode とは Markdown 中に独自の custom element を定義できるような Hugo の機能である。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -182,7 +182,7 @@ Bob -&gt; Alice : hello
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html">{{ $caption := &#34;&#34; }}
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html">{{ $caption := &#34;&#34; }}
 {{ if .IsNamedParams }}
   {{ with .Get &#34;caption&#34; }}
     {{ $caption = . }}
@@ -207,7 +207,7 @@ Bob -&gt; Alice : hello
 </div><p>これを <code>shortcodes/plantuml.html</code> として保存し、 Markdown 中で</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -215,7 +215,7 @@ Bob -&gt; Alice : hello
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-text" data-lang="text">{{&lt; plantuml &#34;ユースケース&#34; &gt;}}
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">{{&lt; plantuml &#34;ユースケース&#34; &gt;}}
 @startuml
 left to right direction
 :このサイト: --&gt; (PlantUMLでクラス図とか書きたい)

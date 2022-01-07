@@ -23,7 +23,7 @@
 <title>例外とログとログレベル &middot; mochieer.tech</title>
 
 
-    <meta name="generator" content="Hugo 0.82.0" />
+    <meta name="generator" content="Hugo 0.91.2" />
   </head>
   <body>
     <header class="l-header">
@@ -74,7 +74,7 @@
 <p>ちなみに、 PHP の場合は <a href="https://www.php-fig.org/psr/psr-3/">PSR-3</a> で</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -94,7 +94,7 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">Psr\Log</span><span class="p">;</span>
 
@@ -123,7 +123,7 @@
 <p>PHP だと例外を利用することが多いはずだ。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -139,7 +139,7 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">FooApiClient</span>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">FooApiClient</span>
 <span class="p">{</span>
   <span class="k">public</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$id</span><span class="p">)</span><span class="o">:</span> <span class="nx">Foo</span>
   <span class="p">{</span>
@@ -159,7 +159,7 @@
 <p>では、この失敗をログで補足したいと考えて、ここにエラーログを仕込んでみよう。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -177,7 +177,7 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">FooApiClient</span>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">FooApiClient</span>
 <span class="p">{</span>
   <span class="k">public</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$id</span><span class="p">)</span><span class="o">:</span> <span class="nx">Foo</span>
   <span class="p">{</span>
@@ -201,7 +201,7 @@
 <p>例えば、負荷軽減のため、何らかのキャッシュされたデータが存在し、そちらからの取得を試みるが、バッチが動く前とかでキャッシュにデータが存在しないこともあるので、キャッシュから取れなければオリジナルの DB から取ってね、みたいなシステム構成だったとしたらどうだろう。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -257,7 +257,7 @@
 </span><span class="lnt">54
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">CachedFooApiClient</span>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">CachedFooApiClient</span>
 <span class="p">{</span>
   <span class="k">public</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$id</span><span class="p">)</span><span class="o">:</span> <span class="nx">Foo</span>
   <span class="p">{</span>
@@ -333,7 +333,7 @@
 <p>すなわち責務の外にあるのだと解釈できそうで、例えば最初の例に立ち戻ると、</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -349,7 +349,7 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">FooApiClient</span>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">FooApiClient</span>
 <span class="p">{</span>
   <span class="k">public</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$id</span><span class="p">)</span><span class="o">:</span> <span class="nx">Foo</span>
   <span class="p">{</span>
@@ -370,7 +370,7 @@
 <p>例えば失敗した場合にも何らかのダミーオブジェクトを返して良い場合はどうだろう。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -386,7 +386,7 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">FooApiClient</span>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">FooApiClient</span>
 <span class="p">{</span>
   <span class="k">public</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$id</span><span class="p">)</span><span class="o">:</span> <span class="nx">Foo</span>
   <span class="p">{</span>
