@@ -1,4 +1,12 @@
 .l-container {
+  box-sizing: content-box;
   margin: 0 auto;
   max-width: $width-container;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 1rem);
+  justify-content: center;
+}
+
+.l-container > * {
+  grid-column: 1 / -1;
 }

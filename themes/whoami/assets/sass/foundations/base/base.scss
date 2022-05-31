@@ -5,10 +5,15 @@ html {
   color: $color-text;
   font-family: $font-base;
   font-size: $font-m;
+  line-break: strict;
+  hanging-punctuation: allow-end;
+  text-underline-offset: 0.1em;
 }
 
 body {
   line-height: $vr-line-height;
+  font-feature-settings: "palt" 0;
+  font-kerning: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -55,11 +60,15 @@ a,
 a:visited {
   color: $color-text;
   text-decoration: underline;
+  -webkit-text-decoration-color: darken($color-text, 20%);
+  text-decoration-color: darken($color-text, 20%);
 }
 
 a:active,
 a:hover {
   color: $color-link;
+  -webkit-text-decoration-color: darken($color-link, 10%);
+  text-decoration-color: darken($color-link, 10%);
 }
 
 p, ul, ol, blockquote {

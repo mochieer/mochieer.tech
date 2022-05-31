@@ -2,7 +2,7 @@
   {{- partial "commands/put_title.html" (printf "タグ一覧 &middot; %s" .Site.Title) -}}
 {{- end -}}
 {{ define "main" }}
-<h1>タグ一覧</h1>
+<h1 class="u-kerning">タグ一覧</h1>
 <ul class="c-tag-list">
   {{ range .Site.Taxonomies.tags.ByCount -}}
     <li>{{ partial "components/atoms/tag.html" (dict "context" $ "tag" (.Name | title)) }}</li>

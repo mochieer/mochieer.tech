@@ -3,7 +3,7 @@
     margin: $vr-unit * 1.5 0;
 
     figure {
-      margin: 0 -1rem $vr-unit -1rem;
+      margin: 0 0 $vr-unit 0;
       padding: 0;
       text-align: center;
 
@@ -67,7 +67,7 @@
     .highlight {
       overflow: scroll;
       line-height: 1.2em;
-      margin: 0 -1rem $vr-unit -1rem;
+      margin: 0 0 $vr-unit 0;
 
       pre {
         margin: .5em 0;

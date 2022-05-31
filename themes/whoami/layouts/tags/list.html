@@ -2,7 +2,7 @@
   {{- partial "commands/put_title.html" (printf "#%s &middot; %s" (.Title | title) .Site.Title) -}}
 {{- end -}}
 {{ define "main" }}
-<h1>#{{ .Title | title }} の記事一覧</h1>
+<h1 class="u-kerning">#{{ .Title | title }} の記事一覧</h1>
 <ul class="p-article-list">
   {{ range .Data.Pages }}
     {{ partial "components/molecules/article-headline.html" . }}

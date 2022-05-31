@@ -2,7 +2,7 @@
   {{- partial "commands/put_title.html" (printf "記事一覧 &middot; %s" .Site.Title) -}}
 {{- end -}}
 {{ define "main" }}
-<h1>{{ with .File }}{{ substr .Dir 6 -1 }} の{{ end }}記事一覧</h1>
+<h1 class="u-kerning">{{ with .File }}{{ substr .Dir 6 -1 }} の{{ end }}記事一覧</h1>
 <ul class="p-article-list">
   {{- if .Sections }}
     {{- range .Sections }}
