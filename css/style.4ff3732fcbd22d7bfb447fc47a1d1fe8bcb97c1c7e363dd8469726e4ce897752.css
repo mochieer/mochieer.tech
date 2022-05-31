@@ -592,10 +592,15 @@ html {
   background-color: #1c1f20;
   color: #c4c8c6;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 18px; }
+  font-size: 18px;
+  line-break: strict;
+  hanging-punctuation: allow-end;
+  text-underline-offset: 0.1em; }
 
 body {
-  line-height: 1.9; }
+  line-height: 1.9;
+  font-feature-settings: "palt" 0;
+  font-kerning: none; }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 2.85rem 0 0.95rem 0;
@@ -633,11 +638,15 @@ h6 {
 a,
 a:visited {
   color: #c4c8c6;
-  text-decoration: underline; }
+  text-decoration: underline;
+  -webkit-text-decoration-color: #8f9793;
+  text-decoration-color: #8f9793; }
 
 a:active,
 a:hover {
-  color: #1a6bc2; }
+  color: #1a6bc2;
+  -webkit-text-decoration-color: #145295;
+  text-decoration-color: #145295; }
 
 p, ul, ol, blockquote {
   margin: 0 0 1.9rem 0; }
@@ -649,8 +658,15 @@ ol ol {
   margin: 0; }
 
 .l-container {
+  box-sizing: content-box;
   margin: 0 auto;
-  max-width: 700px; }
+  max-width: 37rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 1rem);
+  justify-content: center; }
+
+.l-container > * {
+  grid-column: 1 / -1; }
 
 .l-footer {
   padding: 1.9rem 1rem; }
@@ -663,6 +679,10 @@ ol ol {
 
 .l-main {
   padding: 1.9rem 1rem; }
+
+.u-kerning {
+  font-feature-settings: "palt" 1;
+  font-kerning: normal; }
 
 .u-scrollable {
   overflow: auto; }
@@ -716,7 +736,7 @@ ol ol {
 .p-article__body {
   margin: 2.85rem 0; }
   .p-article__body figure {
-    margin: 0 -1rem 1.9rem -1rem;
+    margin: 0 0 1.9rem 0;
     padding: 0;
     text-align: center; }
     .p-article__body figure img {
@@ -758,7 +778,7 @@ ol ol {
   .p-article__body .highlight {
     overflow: scroll;
     line-height: 1.2em;
-    margin: 0 -1rem 1.9rem -1rem; }
+    margin: 0 0 1.9rem 0; }
     .p-article__body .highlight pre {
       margin: .5em 0; }
     .p-article__body .highlight code {
@@ -783,18 +803,17 @@ ol ol {
 .p-article__footer {
   font-size: 14px; }
 
-.p-greeting {
-  margin-bottom: 3.8rem; }
-  .p-greeting__rainbow {
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-    background-image: linear-gradient(80deg, #c66262 0%, #eac170 16.67%, #c0c86c 33.33%, #90c9c1 50%, #80a2be 66.67%, #b192ba 83.33%, #c66262 100%);
-    background-size: 1000%;
-    animation: 4s linear 0s infinite alternate greeting__rainbow; }
-  .p-greeting__site-parts {
-    padding-left: 0;
-    list-style: none; }
+.p-greeting__rainbow {
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(80deg, #c66262 0%, #eac170 16.67%, #c0c86c 33.33%, #90c9c1 50%, #80a2be 66.67%, #b192ba 83.33%, #c66262 100%);
+  background-size: 1000%;
+  animation: 4s linear 0s infinite alternate greeting__rainbow; }
+
+.p-greeting__site-parts {
+  padding-left: 0;
+  list-style: none; }
 
 @keyframes greeting__rainbow {
   from {
