@@ -7,13 +7,16 @@ html {
   font-size: $font-m;
   line-break: strict;
   hanging-punctuation: allow-end;
-  text-underline-offset: 0.1em;
 }
 
 body {
   line-height: $vr-line-height;
   font-feature-settings: "palt" 0;
   font-kerning: none;
+}
+
+::selection {
+  background-color: #425059;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -60,8 +63,9 @@ a,
 a:visited {
   color: $color-text;
   text-decoration: underline;
-  -webkit-text-decoration-color: darken($color-text, 20%);
-  text-decoration-color: darken($color-text, 20%);
+  -webkit-text-decoration-color: darken($color-text, 25%);
+  text-decoration-color: darken($color-text, 25%);
+  text-underline-offset: .0625em; // 1em=16pxのときに1px
 }
 
 a:active,
@@ -73,6 +77,10 @@ a:hover {
 
 p, ul, ol, blockquote {
   margin: 0 0 $vr-unit 0;
+}
+
+ul, ol {
+  padding-inline-start: 2rem;
 }
 
 ul ul,
