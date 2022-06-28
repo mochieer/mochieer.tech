@@ -306,14 +306,17 @@ template {
 /*! /normalize.css */
 /* Background */
 .chroma {
-  color: #93a1a1;
-  background-color: #002b36; }
+  color: #c5c8c6;
+  background-color: #232c31; }
 
 /* Other */
 .chroma .x {
-  color: #cb4b16; }
+  color: #cc6666; }
 
 /* Error */
+.chroma .err {
+  color: #cc6666; }
+
 /* LineTableTD */
 .chroma .lntd {
   vertical-align: top;
@@ -335,82 +338,76 @@ template {
 .chroma .hl {
   display: block;
   width: 100%;
-  background-color: #ffffcc; }
+  background-color: #373b41; }
 
 /* LineNumbersTable */
 .chroma .lnt {
   margin-right: 0.4em;
   padding: 0 0.4em 0 0.4em;
-  color: #495050; }
+  color: #373b41; }
 
 /* LineNumbers */
 .chroma .ln {
   margin-right: 0.4em;
   padding: 0 0.4em 0 0.4em;
-  color: #495050; }
+  color: #373b41; }
 
 /* Keyword */
 .chroma .k {
-  color: #719e07; }
+  color: #81a2be; }
 
 /* KeywordConstant */
 .chroma .kc {
-  color: #cb4b16; }
+  color: #cc6666; }
 
 /* KeywordDeclaration */
 .chroma .kd {
-  color: #268bd2; }
+  color: #8abeb7; }
 
 /* KeywordNamespace */
 .chroma .kn {
-  color: #719e07; }
+  color: #8abeb7; }
 
 /* KeywordPseudo */
 .chroma .kp {
-  color: #719e07; }
+  color: #b5bd68; }
 
 /* KeywordReserved */
 .chroma .kr {
-  color: #268bd2; }
+  color: #81a2be; }
 
 /* KeywordType */
 .chroma .kt {
-  color: #dc322f; }
+  color: #b58900; }
 
 /* Name */
 /* NameAttribute */
+.chroma .na {
+  color: #b58900; }
+
 /* NameBuiltin */
 .chroma .nb {
-  color: #b58900; }
+  color: #81a2be; }
 
 /* NameBuiltinPseudo */
 .chroma .bp {
-  color: #268bd2; }
+  color: #81a2be; }
 
 /* NameClass */
-.chroma .nc {
-  color: #268bd2; }
-
 /* NameConstant */
-.chroma .no {
-  color: #cb4b16; }
-
 /* NameDecorator */
 .chroma .nd {
-  color: #268bd2; }
+  color: #81a2be; }
 
 /* NameEntity */
 .chroma .ni {
-  color: #cb4b16; }
+  color: #cc6666; }
 
 /* NameException */
 .chroma .ne {
-  color: #cb4b16; }
+  color: #cc6666; }
 
 /* NameFunction */
-.chroma .nf {
-  color: #268bd2; }
-
 /* NameFunctionMagic */
 /* NameLabel */
 /* NameNamespace */
@@ -418,11 +415,11 @@ template {
 /* NameProperty */
 /* NameTag */
 .chroma .nt {
-  color: #268bd2; }
+  color: #b294bb; }
 
 /* NameVariable */
 .chroma .nv {
-  color: #268bd2; }
+  color: #b294bb; }
 
 /* NameVariableClass */
 /* NameVariableGlobal */
@@ -432,123 +429,129 @@ template {
 /* LiteralDate */
 /* LiteralString */
 .chroma .s {
-  color: #2aa198; }
+  color: #b5bd68; }
 
 /* LiteralStringAffix */
 .chroma .sa {
-  color: #2aa198; }
+  color: #8abeb7; }
 
 /* LiteralStringBacktick */
 .chroma .sb {
-  color: #586e75; }
+  color: #707880; }
 
 /* LiteralStringChar */
 .chroma .sc {
-  color: #2aa198; }
+  color: #8abeb7; }
 
 /* LiteralStringDelimiter */
 .chroma .dl {
-  color: #2aa198; }
+  color: #8abeb7; }
 
 /* LiteralStringDoc */
+.chroma .sd {
+  color: #707880; }
+
 /* LiteralStringDouble */
 .chroma .s2 {
-  color: #2aa198; }
+  color: #b5bd68; }
 
 /* LiteralStringEscape */
 .chroma .se {
-  color: #cb4b16; }
+  color: #cc6666; }
 
 /* LiteralStringHeredoc */
 /* LiteralStringInterpol */
 .chroma .si {
-  color: #2aa198; }
+  color: #b294bb; }
 
 /* LiteralStringOther */
 .chroma .sx {
-  color: #2aa198; }
+  color: #8abeb7; }
 
 /* LiteralStringRegex */
 .chroma .sr {
-  color: #dc322f; }
+  color: #5f0000; }
 
 /* LiteralStringSingle */
 .chroma .s1 {
-  color: #2aa198; }
+  color: #b5bd68; }
 
 /* LiteralStringSymbol */
 .chroma .ss {
-  color: #2aa198; }
+  color: #8abeb7; }
 
 /* LiteralNumber */
 .chroma .m {
-  color: #2aa198; }
+  color: #cc6666; }
 
 /* LiteralNumberBin */
 .chroma .mb {
-  color: #2aa198; }
+  color: #cc6666; }
 
 /* LiteralNumberFloat */
 .chroma .mf {
-  color: #2aa198; }
+  color: #cc6666; }
 
 /* LiteralNumberHex */
 .chroma .mh {
-  color: #2aa198; }
+  color: #cc6666; }
 
 /* LiteralNumberInteger */
 .chroma .mi {
-  color: #2aa198; }
+  color: #cc6666; }
 
 /* LiteralNumberIntegerLong */
 .chroma .il {
-  color: #2aa198; }
+  color: #cc6666; }
 
 /* LiteralNumberOct */
 .chroma .mo {
-  color: #2aa198; }
+  color: #cc6666; }
 
 /* Operator */
 .chroma .o {
-  color: #719e07; }
+  color: #8abeb7; }
 
 /* OperatorWord */
 .chroma .ow {
-  color: #719e07; }
+  color: #b5bd68; }
 
 /* Punctuation */
+.chroma .p {
+  color: #b5bd68; }
+
 /* Comment */
 .chroma .c {
-  color: #586e75; }
+  color: #707880; }
 
 /* CommentHashbang */
 .chroma .ch {
-  color: #586e75; }
+  color: #707880; }
 
 /* CommentMultiline */
 .chroma .cm {
-  color: #586e75; }
+  color: #b5bd68; }
 
 /* CommentSingle */
 .chroma .c1 {
-  color: #586e75; }
+  color: #707880; }
 
 /* CommentSpecial */
 .chroma .cs {
-  color: #719e07; }
+  color: #b5bd68; }
 
 /* CommentPreproc */
 .chroma .cp {
-  color: #719e07; }
+  color: #707880; }
 
 /* CommentPreprocFile */
 .chroma .cpf {
-  color: #719e07; }
+  color: #707880; }
 
 /* Generic */
 /* GenericDeleted */
 .chroma .gd {
-  color: #dc322f; }
+  color: #5f0000; }
 
 /* GenericEmph */
 .chroma .ge {
@@ -556,16 +559,16 @@ template {
 
 /* GenericError */
 .chroma .gr {
-  color: #dc322f;
+  color: #5f0000;
   font-weight: bold; }
 
 /* GenericHeading */
 .chroma .gh {
-  color: #cb4b16; }
+  color: #cc6666; }
 
 /* GenericInserted */
 .chroma .gi {
-  color: #719e07; }
+  color: #b5bd68; }
 
 /* GenericOutput */
 /* GenericPrompt */
@@ -575,7 +578,7 @@ template {
 
 /* GenericSubheading */
 .chroma .gu {
-  color: #268bd2; }
+  color: #81a2be; }
 
 /* GenericTraceback */
 /* GenericUnderline */
@@ -594,13 +597,15 @@ html {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
   line-break: strict;
-  hanging-punctuation: allow-end;
-  text-underline-offset: 0.1em; }
+  hanging-punctuation: allow-end; }
 
 body {
   line-height: 1.9;
   font-feature-settings: "palt" 0;
   font-kerning: none; }
+
+::selection {
+  background-color: #425059; }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 2.85rem 0 0.95rem 0;
@@ -614,7 +619,7 @@ h1 {
   font-size: 2rem; }
 
 h2 {
-  font-size: 1.33rem; }
+  font-size: 1.375rem; }
 
 h3 {
   font-size: 1rem;
@@ -626,12 +631,12 @@ h4 {
   margin: 0; }
 
 h5 {
-  font-size: 0.778rem;
+  font-size: 0.875rem;
   font-weight: 600;
   margin: 0.95rem 0; }
 
 h6 {
-  font-size: 0.667rem;
+  font-size: 0.75rem;
   font-weight: 600;
   margin: 0.95rem 0; }
 
@@ -639,8 +644,9 @@ a,
 a:visited {
   color: #c4c8c6;
   text-decoration: underline;
-  -webkit-text-decoration-color: #8f9793;
-  text-decoration-color: #8f9793; }
+  -webkit-text-decoration-color: #828a86;
+  text-decoration-color: #828a86;
+  text-underline-offset: .0625em; }
 
 a:active,
 a:hover {
@@ -650,6 +656,9 @@ a:hover {
 
 p, ul, ol, blockquote {
   margin: 0 0 1.9rem 0; }
+
+ul, ol {
+  padding-inline-start: 2rem; }
 
 ul ul,
 ul ol,
@@ -671,7 +680,7 @@ ol ol {
 .l-footer {
   padding: 1.9rem 1rem; }
   .l-footer p {
-    font-size: 0.778rem;
+    font-size: 0.75rem;
     margin: 0; }
 
 .l-header {
@@ -720,7 +729,7 @@ ol ol {
     margin: 0; }
   .p-404__subtitle {
     color: #acb0ae;
-    font-size: 1.33rem;
+    font-size: 1.375rem;
     font-weight: 800;
     margin: 0; }
 
@@ -747,7 +756,7 @@ ol ol {
       max-width: 100%;
       height: auto; }
     .p-article__body figure figcaption {
-      font-size: 0.778rem;
+      font-size: 0.875rem;
       margin: 0 1rem; }
   .p-article__body blockquote {
     color: #acb0ae;
@@ -804,7 +813,7 @@ ol ol {
       font-size: 1rem; }
   .p-article__body code {
     display: inline-block;
-    font-size: 0.778rem;
+    font-size: 0.875rem;
     border: 1px solid #333536;
     background: #191b1c;
     padding: 0 .5em;
@@ -815,16 +824,16 @@ ol ol {
     margin: 0 auto; }
 
 .p-article__header {
-  font-size: 0.778rem; }
+  font-size: 0.875rem; }
 
 .p-article__footer {
-  font-size: 0.778rem; }
+  font-size: 0.875rem; }
 
 .p-greeting__rainbow {
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
-  background-image: linear-gradient(80deg, #c66262 0%, #eac170 16.67%, #c0c86c 33.33%, #90c9c1 50%, #80a2be 66.67%, #b192ba 83.33%, #c66262 100%);
+  background-image: linear-gradient(80deg, #cc6666 0%, #de935f 14.29%, #f0c674 28.57%, #b5bd68 42.86%, #8abeb7 57.14%, #81a2be 71.43%, #b294bb 85.71%, #cc6666 100%);
   background-size: 1000%;
   animation: 4s linear 0s infinite alternate greeting__rainbow; }
 
@@ -841,7 +850,7 @@ ol ol {
 .p-header__title {
   margin: 0.475rem 0;
   padding: 0;
-  font-size: 1.33rem;
+  font-size: 1.375rem;
   line-height: 2.85rem;
   font-weight: 800; }
 
