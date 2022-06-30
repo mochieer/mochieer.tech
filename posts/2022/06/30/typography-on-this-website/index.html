@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="alternate" type="application/rss+xml" title="mochieer.tech" href="https://mochieer.tech/index.xml">
+
+    <link rel="stylesheet" href="https://mochieer.tech/css/style.74be2e40d10e8408ef256b0ac0f1c40b63ac1fd6f4d7361730c8356d95044682.css">
+
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+
+    <meta property="og:site_name" content="mochieer.tech" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://mochieer.tech/images/share.png" />
+    <meta property="og:description" content="mochieer.tech">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary" />
+
+    <meta property="og:title" content="このサイトのタイポグラフィ &middot; mochieer.tech">
+<title>このサイトのタイポグラフィ &middot; mochieer.tech</title>
+
+
+    <meta name="generator" content="Hugo 0.91.2" />
+  </head>
+  <body>
+    <header class="l-header">
+      <div class="l-container">
+        <h1 class="p-header__title u-kerning">
+  <a href="https://mochieer.tech">mochieer.tech</a>
+</h1>
+
+      </div>
+    </header>
+    <section class="l-main">
+      <div class="l-container">
+        
+<article class="p-article">
+  <header class="p-article__header">
+    <time class="c-date">
+      <a class="c-date--year" href="https://mochieer.tech/posts/2022">2022</a>
+      /
+      <a class="c-date--month" href="https://mochieer.tech/posts/2022/06">06</a>
+      /
+      <a class="c-date--date" href="https://mochieer.tech/posts/2022/06/30">30</a>
+    </time>
+    <h1 class="p-article__header-title u-kerning">このサイトのタイポグラフィ</h1>
+    <ul class="c-tag-list">
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/%E3%81%93%E3%81%AE%E3%82%B5%E3%82%A4%E3%83%88">このサイト</a></span>
+</li>
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">プログラミング</a></span>
+</li>
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/%E3%82%BF%E3%82%A4%E3%83%9D%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3">タイポグラフィ</a></span>
+</li>
+      </ul>
+  </header>
+
+  <section class="p-article__body">
+    <h2 id="文字サイズ">文字サイズ</h2>
+<p>少し前まで大きめの文字を使っていたが、ブラウザ規定の文字サイズをそのまま <code>1rem</code> として以下の倍率で5種類のサイズを定義して使っている。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="nv">$font-xl</span><span class="o">:</span> <span class="mi">2</span><span class="kt">rem</span><span class="p">;</span> <span class="c1">// 1rem=16pxのとき32px
+</span><span class="c1"></span><span class="nv">$font-l</span><span class="o">:</span> <span class="mi">1</span><span class="mf">.375</span><span class="kt">rem</span><span class="p">;</span> <span class="c1">// 1rem=16pxのとき22px
+</span><span class="c1"></span><span class="nv">$font-m</span><span class="o">:</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+<span class="nv">$font-s</span><span class="o">:</span> <span class="mf">.875</span><span class="kt">rem</span><span class="p">;</span> <span class="c1">// 1rem=16pxのとき14px
+</span><span class="c1"></span><span class="nv">$font-xs</span><span class="o">:</span> <span class="mf">.75</span><span class="kt">rem</span><span class="p">;</span> <span class="c1">// 1rem=16pxのとき
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="カーニング">カーニング</h2>
+<p>日本語ベタ組みメインなので、 <code>body</code> レベルでカーニングやプロポーショナルメトリクスを無効にしている。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="nt">body</span> <span class="p">{</span>
+  <span class="na">font-feature-settings</span><span class="o">:</span> <span class="s2">&#34;palt&#34;</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="na">font-kerning</span><span class="o">:</span> <span class="ni">none</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>一方で、見出しとかは詰め組したいので <code>.u-kerning</code> というユーティリティクラスを用意している。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="nc">.u-kerning</span> <span class="p">{</span>
+  <span class="na">font-feature-settings</span><span class="o">:</span> <span class="s2">&#34;palt&#34;</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="na">font-kerning</span><span class="o">:</span> <span class="ni">normal</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="コンテナ幅">コンテナ幅</h2>
+<p>日本語ベタ組みの場合、幅は <code>1rem</code> の自然数倍がよい。ということでコンテナの幅は <code>42rem</code> としている。これは <code>1rem</code> が 16px としたときに 672px となるのだが、本文の幅は 600-700px くらいが読みやすいと言われているようなので、その範囲で好みで調節している。</p>
+<p>ただ、レスポンシブのために <code>max-width: 42rem</code> となっているので、それより小さい画面幅では実際は <code>1rem</code> の自然数倍でなくなる場合がある。こうなると左右の余白のバランスが悪くなったり、行末が揃いにくくなったりする。</p>
+<p>この対策として <code>display: grid</code> を使用して、 <code>1rem</code> のグリッドを中央寄せで画面幅いっぱいまで繰り返すようにしている。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="nc">.l-container</span> <span class="p">{</span>
+  <span class="na">box-sizing</span><span class="o">:</span> <span class="ni">content-box</span><span class="p">;</span>
+  <span class="na">margin</span><span class="o">:</span> <span class="mi">0</span> <span class="ni">auto</span><span class="p">;</span>
+  <span class="na">max-width</span><span class="o">:</span> <span class="mi">42</span><span class="kt">rem</span><span class="p">;</span>
+  <span class="na">display</span><span class="o">:</span> <span class="ni">grid</span><span class="p">;</span>
+  <span class="na">grid-template-columns</span><span class="o">:</span> <span class="nf">repeat</span><span class="p">(</span><span class="ni">auto</span><span class="o">-</span><span class="ni">fill</span><span class="o">,</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">);</span>
+  <span class="na">justify-content</span><span class="o">:</span> <span class="ni">center</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.l-container</span> <span class="o">&gt;</span> <span class="o">*</span> <span class="p">{</span>
+  <span class="na">grid-column</span><span class="o">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>なお、この場合左右の余白が実際に何ピクセルで描画されているか判定が難しい。</p>
+<p>画像やコードブロックは左右の余白なしで、本文より少し幅広になっているのが好きで、ここは拘りたいと思っている。左右にネガティブマージンを入れることで実現できるのだが、 grid で中央寄せするとそれができない。（ネガティブマージンとして何ピクセル広げればよいか分からないので）</p>
+<p>ということで少し工夫して画面幅いっぱいを実現している。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="nt">figure</span> <span class="p">{</span>
+  <span class="k">@media</span> <span class="ni">screen</span> <span class="ow">and</span> <span class="p">(</span><span class="na">max-width</span><span class="o">:</span> <span class="mi">44</span><span class="kt">rem</span><span class="p">)</span> <span class="p">{</span>
+    <span class="na">margin-right</span><span class="o">:</span> <span class="nf">calc</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="kt">vw</span> <span class="o">+</span> <span class="mi">50</span><span class="kt">%</span><span class="p">);</span>
+    <span class="na">margin-left</span><span class="o">:</span> <span class="nf">calc</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="kt">vw</span> <span class="o">+</span> <span class="mi">50</span><span class="kt">%</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>コンテナ幅とは関係ないが、縦を揃えるという意味でもうひとつ。箇条書きの左余白を <code>1rem</code> の自然数倍としている。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="nt">ul</span><span class="o">,</span> <span class="nt">ol</span> <span class="p">{</span>
+  <span class="na">padding-inline-start</span><span class="o">:</span> <span class="mi">2</span><span class="kt">rem</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="vertical-rhythm">Vertical Rhythm</h2>
+<p>縦方向にリズムを作りましょう、そのリズムを繰り返しましょうというのが vertical rhythm と呼ばれるものである。</p>
+<p>具体的には縦方向の余白を1行の自然数倍にしてあげると良い、とされている。1行の高さを <code>$vr-unit</code> として、それを使いまわしている。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="nv">$vr-line-height</span><span class="o">:</span> <span class="mi">1</span><span class="mf">.9</span><span class="p">;</span>
+<span class="nv">$vr-unit</span><span class="o">:</span> <span class="mi">1</span><span class="mf">.9</span> <span class="o">*</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+
+<span class="nt">body</span> <span class="p">{</span>
+  <span class="na">line-height</span><span class="o">:</span> <span class="nv">$vr-line-height</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span>
+  <span class="na">margin</span><span class="o">:</span> <span class="nv">$vr-unit</span> <span class="o">*</span> <span class="mi">1</span><span class="mf">.5</span> <span class="mi">0</span> <span class="nv">$vr-unit</span> <span class="o">*</span> <span class="mf">.5</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="na">line-height</span><span class="o">:</span> <span class="nv">$vr-unit</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">p</span><span class="o">,</span> <span class="nt">ul</span><span class="o">,</span> <span class="nt">ol</span><span class="o">,</span> <span class="nt">blockquote</span> <span class="p">{</span>
+  <span class="na">margin</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">0</span> <span class="nv">$vr-unit</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="禁則処理">禁則処理</h2>
+<p>前述の通りこのサイトでは現在1行最大で42文字、画面幅がそれ未満の場合は幅いっぱいに表示しているので、変なところで改行されてしまうことのデメリットが行末が揃わないことのデメリットより大きいと判断し、できるだけ厳しい <code>line-break: strict</code> を指定している。</p>
+<p>1行あたりの文字数が少ない場合は割とゆるいほうが良い（行末がズレにくいほうがブロックとして視認性が高い）ので、このあたりはケースバイケースだと思う。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="nt">html</span> <span class="p">{</span>
+  <span class="na">line-break</span><span class="o">:</span> <span class="ni">strict</span><span class="p">;</span>
+  <span class="na">hanging-punctuation</span><span class="o">:</span> <span class="ni">allow-end</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="参考リンク">参考リンク</h2>
+<ul>
+<li><a href="https://paper.dropbox.com/doc/CSS-wPD007Sd9dSeEDLP78jri">本文のタイポグラフィとCSS – Dropbox Paper</a></li>
+<li><a href="https://coliss.com/articles/build-websites/operation/css/about-pixels-and-accessibility.html">CSSの単位px、em、remはどれをどこで使用するのがよいか、ピクセルとアクセシビリティにおける意外な真相 | コリス</a></li>
+<li><a href="https://gist.github.com/yuheiy/89ba79fd0510f98613c217a7dbeb8d03">ウェブデザインの余白に規則性を持たせるためのパターン</a></li>
+</ul>
+
+  </section>
+
+  <footer class="p-article__footer">
+    <ul class="c-tag-list">
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/%E3%81%93%E3%81%AE%E3%82%B5%E3%82%A4%E3%83%88">このサイト</a></span>
+</li>
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">プログラミング</a></span>
+</li>
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/%E3%82%BF%E3%82%A4%E3%83%9D%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3">タイポグラフィ</a></span>
+</li>
+      </ul>
+    <div class="p-article__revision">
+      <span class="c-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+</span>
+
+      <a href="https://github.com/mochieer/mochieer.tech/commits/main/content/posts/2022/06/30/typography-on-this-website/">GitHub で修正履歴を見る</a><br />
+      この記事に修正が必要であれば、 <a href="https://twitter.com/mochieer">Twitter</a> または <a href="https://github.com/mochieer/mochieer.tech/issues/new">GitHub の issue</a> にてご連絡ください。
+    </div>
+  </footer>
+</article>
+
+      </div>
+    </section>
+    <footer class="l-footer">
+      <div class="l-container">
+
+        <footer class="p-footer">
+  <div class="l-container u-kerning">
+    <p>
+      Powered by <a href="https://gohugo.io">Hugo</a>.
+      Hosted on <a href="https://github.com">GitHub Pages</a>.
+    </p>
+    <p>
+      Made with ❤️ & <a href="https://buymeacoff.ee/mochieer">☕</a> by mochieer.
+    </p>
+  </div>
+</footer>
+
+      </div>
+    </footer>
+
+    <script type="text/javascript">twemoji.parse(document.body);</script>
+  </body>
+</html>
