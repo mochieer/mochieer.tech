@@ -2,22 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://mochieer.tech/posts/2022/07/03/</loc>
+    <lastmod>2022-07-03T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://mochieer.tech/posts/2022/07/</loc>
+    <lastmod>2022-07-03T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://mochieer.tech/posts/2022/</loc>
+    <lastmod>2022-07-03T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://mochieer.tech/tags/cloudflare/</loc>
+    <lastmod>2022-07-03T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://mochieer.tech/posts/2022/07/03/first-implession-of-cloudflare-workers/</loc>
+    <lastmod>2022-07-03T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://mochieer.tech/</loc>
+    <lastmod>2022-07-03T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://mochieer.tech/posts/</loc>
+    <lastmod>2022-07-03T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://mochieer.tech/tags/</loc>
+    <lastmod>2022-07-03T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://mochieer.tech/tags/%E3%82%A8%E3%83%83%E3%82%B8%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/</loc>
+    <lastmod>2022-07-03T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://mochieer.tech/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</loc>
+    <lastmod>2022-07-03T00:00:00+09:00</lastmod>
+  </url><url>
     <loc>https://mochieer.tech/posts/2022/06/30/</loc>
     <lastmod>2022-06-30T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://mochieer.tech/posts/2022/06/</loc>
-    <lastmod>2022-06-30T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://mochieer.tech/posts/2022/</loc>
-    <lastmod>2022-06-30T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://mochieer.tech/</loc>
-    <lastmod>2022-06-30T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://mochieer.tech/posts/</loc>
-    <lastmod>2022-06-30T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://mochieer.tech/tags/</loc>
     <lastmod>2022-06-30T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://mochieer.tech/tags/%E3%81%93%E3%81%AE%E3%82%B5%E3%82%A4%E3%83%88/</loc>
@@ -27,9 +45,6 @@
     <lastmod>2022-06-30T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://mochieer.tech/tags/%E3%82%BF%E3%82%A4%E3%83%9D%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3/</loc>
-    <lastmod>2022-06-30T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://mochieer.tech/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</loc>
     <lastmod>2022-06-30T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://mochieer.tech/posts/2022/06/23/</loc>

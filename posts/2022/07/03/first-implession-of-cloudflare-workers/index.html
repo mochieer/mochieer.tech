@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="alternate" type="application/rss+xml" title="mochieer.tech" href="https://mochieer.tech/index.xml">
+
+    <link rel="stylesheet" href="https://mochieer.tech/css/style.74be2e40d10e8408ef256b0ac0f1c40b63ac1fd6f4d7361730c8356d95044682.css">
+
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+
+    <meta property="og:site_name" content="mochieer.tech" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://mochieer.tech/images/share.png" />
+    <meta property="og:description" content="mochieer.tech">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary" />
+
+    <meta property="og:title" content="Cloudflare Workers のファーストインプレッション &middot; mochieer.tech">
+<title>Cloudflare Workers のファーストインプレッション &middot; mochieer.tech</title>
+
+
+    <meta name="generator" content="Hugo 0.91.2" />
+  </head>
+  <body>
+    <header class="l-header">
+      <div class="l-container">
+        <h1 class="p-header__title u-kerning">
+  <a href="https://mochieer.tech">mochieer.tech</a>
+</h1>
+
+      </div>
+    </header>
+    <section class="l-main">
+      <div class="l-container">
+        
+<article class="p-article">
+  <header class="p-article__header">
+    <time class="c-date">
+      <a class="c-date--year" href="https://mochieer.tech/posts/2022">2022</a>
+      /
+      <a class="c-date--month" href="https://mochieer.tech/posts/2022/07">07</a>
+      /
+      <a class="c-date--date" href="https://mochieer.tech/posts/2022/07/03">03</a>
+    </time>
+    <h1 class="p-article__header-title u-kerning">Cloudflare Workers のファーストインプレッション</h1>
+    <ul class="c-tag-list">
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">プログラミング</a></span>
+</li>
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/cloudflare">Cloudflare</a></span>
+</li>
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/%E3%82%A8%E3%83%83%E3%82%B8%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0">エッジコンピューティング</a></span>
+</li>
+      </ul>
+  </header>
+
+  <section class="p-article__body">
+    <p>かねてより評判の良い Cloudflare Workers を使ってみた。</p>
+<ul>
+<li><a href="https://workers.cloudflare.com/">Cloudflare Workers</a></li>
+<li><a href="https://developers.cloudflare.com/workers/">Cloudflare Workers documentation · Cloudflare Workers docs</a></li>
+</ul>
+<p>以下の簡単な Web API を作った。リクエストのパスやクエリパラメータに応じて動的な SVG を返却する、というものだ。</p>
+<ul>
+<li><a href="https://github.com/mochieer/alteremoji">mochieer/alteremoji: Generates an SVG that displays any number (even decimals) of emojis.</a></li>
+<li><a href="https://zenn.dev/mochieer/articles/4e1eef9de8c64e">半端なサイズの絵文字を表示する技術</a></li>
+</ul>
+<hr>
+<p>まず、開発者体験が非常に優れている。</p>
+<p>wrangler という CLI を使うのだが、これが npm （または yarn）でインストールできる。認証、プロジェクトの作成、ローカルでの実行、デプロイまで全部これで完結していて、何も迷うことがない。</p>
+<p>また、プロジェクトの作成時に TypeScript を選ぶと、作成された <code>index.ts</code> には <code>Request</code> を受けて <code>Response</code> を返すハローワールドが書き出されるので、それぞれの型定義を参照しつつ自分の作りたい <code>Request =&gt; Response</code> な関数を書いてあげればいいだけのイメージで、特定のインフラに依存しているという感覚が一切なかった。</p>
+<p>TypeScript のコンパイルやファイルのバンドルは wrangler がやってくれているようで、 <code>wrangler dev</code>, <code>wrangler publish</code> とは別に webpack を動かさなきゃ、みたいなことはない。</p>
+<p>おそらく普段から TypeScript を書いていればほとんどつまずくポイントはないように思う。フロントエンドエンジニアにとってネットワークやミドルウェアは心理的にハードルが高いが、丁寧に TypeScript をサポートしてくれていて、実際にはほとんどハードルなんてものはない。</p>
+<hr>
+<p>出来上がったものはだいたい以下のようになった。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="kr">async</span> <span class="nx">fetch</span><span class="p">(</span>
+    <span class="nx">request</span>: <span class="kt">Request</span><span class="p">,</span>
+    <span class="nx">env</span>: <span class="kt">Env</span><span class="p">,</span>
+    <span class="nx">ctx</span>: <span class="kt">ExecutionContext</span>
+  <span class="p">)</span><span class="o">:</span> <span class="nx">Promise</span><span class="p">&lt;</span><span class="nt">Response</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">AlterEmojiResponse</span><span class="p">.</span><span class="nx">createFromRequest</span><span class="p">(</span>
+        <span class="nx">AlterEmojiRequest</span><span class="p">.</span><span class="nx">createFromCloudflareWorkersRequest</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span>
+      <span class="p">).</span><span class="nx">toCloudflareWorkersResponse</span><span class="p">()</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">_</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">AlterEmojiResponse</span><span class="p">.</span><span class="nx">asError</span><span class="p">().</span><span class="nx">toCloudflareWorkersResponse</span><span class="p">()</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+
+<span class="kr">class</span> <span class="nx">AlterEmojiRequest</span> <span class="p">{</span>
+  <span class="kr">static</span> <span class="nx">createFromCloudflareWorkersRequest</span><span class="p">(</span><span class="nx">req</span>: <span class="kt">Request</span><span class="p">)</span><span class="o">:</span> <span class="nx">AlterEmojiRequest</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">AlterEmojiRequest</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">url</span><span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="kr">constructor</span><span class="p">(</span>
+    <span class="kr">private</span> <span class="nx">requestUrl</span>: <span class="kt">string</span>
+  <span class="p">)</span> <span class="p">{}</span>
+
+  <span class="cm">/* ... */</span>
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">AlterEmojiResponse</span> <span class="p">{</span>
+  <span class="kr">static</span> <span class="nx">createFromRequest</span><span class="p">(</span><span class="nx">req</span>: <span class="kt">AlterEmojiRequest</span><span class="p">)</span><span class="o">:</span> <span class="nx">AlterEmojiResponse</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">AlterEmojiResponse</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">emoji</span><span class="p">,</span> <span class="nx">req</span><span class="p">.</span><span class="nx">count</span><span class="p">,</span> <span class="nx">req</span><span class="p">.</span><span class="nx">size</span><span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="kr">static</span> <span class="nx">asError</span><span class="p">()</span><span class="o">:</span> <span class="nx">AlterEmojiResponse</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">AlterEmojiResponse</span><span class="p">(</span><span class="s1">&#39;🤮&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="kr">constructor</span><span class="p">(</span>
+    <span class="kr">private</span> <span class="nx">emoji</span>: <span class="kt">string</span><span class="p">,</span>
+    <span class="kr">private</span> <span class="nx">count</span>: <span class="kt">number</span><span class="p">,</span>
+    <span class="kr">private</span> <span class="nx">size</span>: <span class="kt">number</span>
+  <span class="p">)</span> <span class="p">{}</span>
+
+  <span class="nx">toCloudflareWorkersResponse</span><span class="p">()</span><span class="o">:</span> <span class="nx">Response</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">toString</span><span class="p">(),</span> <span class="p">{</span>
+      <span class="nx">headers</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;image/svg+xml&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Vary&#39;</span><span class="o">:</span> <span class="s1">&#39;Accept-Encoding&#39;</span><span class="p">,</span>
+      <span class="p">},</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+
+  <span class="cm">/* ... */</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>一応、 Cloudflare Workers への依存はメインの関数のみにして、独自の Request, Response を実装している。どんな小さなプロジェクトでもインフラやフレームワークへの依存とビジネスロジックは混ぜるべきではない。</p>
+<hr>
+<p>作ってみて、開発者体験的には最高だったのだが、さて、これはエッジでやる必要があったのか考えると、やや疑問であった。普通に Lambda 的な FaaS で良いのではないか、と。</p>
+<p>ユーザーに近いエッジサーバーで実行されるのでレスポンスが早いというメリットは確かにある。が、別に Lambda の前に CloudFront がいれば同一リクエストに対してはキャッシュを返せるので応答速度的には劣っているとは言い切れない。</p>
+<p>と思っていたらちょうど Twitter で興味深いやり取りがあった。</p>
+<blockquote>
+<p>deno deploy や cloudflare workers、ts 好きな人達なんでもっと使って遊ばないんだろうと思ってる。
+<cite><a href="https://twitter.com/mattn_jp/status/1543217325998231552">https://twitter.com/mattn_jp/status/1543217325998231552</a></cite></p>
+</blockquote>
+<blockquote>
+<p>クライアントとサーバーの間に処理を置けたらいいのになぁ。ってクライアントの人が思うのかどうか。ワーカーだけで完結しようとするのは戦略として違う。
+<cite><a href="https://twitter.com/voluntas/status/1543220179139964928">https://twitter.com/voluntas/status/1543220179139964928</a></cite></p>
+</blockquote>
+<blockquote>
+<p>なので Worker をサーバーとみなすのも違くてあれは前処理や後処理ができる Proxy なのです。それを踏まえて実装しないとダメなので興味持つ人が少ない気がする。
+<cite><a href="https://twitter.com/voluntas/status/1543220798336679936">https://twitter.com/voluntas/status/1543220798336679936</a></cite></p>
+</blockquote>
+<p>なるほど、そう考えると今回実装したレスポンスを自ら生成するのはむしろ邪道なようだ。</p>
+<p>用途としては、</p>
+<ul>
+<li>リバプロ的にオリジンサーバーにリクエストを捌きつつ、ログサーバーにもログを送信する</li>
+<li>特定の時間だけ S3 的なところに置いている静的なメンテナンスページを返す</li>
+<li>User-Agent に応じて独自ヘッダーを付けてオリジンサーバーに渡す</li>
+<li>成功時には何もしないがオリジンが500系エラーを返したときだけ、ヘッダーやパスに応じてエラーメッセージを差し替える</li>
+</ul>
+<p>みたいなのが王道のようだ。</p>
+<p>調べてみると <a href="https://github.com/cloudflare/worker-sentry#example">@cloudflare/worker-sentry</a> なんてものがあるようで、例としてまさにオリジンがエラーを返したときだけ Sentry に流すようなことをしている。確かにオリジンが本当に死んでしまったらエラーすら送信されないので、何らか別の方法で死活監視をしないと、というのは監視のジレンマなので、リバプロがエラーを吐いてくれると嬉しいように思う。</p>
+<hr>
+<p>まとめると、</p>
+<ul>
+<li>とてもハードルが低い
+<ul>
+<li>普段 JS/TS を書いているフロントエンドエンジニアはほぼ何も考えずに動かせる</li>
+</ul>
+</li>
+<li>一方で、「クライアントとサーバーの間に処理を置けたらいいのになぁ」というときに利用すると強力
+<ul>
+<li>フロントエンド視点ではなくではなくシステムとして見たときに、実は proxy にも処理を書けるんだよ、という視点を持てることが大事</li>
+</ul>
+</li>
+</ul>
+<p>のようだ。</p>
+
+  </section>
+
+  <footer class="p-article__footer">
+    <ul class="c-tag-list">
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">プログラミング</a></span>
+</li>
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/cloudflare">Cloudflare</a></span>
+</li>
+      <li><span class="c-tag"><a href="https://mochieer.tech/tags/%E3%82%A8%E3%83%83%E3%82%B8%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0">エッジコンピューティング</a></span>
+</li>
+      </ul>
+    <div class="p-article__revision">
+      <span class="c-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+</span>
+
+      <a href="https://github.com/mochieer/mochieer.tech/commits/main/content/posts/2022/07/03/first-implession-of-Cloudflare-Workers/">GitHub で修正履歴を見る</a><br />
+      この記事に修正が必要であれば、 <a href="https://twitter.com/mochieer">Twitter</a> または <a href="https://github.com/mochieer/mochieer.tech/issues/new">GitHub の issue</a> にてご連絡ください。
+    </div>
+  </footer>
+</article>
+
+      </div>
+    </section>
+    <footer class="l-footer">
+      <div class="l-container">
+
+        <footer class="p-footer">
+  <div class="l-container u-kerning">
+    <p>
+      Powered by <a href="https://gohugo.io">Hugo</a>.
+      Hosted on <a href="https://github.com">GitHub Pages</a>.
+    </p>
+    <p>
+      Made with ❤️ & <a href="https://buymeacoff.ee/mochieer">☕</a> by mochieer.
+    </p>
+  </div>
+</footer>
+
+      </div>
+    </footer>
+
+    <script type="text/javascript">twemoji.parse(document.body);</script>
+  </body>
+</html>

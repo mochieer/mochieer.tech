@@ -11,6 +11,189 @@
     <atom:link href="https://mochieer.tech/posts/2020/10/22/index.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Cloudflare Workers のファーストインプレッション</title>
+        <link>https://mochieer.tech/posts/2022/07/03/first-implession-of-cloudflare-workers/</link>
+        <pubDate>Sun, 03 Jul 2022 00:00:00 +0900</pubDate>
+        
+        <guid>https://mochieer.tech/posts/2022/07/03/first-implession-of-cloudflare-workers/</guid>
+        <description>かねてより評判の良い Cloudflare Workers を使ってみた。 Cloudflare Workers Cloudflare Workers documentation · Cloudflare Workers docs 以下の簡単な Web API を作った。リクエストのパスやクエリパラメータに応じて動的な SVG を返却す</description>
+        <content:encoded>&lt;p&gt;かねてより評判の良い Cloudflare Workers を使ってみた。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://workers.cloudflare.com/&#34;&gt;Cloudflare Workers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.cloudflare.com/workers/&#34;&gt;Cloudflare Workers documentation · Cloudflare Workers docs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以下の簡単な Web API を作った。リクエストのパスやクエリパラメータに応じて動的な SVG を返却する、というものだ。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mochieer/alteremoji&#34;&gt;mochieer/alteremoji: Generates an SVG that displays any number (even decimals) of emojis.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://zenn.dev/mochieer/articles/4e1eef9de8c64e&#34;&gt;半端なサイズの絵文字を表示する技術&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;まず、開発者体験が非常に優れている。&lt;/p&gt;
+&lt;p&gt;wrangler という CLI を使うのだが、これが npm （または yarn）でインストールできる。認証、プロジェクトの作成、ローカルでの実行、デプロイまで全部これで完結していて、何も迷うことがない。&lt;/p&gt;
+&lt;p&gt;また、プロジェクトの作成時に TypeScript を選ぶと、作成された &lt;code&gt;index.ts&lt;/code&gt; には &lt;code&gt;Request&lt;/code&gt; を受けて &lt;code&gt;Response&lt;/code&gt; を返すハローワールドが書き出されるので、それぞれの型定義を参照しつつ自分の作りたい &lt;code&gt;Request =&amp;gt; Response&lt;/code&gt; な関数を書いてあげればいいだけのイメージで、特定のインフラに依存しているという感覚が一切なかった。&lt;/p&gt;
+&lt;p&gt;TypeScript のコンパイルやファイルのバンドルは wrangler がやってくれているようで、 &lt;code&gt;wrangler dev&lt;/code&gt;, &lt;code&gt;wrangler publish&lt;/code&gt; とは別に webpack を動かさなきゃ、みたいなことはない。&lt;/p&gt;
+&lt;p&gt;おそらく普段から TypeScript を書いていればほとんどつまずくポイントはないように思う。フロントエンドエンジニアにとってネットワークやミドルウェアは心理的にハードルが高いが、丁寧に TypeScript をサポートしてくれていて、実際にはほとんどハードルなんてものはない。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;出来上がったものはだいたい以下のようになった。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;46
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;47
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;48
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;49
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;50
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;51
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;52
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;53
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;54
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ts&#34; data-lang=&#34;ts&#34;&gt;&lt;span class=&#34;kr&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;default&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;kr&#34;&gt;async&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;fetch&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;request&lt;/span&gt;: &lt;span class=&#34;kt&#34;&gt;Request&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;env&lt;/span&gt;: &lt;span class=&#34;kt&#34;&gt;Env&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;ctx&lt;/span&gt;: &lt;span class=&#34;kt&#34;&gt;ExecutionContext&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Promise&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Response&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+      &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;AlterEmojiResponse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;createFromRequest&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+        &lt;span class=&#34;nx&#34;&gt;AlterEmojiRequest&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;createFromCloudflareWorkersRequest&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;request&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+      &lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;toCloudflareWorkersResponse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;catch&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+      &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;AlterEmojiResponse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;asError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;toCloudflareWorkersResponse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+
+&lt;span class=&#34;kr&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;AlterEmojiRequest&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;kr&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;createFromCloudflareWorkersRequest&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;req&lt;/span&gt;: &lt;span class=&#34;kt&#34;&gt;Request&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;AlterEmojiRequest&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;AlterEmojiRequest&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;req&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+  &lt;span class=&#34;kr&#34;&gt;constructor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+    &lt;span class=&#34;kr&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;requestUrl&lt;/span&gt;: &lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;
+
+  &lt;span class=&#34;cm&#34;&gt;/* ... */&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;kr&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;AlterEmojiResponse&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;kr&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;createFromRequest&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;req&lt;/span&gt;: &lt;span class=&#34;kt&#34;&gt;AlterEmojiRequest&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;AlterEmojiResponse&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;AlterEmojiResponse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;req&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;emoji&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;req&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;req&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;size&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+  &lt;span class=&#34;kr&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;asError&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;AlterEmojiResponse&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;AlterEmojiResponse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;🤮&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;24&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+  &lt;span class=&#34;kr&#34;&gt;constructor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+    &lt;span class=&#34;kr&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;emoji&lt;/span&gt;: &lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+    &lt;span class=&#34;kr&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;: &lt;span class=&#34;kt&#34;&gt;number&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+    &lt;span class=&#34;kr&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;size&lt;/span&gt;: &lt;span class=&#34;kt&#34;&gt;number&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;
+
+  &lt;span class=&#34;nx&#34;&gt;toCloudflareWorkersResponse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Response&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Response&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;toString&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+      &lt;span class=&#34;nx&#34;&gt;headers&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;s1&#34;&gt;&amp;#39;Content-Type&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;image/svg+xml&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+        &lt;span class=&#34;s1&#34;&gt;&amp;#39;Vary&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;Accept-Encoding&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+      &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;})&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+  &lt;span class=&#34;cm&#34;&gt;/* ... */&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;一応、 Cloudflare Workers への依存はメインの関数のみにして、独自の Request, Response を実装している。どんな小さなプロジェクトでもインフラやフレームワークへの依存とビジネスロジックは混ぜるべきではない。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;作ってみて、開発者体験的には最高だったのだが、さて、これはエッジでやる必要があったのか考えると、やや疑問であった。普通に Lambda 的な FaaS で良いのではないか、と。&lt;/p&gt;
+&lt;p&gt;ユーザーに近いエッジサーバーで実行されるのでレスポンスが早いというメリットは確かにある。が、別に Lambda の前に CloudFront がいれば同一リクエストに対してはキャッシュを返せるので応答速度的には劣っているとは言い切れない。&lt;/p&gt;
+&lt;p&gt;と思っていたらちょうど Twitter で興味深いやり取りがあった。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;deno deploy や cloudflare workers、ts 好きな人達なんでもっと使って遊ばないんだろうと思ってる。
+&lt;cite&gt;&lt;a href=&#34;https://twitter.com/mattn_jp/status/1543217325998231552&#34;&gt;https://twitter.com/mattn_jp/status/1543217325998231552&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;クライアントとサーバーの間に処理を置けたらいいのになぁ。ってクライアントの人が思うのかどうか。ワーカーだけで完結しようとするのは戦略として違う。
+&lt;cite&gt;&lt;a href=&#34;https://twitter.com/voluntas/status/1543220179139964928&#34;&gt;https://twitter.com/voluntas/status/1543220179139964928&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;なので Worker をサーバーとみなすのも違くてあれは前処理や後処理ができる Proxy なのです。それを踏まえて実装しないとダメなので興味持つ人が少ない気がする。
+&lt;cite&gt;&lt;a href=&#34;https://twitter.com/voluntas/status/1543220798336679936&#34;&gt;https://twitter.com/voluntas/status/1543220798336679936&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;なるほど、そう考えると今回実装したレスポンスを自ら生成するのはむしろ邪道なようだ。&lt;/p&gt;
+&lt;p&gt;用途としては、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;リバプロ的にオリジンサーバーにリクエストを捌きつつ、ログサーバーにもログを送信する&lt;/li&gt;
+&lt;li&gt;特定の時間だけ S3 的なところに置いている静的なメンテナンスページを返す&lt;/li&gt;
+&lt;li&gt;User-Agent に応じて独自ヘッダーを付けてオリジンサーバーに渡す&lt;/li&gt;
+&lt;li&gt;成功時には何もしないがオリジンが500系エラーを返したときだけ、ヘッダーやパスに応じてエラーメッセージを差し替える&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;みたいなのが王道のようだ。&lt;/p&gt;
+&lt;p&gt;調べてみると &lt;a href=&#34;https://github.com/cloudflare/worker-sentry#example&#34;&gt;@cloudflare/worker-sentry&lt;/a&gt; なんてものがあるようで、例としてまさにオリジンがエラーを返したときだけ Sentry に流すようなことをしている。確かにオリジンが本当に死んでしまったらエラーすら送信されないので、何らか別の方法で死活監視をしないと、というのは監視のジレンマなので、リバプロがエラーを吐いてくれると嬉しいように思う。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;まとめると、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;とてもハードルが低い
+&lt;ul&gt;
+&lt;li&gt;普段 JS/TS を書いているフロントエンドエンジニアはほぼ何も考えずに動かせる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;一方で、「クライアントとサーバーの間に処理を置けたらいいのになぁ」というときに利用すると強力
+&lt;ul&gt;
+&lt;li&gt;フロントエンド視点ではなくではなくシステムとして見たときに、実は proxy にも処理を書けるんだよ、という視点を持てることが大事&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;のようだ。&lt;/p&gt;
+</content:encoded>
+      </item>
+      <item>
         <title>このサイトのタイポグラフィ</title>
         <link>https://mochieer.tech/posts/2022/06/30/typography-on-this-website/</link>
         <pubDate>Thu, 30 Jun 2022 00:00:00 +0900</pubDate>
@@ -1320,157 +1503,6 @@ $ ./bin/composer.sh update
 &lt;li&gt;The Clean Architecture: 同名のブログ記事。Clean Architecture の実践例。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;と使い分けて書くというコンテキストを共有していると良いのかな、などと最近思っている。（私はカタカナで書くとき Clean Architecture を指すことにしているが、これは人によって違うかもしれない）&lt;/p&gt;
-</content:encoded>
-      </item>
-      <item>
-        <title>年、月、日ごとの記事一覧を作成した</title>
-        <link>https://mochieer.tech/posts/2021/03/31/post-list-by-date/</link>
-        <pubDate>Wed, 31 Mar 2021 00:00:00 +0900</pubDate>
-        
-        <guid>https://mochieer.tech/posts/2021/03/31/post-list-by-date/</guid>
-        <description>情報共有サービスの esa では記事がストックとフローに分類されている。しっかりとコンセプトにも「チャットのように気軽に発信、Wikiのように整理・</description>
-        <content:encoded>&lt;p&gt;&lt;a href=&#34;https://esa.io/&#34;&gt;情報共有サービスの esa&lt;/a&gt; では&lt;a href=&#34;https://docs.esa.io/posts/298&#34;&gt;記事がストックとフローに分類されている&lt;/a&gt;。しっかりと&lt;a href=&#34;https://esa.io/concept&#34;&gt;コンセプト&lt;/a&gt;にも「チャットのように気軽に発信、Wikiのように整理・編集する。フローとストックの間をシームレスに繋げたい」と書かれているが、私はこの思想がとても良いと思っている。&lt;/p&gt;
-&lt;p&gt;情報を発信する敷居を下げつつ、しっかりとストックされる記事を、という意味ではこういう個人サイト（ブログ）でも同じことが言えると感じたので、あくまでその記事がある時点での情報であることを強調する記事 URL にすることで、「まだ考え中」のような記事の発信のハードルを下げつつ、年/月/日で絞り込んだ記事の一覧をサイトの機能として提供することで記事の階層的な整理をできるようにしてみた。&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;以下は技術的な話になる。&lt;/p&gt;
-&lt;p&gt;このサイトは &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; で生成している。&lt;/p&gt;
-&lt;p&gt;Hugo ではこういう記事の階層構造は &lt;a href=&#34;https://gohugo.io/content-management/sections/&#34;&gt;Section&lt;/a&gt; を使って実現することになっているようなので、それに倣った。つまり、この記事でいうと &lt;code&gt;posts&lt;/code&gt; も &lt;code&gt;2021&lt;/code&gt; も &lt;code&gt;03&lt;/code&gt; も &lt;code&gt;31&lt;/code&gt; も &lt;code&gt;post-list-by-date&lt;/code&gt; もすべて section ということになる。&lt;/p&gt;
-&lt;p&gt;躓いた点として、ある階層をセクションとして認識させるにはその階層に &lt;code&gt;_index.md&lt;/code&gt; がないといけないらしい。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;The important part to understand is, that to make the section tree fully navigational, at least the lower-most section needs a content file. (e.g. _index.md).&lt;/p&gt;
-&lt;p&gt;&lt;cite&gt;&lt;a href=&#34;https://gohugo.io/content-management/sections/&#34;&gt;Content Sections | Hugo&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;あるセクション（例えば &lt;code&gt;2021&lt;/code&gt; ）に対して、固有の一覧ページを作りたいとかではなく、ルート (/posts) と同じ挙動でいいので &lt;code&gt;_index.md&lt;/code&gt; は空ファイルとなっている。ひとつの記事を作るのにディレクトリと &lt;code&gt;_index.md&lt;/code&gt; をたくさん作らないといけなくなったので、雑なシェルスクリプトを書いて対応した。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#! /bin/sh
-&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
-&lt;span class=&#34;nb&#34;&gt;read&lt;/span&gt; -p &lt;span class=&#34;s2&#34;&gt;&amp;#34;year: &amp;#34;&lt;/span&gt; YEAR
-&lt;span class=&#34;nb&#34;&gt;read&lt;/span&gt; -p &lt;span class=&#34;s2&#34;&gt;&amp;#34;month: &amp;#34;&lt;/span&gt; MONTH
-&lt;span class=&#34;nb&#34;&gt;read&lt;/span&gt; -p &lt;span class=&#34;s2&#34;&gt;&amp;#34;day: &amp;#34;&lt;/span&gt; DAY
-&lt;span class=&#34;nb&#34;&gt;read&lt;/span&gt; -p &lt;span class=&#34;s2&#34;&gt;&amp;#34;title (Japanese): &amp;#34;&lt;/span&gt; TITLE_JA
-&lt;span class=&#34;nb&#34;&gt;read&lt;/span&gt; -p &lt;span class=&#34;s2&#34;&gt;&amp;#34;title (English) for URL: &amp;#34;&lt;/span&gt; TITLE_EN
-
-&lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; true&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt;
-    &lt;span class=&#34;nb&#34;&gt;read&lt;/span&gt; -p &lt;span class=&#34;s1&#34;&gt;&amp;#39;Okey? [Y/n] &amp;#39;&lt;/span&gt; yn
-    &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$yn&lt;/span&gt; in
-        &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;Y&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;  break&lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
-        &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;Nn&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; exit&lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
-        * &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;    &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
-    &lt;span class=&#34;k&#34;&gt;esac&lt;/span&gt;
-&lt;span class=&#34;k&#34;&gt;done&lt;/span&gt;
-
-mkdir -p content/posts/&lt;span class=&#34;nv&#34;&gt;$YEAR&lt;/span&gt;/&lt;span class=&#34;nv&#34;&gt;$MONTH&lt;/span&gt;/&lt;span class=&#34;nv&#34;&gt;$DAY&lt;/span&gt;/&lt;span class=&#34;nv&#34;&gt;$TITLE_EN&lt;/span&gt;
-
-touch content/posts/&lt;span class=&#34;nv&#34;&gt;$YEAR&lt;/span&gt;/_index.md
-touch content/posts/&lt;span class=&#34;nv&#34;&gt;$YEAR&lt;/span&gt;/&lt;span class=&#34;nv&#34;&gt;$MONTH&lt;/span&gt;/_index.md
-touch content/posts/&lt;span class=&#34;nv&#34;&gt;$YEAR&lt;/span&gt;/&lt;span class=&#34;nv&#34;&gt;$MONTH&lt;/span&gt;/&lt;span class=&#34;nv&#34;&gt;$DAY&lt;/span&gt;/_index.md
-&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;---
-&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;title: \&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;TITLE_JA&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;\&amp;#34;
-&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;date: \&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;YEAR&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;MONTH&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;DAY&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;T00:00:00+09:00\&amp;#34;
-&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;tags:
-&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;  - foo
-&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;  - bar
-&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;---
-&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; &amp;gt; content/posts/&lt;span class=&#34;nv&#34;&gt;$YEAR&lt;/span&gt;/&lt;span class=&#34;nv&#34;&gt;$MONTH&lt;/span&gt;/&lt;span class=&#34;nv&#34;&gt;$DAY&lt;/span&gt;/&lt;span class=&#34;nv&#34;&gt;$TITLE_EN&lt;/span&gt;/index.md
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;ちなみに、 &lt;code&gt;list.html&lt;/code&gt; はこんな感じ。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;h1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;記事一覧&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;h1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ul&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-  {{- if .Sections }}
-    {{ range .Sections }}
-      {{- range (site.GetPage &amp;#34;section&amp;#34; .File.Dir).RegularPagesRecursive }}
-        {{ template &amp;#34;article-headline&amp;#34; . }}
-      {{- end }}
-    {{ end }}
-  {{- else }}
-    {{- range (site.GetPage &amp;#34;section&amp;#34; .File.Dir).RegularPagesRecursive }}
-        {{ template &amp;#34;article-headline&amp;#34; . }}
-    {{- end }}
-  {{- end }}
-&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ul&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-{{- define &amp;#34;article-headline&amp;#34; }}
-&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;li&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;href&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{{ .Site.BaseURL }}/posts/{{ .PublishDate.Format &amp;#34;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;2006&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;}}&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;{{ .PublishDate.Format &amp;#34;2006&amp;#34; }}&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-    /
-    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;href&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{{ .Site.BaseURL }}/posts/{{ .PublishDate.Format &amp;#34;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;2006&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;}}/{{&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;PublishDate&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;Format&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;01&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;}}&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;{{ .PublishDate.Format &amp;#34;01&amp;#34; }}&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-    /
-    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;href&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{{ .Site.BaseURL }}/posts/{{ .PublishDate.Format &amp;#34;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;2006&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;}}/{{&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;PublishDate&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;Format&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;01&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;}}/{{&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;PublishDate&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;Format&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;02&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;}}&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;{{ .PublishDate.Format &amp;#34;02&amp;#34; }}&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;h2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;href&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;{{ .Permalink }}&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;{{ .Title }}&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;h2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;li&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-{{- end }}
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;（ちょっと変えています。実際のコードは &lt;a href=&#34;https://github.com/mochieer/mochieer.tech&#34;&gt;GitHub&lt;/a&gt; を見てください）&lt;/p&gt;
 </content:encoded>
       </item>
   </channel>
