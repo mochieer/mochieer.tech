@@ -1,3 +1,18 @@
 .l-header {
-  padding: $vr-unit * .5 1rem;
+  padding: $vr-unit * .5 3rem;
+  box-sizing: content-box;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 1rem);
+  justify-content: center;
+
+  @media screen and (max-width: 48rem) {
+    padding: $vr-unit * .5 2rem;
+  }
+
+  @media screen and (max-width: 46rem) {
+    padding: $vr-unit * .5 1rem;
+  }
+  & > * {
+    grid-column: 1 / -1;
+  }
 }

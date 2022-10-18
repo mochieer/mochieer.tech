@@ -9,6 +9,9 @@
   }
 
   &__nav {
+    margin: $vr-unit * .25 0;
+    font-size: $font-l;
+    line-height: $vr-unit * 1.5;
     ul {
       display: flex;
       list-style: none;
@@ -17,7 +20,7 @@
 
       li {
         margin: 0;
-        padding-right: 1.5rem;
+        padding-left: 1rem;
       }
     }
   }

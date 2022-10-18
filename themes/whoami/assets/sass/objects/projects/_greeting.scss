@@ -17,11 +17,6 @@
     background-size: 1000%;
     animation: 4s linear 0s infinite alternate greeting__rainbow;
   }
-
-  &__site-parts {
-    padding-left: 0;
-    list-style: none;
-  }
 }
 
 @keyframes greeting__rainbow {

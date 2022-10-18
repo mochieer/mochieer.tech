@@ -1,8 +1,18 @@
 .l-footer {
-  padding: $vr-unit 1rem;
+  padding: $vr-unit 3rem;
+  box-sizing: content-box;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 1rem);
+  justify-content: center;
 
-  p {
-    font-size: $font-xs;
-    margin: 0;
+  @media screen and (max-width: 48rem) {
+    padding: $vr-unit 2rem;
+  }
+  @media screen and (max-width: 46rem) {
+    padding: $vr-unit 1rem;
+  }
+
+  & > * {
+    grid-column: 1 / -1;
   }
 }

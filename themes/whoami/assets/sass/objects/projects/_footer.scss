@@ -1,0 +1,22 @@
+.p-footer {
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (max-width: 44rem) {
+    display: block;
+  }
+
+  p {
+    color: $color-text-shade;
+    font-size: $font-s;
+    margin: 0;
+
+    a {
+      color: $color-text-shade;
+
+      &:hover {
+        color: $color-link-shade;
+      }
+    }
+  }
+}

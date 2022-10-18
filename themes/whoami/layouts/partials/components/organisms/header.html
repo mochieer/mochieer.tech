@@ -1,3 +1,25 @@
-<h1 class="p-header__title u-kerning">
-  <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
-</h1>
+<div class="u-flex u-flex--space-between">
+  <section>
+    <h1 class="p-header__title u-kerning">
+      <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+    </h1>
+  </section>
+  <section class="p-header__nav">
+    <ul>
+      <li>
+        <a href="{{ .Site.Params.github.url }}" aria-label="このサイトのソースコードは GitHub で公開されています">
+          <span aria-hidden="true">
+            {{ partial "components/atoms/icon" "github.svg" }}
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ .Site.BaseURL }}/index.xml" aria-label="RSS フィードが利用できます">
+          <span aria-hidden="true">
+            {{ partial "components/atoms/icon" "rss.svg" }}
+          </span>
+        </a>
+      </li>
+    </ul>
+  </section>
+</div>
