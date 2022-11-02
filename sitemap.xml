@@ -2,28 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://mochieer.tech/posts/2022/11/02/</loc>
+    <lastmod>2022-11-02T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://mochieer.tech/posts/2022/11/</loc>
+    <lastmod>2022-11-02T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://mochieer.tech/posts/2022/</loc>
+    <lastmod>2022-11-02T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://mochieer.tech/</loc>
+    <lastmod>2022-11-02T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://mochieer.tech/posts/</loc>
+    <lastmod>2022-11-02T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://mochieer.tech/tags/</loc>
+    <lastmod>2022-11-02T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://mochieer.tech/posts/2022/11/02/spiced-curry-month-with-a-microwave-oven/</loc>
+    <lastmod>2022-11-02T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://mochieer.tech/tags/%E6%96%99%E7%90%86/</loc>
+    <lastmod>2022-11-02T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://mochieer.tech/tags/%E6%97%A5%E8%A8%98/</loc>
+    <lastmod>2022-11-02T00:00:00+09:00</lastmod>
+  </url><url>
     <loc>https://mochieer.tech/posts/2022/07/03/</loc>
     <lastmod>2022-07-03T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://mochieer.tech/posts/2022/07/</loc>
     <lastmod>2022-07-03T00:00:00+09:00</lastmod>
   </url><url>
-    <loc>https://mochieer.tech/posts/2022/</loc>
-    <lastmod>2022-07-03T00:00:00+09:00</lastmod>
-  </url><url>
     <loc>https://mochieer.tech/tags/cloudflare/</loc>
     <lastmod>2022-07-03T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://mochieer.tech/posts/2022/07/03/first-implession-of-cloudflare-workers/</loc>
-    <lastmod>2022-07-03T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://mochieer.tech/</loc>
-    <lastmod>2022-07-03T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://mochieer.tech/posts/</loc>
-    <lastmod>2022-07-03T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://mochieer.tech/tags/</loc>
     <lastmod>2022-07-03T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://mochieer.tech/tags/%E3%82%A8%E3%83%83%E3%82%B8%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/</loc>
@@ -90,9 +105,6 @@
     <lastmod>2021-11-07T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://mochieer.tech/posts/2021/11/07/incense/</loc>
-    <lastmod>2021-11-07T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://mochieer.tech/tags/%E6%97%A5%E8%A8%98/</loc>
     <lastmod>2021-11-07T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://mochieer.tech/posts/2021/10/25/</loc>
