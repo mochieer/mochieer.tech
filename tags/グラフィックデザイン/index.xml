@@ -11,6 +11,26 @@
     <atom:link href="https://mochieer.tech/tags/%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3%E3%83%83%E3%82%AF%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3/index.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Important Blue Internet Checkmark Pin</title>
+        <link>https://mochieer.tech/posts/2023/01/11/important-blue-internet-checkmark-pin/</link>
+        <pubDate>Wed, 11 Jan 2023 00:00:00 +0900</pubDate>
+        
+        <guid>https://mochieer.tech/posts/2023/01/11/important-blue-internet-checkmark-pin/</guid>
+        <description>物理的な Important Blue Internet Checkmark Pin を買った。Tumblr のこういうお遊びは好きだ。笑わしてもらったので、笑ったら負けの精神でお金を払った。 重要な青いインター</description>
+        <content:encoded>&lt;p&gt;物理的な &lt;a href=&#34;https://internet.watch.impress.co.jp/docs/yajiuma/1456131.html&#34;&gt;Important Blue Internet Checkmark Pin&lt;/a&gt; を買った。Tumblr のこういうお遊びは好きだ。笑わしてもらったので、笑ったら負けの精神でお金を払った。&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img
+      src=&#34;https://i.gyazo.com/thumb/1000/a1924124ebded30258785af27b0c7480-jpg.jpg&#34;
+      alt=&#34;重要な青いインターネットのチェックマークピンとアイカツ！の同人缶バッジが付けられたトートバッグの写真&#34;width=&#34;1000&#34;height=&#34;750&#34;
+    /&gt;
+  &lt;figcaption&gt;重要な青いインターネットのチェックマークピンとアイカツ！の同人缶バッジが付けられたトートバッグ。&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;せっかくなのでトートバッグに取り付けたところ、インターネット存在としてパワーアップできたような気がする。&lt;/p&gt;
+&lt;p&gt;なお、2つの認証マーク（厳密には Tumblr は認証マークとは言っていない）は土台でくっついているので別々に付けることはできない。&lt;/p&gt;
+</content:encoded>
+      </item>
+      <item>
         <title>自家製キムチのキムチ鍋月間</title>
         <link>https://mochieer.tech/posts/2022/12/29/month-of-hot-pot-of-handmade-kimchi/</link>
         <pubDate>Thu, 29 Dec 2022 00:00:00 +0900</pubDate>
@@ -931,199 +951,6 @@
 &lt;hr&gt;
 &lt;p&gt;そもそもどこで売っているのだろうと思って、最初はネットで見ていたが、百貨店などで仏具屋さんを見かけて入ってみたところ、お仏壇用のいわゆるお線香だけでなく、香りのあるものも取り扱っているところが多かった。中にはディズニーとコラボしていたり、結構ポップなものもあり、普段入らないお店に入る機会にもなってよかった。&lt;/p&gt;
 &lt;p&gt;またカメヤマの大量のお線香を消費したらいろいろ試すので、良いものを発見したら続編を書きたい。&lt;/p&gt;
-</content:encoded>
-      </item>
-      <item>
-        <title>Docker で Composer を使う</title>
-        <link>https://mochieer.tech/posts/2021/10/25/using-composer-with-docker/</link>
-        <pubDate>Mon, 25 Oct 2021 00:00:00 +0900</pubDate>
-        
-        <guid>https://mochieer.tech/posts/2021/10/25/using-composer-with-docker/</guid>
-        <description>まとめ 1 2 3 4 5 6 7 8 9 10 11 12 13 version:&amp;#34;3&amp;#34;services:app:image:php:8-apacheports:- &amp;#34;8080:80&amp;#34;volumes:- ./:/var/www/htmlcomposer:image:composercommand:&amp;#34;composer install&amp;#34;volumes:- ./:/app docker-compose.yml をこんな感じにして、 1 $ docker-composer up --build とかすれば composer.lock に従ってパッケージのインストールをしてくれる。 新しく require</description>
-        <content:encoded>&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;3&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;services&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;php:8-apache&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ports&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;s2&#34;&gt;&amp;#34;8080:80&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;volumes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;./:/var/www/html&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;composer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;composer&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;command&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;composer install&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;volumes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;./:/app&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;code&gt;docker-compose.yml&lt;/code&gt; をこんな感じにして、&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ docker-composer up --build
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;とかすれば &lt;code&gt;composer.lock&lt;/code&gt; に従ってパッケージのインストールをしてくれる。&lt;/p&gt;
-&lt;p&gt;新しく require を追加したかったら、&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ docker-compose run --rm --no-deps composer composer require phpunit/phpunit --dev
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;とかすればよい。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/usr/bin/env bash
-&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;docker-compose run --rm --no-deps composer composer &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$@&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;くらいのシェルスクリプトをエイリアス的に用意してあげても良い。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;ただし、この方法では PHP 本体のバージョンや PHP の拡張に対する依存の宣言は正しく評価されない。実際のアプリケーションなどで利用する場合は、アプリケーションの実行環境としての PHP 環境で &lt;code&gt;composer install&lt;/code&gt; する必要がある。&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;詳細&#34;&gt;詳細&lt;/h2&gt;
-&lt;h3 id=&#34;why&#34;&gt;why&lt;/h3&gt;
-&lt;p&gt;そもそもの課題感として、&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;ローカルで &lt;code&gt;composer install&lt;/code&gt; したくない
-&lt;ul&gt;
-&lt;li&gt;そもそもローカルに PHP 入っていない&lt;/li&gt;
-&lt;li&gt;入っていたとしても &lt;code&gt;ext-*&lt;/code&gt; は入っていない&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;一方で、 Composer でインストールしたファイル群（ &lt;code&gt;composer.lock&lt;/code&gt; と &lt;code&gt;vendor/&lt;/code&gt; 以下）はローカルにも存在してほしい
-&lt;ul&gt;
-&lt;li&gt;エディタの補完を使いたい&lt;/li&gt;
-&lt;li&gt;期待しない動作をするライブラリのコードを読みたい&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;composer.lock&lt;/code&gt; は git で管理したい&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;なので、 &lt;code&gt;composer&lt;/code&gt; コマンドはコンテナ内部で実行し、その結果はローカルと同期したい。&lt;/p&gt;
-&lt;h3 id=&#34;composer-イメージ&#34;&gt;composer イメージ&lt;/h3&gt;
-&lt;p&gt;composer イメージというのがあるようで、これを使う。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.hanhans.net/2019/01/08/docker-composer/&#34;&gt;hanhan&amp;rsquo;s blog - Dockerにcomposerをインストールする方法の正解&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;上記のブログでは Dockerfile で &lt;code&gt;/usr/bin/composer&lt;/code&gt; を配置しているが、そうすると git など Composer が依存する各種コマンドが利用できる必要があり、それは本来のアプリケーションには必要ないもの（ビルドにのみ必要なもの）なので、 Docker Compose で別 service として実行して、実行結果のファイルのみマウントするような方針を取ることにした。&lt;/p&gt;
-&lt;p&gt;ということで、 &lt;code&gt;docker-compose.yml&lt;/code&gt; がこうなる。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;3&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;services&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;php:8-apache&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ports&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;s2&#34;&gt;&amp;#34;8080:80&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;volumes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;./:/var/www/html&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;composer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;composer&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;command&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;composer install&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;volumes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;./:/app&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;ただし、ディレクトリ構成は&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;src/&lt;/li&gt;
-&lt;li&gt;vendor/&lt;/li&gt;
-&lt;li&gt;composer.json&lt;/li&gt;
-&lt;li&gt;composer.lock&lt;/li&gt;
-&lt;li&gt;docker-compose.yml&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;がルートに並んでいるものとする。&lt;/p&gt;
-&lt;h3 id=&#34;使い方&#34;&gt;使い方&lt;/h3&gt;
-&lt;p&gt;簡単なシェルスクリプト&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/usr/bin/env bash
-&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;docker-compose run --rm --no-deps composer composer &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$@&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;を設置して、&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ ./bin/composer.sh install
-$ ./bin/composer.sh phpunit/phpunit --dev
-$ ./bin/composer.sh update
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;みたいな感じで使うと、ローカルの &lt;code&gt;composer.json&lt;/code&gt;, &lt;code&gt;composer.lock&lt;/code&gt;, &lt;code&gt;vendor/&lt;/code&gt; も更新される。&lt;/p&gt;
-&lt;h3 id=&#34;ただし&#34;&gt;ただし…&lt;/h3&gt;
-&lt;p&gt;ところで、 composer イメージで依存の解決がされるとき、 PHP そのもののバージョンや &lt;code&gt;ext-*&lt;/code&gt; はどのように評価されるのだろう。&lt;/p&gt;
-&lt;p&gt;私はふんいきで Docker をやっているのであくまで雰囲気だが、 app とは無関係なところで &lt;code&gt;composer install&lt;/code&gt; が実行されてファイルのみ同期されているのだと思う。とすると、例えば &lt;code&gt;ext-mbstring&lt;/code&gt; を必要とするパッケージをインストールする際に、 app 側の PHP 環境として mbstring 拡張が存在しなくても、 composer install は成功してしまい、実行時（それも mbstring を利用する際）に初めて mbstring がなくて死ぬ、ということになるのだろうか。&lt;/p&gt;
-&lt;p&gt;と思ったら、やはり Docker Hub にそのような注意書きがあった。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Our image is aimed at quickly running Composer without the need for having a PHP runtime installed on your host. You should not rely on the PHP version in our container. We do not provide a Composer image for each supported PHP version because we do not want to encourage using Composer as a base image or a production image.&lt;/p&gt;
-&lt;p&gt;We try to deliver an image that is as lean as possible, built for running Composer only. Sometimes dependencies or Composer scripts require the availability of certain PHP extensions.&lt;/p&gt;
-&lt;p&gt;&lt;cite&gt;&lt;a href=&#34;https://hub.docker.com/_/composer&#34;&gt;Composer - Official Image | Docker Hub&lt;/a&gt;&lt;/cite&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;なのでこの方法は&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;とりあえず試したい&lt;/li&gt;
-&lt;li&gt;ローカルを汚さず &lt;code&gt;composer install&lt;/code&gt; をクリアしたい&lt;/li&gt;
-&lt;li&gt;実行環境は特に問わないライブラリの開発を行いたい&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;など、限られた場合で使うべきだろう。&lt;/p&gt;
-&lt;p&gt;そうでなく、自身で PHP 環境をホストしてアプリケーションを提供する場合は、&lt;a href=&#34;https://blog.hanhans.net/2019/01/08/docker-composer/&#34;&gt;前述のブログ記事&lt;/a&gt;にあるように、その環境に&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-Dockerfile&#34; data-lang=&#34;Dockerfile&#34;&gt;&lt;span class=&#34;k&#34;&gt;COPY&lt;/span&gt; --from&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;composer:latest /usr/bin/composer /usr/bin/composer&lt;span class=&#34;err&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;で composer 本体をコピーしてコマンドを実行する方法が良いだろう。（それでも&lt;a href=&#34;https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md&#34;&gt;インストーラーをダウンロードしてごにゃごにゃするやり方&lt;/a&gt;よりはかなり良い）&lt;/p&gt;
 </content:encoded>
       </item>
   </channel>
