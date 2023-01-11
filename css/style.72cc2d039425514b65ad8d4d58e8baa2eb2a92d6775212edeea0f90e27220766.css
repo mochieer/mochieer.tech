@@ -724,6 +724,9 @@ ol ol {
 .u-scrollable {
   overflow: auto; }
 
+.u-text-decoration--none {
+  text-decoration: none; }
+
 .c-date {
   color: #acb0ae;
   font-size: 1rem; }
