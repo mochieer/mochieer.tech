@@ -11,6 +11,29 @@
     <atom:link href="https://mochieer.tech/posts/2021/12/index.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>TAION の PENDLETON コラボネックウォーマー</title>
+        <link>https://mochieer.tech/posts/2023/02/10/neck-warmer-by-taion-in-collaboration-with-pendleton/</link>
+        <pubDate>Fri, 10 Feb 2023 00:00:00 +0900</pubDate>
+        
+        <guid>https://mochieer.tech/posts/2023/02/10/neck-warmer-by-taion-in-collaboration-with-pendleton/</guid>
+        <description>PENDLETON とコラボした TAION のネックウォーマー。 TAION はインナーダウン専業として発足したブランドで、薄くて軽いのにしっかり暖かいダウンが特徴。PENDLET</description>
+        <content:encoded>&lt;figure&gt;
+    &lt;img
+      src=&#34;https://i.gyazo.com/thumb/1000/29bb1756b4f3dbaab3386171ecf3442d.jpg&#34;
+      alt=&#34;PENDLETON とコラボした TAION のネックウォーマーの写真&#34;width=&#34;1000&#34;height=&#34;750&#34;
+    /&gt;
+  &lt;figcaption&gt;PENDLETON とコラボした TAION のネックウォーマー。&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://taion-wear.jp/&#34;&gt;TAION&lt;/a&gt; はインナーダウン専業として発足したブランドで、薄くて軽いのにしっかり暖かいダウンが特徴。&lt;a href=&#34;https://pendleton.jp/&#34;&gt;PENDLETON&lt;/a&gt; はアメリカの老舗ブランドで、西海岸で先住民との交易をルーツに持ち、独特のパターンや鮮やかな配色が特徴。&lt;/p&gt;
+&lt;p&gt;そんな TAION と PENDLETON がコラボした&lt;a href=&#34;https://taion-wear.jp/products/pdt-ton-213009&#34;&gt;ネックウォーマー&lt;/a&gt;を購入した。とても暖かいし最高にかわいいのでとても満足している。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;肩や首のこりがひどく、特に冬は冷えて血流が悪くなり慢性的に頭痛になったりするので、たとえ家の中でもネックウォーマーを手放すことができない生活を送っている。&lt;/p&gt;
+&lt;p&gt;ところが2月に入り花粉が飛び始める季節になると、外出時に着用していたネックウォーマーを家の中でも使用することを避けたいと考えるようになった。というのも、旅行に行った際に発熱＆鼻水が止まらなくなったことがあるのだが、体を冷やしてはならないと思って屋内でもずっとネックウォーマーを外さなかったことで、かえって常時花粉にさらされて症状が悪化したことがあったからだ。&lt;/p&gt;
+&lt;p&gt;そこでネックウォーマーを追加で購入することにしたのだが、どうせ2着目を買うならちょっと普通とは違うのが欲しくなるものである。いろいろ探していて見つけたのが他では見られない PENDLETON の柄、色だったという経緯で購入に至った。深い青と鮮やかなオレンジが同居していて最高にかわいい。&lt;/p&gt;
+</content:encoded>
+      </item>
+      <item>
         <title>BORDERLESS のコースター Errors</title>
         <link>https://mochieer.tech/posts/2023/02/05/borderless-coaster-errors/</link>
         <pubDate>Sun, 05 Feb 2023 00:00:00 +0900</pubDate>
@@ -924,40 +947,6 @@
 &lt;li&gt;Vue.js＋Vuex＋TypeScriptのWebフロントエンド開発現場を前向きに改善した話 (frontend_improve)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;こういう一覧を作るあたりが私の性格の悪さである。&lt;/p&gt;
-</content:encoded>
-      </item>
-      <item>
-        <title>現在の開発環境</title>
-        <link>https://mochieer.tech/posts/2022/01/07/current-development-environment/</link>
-        <pubDate>Fri, 07 Jan 2022 00:00:00 +0900</pubDate>
-        
-        <guid>https://mochieer.tech/posts/2022/01/07/current-development-environment/</guid>
-        <description>我が家はマンションのメゾネットタイプで、 Wi-Fi ルーターは下の階、作業部屋は上の階にある。したがってやや電波が届きにくい。また、マンションあるある</description>
-        <content:encoded>&lt;p&gt;我が家はマンションのメゾネットタイプで、 Wi-Fi ルーターは下の階、作業部屋は上の階にある。したがってやや電波が届きにくい。また、マンションあるあるだがインターネットがあまり速くない。結果的に下りで 10 Mbps も出ないなんてこともよくある。&lt;/p&gt;
-&lt;p&gt;そういう事情もあり、 Ubuntu Server をインストールした古い ASUS のラップトップをルーターに直結し、作業部屋の MacBook から VS Code の &lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh&#34;&gt;Remote SSH&lt;/a&gt; でログインして開発を行っていた。&lt;/p&gt;
-&lt;p&gt;私のプログラマのキャリアの初期は、サーバーに SSH で入ってサーバーの中で開発して Makefile でビルドしてファイルを配置していたような時代だったので、そういう旧時代的な開発スタイルは肌に合うし、牧歌的な感じで好きだったりする。したがって、趣味（物理的サーバー）と実益（通信速度）を兼ね備えた開発スタイルだったと言える。&lt;/p&gt;
-&lt;p&gt;また、 macOS 上での Docker が遅すぎてストレスが半端でないので、ローカルで仮想 Linux を動かすくらいなら余っている別マシンで Linux を動かすというのは合理的でもあった。&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;さて、前置きは長くなったが、現在は MacBook に完結して、 &lt;a href=&#34;https://multipass.run/&#34;&gt;Multipass&lt;/a&gt; で Ubuntu Server を動かして開発するようになった。&lt;/p&gt;
-&lt;p&gt;きっかけは年末年始の 2 年ぶりの帰省で、「あれ、これはラップトップを 2 台持って実家に帰ることになるのか？」と気づいてしまったことにある。&lt;/p&gt;
-&lt;p&gt;また、タイミングよく下記の記事が目に入ったのも良かった。この記事がなかったら EC2 的なインスタンスを作っていたり、 Cloud9 を試したりしていたかもしれない。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://tech.mirrativ.stream/entry/2021/12/21/125127&#34;&gt;Docker + Mac どうする問題 - Mirrativ Tech Blog&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;ということで、今は Multipass で Ubuntu Server を動かし、 VS Code の Remote SSH で開発している。もともと物理ラップトップに同じバージョンの Ubuntu Server をインストールして使っていたので、比較的スムーズに移行できた。&lt;/p&gt;
-&lt;p&gt;ASUS のラップトップも、思えばそろそろ 10 年選手なので天寿を全うする前に引っ越しできてよかったかもしれない。&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;最後に、つまづいたポイントと、解決に役立った記事を書いておく 🙏&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://multipass.run/docs/launch-command&#34;&gt;特にオプションを付けずにインスタンスを作ると disk=5G / memory=1G で生成される&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;Node を使う場合は 1G なんかでは絶対足りない&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/canonical/multipass/issues/1158#issuecomment-548073024&#34;&gt;インスタンスを作った後に割り当てを変更する方法&lt;/a&gt;もあるので、やってみてダメだったら増やすのもあり&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://qiita.com/seibe/items/36cef7df85fe2cefa3ea&#34;&gt;apt で Node をインストールすると古かったりするので n を使う&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.virment.com/how-to-fix-system-limit-for-number-of-file-watchers-reached/&#34;&gt;watch 数の上限に達したので、上限を引き上げる&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </content:encoded>
       </item>
   </channel>
