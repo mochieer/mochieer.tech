@@ -6,10 +6,7 @@ $font-base: system-ui,
   /* Gnome 3+ */ Cantarell,
   /* KDE Plasma 5+ */ Noto Sans,
   /* fallback */ sans-serif,
-  /* macOS emoji */ "Apple Color Emoji",
-  /* Windows emoji */ "Segoe UI Emoji",
-  /* Windows emoji */ "Segoe UI Symbol",
-  /* Linux emoji */ "Noto Color Emoji";
+  "Noto Color Emoji";
 
 $font-xl: 2rem; // 1rem=16pxのとき32px
 $font-l: 1.375rem; // 1rem=16pxのとき22px

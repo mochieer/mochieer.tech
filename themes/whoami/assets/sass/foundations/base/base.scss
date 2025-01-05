@@ -13,9 +13,6 @@ body {
   font-feature-settings: "palt" 0;
   font-kerning: none;
   font-size: $font-m;
-  @media screen and (min-width: 44rem) {
-    font-size: $font-m * 1.125;
-  }
 }
 
 ::selection {

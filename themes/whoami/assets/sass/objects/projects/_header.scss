@@ -5,23 +5,5 @@
     font-size: $font-l;
     line-height: $vr-unit * 1.5;
     font-weight: $font-block;
-
-  }
-
-  &__nav {
-    margin: $vr-unit * .25 0;
-    font-size: $font-l;
-    line-height: $vr-unit * 1.5;
-    ul {
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-
-      li {
-        margin: 0;
-        padding-left: 1rem;
-      }
-    }
   }
 }

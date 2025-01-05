@@ -1,22 +1,29 @@
 .p-footer {
-  display: flex;
-  justify-content: space-between;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: $vr-unit * .1 0;
+    list-style: none;
 
-  @media screen and (max-width: 44rem) {
-    display: block;
+    li {
+      line-height: $vr-unit * .8;
+      margin: 0 1em 0 0;
+      color: $color-text-shade;
+      font-size: $font-s;
+    }
   }
-
   p {
+    margin: $vr-unit * .3 0 $vr-unit * .4 0;
+    line-height: $vr-unit * .8;
     color: $color-text-shade;
     font-size: $font-s;
-    margin: 0;
+  }
+  a {
+    color: $color-text-shade;
 
-    a {
-      color: $color-text-shade;
-
-      &:hover {
-        color: $color-link-shade;
-      }
+    &:hover {
+      color: $color-link-shade;
     }
   }
 }

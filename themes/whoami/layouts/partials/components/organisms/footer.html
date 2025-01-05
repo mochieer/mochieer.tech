@@ -1,13 +1,19 @@
 <div class="p-footer">
-  <section>
-    <p>
-      Powered by <a href="https://gohugo.io">Hugo</a>.
-      Hosted on <a href="https://github.com">GitHub Pages</a>.
-    </p>
-  </section>
-  <section>
-    <p>
-      Made with ❤️ & <a href="https://buymeacoff.ee/mochieer" class="u-text-decoration--none">☕</a> by mochieer.
-    </p>
-  </section>
+    <ul>
+      <li>
+        <span aria-hidden="true">{{ partial "components/atoms/icon" "rss.svg" }}</span>
+        <a href="{{ .Site.BaseURL }}/index.xml">RSS feed</a>
+      </li>
+      <li>
+        <span aria-hidden="true">{{ partial "components/atoms/icon" "terminal.svg" }}</span>
+        <a href="https://gohugo.io">Powered by Hugo</a>
+      </li>
+      <li>
+        <span aria-hidden="true">{{ partial "components/atoms/icon" "grove.svg" }}</span>
+        <a href="https://github.com">Hosted on GitHub Pages</a>
+      </li>
+    </ul>
+  <p>
+    Made with ❤️️ & <a href="https://buymeacoff.ee/mochieer" class="u-text-decoration--none">☕️</a> by mochieer.
+  </p>
 </div>
