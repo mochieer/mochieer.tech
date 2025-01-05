@@ -11,6 +11,40 @@
     <atom:link href="https://mochieer.tech/posts/2022/06/30/index.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>展覧会: 『テレンス・コンラン モダン・ブリテンをデザインする』</title>
+        <link>https://mochieer.tech/posts/2025/01/05/terence-conran/</link>
+        <pubDate>Sun, 05 Jan 2025 16:00:00 +0900</pubDate>
+        
+        <guid>https://mochieer.tech/posts/2025/01/05/terence-conran/</guid>
+        <description>展示の出口付近にあったもの。ステーションギャラリーのおなじみのフォトスポットである。 東京ステーションギャラリーで開催中の『テレンス・コンラン</description>
+        <content:encoded>&lt;figure&gt;
+    &lt;img
+      src=&#34;https://i.gyazo.com/2d3f38a37531b1d0ed70fe4e5db2c6a7.jpg&#34;
+      alt=&#34;テレンス・コンラン モダン・ブリテンをデザインする&#34;width=&#34;1714&#34;height=&#34;2048&#34;
+    /&gt;
+  &lt;figcaption&gt;展示の出口付近にあったもの。ステーションギャラリーのおなじみのフォトスポットである。&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;東京ステーションギャラリーで開催中の『テレンス・コンラン モダン・ブリテンをデザインする』に行ってきた。去年からやっていてなんと今日まで。やりのこした2024年をなんとか拾い上げてきた。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.ejrcf.or.jp/gallery/exhibition/202410_conran.html&#34;&gt;テレンス・コンラン　モダン・ブリテンをデザインする（東京ステーションギャラリー）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;テキスタイルのデザインからキャリアをスタートし、家具デザイン会社などを連続で起業し、ショップを展開し、レストラン業や都市開発まで手を広げていったプロデューサーとしての業績を展示しつつ、一方で彼の自宅の個人的なコレクションも紹介するというバランスの良い展示だった。&lt;/p&gt;
+&lt;p&gt;一方で、ただでさえ広い会場ではないのに、狭い通路にモニターを置いてインタビュー動画など流しているので人の流れがとても悪かったのは残念だった。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;おそらく戦後イギリスの産業を発展させなければならないという大きな力学があってこその偉業ではあるのだが、今で言う「モダン」を作った人物であることがよく分かった。&lt;/p&gt;
+&lt;p&gt;彼が手掛けた最初の家具チェーン「ハビタ habitat」でのディスプレイは&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;商品をなるべく多く、高く陳列して豊富な在庫を美しく見せるというスタイルをはじめて採用した&lt;/li&gt;
+&lt;li&gt;商品を陳列するだけでなく、それらの商品を取り入れた生活がどのようになるか、ライフスタイルの提案となるような陳列を採用した&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ということで、まるっきり IKEA を想起させるものだった。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;また、サッカーファンとしては、彼の色使いはイギリスサッカーのチームカラーの色使いと共通するものがあるようにも感じられた。まさにブリテンをデザインしたということなのかもしれない。&lt;/p&gt;
+</content:encoded>
+      </item>
+      <item>
         <title>読書記録: 『人はどう死ぬのか』</title>
         <link>https://mochieer.tech/posts/2025/01/05/reading-log-how-do-people-die/</link>
         <pubDate>Sun, 05 Jan 2025 00:00:00 +0900</pubDate>
@@ -458,85 +492,6 @@
 &lt;li&gt;ペペロンチーノ&lt;/li&gt;
 &lt;li&gt;ちゃんぽん麺&lt;/li&gt;
 &lt;/ul&gt;
-</content:encoded>
-      </item>
-      <item>
-        <title>ホームアイコンの研究</title>
-        <link>https://mochieer.tech/posts/2022/11/13/study-of-home-icons/</link>
-        <pubDate>Sun, 13 Nov 2022 00:00:00 +0900</pubDate>
-        
-        <guid>https://mochieer.tech/posts/2022/11/13/study-of-home-icons/</guid>
-        <description>いくつかメジャーなアプリや Web ページを眺めて、ホームアイコンについてバリエーションを調査し、 SVG アイコンを習作した。 その1 家を家たらしめているも</description>
-        <content:encoded>&lt;p&gt;いくつかメジャーなアプリや Web ページを眺めて、ホームアイコンについてバリエーションを調査し、 SVG アイコンを習作した。&lt;/p&gt;
-&lt;h2 id=&#34;その1&#34;&gt;その1&lt;/h2&gt;
-&lt;figure&gt;
-    &lt;img
-      src=&#34;https://i.gyazo.com/c1769c2588516f5c3be9b53d914fbc37.png&#34;
-      alt=&#34;ホームアイコン (1)&#34;width=&#34;816&#34;height=&#34;816&#34;
-    /&gt;
-  
-&lt;/figure&gt;
-
-&lt;p&gt;家を家たらしめているものは屋根とドアである。と思っていたのだが、今回調べた限りだと屋根が壁より横に飛び出している形のものは意外と少数派だった。FontAwesome や Microsoft のデザインシステム Fluent UI のアイコンセットで、この飛び出した屋根が利用されていた。&lt;/p&gt;
-&lt;p&gt;やや写実的すぎて、スマホで利用するには抽象度が低いと考えられているのかもしれない。写実的というと、煙突をつけるケースもあった。&lt;/p&gt;
-&lt;p&gt;ハイライトカラーを入れるならやはり屋根かなと思う。&lt;/p&gt;
-&lt;h2 id=&#34;その2&#34;&gt;その2&lt;/h2&gt;
-&lt;figure&gt;
-    &lt;img
-      src=&#34;https://i.gyazo.com/e3436f116c8a3f17821d31d38bd60e06.png&#34;
-      alt=&#34;ホームアイコン (2)&#34;width=&#34;816&#34;height=&#34;816&#34;
-    /&gt;
-  
-&lt;/figure&gt;
-
-&lt;p&gt;長方形の上に三角形を乗せた形の五角形に、下部にドアの部分をくり抜いた形。今回調べた限りでは最も主流であった。&lt;/p&gt;
-&lt;p&gt;Material Icons, Instagram, Amazon ショッピングアプリ, Yahoo! JAPAN アプリなどが概ねこの形状のものを利用していた。ただし、後述するような亜種が多い。&lt;/p&gt;
-&lt;p&gt;ハイライトカラーを入れるところはドア部分しかない。&lt;/p&gt;
-&lt;h2 id=&#34;その3&#34;&gt;その3&lt;/h2&gt;
-&lt;figure&gt;
-    &lt;img
-      src=&#34;https://i.gyazo.com/4d4ea45f46f506ec0eed4f5628361eec.png&#34;
-      alt=&#34;ホームアイコン (3)&#34;width=&#34;816&#34;height=&#34;816&#34;
-    /&gt;
-  
-&lt;/figure&gt;
-
-&lt;p&gt;その2のドアをアーチ状にしたもの。柔らかい雰囲気になるのと、ドアにハイライトを入れた際の可愛さが増す気がする。&lt;/p&gt;
-&lt;h2 id=&#34;その4&#34;&gt;その4&lt;/h2&gt;
-&lt;figure&gt;
-    &lt;img
-      src=&#34;https://i.gyazo.com/208005d6866082e43f4ddbdb4db93226.png&#34;
-      alt=&#34;ホームアイコン (4)&#34;width=&#34;816&#34;height=&#34;816&#34;
-    /&gt;
-  
-&lt;/figure&gt;
-
-&lt;p&gt;その2をシュッとさせたもの。正方形の領域にぴったり五角形を収めようとすると長方形がどうしても横長になってしまい、野暮ったく見える。この例では左右を余らせて長方形部分を正方形に近づけている。&lt;/p&gt;
-&lt;p&gt;また、線の角を丸めないことでシュッとした感を強くしてみた。個人的には鋭角なアイコンは触ると痛そうなので角は丸まっている方が好み。&lt;/p&gt;
-&lt;h2 id=&#34;その5&#34;&gt;その5&lt;/h2&gt;
-&lt;figure&gt;
-    &lt;img
-      src=&#34;https://i.gyazo.com/4b6f32827a9b4afb7bd481cf51830212.png&#34;
-      alt=&#34;ホームアイコン (5)&#34;width=&#34;816&#34;height=&#34;816&#34;
-    /&gt;
-  
-&lt;/figure&gt;
-
-&lt;p&gt;これもその2をシュッとさせたもの。ドア部分が線になっているのが面白い。よりミニマムなデザインと言える。LINE がこの形状だったほか、TikTok も同様にドア部分を線として表現していた。&lt;/p&gt;
-&lt;h2 id=&#34;その6&#34;&gt;その6&lt;/h2&gt;
-&lt;figure&gt;
-    &lt;img
-      src=&#34;https://i.gyazo.com/922b0bd0321985ee6ec655172b50e61c.png&#34;
-      alt=&#34;ホームアイコン (6)&#34;width=&#34;816&#34;height=&#34;816&#34;
-    /&gt;
-  
-&lt;/figure&gt;
-
-&lt;p&gt;これは変わり種、というか Twitter の模倣。丸は窓なのかもしれないが、Twitter ということを考えるとこれは家でなく鳥小屋なのかもしれない。そう言えばと思って確認してみると、国産ドキュメントサービスの esa もホームアイコンには丸がついていた。やはり鳥小屋なのだろうか。&lt;/p&gt;
-&lt;p&gt;左右の壁を下に向けて狭めるのは TikTok もやっていて、最近のスマホのように十分な解像度がある場合は斜めの線が汚く見えることもないし、全体に丸っこい印象になるのでポップさが強くなる。&lt;/p&gt;
-&lt;h2 id=&#34;ラップアップ&#34;&gt;ラップアップ&lt;/h2&gt;
-&lt;p&gt;ホームアイコンと形状が衝突しうるものは上矢印だろうと思われる。つまり、認知のしやすさに重きを置くと屋根よりドアが重要で、シンプルな形状にするならドアを強調することが重要であると言えそうだ。&lt;/p&gt;
-&lt;p&gt;屋根の角度、壁の角度、ドアの形状や角の丸さで全体の印象を変えることができるので、ブランドイメージにあったアイコンに調整したり、遊び心を入れる余地が大いにあるタイプのアイコンだと感じた。&lt;/p&gt;
 </content:encoded>
       </item>
   </channel>
