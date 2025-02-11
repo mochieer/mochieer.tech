@@ -11,6 +11,32 @@
     <atom:link href="https://mochieer.tech/posts/2021/09/04/index.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>読書記録: 『物価とは何か』</title>
+        <link>https://mochieer.tech/posts/2025/02/11/read-log-what-is-cost-of-living/</link>
+        <pubDate>Tue, 11 Feb 2025 17:00:00 +0900</pubDate>
+        
+        <guid>https://mochieer.tech/posts/2025/02/11/read-log-what-is-cost-of-living/</guid>
+        <description>物価とは何か (講談社選書メチエ 758) Kindle版 Kindle Unlimited で読んだ。お金とか経済とか無関心で生きてきたので、これだけ読んでもやっぱり物価とは何か全然</description>
+        <content:encoded>&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.co.jp/%E7%89%A9%E4%BE%A1%E3%81%A8%E3%81%AF%E4%BD%95%E3%81%8B-%E8%AC%9B%E8%AB%87%E7%A4%BE%E9%81%B8%E6%9B%B8%E3%83%A1%E3%83%81%E3%82%A8-%E6%B8%A1%E8%BE%BA-%E5%8A%AA/dp/4065267145&#34;&gt;物価とは何か (講談社選書メチエ 758) Kindle版&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Kindle Unlimited で読んだ。お金とか経済とか無関心で生きてきたので、これだけ読んでもやっぱり物価とは何か全然分からなかった（完全に理解したの全然前の段階）。が、良い本だったと思う。世の中に対する解像度が少しだけ上がった。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;全体的に、経済学者というのは経済のフィールドにおいては観測・分析しているに過ぎず、脇役であるという立場で書かれていた。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;経済現象という演劇の主役はあくまで市井の人々で、経済学者は観客にすぎません。経済をよくわかっているのは、演劇を評論する観客ではなく、主役たちであることを、ミュースは同業者（ ＝経済学者）に伝えたかったのだろうと思います。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;なんとなく医学みたいなところがあるような印象。何がどうなっているのか仮説を立てて理解しながら切ったり投薬したりして、さらにそれを分析して仮説を立てる。ただ、人間の数と国家の数は全然違うので、病状や治療に再現性は小さいはずで大変だろうなと思った。&lt;/p&gt;
+&lt;p&gt;物価に対して支配的なのはやはり大企業であるらしい。大企業の経営者が物価のコントロールに寄与できるならお金持ちが政治的に優遇される献金の仕組みは正しいのだなということを感じる。投票権は平等に持てることになっているので、物価に寄与しない貧乏人の意見を無視して世の中に作用するバックドアは政治には必要だ、という悲しい事実。&lt;/p&gt;
+&lt;p&gt;インフレ、デフレは人々の物価予想のコントロールが肝要とのことで、中央銀行は積極的にポリシーをアナウンスするのだという。一方で、アナウンスがどう受け入れられるかは時の総裁の人間性にも依存するので、いっそサイコパスみたいな人物（市井に失業者が溢れかえっても全く気にしないとか）を登用するという荒療治も有効というのは面白い。&lt;/p&gt;
+&lt;p&gt;人々の物価予想は個々の経験によるものがあるらしい。ずっとデフレしか経験していなければこれからもデフレが続くと考えるなど。また、その経験も結局はより思い出しやすい記憶という話なので、これも気分。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;彼は一九七三年の論文でいくつかの実験結果を提示しており、その一つは、たとえばＫという文字が一番目に出てくる英単語と、三番目に出てくる英単語はどっちが多いか尋ねると、一番目と答える人が圧倒的に多いという実験結果でした。実際に調べてみると後者の単語の方が多いので、大多数の人は不正解です。ではなぜ一番目と答えるのかと言うと、Ｋが先頭の単語のほうが思い出すのが簡単だからだというのがカーネマンの解釈です。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;利用可能性ヒューリスティクスというやつ。&lt;/p&gt;
+</content:encoded>
+      </item>
+      <item>
         <title>展覧会: 『儒教のかたち こころの鑑』</title>
         <link>https://mochieer.tech/posts/2025/01/26/confucianism-in-japan-art/</link>
         <pubDate>Sun, 26 Jan 2025 23:00:00 +0900</pubDate>
@@ -376,26 +402,6 @@
 &lt;p&gt;ただ、 MFA 設定しているサービスの多くは SMS を（または「も」）利用しているのでクリティカルではなかった。&lt;/p&gt;
 &lt;p&gt;クリティカルだったサービスのひとつはパスワードマネージャーの Bitwarden だ。あらゆるパスワードをここに突っ込んでいるので無防備にしておくわけにもいかず、 Google Authenticator で MFA 設定していた。リカバリーコードはおそらくパソコンを新調した際に紛失してしまっているらしかった。&lt;a href=&#34;https://bitwarden.com/help/setup-two-step-login-authenticator/&#34;&gt;リカバリーコードを紛失している以上、そのアカウントにはもうアクセスできないという心強い言葉&lt;/a&gt;を公式のヘルプページで見つけたので、まだログイン状態が生きているパソコンからパスワード一式をエクスポートし、新しいアカウントを作成してそこにインポートする形でなんとか復旧した。&lt;/p&gt;
 &lt;p&gt;もうひとつは業務で使っている AWS の MFA 設定である。こちらは管理者がいるので、管理者に甘えていったん MFA 設定を解除してもらい、パスワードでログインしてから再度 MFA 設定する形をとった。&lt;/p&gt;
-</content:encoded>
-      </item>
-      <item>
-        <title>Important Blue Internet Checkmark Pin</title>
-        <link>https://mochieer.tech/posts/2023/01/11/important-blue-internet-checkmark-pin/</link>
-        <pubDate>Wed, 11 Jan 2023 00:00:00 +0900</pubDate>
-        
-        <guid>https://mochieer.tech/posts/2023/01/11/important-blue-internet-checkmark-pin/</guid>
-        <description>物理的な Important Blue Internet Checkmark Pin を買った。Tumblr のこういうお遊びは好きだ。笑わしてもらったので、笑ったら負けの精神でお金を払った。 重要な青いインター</description>
-        <content:encoded>&lt;p&gt;物理的な &lt;a href=&#34;https://internet.watch.impress.co.jp/docs/yajiuma/1456131.html&#34;&gt;Important Blue Internet Checkmark Pin&lt;/a&gt; を買った。Tumblr のこういうお遊びは好きだ。笑わしてもらったので、笑ったら負けの精神でお金を払った。&lt;/p&gt;
-&lt;figure&gt;
-    &lt;img
-      src=&#34;https://i.gyazo.com/thumb/1000/a1924124ebded30258785af27b0c7480-jpg.jpg&#34;
-      alt=&#34;重要な青いインターネットのチェックマークピンとアイカツ！の同人缶バッジが付けられたトートバッグの写真&#34;width=&#34;1000&#34;height=&#34;750&#34;
-    /&gt;
-  &lt;figcaption&gt;重要な青いインターネットのチェックマークピンとアイカツ！の同人缶バッジが付けられたトートバッグ。&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;せっかくなのでトートバッグに取り付けたところ、インターネット存在としてパワーアップできたような気がする。&lt;/p&gt;
-&lt;p&gt;なお、2つの認証マーク（厳密には Tumblr は認証マークとは言っていない）は土台でくっついているので別々に付けることはできない。&lt;/p&gt;
 </content:encoded>
       </item>
   </channel>
