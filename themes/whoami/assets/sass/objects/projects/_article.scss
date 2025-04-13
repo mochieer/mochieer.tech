@@ -36,6 +36,11 @@
       }
     }
 
+    quote {
+      color: $color-text-shade;
+      font-style: italic;
+    }
+
     hr {
       display: flex;
       justify-content: center;
