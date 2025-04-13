@@ -5,6 +5,14 @@ tags:
   - 博物館・美術館
 ---
 
+{{<figure
+  url="https://i.gyazo.com/8c59a4d74b2aae897a1205dd2d963745.jpg"
+  alt="『フェミニズムと映像表現』"
+  width="1532"
+  height="2048"
+  caption="車が透けているのは裏が駐車場だから。"
+>}}
+
 - [フェミニズムと映像表現 - 東京国立近代美術館](https://www.momat.go.jp/exhibitions/r6-3-g4)
 - [美術館の春まつり 2025 - 東京国立近代美術館](https://www.momat.go.jp/extra/2025/springfest/)
 
