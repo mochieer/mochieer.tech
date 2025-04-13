@@ -801,6 +801,9 @@ ol ol {
       font-style: normal;
       display: block;
       text-align: right; }
+  .p-article__body quote {
+    color: #acb0ae;
+    font-style: italic; }
   .p-article__body hr {
     display: flex;
     justify-content: center;
